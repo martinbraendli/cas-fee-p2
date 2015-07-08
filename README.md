@@ -3,15 +3,15 @@
 ## Anforderungen
 
 Produkt Modul
-- Erfassen / Löschen
-- Warenhaltung
 
-Warenkorb Modul
-- Produkte hinzufügen / entfernen
-- Checkout
 
-Rating Modul
-- Produkte bewerten / Eigene Ratings wieder rückgängig machen.
+Editor Modul (CUG)
+
+- Rezepte Erfassen / Löschen / ändern
+
+
+Rating Modul 
+- Rezepte bewerten / Eigene Ratings wieder rückgängig machen.
 
 User Modul
 - User erfassen und verwalten
