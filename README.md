@@ -1,6 +1,6 @@
-# cas-fee-p2 - Rezept-Single-Page-App
+# Rezept-Single-Page-App
 
-Anforderungen
+## Anforderungen
 
 Produkt Modul
 - Erfassen / Löschen
@@ -20,3 +20,5 @@ User Modul
 Security Modul
 - Login / Logout
 - Optional: Auch anonymer Check Out möglich.
+
+## Optionale Features
