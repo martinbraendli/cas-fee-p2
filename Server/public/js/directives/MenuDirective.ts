@@ -1,3 +1,21 @@
-/**
- * Created by martin on 15.07.2015.
- */
+module myApp.Directive {
+    'use strict';
+
+    angular
+        .module('myApp')
+        .directive('cdMenu', menu);
+
+    function menu():ng.IDirective {
+        return {
+            restrict: 'E',
+            scope: {},
+            templateUrl: 'views/menu.tpl.html',
+            controllerAs: 'menu',
+            controller: () => {
+            },
+            link: () => {
+
+            }
+        };
+    }
+}
