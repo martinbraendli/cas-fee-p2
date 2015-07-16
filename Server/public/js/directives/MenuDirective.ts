@@ -1,3 +1,4 @@
+///<reference path='../../../../typings/tsd.d.ts' />
 module myApp.Directive {
     'use strict';
 

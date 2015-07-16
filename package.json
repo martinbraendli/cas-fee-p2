@@ -1,12 +1,19 @@
 {
   "name": "application-name",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinbraendli/cas-fee-p2.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "angular": "~1.4.*"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-sass": "^2.0.3",
-    "gulp-autoprefixer": "^2.3.1"
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-tsd": "^0.0.4",
+    "tsd": "^0.6.3"
   }
 }
