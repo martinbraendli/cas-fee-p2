@@ -1,10 +1,10 @@
 ///<reference path='../../../../typings/tsd.d.ts' />
-module myApp.Directive {
+module fettyBossy.Directive {
     'use strict';
 
     angular
-        .module('myApp')
-        .directive('cdMenu', menu);
+        .module('fettyBossy')
+        .directive('fbMenu', menu);
 
     function menu():ng.IDirective {
         return {

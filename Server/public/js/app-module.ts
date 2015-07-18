@@ -1,5 +1,6 @@
-module myApp {
+///<reference path='../../../typings/tsd.d.ts' />
+module fettyBossy {
     'use strict';
 
-    angular.module('myApp', []);
+    angular.module('fettyBossy', []);
 }
