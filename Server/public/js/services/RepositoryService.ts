@@ -5,6 +5,7 @@ module fettyBossy.Services {
 
     export interface IRepository {
         getRecipes():Array<fettyBossy.Data.IRecipe>;
+        getRecipe(recipeId:number);
     }
 
     class Repository {
@@ -50,6 +51,12 @@ module fettyBossy.Services {
             recipe.title = "Eier-Salat";
             this.recipes.push(recipe);
             return this.recipes;
+        }
+
+        getRecipe(recipeId:number):fettyBossy.Data.IRecipe {
+            this.$log.debug('Repository getRecipe("' + recipeId + '")');
+
+            return this.getRecipes()[recipeId]; // TODO find by id
         }
     }
 

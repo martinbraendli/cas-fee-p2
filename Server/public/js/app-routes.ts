@@ -7,8 +7,10 @@ module fettyBossy {
 
     function config($routeProvider:ng.route.IRouteProvider) {
         $routeProvider
-            .when("/viewRecipe", {
-                templateUrl: 'views/viewRecipe.tpl.html'
+            .when("/viewRecipe/:recipeId", {
+                templateUrl: 'views/viewRecipe.tpl.html',
+                controller: 'ViewRecipeController',
+                controllerAs: 'viewRecipeCtrl',
             })
 
             .when("/editRecipe", {
