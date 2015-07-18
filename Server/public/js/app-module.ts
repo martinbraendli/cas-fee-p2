@@ -2,5 +2,7 @@
 module fettyBossy {
     'use strict';
 
-    angular.module('fettyBossy', []);
+    angular.module('fettyBossy', [
+        'ngRoute'
+    ]);
 }

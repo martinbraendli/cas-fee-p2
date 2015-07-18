@@ -10,13 +10,20 @@
 <body>
 
 <fb-menu></fb-menu>
-<cd-search></cd-search>
+
+<div class="container">
+    <div data-ng-view>
+        <!--will be filled by angular routing/templating    -->
+    </div>
+</div>
 
 <!-- TODO angular JS includen? -->
 
 <script type="text/javascript" src="../../node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="../../node_modules/angular-route/angular-route.js"></script>
 
 <script type="text/javascript" src="js/app-module.js"></script>
+<script type="text/javascript" src="js/app-routes.js"></script>
 <script type="text/javascript" src="js/controllers/DummyController.js"></script>
 <script type="text/javascript" src="js/directives/MenuDirective.js"></script>
 

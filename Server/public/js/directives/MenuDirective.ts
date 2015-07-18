@@ -10,7 +10,7 @@ module fettyBossy.Directive {
         return {
             restrict: 'E',
             scope: {},
-            templateUrl: 'views/menu.tpl.html',
+            templateUrl: 'js/directives/menu.tpl.html',
             controllerAs: 'menu',
             controller: () => {
             },
