@@ -5,4 +5,5 @@ module fettyBossy {
     angular.module('fettyBossy', [
         'ngRoute'
     ]);
+
 }

@@ -10,8 +10,15 @@ module fettyBossy {
             .when("/viewRecipe", {
                 templateUrl: 'views/viewRecipe.tpl.html'
             })
+
             .when("/editRecipe", {
                 templateUrl: 'views/editRecipe.tpl.html'
+            })
+
+            .when("/searchRecipe", {
+                templateUrl: 'views/searchRecipe.tpl.html',
+                controller: 'SearchResultlistController',
+                controllerAs: 'searchResultlistCtrl'
             })
         ;
     }

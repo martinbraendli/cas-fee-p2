@@ -1,0 +1,21 @@
+///<reference path='../../../../typings/tsd.d.ts' />
+module fettyBossy.Directive {
+    'use strict';
+
+    angular
+        .module('fettyBossy')
+        .directive('fbSearchForm', searchForm);
+
+    function searchForm():ng.IDirective {
+        return {
+            restrict: 'E',
+           // scope: {},
+            templateUrl: 'js/directives/searchForm.tpl.html',
+            controllerAs: 'searchResultlistCtrl',
+            controller: fettyBossy.Controllers.SearchResultlistController,
+            link: () => {
+
+            }
+        };
+    }
+}

@@ -1,0 +1,9 @@
+<label>Results:</label>
+
+<div>
+    <div ng-repeat="recipe in searchResultlistCtrl.recipes | filter: searchResultlistCtrl.searchQuery">
+        {{recipe.title}}
+    </div>
+</div>
+
+
