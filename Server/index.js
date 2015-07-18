@@ -1,3 +1,0 @@
-/**
- * Entry-Point for server
- */
