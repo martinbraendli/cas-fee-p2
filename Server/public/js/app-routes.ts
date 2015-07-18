@@ -22,6 +22,15 @@ module fettyBossy {
                 controller: 'SearchResultlistController',
                 controllerAs: 'searchResultlistCtrl'
             })
+
+        /**
+         * Default: Searchview
+         */
+            .otherwise({
+                templateUrl: 'views/searchRecipe.tpl.html',
+                controller: 'SearchResultlistController',
+                controllerAs: 'searchResultlistCtrl'
+            })
         ;
     }
 }

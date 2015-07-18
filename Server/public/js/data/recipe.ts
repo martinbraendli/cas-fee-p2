@@ -5,7 +5,7 @@ module fettyBossy.Data {
     export interface IRecipe {
         id: number;
         title: string;
-        author: string;
+        author: fettyBossy.Data.IUser;
         numPerson: number;
         images: any; // TODO images
         ingredients: any;
