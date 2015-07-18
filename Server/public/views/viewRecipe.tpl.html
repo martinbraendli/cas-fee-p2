@@ -1,4 +1,12 @@
 Rezept ansehen
 <br/>
 <br/>
+<div ng-controller="SessionController as sessionCtrl">
+    <a href="" ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author.id)" g>EDIT</a>
+</div>
+<br/>
+<br/>
 Title: {{viewRecipeCtrl.recipe.title}}
+
+
+<!-- TODO roles: roleController:  -->

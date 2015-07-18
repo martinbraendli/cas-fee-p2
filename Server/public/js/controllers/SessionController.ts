@@ -4,28 +4,40 @@ module fettyBossy.Controllers {
 
     export class SessionController {
 
-        user:fettyBossy.Data.IUser;
+        public static $inject = ['$log', 'SessionService'];
 
-        public static $inject = ['$log'];
-
-        constructor(private $log:ng.ILogService) {
+        constructor(private $log:ng.ILogService,
+                    private sessionService:fettyBossy.Services.ISession) {
             this.$log.debug('SessionController constructor');
-
-            this.user = null;
         }
 
         logon() {
-            this.user = <fettyBossy.Data.IUser>{};
-            this.user.id = 5;
-            this.user.name = "while e coyote";
+            var user = <fettyBossy.Data.IUser>{};
+            user.id = 2;
+            user.name = "while e coyote";
+
+            this.sessionService.setUser(user);
         }
 
         logout() {
-            this.user = null;
+            this.sessionService.setUser(null);
         }
 
-        isLoggedIn():boolean {
-            return this.user != null;
+        /**
+         *
+         * @param userId if userId is given return true if userId matches to the logged in user.
+         * @returns {boolean}
+         */
+        isLoggedIn(userId:number):boolean {
+            var user = this.sessionService.getUser();
+            if (userId && user) {
+                return user.id === userId;
+            }
+            return user != null;
+        }
+
+        getUser():fettyBossy.Data.IUser {
+            return this.sessionService.getUser();
         }
     }
 

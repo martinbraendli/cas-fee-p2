@@ -1,9 +1,7 @@
 <ul ng-controller="SessionController as sessionCtrl">
-
     <li><a href="#"> Start </a></li>
-
     <li ng-hide="sessionCtrl.isLoggedIn()"><a href="" ng-click="sessionCtrl.logon()">Login / Register</a></li>
-    <li ng-show="sessionCtrl.isLoggedIn()">[{{sessionCtrl.user.name}}]</li>
+    <li ng-show="sessionCtrl.isLoggedIn()">[{{sessionCtrl.getUser().name}}]</li>
     <li ng-hide="sessionCtrl.isLoggedIn()">[ Gast ]</li>
     <li ng-show="sessionCtrl.isLoggedIn()"><a href="" ng-click="sessionCtrl.logout()">Logout</a></li>
 </ul>

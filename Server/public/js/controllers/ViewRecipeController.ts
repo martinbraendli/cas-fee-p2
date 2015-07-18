@@ -14,7 +14,7 @@ module fettyBossy.Controllers {
         public static $inject = ['$log', '$routeParams', 'Repository'];
 
         constructor(private $log:ng.ILogService,
-                    $routeParams : IRecipeViewRouteParams,
+                    $routeParams:IRecipeViewRouteParams,
                     private repository:fettyBossy.Services.IRepository) {
             this.$log.debug('ViewRecipeController constructor');
 

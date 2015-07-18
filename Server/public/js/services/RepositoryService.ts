@@ -29,6 +29,8 @@ module fettyBossy.Services {
             var recipe = <fettyBossy.Data.IRecipe>{};
             recipe.id = 1;
             recipe.title = "Spaghetti Carbonara";
+            recipe.author = <fettyBossy.Data.IUser>{};
+            recipe.author.id = 2;
             this.recipes.push(recipe);
 
             var recipe = <fettyBossy.Data.IRecipe>{};
