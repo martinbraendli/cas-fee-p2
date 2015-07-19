@@ -8,7 +8,7 @@ module fettyBossy.Services {
         getRecipe(recipeId:number);
     }
 
-    class Repository {
+    class Repository implements IRepository{
         recipes:fettyBossy.Data.IRecipe[] = [];
 
         constructor(private $log:ng.ILogService) {

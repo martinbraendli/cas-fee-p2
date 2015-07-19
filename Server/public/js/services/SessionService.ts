@@ -11,17 +11,21 @@ module fettyBossy.Services {
          * @returns false if login failed, otherwise true
          */
         setUser(user:fettyBossy.Data.IUser):boolean;
+        /**
+         * current logged in user
+         */
         getUser():fettyBossy.Data.IUser;
+        findUser(id:number):fettyBossy.Data.IUser;
         userExists(user:fettyBossy.Data.IUser):boolean;
         emailExists(user:fettyBossy.Data.IUser):boolean;
         passwordMatches(user:fettyBossy.Data.IUser):boolean;
         /**
          * Add user to the database
          */
-        register(user:fettyBossy.Data.IUser):boolean;
+        register(user:fettyBossy.Data.IUser):fettyBossy.Data.IUser;
     }
 
-    class Session {
+    class Session implements ISession {
         user:fettyBossy.Data.IUser[] = null;
 
         // TODO get from server
@@ -51,11 +55,49 @@ module fettyBossy.Services {
         }
 
         setUser(user:fettyBossy.Data.IUser) {
-            this.user = user;
+            this.$log.debug('Session setUser("' + user + '")');
+            if (user == null) {
+                this.$log.info('Session setUser("' + user + '") - = logout');
+                this.user = null;
+                return;
+            }
+
+            for (var k in this.users) {
+                var u = this.users[k];
+                if (u.name === user.name) {
+                    // set user with all properties set
+                    this.user = u;
+                    return;
+                }
+            }
+            // user not found!
+            this.$log.error('Session setUser("' + user + '") - user not found');
         }
 
         getUser():fettyBossy.Data.IUser {
+            this.$log.debug('Session getUser()');
+
             return this.user;
+        }
+
+        findUser(id:number):fettyBossy.Data.IUser {
+            this.$log.debug('Session findUser("' + id + '")');
+
+            if (this.user && this.user.id === id) {
+                this.$log.info('Session findUser("' + id + '") - is current user');
+                return this.user;
+            }
+
+            // find user
+            for (var k in this.users) {
+                var u = this.users[k];
+                if (u.id === id) {
+                    this.$log.info('Session findUser("' + id + '") - found');
+                    return u;
+                }
+            }
+
+            return null;
         }
 
         userExists(user:fettyBossy.Data.IUser):boolean {
@@ -91,9 +133,10 @@ module fettyBossy.Services {
             return false;
         }
 
-        register(user:fettyBossy.Data.IUser):boolean {
+        register(user:fettyBossy.Data.IUser):user {
+            user.id = 999; // TODO generate on server
             this.users.push(user);
-            return true;
+            return user;
         }
     }
 

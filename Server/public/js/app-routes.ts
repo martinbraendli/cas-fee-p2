@@ -33,6 +33,21 @@ module fettyBossy {
             })
 
         /**
+         * user detail view
+         */
+            .when("/viewUser/:userId", {
+                templateUrl: 'views/viewUser.tpl.html',
+                controller: 'ViewUserController',
+                controllerAs: 'viewUserCtrl',
+                resolve: {
+                    // TODO obsolete when server runs..
+                    'Something': ['SessionService', function (SessionService:fettyBossy.Services.ISession) {
+                        return SessionService.loadUsers();
+                    }]
+                }
+            })
+
+        /**
          * Default: Startpage with login/register form
          */
             .otherwise({

@@ -6,6 +6,7 @@ module fettyBossy.Controllers {
 
         recipes:Array<fettyBossy.Data.IRecipe>;
         searchQuery:string;
+        userQuery:fettyBossy.Data.IUser;
 
         public static $inject = ['$log', 'Repository'];
 
