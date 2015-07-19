@@ -6,3 +6,21 @@ body {
 
 .userForm input.ng-valid.ng-touched {
   background-color: #78FA89; }
+
+.loginForm {
+  background-color: blueviolet; }
+
+.user-details {
+  background-color: #0b97c4; }
+
+.registerForm {
+  background-color: bisque; }
+
+.searchForm {
+  background-color: #FA787E; }
+
+.searchResultlist {
+  background-color: #B94A48; }
+
+.menu {
+  background-color: #8a6343; }
