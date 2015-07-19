@@ -1,6 +1,8 @@
-<div ng-hide="sessionCtrl.isLoggedIn()" >
+<div class="registerForm"
+     ng-hide="sessionCtrl.isLoggedIn()">
     Register:
     <br/>
+
     <form id="registerForm" name="registerForm"
           class="userForm"
           ng-submit="registerCtrl.register(user)">
@@ -20,6 +22,7 @@
         <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
             <span ng-show="registerForm.registerEmail.$error.required">Tell us your email.</span>
             <span ng-show="registerForm.registerEmail.$error.email">This is not a valid email.</span>
+
             <div ng-show="registerCtrl.registerEror.emailMessage">{{registerCtrl.registerEror.emailMessage}}</div>
         </div>
         <br/>
