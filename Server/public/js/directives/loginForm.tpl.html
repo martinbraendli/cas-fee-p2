@@ -1,6 +1,8 @@
-<div ng-hide="sessionCtrl.isLoggedIn()">
+<div class="loginForm"
+     ng-hide="sessionCtrl.isLoggedIn()">
     Login:
     <br/>
+
     <form id="loginForm" name="loginForm"
           class="userForm"
           ng-submit="sessionCtrl.login(user)">
