@@ -2,18 +2,11 @@
 module fettyBossy.Controllers {
     'use strict';
 
-    export interface IFormValidationResponse {
-        message: string;
-        nameMessage: string;
-        emailMessage: string;
-        passwordMessage: string;
-    }
-
     export class RegisterController {
 
         public static $inject = ['$log', 'SessionService'];
 
-        registerError:fettyBossy.Controllers.IFormValidationResponse;
+        registerError:fettyBossy.Controllers.IUserFormValidationResponse;
 
         constructor(private $log:ng.ILogService,
                     private sessionService:fettyBossy.Services.ISession) {
