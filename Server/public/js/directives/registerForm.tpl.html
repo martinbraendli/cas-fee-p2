@@ -1,0 +1,43 @@
+<div ng-hide="sessionCtrl.isLoggedIn()" >
+    Register:
+    <br/>
+    <form id="registerForm" name="registerForm"
+          class="userForm"
+          ng-submit="registerCtrl.register(user)">
+        <label for="registerName">Name</label>
+        <input type="text" id="registerName" name="registerName"
+               ng-model="user.name" required/>
+
+        <div ng-show="registerForm.$submitted || registerForm.registerName.$dirty || registerCtrl.registerEror">
+            <div ng-show="registerForm.registerName.$error.required">Tell us your name.</div>
+            <div ng-show="registerCtrl.registerEror.nameMessage">{{registerCtrl.registerEror.nameMessage}}</div>
+        </div>
+        <br/>
+        <label for="registerEmail">E-Mail</label>
+        <input type="email" id="registerEmail" name="registerEmail"
+               ng-model="user.email" required/>
+
+        <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
+            <span ng-show="registerForm.registerEmail.$error.required">Tell us your email.</span>
+            <span ng-show="registerForm.registerEmail.$error.email">This is not a valid email.</span>
+            <div ng-show="registerCtrl.registerEror.emailMessage">{{registerCtrl.registerEror.emailMessage}}</div>
+        </div>
+        <br/>
+        <label for="registerPassword">Passwort</label>
+        <input type="password" id="registerPassword" name="registerPassword"
+               ng-model="user.password" required/>
+
+        <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
+            <div ng-show="registerForm.registerPassword.$error.required">Fill in a password.</div>
+            <div ng-show="registerCtrl.registerEror.passwordMessage">{{registerCtrl.registerEror.passwordMessage}}</div>
+        </div>
+        <br/>
+        <button type="submit"
+                ng-disabled="registerForm.$invalid">Register
+        </button>
+
+        <div ng-show="registerCtrl.registerEror">
+            <div>{{registerCtrl.registerEror.message}}</div>
+        </div>
+    </form>
+</div>

@@ -1,3 +1,14 @@
 body {
   background: red;
 }
+
+
+
+
+.userForm input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.userForm input.ng-valid.ng-touched {
+  background-color: #78FA89;
+}

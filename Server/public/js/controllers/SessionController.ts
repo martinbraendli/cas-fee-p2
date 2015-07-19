@@ -2,21 +2,56 @@
 module fettyBossy.Controllers {
     'use strict';
 
+    export interface IFormValidationResponse {
+        message: string;
+        nameMessage: string;
+        emailMessage: string;
+        passwordMessage: string;
+    }
+
     export class SessionController {
 
-        public static $inject = ['$log', 'SessionService'];
+        public static $inject = ['$log', '$location', 'SessionService'];
+
+        loginError:fettyBossy.Controllers.IFormValidationResponse;
 
         constructor(private $log:ng.ILogService,
+                    private $location:ng.ILocationService,
                     private sessionService:fettyBossy.Services.ISession) {
             this.$log.debug('SessionController constructor');
         }
 
-        logon() {
-            var user = <fettyBossy.Data.IUser>{};
-            user.id = 2;
-            user.name = "while e coyote";
+        /**
+         *
+         * @param user
+         * @returns false if login failed, otherwise true
+         */
+        login(user:fettyBossy.Data.IUser):boolean {
+            this.$log.debug('SessionController login("' + user + '")');
 
+            this.loginError = <fettyBossy.Data.IFormValidationResponse>{};
+
+            if (!this.sessionService.userExists(user)) {
+                this.$log.error('SessionController login("' + user + '") - failed: user unknown');
+                this.loginError.message = "Benutzer nicht bekannt";
+                this.loginError.nameMessage = "Benutzer nicht bekannt";
+                return false;
+            }
+
+            if (!this.sessionService.passwordMatches(user)) {
+                this.$log.error('SessionController login("' + user + '") - failed: password incorrect');
+                this.loginError.message = "Passwort falsch";
+                this.loginError.passwordMessage = "Passwort falsch";
+                return false;
+            }
+            // alles ok
+            this.$log.info('SessionController login("' + user + '") - successful');
             this.sessionService.setUser(user);
+            this.loginError = null;
+
+            this.$location.path('/searchRecipe');
+
+            return true;
         }
 
         logout() {
