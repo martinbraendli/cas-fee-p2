@@ -31,6 +31,8 @@ module fettyBossy.Services {
             recipe.title = "Spaghetti Carbonara";
             recipe.author = <fettyBossy.Data.IUser>{};
             recipe.author.id = 2;
+            recipe.author.name = "authorname";
+            recipe.bakingTime = 150;
             this.recipes.push(recipe);
 
             var recipe = <fettyBossy.Data.IRecipe>{};

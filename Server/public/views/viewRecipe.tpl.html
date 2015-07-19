@@ -6,7 +6,11 @@ Rezept ansehen
 </div>
 <br/>
 <br/>
-Title: {{viewRecipeCtrl.recipe.title}}
+Title: {{viewRecipeCtrl.recipe.title}}<br/>
+Author: {{viewRecipeCtrl.recipe.author.name}}<br/>
+Anzahl Personen: {{viewRecipeCtrl.recipe.numPerson}}<br/>
+Backzeit: {{viewRecipeCtrl.recipe.bakingTime | minutesToHoursMinutes}}<br/>
+Vorbereitungszeit: {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinutes}}<br/>
 
 
 <!-- TODO roles: roleController:  -->
