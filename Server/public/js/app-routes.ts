@@ -38,7 +38,13 @@ module fettyBossy {
             .otherwise({
                 templateUrl: 'views/start.tpl.html',
                 controller: 'SessionController',
-                controllerAs: 'sessionCtrl'
+                controllerAs: 'sessionCtrl',
+                resolve: {
+                    // TODO obsolete when server runs..
+                    'Something': ['SessionService', function (SessionService:fettyBossy.Services.ISession) {
+                        return SessionService.loadUsers();
+                    }]
+                }
             });
     }
 }

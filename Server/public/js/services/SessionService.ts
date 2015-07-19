@@ -4,6 +4,8 @@ module fettyBossy.Services {
 
 
     export interface ISession {
+        loadUsers():ng.IPromise<fettyBossy.Data.IUser>;
+
         /**
          * @param user
          * @returns false if login failed, otherwise true
@@ -23,23 +25,29 @@ module fettyBossy.Services {
         user:fettyBossy.Data.IUser[] = null;
 
         // TODO get from server
-        users:Array<fettyBossy.Data.IUser> = [];
+        users:Array<fettyBossy.Data.IUser>;
 
-        constructor(private $log:ng.ILogService) {
+        public static $inject = ['$log', '$http', '$q'];
+
+        constructor(private $log:ng.ILogService,
+                    private $http:ng.IHttpService,
+                    private $q:ng.IQService) {
             this.$log.debug('Session constructor');
+        }
 
+        // TODO move to server
+        loadUsers():ng.IPromise<fettyBossy.Data.IUser> {
+            var deferred = this.$q.defer();
 
-            var user:fettyBossy.Data.IUser = {};
-            user.id = 0;
-            user.name = "user1";
-            user.password = "111";
-            this.users.push(user);
-
-            var user:fettyBossy.Data.IUser = {};
-            user.id = 0;
-            user.name = "user2";
-            user.password = "222";
-            this.users.push(user);
+            if (!this.users) {
+                this.$http.get('js/data/users.json').then((data) => {
+                    this.users = <Array<fettyBossy.Data.IUser>> data.data;
+                    deferred.resolve(this.users);
+                });
+            } else {
+                deferred.resolve(this.users);
+            }
+            return deferred.promise;
         }
 
         setUser(user:fettyBossy.Data.IUser) {
