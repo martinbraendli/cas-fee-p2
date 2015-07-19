@@ -57,11 +57,16 @@ module fettyBossy.Controllers {
          * @returns {boolean}
          */
         isLoggedIn(userId:number):boolean {
+            this.$log.debug('SessionController isLoggedIn("' + userId + '")');
+            if (!userId) {
+                this.$log.info('SessionController isLoggedIn("' + userId + '") - nope');
+                return false;
+            }
             var user = this.sessionService.getUser();
-            if (userId && user) {
+            if (user) {
                 return user.id === userId;
             }
-            return user != null;
+            return false;
         }
 
         getUser():fettyBossy.Data.IUser {
