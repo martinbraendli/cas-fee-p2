@@ -1,8 +1,9 @@
-<ul ng-controller="SessionController as sessionCtrl">
-    <li><a href="#/searchRecipe"> Suche </a></li>
-    <li ng-hide="sessionCtrl.isLoggedIn()"><a href="#">Login / Register</a></li>
-    <li ng-show="sessionCtrl.isLoggedIn()">[{{sessionCtrl.getUser().name}}]</li>
-    <li ng-hide="sessionCtrl.isLoggedIn()">[ Gast ]</li>
-    <li ng-show="sessionCtrl.isLoggedIn()"><a href="" ng-click="sessionCtrl.logout()">Logout</a></li>
-</ul>
-
+<div class="menu">
+    <ul ng-controller="SessionController as sessionCtrl">
+        <li><a href="#/searchRecipe"> Suche </a></li>
+        <li ng-hide="sessionCtrl.isLoggedIn()"><a href="#">Login / Register</a></li>
+        <li ng-show="sessionCtrl.isLoggedIn()">[{{sessionCtrl.getUser().name}}]</li>
+        <li ng-hide="sessionCtrl.isLoggedIn()">[ Gast ]</li>
+        <li ng-show="sessionCtrl.isLoggedIn()"><a href="" ng-click="sessionCtrl.logout()">Logout</a></li>
+    </ul>
+</div>
