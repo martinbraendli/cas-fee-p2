@@ -8,7 +8,7 @@ module fettyBossy.Services {
         getRecipe(recipeId:number);
     }
 
-    class Repository implements IRepository{
+    class Repository implements IRepository {
         recipes:fettyBossy.Data.IRecipe[] = [];
 
         constructor(private $log:ng.ILogService) {
@@ -32,6 +32,12 @@ module fettyBossy.Services {
             recipe.author = <fettyBossy.Data.IUser>{};
             recipe.author.id = 2;
             recipe.author.name = "authorname";
+            recipe.numPerson = 4;
+            recipe.images = <fettyBossy.Data.IImage>[];
+            var img = <fettyBossy.Data.IImage>{};
+            img.id = 0;
+            img.src = "js/data/IMG_4344.JPG";
+            recipe.images.push(img);
             recipe.bakingTime = 150;
             this.recipes.push(recipe);
 

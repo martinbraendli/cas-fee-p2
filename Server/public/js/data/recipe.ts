@@ -7,9 +7,9 @@ module fettyBossy.Data {
         title: string;
         author: fettyBossy.Data.IUser;
         numPerson: number;
-        images: any; // TODO images
-        ingredients: any;
-        preparationSteps: any;
+        images: Array<fettyBossy.Data.IImage>;
+        ingredients: Array<fettyBossy.Data.IIngredient>;
+        preparationSteps: Array<fettyBossy.Data.IPreparationStep>;
         bakingTime: number; // in minutes
         preparationTime: number; // in minutes
     }
