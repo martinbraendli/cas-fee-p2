@@ -19,8 +19,10 @@ module fettyBossy {
         /**
          * Editview of one recipe
          */
-            .when("/editRecipe", {
-                templateUrl: 'views/editRecipe.tpl.html'
+            .when("/editRecipe/:recipeId", {
+                templateUrl: 'views/editRecipe.tpl.html',
+                controller: 'EditRecipeController',
+                controllerAs: 'editRecipeCtrl'
             })
 
         /**
