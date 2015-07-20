@@ -37,6 +37,7 @@ module fettyBossy.Services {
             var img = <fettyBossy.Data.IImage>{};
             img.id = 0;
             img.src = "js/data/IMG_4344.JPG";
+            img.author = recipe.author;
             recipe.images.push(img);
             recipe.bakingTime = 150;
             this.recipes.push(recipe);

@@ -14,6 +14,7 @@ Vorbereitungszeit: {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinut
 Images:
 <div ng-repeat="image in viewRecipeCtrl.recipe.images">
     <img ng-src="{{image.src}}" width="300"/>
+    (Bild von: {{image.author.name}})
 </div>
 
 
