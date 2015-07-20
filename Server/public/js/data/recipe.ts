@@ -12,5 +12,6 @@ module fettyBossy.Data {
         preparationSteps: Array<fettyBossy.Data.IPreparationStep>;
         bakingTime: number; // in minutes
         preparationTime: number; // in minutes
+        ratings: Array<fettyBossy.Data.IRating>;
     }
 }
