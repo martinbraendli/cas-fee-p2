@@ -40,6 +40,15 @@ module fettyBossy.Services {
             img.author = recipe.author;
             recipe.images.push(img);
             recipe.bakingTime = 150;
+            recipe.ratings = <fettyBossy.Data.IRating>[];
+            var rating = <fettyBossy.Data.IRating>{};
+            rating.comment = "Isch super";
+            rating.stars = 4;
+            recipe.ratings.push(rating);
+            var rating = <fettyBossy.Data.IRating>{};
+            rating.comment = "Eher mies";
+            rating.stars = 2;
+            recipe.ratings.push(rating);
             this.recipes.push(recipe);
 
             var recipe = <fettyBossy.Data.IRecipe>{};
