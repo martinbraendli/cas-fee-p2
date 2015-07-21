@@ -9,6 +9,7 @@ module fettyBossy {
         $routeProvider
         /**
          * Detailview of one recipe
+         * @param recipeId ID of recipe
          */
             .when("/viewRecipe/:recipeId", {
                 templateUrl: 'views/viewRecipe.tpl.html',
@@ -18,6 +19,7 @@ module fettyBossy {
 
         /**
          * Editview of one recipe
+         * @param recipeId ID of recipe
          */
             .when("/editRecipe/:recipeId", {
                 templateUrl: 'views/editRecipe.tpl.html',
@@ -36,6 +38,7 @@ module fettyBossy {
 
         /**
          * user detail view
+         * @param userId ID of the user
          */
             .when("/viewUser/:userId", {
                 templateUrl: 'views/viewUser.tpl.html',

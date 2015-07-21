@@ -5,19 +5,36 @@ module fettyBossy.Services {
 
     export interface ISession {
         loadUsers():ng.IPromise<fettyBossy.Data.IUser>;
-
         /**
+         * Set the given user as logged in.
+         *
          * @param user
          * @returns false if login failed, otherwise true
          */
         setUser(user:fettyBossy.Data.IUser):boolean;
         /**
-         * current logged in user
+         * returns current logged in user, null if not set.
          */
         getUser():fettyBossy.Data.IUser;
+        /**
+         * returns user with given id, null if user not found
+         * @param id
+         */
         findUser(id:number):fettyBossy.Data.IUser;
+        /**
+         * check if given user with same name exists.
+         * @param user
+         */
         userExists(user:fettyBossy.Data.IUser):boolean;
+        /**
+         * check if given user with same email adress exists.
+         * @param user
+         */
         emailExists(user:fettyBossy.Data.IUser):boolean;
+        /**
+         * find user by name and check if password matches.
+         * @param user
+         */
         passwordMatches(user:fettyBossy.Data.IUser):boolean;
         /**
          * Add user to the database
@@ -126,6 +143,7 @@ module fettyBossy.Services {
             // TODO mit filter?
             for (var k in this.users) {
                 var u = this.users[k];
+                // TODO find user by name and check password
                 if (u.password === user.password) {
                     return true;
                 }
