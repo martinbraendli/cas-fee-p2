@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="fb-app">
+<head>
+    <meta charset="UTF-8">
+    <title>test flx </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="material-design-lite/material.css" />
+    <script src="material-design-lite/material.min.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="js/fb-controller.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="styles/style-f.css" />
+    <style>
+        body {
+            background-image: url('pix/pfanni-bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+        }
+    </style>
+
+</head>
+<body ng-controller="showController">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header ">
+
+<main class="mdl-layout__content fb-layout">
+        <div class="page-content mdl-grid ">
+            <div class="mdl-card mdl-shadow--4dp login-card-square">
+                <h3>Login</h3>
+                <!--<div class="mdl-card&#45;&#45;border">-->
+                    <ul>
+                        <li>
+                            Name: <input type="text" value="login Name" />
+                        </li>
+                        <li >
+                            Passwort: <input type="password" value="" />
+                        </li>
+                        <li>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login</button>
+                        </li>
+                    </ul>
+                    <p class="mdl-card__supporting-text">Ich möchte Rezepte auch erfassen und bewerten</p>
+                <!--</div>-->
+            </div>
+            <div class="mdl-card mdl-shadow--4dp login-card-square">
+                <div>
+                    <h3>Ohne Login</h3>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Start ohne Login</button>
+                    <p class="mdl-card__supporting-text">Ich möchte alle Rezepte sehen</p>
+                </div>
+            </div>
+        </div>
+</main>
+<footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer--left-section">
+        <div class="mdl-logo">Projekt CAS FEE 2</div>
+        <ul class="mdl-mini-footer--link-list">
+            <li><a href="#">Hilfe</a></li>
+            <li><a href="#">Info über Fetty Bossy</a></li>
+        </ul>
+    </div>
+</footer>
+</div>
+
+</body>
+</html>
