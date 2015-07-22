@@ -1,38 +1,40 @@
-<div class="loginForm"
-     ng-hide="sessionCtrl.isLoggedIn()">
-    Login:
-    <br/>
+<div class="loginForm">
 
     <form id="loginForm" name="loginForm"
           class="userForm"
           ng-submit="sessionCtrl.login(user)">
-        <label for="loginName">Name</label>
-        <input type="text" id="loginName" name="loginName"
-               ng-model="user.name" required/>
+        <ul>
+            <li>
+                <label for="loginName">Name</label>
+                <input type="text" id="loginName" name="loginName"
+                       ng-model="user.name" required/>
 
-        <div ng-show="loginForm.$submitted || registerForm.loginName.$dirty || sessionCtrl.loginError">
-            <div ng-show="registerForm.loginName.$error.required">Tell us your name.</div>
-            <div ng-show="sessionCtrl.loginError.nameMessage">{{sessionCtrl.loginError.nameMessage}}</div>
-        </div>
-        <br/>
-        <label for="loginPassword">Passwort</label>
-        <input type="password" id="loginPassword" name="loginPassword"
-               ng-model="user.password" required/>
-
-        <div ng-show="loginForm.$submitted || loginForm.loginPassword.$dirty || sessionCtrl.loginError">
-            <div ng-show="loginForm.loginPassword.$error.required">Password required.</div>
-            <div ng-show="sessionCtrl.loginError.passwordMessage">{{sessionCtrl.loginError.passwordMessage}}</div>
-        </div>
-        <br/>
-        <button type="submit"
-                ng-disabled="loginForm.$invalid">Login
-        </button>
-
-        <div ng-show="sessionCtrl.loginError">
-            <div>{{sessionCtrl.loginError.message}}</div>
-        </div>
+                <div ng-show="loginForm.$submitted || registerForm.loginName.$dirty || sessionCtrl.loginError">
+                    <div ng-show="registerForm.loginName.$error.required">Säg din name!.</div>
+                    <div ng-show="sessionCtrl.loginError.nameMessage">{{sessionCtrl.loginError.nameMessage}}</div>
+                </div>
+            </li>
+            <li>
+                <label for="loginPassword">Passwort</label>
+                <input type="password" id="loginPassword" name="loginPassword"
+                       ng-model="user.password" required/>
+                <div ng-show="loginForm.$submitted || loginForm.loginPassword.$dirty || sessionCtrl.loginError">
+                    <div ng-show="loginForm.loginPassword.$error.required">Password required.</div>
+                    <div ng-show="sessionCtrl.loginError.passwordMessage">{{sessionCtrl.loginError.passwordMessage}}</div>
+                </div>
+            </li>
+            <li>
+                <button type="submit"
+                        ng-disabled="loginForm.$invalid"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login
+                </button>
+                <div ng-show="sessionCtrl.loginError">
+                    <div>{{sessionCtrl.loginError.message}}</div>
+                </div>
+            </li>
+        </ul>
     </form>
 </div>
-<div ng-show="sessionCtrl.isLoggedIn()">
-    <a href="" ng-click="sessionCtrl.logout()">Logout</a>
-</div>
+<!--<div ng-show="sessionCtrl.isLoggedIn()">-->
+    <!--<a href="" ng-click="sessionCtrl.logout()">Logout</a>-->
+<!--</div>-->

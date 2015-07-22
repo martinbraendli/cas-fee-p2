@@ -1,17 +1,21 @@
-Startseite
-<br/>
-<br/>
-<br/>
-<fb-login-form></fb-login-form>
-<br/>
-<br/>
-<br/>
-<fb-register-form></fb-register-form>
-<br/>
-<br/>
-<br/>
-<div ng-hide="sessionCtrl.isLoggedIn()">
-    Gast:
-    <br/>
-    <a href="#/searchRecipe"> Suche </a>
-</div>
+<main class="mdl-layout__content fb-layout">
+    <div class="page-content mdl-grid ">
+        <div class="mdl-card mdl-shadow--4dp login-card-square">
+            <h3>Login</h3>
+            <fb-login-form></fb-login-form>
+        </div>
+        <div class="mdl-card mdl-shadow--4dp login-card-square">
+            <h3>Registrieren</h3>
+            <fb-register-form></fb-register-form>
+        </div>
+        <div class="mdl-card mdl-shadow--4dp login-card-square">
+            <div ng-hide="sessionCtrl.isLoggedIn()">
+                <h3>Gast Besucher</h3>
+                <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                   href="#/searchRecipe">Besucher</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+
