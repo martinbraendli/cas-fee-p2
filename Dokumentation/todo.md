@@ -1,10 +1,13 @@
 # Felix
-- Name der App?
-- Kürzel der App?
+
+- MenÃ¼
+- Templates @ Directive Templates
+- SCSS file struktur
+- 
 
 # Martin
 - Logon-Modul
-- Menü-Einträge
+- MenÃ¼-EintrÃ¤ge
 - Server-Requests
  - POST: register user
  - GET: check user/pw
