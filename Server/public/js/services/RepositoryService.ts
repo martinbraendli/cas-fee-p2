@@ -43,11 +43,15 @@ module fettyBossy.Services {
             recipe.ratings = <fettyBossy.Data.IRating>[];
             var rating = <fettyBossy.Data.IRating>{};
             rating.comment = "Isch super";
+            rating.author = <fettyBossy.Data.IUser>{};
+            rating.author.id = 2;
             rating.stars = 4;
             recipe.ratings.push(rating);
             var rating = <fettyBossy.Data.IRating>{};
             rating.comment = "Eher mies";
             rating.stars = 2;
+            rating.author = <fettyBossy.Data.IUser>{};
+            rating.author.id = 3;
             recipe.ratings.push(rating);
             this.recipes.push(recipe);
 
