@@ -1,8 +1,12 @@
 <div class="listRecipeRatings">
 
+    Recipe: "{{listRecipeRatingsCtrl.hasOwnRating()}}"
+    <fb-addedit-recipe-rating ng-hide="listRecipeRatingsCtrl.hasOwnRating()"></fb-addedit-recipe-rating>
+
     Ratings:
 
     <div ng-repeat="rating in listRecipeRatingsCtrl.recipe.ratings">
         {{rating.comment}} - {{rating.stars}}
+        <fb-addedit-recipe-rating ng-show="listRecipeRatingsCtrl.isOwnRating(rating)"></fb-addedit-recipe-rating>
     </div>
 </div>
