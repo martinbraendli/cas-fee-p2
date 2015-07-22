@@ -1,0 +1,23 @@
+User Stories -Bedrüfnisse der User für Fetty Bossy DB
+
+
+Persona 1 - User view only:
+
+Die Person ist am selber Kochen interessiert und möchte neue Rezepte ausprobieren.
+Sie möchte die Rezepte suchen können, ohne sich registrieren zu müssen.
+Sie möchte möglichst eine einfache Navigation um schnell zum Ziel zu kommen.
+Sie möchte Rezepte ausdrucken können um sie in der Küche griffbereit zu haben.
+Sie möchte die passende Einkaufsliste ausdrucken können, um die passenden Zutaten in den entsprechenden Mengen einzukaufen.
+Sie möchte die Rezepte gerätegerecht auf einem Tablet online (in der Küche) suchen & lesen können.
+
+
+Persona 2 - aktives Mitglied der Rezeptedatenbank
+
+Die Persona 2 ist deckungsgleich mit der Persona 1; hat jedoch zusätzliche Bedürfnisse
+Die Person möchte aktiv Rezepte erfassen und publizieren.
+Sie möchte ihre Rezepte verändern können.
+Dazu möchte sie ein möglichst intuitives Userinterface bedienen können.
+Sie möchte ein oder mehrere Bilder zu einem Rezept hinzufügen können.
+Sie möchte Rezepte von Anderen aktiven Usern bewerten können.
+Sie möchte sich mit einem Usernamen und einem Passwort einloggen können.
+Sie möchte ihren Username oder E-mail-adresse ändern können.
