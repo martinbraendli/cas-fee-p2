@@ -1,5 +1,5 @@
 /**
- * Index routes
+ * Recipe routes
  * @type {Router}
  */
 module.exports = (function () {
@@ -9,7 +9,7 @@ module.exports = (function () {
 
     router.get("/", function (req, res) {
         //indexController.index(req, res);
-        res.json("{version: 0.0.1}"); // TODO version into own config file
+        res.json("{recipes}"); // TODO version into own config file
     });
 
     return router;
