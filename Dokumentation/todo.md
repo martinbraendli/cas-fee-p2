@@ -1,13 +1,13 @@
 # Felix
 
-- Menü
+- Menue
 - Templates @ Directive Templates
 - SCSS file struktur
-- 
+
 
 # Martin
 - Logon-Modul
-- Menü-Einträge
+- MenÃ¼-EintrÃ¤ge
 - Server-Requests
  - POST: register user
  - GET: check user/pw
@@ -17,8 +17,8 @@
 - Bilder an Server senden
 - Server aufbauen
 - TS-Compile als GULP
-- user-details-directive mit eigenem Controller (ohne URL-Abh�ngigkeit)
-- St�ckelungen von Server inkl. Searchdropdown
+- user-details-directive mit eigenem Controller (ohne URL-Abhängigkeit)
+- Stückelungen von Server inkl. Searchdropdown
 
  
  
