@@ -1,8 +1,9 @@
 # Felix
 
-- Menue
+- Menue einbinden / ausblenden
 - Templates @ Directive Templates
 - SCSS file struktur
+- tab-system Login/ Register
 
 
 # Martin
