@@ -8,13 +8,17 @@
   "license": "MIT",
   "dependencies": {
     "angular": "~1.4.*",
-    "angular-route": "~1.4.*"
+    "angular-route": "~1.4.*",
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1",
+    "express-session": "~1.11.3"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-sass": "^2.0.3",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-tsd": "^0.0.4",
+    "gulp-typescript": "^2.8.0",
     "tsd": "^0.6.3"
   }
 }

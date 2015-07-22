@@ -13,6 +13,24 @@
     },
     "angularjs/angular-route.d.ts": {
       "commit": "8c9ede30fca2a095018e70940806cc9c8aa122f6"
+    },
+    "express/express.d.ts": {
+      "commit": "54f5b04fab7c173e6bf47a381214582c13f6adea"
+    },
+    "mime/mime.d.ts": {
+      "commit": "54f5b04fab7c173e6bf47a381214582c13f6adea"
+    },
+    "node/node.d.ts": {
+      "commit": "54f5b04fab7c173e6bf47a381214582c13f6adea"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "54f5b04fab7c173e6bf47a381214582c13f6adea"
+    },
+    "body-parser/body-parser.d.ts": {
+      "commit": "54f5b04fab7c173e6bf47a381214582c13f6adea"
+    },
+    "express-session/express-session.d.ts": {
+      "commit": "54f5b04fab7c173e6bf47a381214582c13f6adea"
     }
   }
 }
