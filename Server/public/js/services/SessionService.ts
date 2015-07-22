@@ -43,7 +43,7 @@ module fettyBossy.Services {
     }
 
     class Session implements ISession {
-        user:fettyBossy.Data.IUser[] = null;
+        user:fettyBossy.Data.IUser = null;
 
         // TODO get from server
         users:Array<fettyBossy.Data.IUser>;
