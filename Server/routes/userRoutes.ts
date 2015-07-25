@@ -1,19 +1,22 @@
 ///<reference path='../_reference.ts' />
 
 /**
- * indexRoutes
+ * userRoutes
  */
 
-var indexCtrl = require('../controller/indexController.js');
+var userCtrl = require('../controller/userController.js');
 
 /**
- * Index routes
+ * Recipe routes
  * @type {Router}
  */
 module.exports = (function () {
     var express = require('express');
 
     var router = express.Router();
+
+    router.get("/", userCtrl.getUser);
+    router.get("/:userId/", userCtrl.getUser);
 
     return router;
 })();

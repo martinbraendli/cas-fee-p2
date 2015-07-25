@@ -1,3 +1,11 @@
+///<reference path='../_reference.ts' />
+
+/**
+ * recipeRoutes
+ */
+
+var recipeCtrl = require('../controller/recipeController.js');
+
 /**
  * Recipe routes
  * @type {Router}
@@ -7,10 +15,8 @@ module.exports = (function () {
 
     var router = express.Router();
 
-    router.get("/", function (req, res) {
-        //indexController.index(req, res);
-        res.json("{recipes}"); // TODO version into own config file
-    });
+    router.get("/", recipeCtrl.getAll);
+    router.get("/:recipeId/", recipeCtrl.getRecipe);
 
     return router;
 })();
