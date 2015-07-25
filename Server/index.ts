@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 
 // routes
 app.use('/api/', require('./routes/indexRoutes.js'));
+app.use('/api/rating', require('./routes/ratingRoutes.js'));
 app.use('/api/recipe', require('./routes/recipeRoutes.js'));
 app.use('/api/user', require('./routes/userRoutes.js'));
 
