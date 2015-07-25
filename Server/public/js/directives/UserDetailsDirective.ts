@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Directive {
     'use strict';
 
@@ -12,7 +16,10 @@ module fettyBossy.Directive {
            // scope: {},
             templateUrl: 'js/directives/userDetails.tpl.html',
             controllerAs: 'viewUserCtrl',
-            controller: fettyBossy.Controllers.ViewUserController,
+            //controller: fettyBossy.Controllers.ViewUserController,
+            controller: () => {
+// TODO nicht pageController
+            },
             link: () => {
 
             }
