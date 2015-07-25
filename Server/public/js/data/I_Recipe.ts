@@ -1,9 +1,9 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
 module fettyBossy.Data {
     'use strict';
 
     export interface IRecipe {
-        id: number;
+        _id: number;
         title: string;
         author: fettyBossy.Data.IUser;
         numPerson: number;
