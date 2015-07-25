@@ -1,6 +1,6 @@
-///<reference path="I_Image.ts" />
-///<reference path="I_Ingredient.ts" />
+///<reference path="Image.ts" />
+///<reference path="Ingredient.ts" />
 ///<reference path="PreparationStep.ts" />
-///<reference path="I_Rating.ts" />
-///<reference path="I_Recipe.ts" />
-///<reference path="I_User.ts" />
+///<reference path="Rating.ts" />
+///<reference path="Recipe.ts" />
+///<reference path="User.ts" />
