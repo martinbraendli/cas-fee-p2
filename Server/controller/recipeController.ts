@@ -27,10 +27,24 @@ function publicGetRecipe(req, res) {
 
     recipeStore.loadRecipe(recipeId, function (err, recipe) {
         res.json(recipe);
-    })
+    });
+}
+
+/**
+ *
+ * @param req
+ * @param res
+ */
+function publicSaveRecipe(req, res) {
+    var recipe = req.body;
+
+    recipeStore.persistRecipe(recipe, function (err, savedRecipe) {
+        res.json(savedRecipe); // send back with generated id
+    });
 }
 
 module.exports = {
     getAll: publicGetAll,
-    getRecipe: publicGetRecipe
+    getRecipe: publicGetRecipe,
+    saveRecipe: publicSaveRecipe
 };

@@ -30,7 +30,27 @@ function publicLoadRecipe(recipeId:string, callback) {
     });
 }
 
+/**
+ * load one recipe by it's id
+ * @param recipe:fettyBossy.Data.IRecipe
+ * @param callback
+ */
+function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
+    console.log("recipeStore - publicPersistRecipe('" + recipe + "')");
+
+    var dbCallback = function(err, savedRecipe) {
+        callback(err, savedRecipe);
+    };
+
+    if (recipe._id){
+        db.update({_id: recipe._id}, recipe, dbCallback);
+    }else {
+        db.insert(recipe, dbCallback);
+    }
+}
+
 module.exports = {
     loadAll: publicLoadAll,
-    loadRecipe: publicLoadRecipe
+    loadRecipe: publicLoadRecipe,
+    persistRecipe: publicPersistRecipe
 };

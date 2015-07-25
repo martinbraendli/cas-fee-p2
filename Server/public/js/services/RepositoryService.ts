@@ -6,6 +6,10 @@
 module fettyBossy.Services {
     'use strict';
 
+    export interface ISaveRecipeResult {
+        successful: boolean;
+        savedRecipe: fettyBossy.Data.IRecipe;
+    }
 
     export interface IRepository {
         /**
@@ -25,6 +29,12 @@ module fettyBossy.Services {
         getRecipe(recipeId:string);
 
         /**
+         * save given recipe in backend
+         * @param recipe
+         */
+        saveRecipe(recipe:fettyBossy.Data.IRecipe):ng.IPromise<fettyBossy.Services.ISaveRecipeResult>;
+
+        /**
          * load one user from server by id
          * @param userId
          */
@@ -39,6 +49,7 @@ module fettyBossy.Services {
     class Repository implements IRepository {
         static LOAD_ALL_RECIPES_URL:string = '/api/recipe';
         static LOAD_RECIPE_BY_ID:string = '/api/recipe/';
+        static SAVE_RECIPE:string = '/api/recipe';
         static LOAD_USER_BY_ID:string = '/api/user/';
         static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/rating/';
 
@@ -96,6 +107,26 @@ module fettyBossy.Services {
             }
 
             return this.getRecipes()[recipeId]; // TODO find by id
+        }
+
+        saveRecipe(recipe:fettyBossy.Data.IRecipe) {
+            this.$log.debug('Repository saveRecipe(' + recipe + ')');
+            var deferred = this.$q.defer();
+
+            var response:fettyBossy.Services.ISaveRecipeResult;
+            var response = <fettyBossy.Services.ISaveRecipeResult>{};
+
+            this.$http.post(Repository.SAVE_RECIPE, recipe)
+                .success((recipe) => {
+                    response.successful = true;
+                    response.savedRecipe = recipe;
+                    deferred.resolve(response);
+                }).error((data, status, header, config) => {
+                    response.successful = false;
+                    deferred.resolve(response);
+                });
+
+            return deferred.promise;
         }
 
         loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser> {

@@ -57,9 +57,32 @@ module fettyBossy {
          * Add new recipe
          */
             .when("/addRecipe", {
+                scope: {
+                    addRecipe: true
+                },
                 templateUrl: 'views/addeditRecipe.tpl.html',
                 controller: 'AddeditRecipeController',
-                controllerAs: 'addeditRecipeCtrl'
+                controllerAs: 'addeditRecipeCtrl',
+                resolve: {
+                    recipe: ['SessionService', '$log', '$location',
+                        function (SessionService:fettyBossy.Services.ISession,
+                                  $log:ng.ILogService,
+                                  $location:ng.ILocationService) {
+                            $log.debug("app-routes: resolve for '/addRecipe' params");
+
+                            //if (!SessionService.getUser()) {
+                            //    // not logged in, redirect to login
+                            //    $location.path("/login");
+                            //    // TODO messaging?
+                            //    alert("Not logged in!");
+                            //    return;
+                            //}
+
+                            return {
+                   //             userId: SessionService.getUser()._id
+                            };
+                        }]
+                }
             })
 
         /**

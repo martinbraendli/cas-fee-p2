@@ -16,6 +16,7 @@ module.exports = (function () {
     var router = express.Router();
 
     router.get("/", recipeCtrl.getAll);
+    router.post("/", recipeCtrl.saveRecipe);
     router.get("/:recipeId/", recipeCtrl.getRecipe);
 
     return router;
