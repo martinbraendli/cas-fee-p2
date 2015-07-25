@@ -3,7 +3,7 @@ module fettyBossy.Data {
     'use strict';
 
     export interface IRecipe {
-        _id: number;
+        _id: string;
         title: string;
         author: fettyBossy.Data.IUser;
         numPerson: number;

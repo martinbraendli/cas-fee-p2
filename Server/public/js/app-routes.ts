@@ -35,13 +35,22 @@ module fettyBossy {
             })
 
         /**
-         * Editview of one recipe
+         * Edit recipe by its id
          * @param recipeId ID of recipe
          */
             .when("/editRecipe/:recipeId", {
-                templateUrl: 'views/editRecipe.tpl.html',
-                controller: 'EditRecipeController',
-                controllerAs: 'editRecipeCtrl'
+                templateUrl: 'views/addeditRecipe.tpl.html',
+                controller: 'AddeditRecipeController',
+                controllerAs: 'addeditRecipeCtrl'
+            })
+
+        /**
+         * Add new recipe
+         */
+            .when("/addRecipe", {
+                templateUrl: 'views/addeditRecipe.tpl.html',
+                controller: 'AddeditRecipeController',
+                controllerAs: 'addeditRecipeCtrl'
             })
 
         /**
@@ -49,10 +58,10 @@ module fettyBossy {
          */
             .when("/searchRecipe", {
                 templateUrl: 'views/searchRecipe.tpl.html',
-                controller: 'SearchResultlistController',
-                controllerAs: 'searchResultlistCtrl',
+                controller: 'SearchRecipeController',
+                controllerAs: 'searchRecipeCtrl',
                 resolve: {
-                    'recipes': ['RepositoryService', '$log',
+                    recipes: ['RepositoryService', '$log',
                         function (RepositoryService:fettyBossy.Services.IRepository,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve for '/searchRecipe'");

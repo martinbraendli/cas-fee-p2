@@ -1,9 +1,9 @@
 ///<reference path="AddeditRecipeRatingController.ts" />
-///<reference path="EditRecipeController.ts" />
+///<reference path="AddeditRecipeController.ts" />
 ///<reference path="IFormValidationResponse.ts" />
 ///<reference path="ListRecipeRatingsController.ts" />
 ///<reference path="RegisterController.ts" />
-///<reference path="SearchResultlistController.ts" />
+///<reference path="SearchRecipeController.ts" />
 ///<reference path="SessionController.ts" />
 ///<reference path="ViewRecipeController.ts" />
 ///<reference path="ViewUserController.ts" />

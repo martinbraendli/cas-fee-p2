@@ -10,7 +10,7 @@ module fettyBossy.Controllers {
         recipeId: string;
     }
 
-    export class EditRecipeController {
+    export class AddeditRecipeController {
 
         recipe:fettyBossy.Data.IRecipe;
         searchQuery:string;
@@ -28,5 +28,5 @@ module fettyBossy.Controllers {
 
     angular
         .module('fettyBossy')
-        .controller('EditRecipeController', EditRecipeController);
+        .controller('AddeditRecipeController', AddeditRecipeController);
 }

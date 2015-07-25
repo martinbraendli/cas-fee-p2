@@ -13,16 +13,10 @@ module fettyBossy.Directive {
     function userDetails():ng.IDirective {
         return {
             restrict: 'E',
-           // scope: {},
-            templateUrl: 'js/directives/userDetails.tpl.html',
-            controllerAs: 'viewUserCtrl',
-            //controller: fettyBossy.Controllers.ViewUserController,
-            controller: () => {
-// TODO nicht pageController
+            scope: {
+                user: '=user'
             },
-            link: () => {
-
-            }
+            templateUrl: 'js/directives/userDetails.tpl.html',
         };
     }
 }

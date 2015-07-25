@@ -9,6 +9,7 @@ module fettyBossy.Controllers {
     export class ViewUserController {
 
         user:fettyBossy.Data.IUser;
+        recipeFilter:ISearchRecipeFilter;
 
         public static $inject = ['$log', 'user'];
 
@@ -16,6 +17,10 @@ module fettyBossy.Controllers {
                     user:fettyBossy.Data.IUser) {
             this.$log.debug('ViewUserController constructor');
             this.user = user;
+            // recipe filter for current user;
+            this.recipeFilter = <ISearchRecipeFilter>{
+                userId: user._id
+            };
         }
     }
 

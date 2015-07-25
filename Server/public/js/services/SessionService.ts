@@ -60,7 +60,7 @@ module fettyBossy.Services {
 
             if (!this.users) {
                 this.$http.get('/api/user').then((data) => {
-                    this.users = <Array<fettyBossy.Data.IUser>> data.data;
+                 //   this.users = <Array<fettyBossy.Data.IUser>> data.data;
                     deferred.resolve(this.users);
                 });
             } else {
@@ -130,7 +130,7 @@ module fettyBossy.Services {
         }
 
         register(user:fettyBossy.Data.IUser):fettyBossy.Data.IUser {
-            user._id = 999; // TODO generate on server
+            user._id = "999"; // TODO generate on server
 
             if (!this.users){
                 this.users = [];

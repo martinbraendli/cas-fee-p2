@@ -19,15 +19,14 @@ function publicLoadUser(userId:string, callback) {
 
     // TODO read user from database
 
-    var users = [];
-    users[0] = {
+    var user = {
         "_id": 2,
         "name": "rowens1",
         "email": "ntorres1@weather.com",
         "password": "rowens1"
     };
 
-    callback({}, users);
+    callback({}, user);
 }
 
 module.exports = {

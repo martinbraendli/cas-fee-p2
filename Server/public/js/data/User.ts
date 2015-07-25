@@ -3,7 +3,7 @@ module fettyBossy.Data {
     'use strict';
 
     export interface IUser {
-        _id: number;
+        _id: string;
         name: string;
         email: string;
         password: string;

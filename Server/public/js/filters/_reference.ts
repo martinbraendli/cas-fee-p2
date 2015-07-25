@@ -1,2 +1,2 @@
 ///<reference path="MinutesToHoursMinutesFilter.ts" />
-///<reference path="RecipeByUserFilter.ts" />
+///<reference path="SearchRecipeFilter.ts" />
