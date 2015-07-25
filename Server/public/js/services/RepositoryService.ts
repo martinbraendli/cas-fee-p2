@@ -1,89 +1,109 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Services {
     'use strict';
 
 
     export interface IRepository {
+        /**
+         * load all available recipes from server - hold result in this.recipes
+         */
+        loadRecipes():ng.IPromise<Array<fettyBossy.Data.IRecipe>>;
+        /**
+         * load one recipe from server by id
+         * @param recipeId
+         */
+        loadRecipe(recipeId:string):ng.IPromise<fettyBossy.Data.IRecipe>;
+        /**
+         * returns loaded recipes
+         */
         getRecipes():Array<fettyBossy.Data.IRecipe>;
-        getRecipe(recipeId:number);
+
+        getRecipe(recipeId:string);
+
+        /**
+         * load one user from server by id
+         * @param userId
+         */
+        loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser>;
     }
 
     class Repository implements IRepository {
-        recipes:fettyBossy.Data.IRecipe[] = [];
+        static LOAD_ALL_RECIPES_URL:string = '/api/recipe';
+        static LOAD_RECIPE_BY_ID:string = '/api/recipe/';
+        static LOAD_USER_BY_ID:string = '/api/user/';
 
-        constructor(private $log:ng.ILogService) {
+        recipes:Array<fettyBossy.Data.IRecipe> = [];
+        users:Array<fettyBossy.Data.IUser> = [];
+
+        public static $inject = ['$log', '$http', '$q'];
+
+        constructor(private $log:ng.ILogService,
+                    private $http:ng.IHttpService,
+                    private $q:ng.IQService) {
             this.$log.debug('Repository constructor');
+        }
 
+        loadRecipes():ng.IPromise<Array<fettyBossy.Data.IRecipe>> {
+            this.$log.debug('Repository loadRecipes()');
+            var deferred = this.$q.defer();
+
+            this.$http.get(Repository.LOAD_ALL_RECIPES_URL).then((data) => {
+                this.recipes = <Array<fettyBossy.Data.IRecipe>> data.data;
+                this.$log.debug('Repository loadRecipes() - loaded recipes, returning ' + this.recipes.length + ' recipes');
+                deferred.resolve(this.recipes);
+            });
+
+            return deferred.promise;
+        }
+
+        loadRecipe(recipeId:string):ng.IPromise<fettyBossy.Data.IRecipe> {
+            this.$log.debug('Repository loadRecipe(' + recipeId + ')');
+            var deferred = this.$q.defer();
+
+            this.$http.get(Repository.LOAD_RECIPE_BY_ID + recipeId).then((data) => {
+                var recipe:fettyBossy.Data.IRecipe;
+                recipe = <fettyBossy.Data.IRecipe>(data.data);
+                this.$log.debug('Repository loadRecipe(' + recipeId + ') - loaded recipe');
+                deferred.resolve(recipe);
+            });
+
+            return deferred.promise;
         }
 
         getRecipes():Array<fettyBossy.Data.IRecipe> {
-            this.$log.debug('Repository getRecipes');
-
-            this.recipes = [];
-
-            var recipe = <fettyBossy.Data.IRecipe>{};
-            recipe.id = 0;
-            recipe.title = "Tomatensauce mit Thymian";
-            this.recipes.push(recipe);
-
-            var recipe = <fettyBossy.Data.IRecipe>{};
-            recipe.id = 1;
-            recipe.title = "Spaghetti Carbonara";
-            recipe.author = <fettyBossy.Data.IUser>{};
-            recipe.author.id = 2;
-            recipe.author.name = "authorname";
-            recipe.numPerson = 4;
-            recipe.images = <fettyBossy.Data.IImage>[];
-            var img = <fettyBossy.Data.IImage>{};
-            img.id = 0;
-            img.src = "js/data/IMG_4344.JPG";
-            img.author = recipe.author;
-            recipe.images.push(img);
-            recipe.bakingTime = 150;
-            recipe.ratings = <fettyBossy.Data.IRating>[];
-            var rating = <fettyBossy.Data.IRating>{};
-            rating.comment = "Isch super";
-            rating.author = <fettyBossy.Data.IUser>{};
-            rating.author.id = 2;
-            rating.stars = 4;
-            recipe.ratings.push(rating);
-            var rating = <fettyBossy.Data.IRating>{};
-            rating.comment = "Eher mies";
-            rating.stars = 2;
-            rating.author = <fettyBossy.Data.IUser>{};
-            rating.author.id = 3;
-            recipe.ratings.push(rating);
-            this.recipes.push(recipe);
-
-            var recipe = <fettyBossy.Data.IRecipe>{};
-            recipe.id = 2;
-            recipe.title = "Lasagne";
-            this.recipes.push(recipe);
-
-            var recipe = <fettyBossy.Data.IRecipe>{};
-            recipe.id = 3;
-            recipe.title = "Hamburger mit Speck und Ei";
-            this.recipes.push(recipe);
-
-            var recipe = <fettyBossy.Data.IRecipe>{};
-            recipe.id = 4;
-            recipe.title = "Sandwich mit Thon";
-            this.recipes.push(recipe);
-
-            var recipe = <fettyBossy.Data.IRecipe>{};
-            recipe.id = 5;
-            recipe.title = "Eier-Salat";
-            this.recipes.push(recipe);
+            if (!this.recipes) {
+                this.$log.debug('Repository getRecipes() - no recipes found');
+                return [];
+            }
+            this.$log.debug('Repository getRecipes() - returning ' + this.recipes.length + ' recipes');
             return this.recipes;
         }
 
-        getRecipe(recipeId:number):fettyBossy.Data.IRecipe {
+        getRecipe(recipeId:string):fettyBossy.Data.IRecipe {
             this.$log.debug('Repository getRecipe("' + recipeId + '")');
 
             return this.getRecipes()[recipeId]; // TODO find by id
         }
+
+        loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser>{
+            this.$log.debug('Repository loadUser(' + userId + ')');
+            var deferred = this.$q.defer();
+
+            this.$http.get(Repository.LOAD_USER_BY_ID + userId).then((data) => {
+                var user:fettyBossy.Data.IUser;
+                user = <fettyBossy.Data.IUser>(data.data);
+                this.$log.debug('Repository loadUser(' + userId + ') - loaded user');
+                deferred.resolve(user);
+            });
+
+            return deferred.promise;
+        }
     }
 
     angular.module('fettyBossy')
-        .service('Repository', Repository);
+        .service('RepositoryService', Repository);
 }
