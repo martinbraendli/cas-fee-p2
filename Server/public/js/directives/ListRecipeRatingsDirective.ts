@@ -10,20 +10,21 @@ module fettyBossy.Directive {
         .module('fettyBossy')
         .directive('fbListRecipeRatings', listRecipeRatings);
 
-    interface IListRecipeRatingsAttributes extends ng.IAttributes {
-        recipeId: string;
+    export interface IListRecipeRatingsScope extends ng.IScope {
+        recipe: fettyBossy.Data.IRecipe;
+        ratings: Array<fettyBossy.Data.IRating>;
     }
 
     function listRecipeRatings():ng.IDirective {
         return {
             restrict: 'E',
+            scope: {
+                recipe: '=recipe',
+                ratings: '=ratings'
+            },
             templateUrl: 'js/directives/listRecipeRatings.tpl.html',
             controllerAs: 'listRecipeRatingsCtrl',
-            controller: fettyBossy.Controllers.ListRecipeRatingsController,
-            link: (scope, element, attributes:IListRecipeRatingsAttributes) => {
-
-                scope.listRecipeRatingsCtrl.setRecipe(attributes.recipeId);
-            }
+            controller: fettyBossy.Controllers.ListRecipeRatingsController
         };
     }
 }

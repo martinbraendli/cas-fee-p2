@@ -8,52 +8,58 @@ module fettyBossy.Controllers {
 
     export class ListRecipeRatingsController {
 
-        recipe:fettyBossy.Data.IRecipe;
-
-        public static $inject = ['$log', 'RepositoryService', 'SessionService'];
+        public static $inject = ['$log', 'RepositoryService', 'SessionService', '$scope'];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
-                    private session:fettyBossy.Services.ISession) {
-            this.$log.debug('ListRecipeRatingsController constructor');
+                    private session:fettyBossy.Services.ISession,
+                    private $scope:fettyBossy.Directive.IListRecipeRatingsScope) {
+            this.$log.debug("ListRecipeRatingsController constructor - loadRatings for recipe '" + $scope.recipe._id + "'");
 
-        }
-
-        setRecipe(recipeId:string) {
-            this.$log.debug('ListRecipeRatingsController setRecipe("' + recipeId + '")');
-            this.recipe = this.repository.getRecipe(recipeId);
+            this.reloadRatings();
         }
 
         /**
-         * TODO check role and session --> interceptor?
-         *
+         * reload ratings from server
+         */
+        reloadRatings() {
+            var scope = this.$scope;
+            this.repository.loadRatings(this.$scope.recipe._id)
+                .then(function (loadedRatings) {
+                    scope.ratings = loadedRatings;
+                });
+        }
+
+        /**
          * check if current user has already added a rating
          */
         hasOwnRating():boolean {
-            if (this.session.getUser() == null) {
+            var currentUser = this.session.getUser();
+            if (currentUser == null) {
                 return false;
             }
 
-            for(var key in this.recipe.ratings){
-                var rating:fettyBossy.Data.IRating = this.recipe.ratings[key];
-                if (this.session.getUser()._id === rating.author._id) {
-                    return true
+            var filterByUser = function (rating:fettyBossy.Data.IRating) {
+                if (rating.userId) {
+                    return (rating.userId === currentUser._id);
                 }
-            }
+                // no author on recipe set
+                return false;
+            };
+            var ownRatings = this.$scope.ratings.filter(filterByUser);
 
-            // no rating for session-user found
-            return false;
+            return (ownRatings.length > 0);
         }
 
         /**
          * returns true if the given rating belongs to the logged in user
-         * @param recipe
+         * @param rating:fettyBossy.Data.IRating
          */
-        isOwnRating(recipe):boolean{
+        isOwnRating(rating:fettyBossy.Data.IRating):boolean {
             if (this.session.getUser() == null) {
                 return false;
             }
-            return (this.session.getUser()._id === recipe.author._id);
+            return (this.session.getUser()._id === rating.userId);
         }
     }
 

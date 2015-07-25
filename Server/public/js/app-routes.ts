@@ -41,7 +41,16 @@ module fettyBossy {
             .when("/editRecipe/:recipeId", {
                 templateUrl: 'views/addeditRecipe.tpl.html',
                 controller: 'AddeditRecipeController',
-                controllerAs: 'addeditRecipeCtrl'
+                controllerAs: 'addeditRecipeCtrl',
+                resolve: {
+                    recipe: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve for '/editRecipe/:recipeId' params '" + $route.current.params.recipeId + "'");
+                            return RepositoryService.loadRecipe($route.current.params.recipeId);
+                        }]
+                }
             })
 
         /**
@@ -95,17 +104,7 @@ module fettyBossy {
             .otherwise({
                 templateUrl: 'views/start.tpl.html',
                 controller: 'SessionController',
-                controllerAs: 'sessionCtrl',
-                resolve: {
-                    // TODO obsolete when server runs..
-                    'Something': ['SessionService', function (SessionService:fettyBossy.Services.ISession) {
-                        return SessionService.loadUsers();
-                    }],
-
-                    'Recipes': ['RepositoryService', function (RepositoryService:fettyBossy.Services.IRepository) {
-                        return RepositoryService.loadRecipes();
-                    }]
-                }
+                controllerAs: 'sessionCtrl'
             });
     }
 }

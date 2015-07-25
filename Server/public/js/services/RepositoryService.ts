@@ -29,15 +29,20 @@ module fettyBossy.Services {
          * @param userId
          */
         loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser>;
+        /**
+         * load all ratings for given recipe
+         * @param recipeId
+         */
+        loadRatings(recipeId:string):ng.IPromise<Array<fettyBossy.Data.IRating>>;
     }
 
     class Repository implements IRepository {
         static LOAD_ALL_RECIPES_URL:string = '/api/recipe';
         static LOAD_RECIPE_BY_ID:string = '/api/recipe/';
         static LOAD_USER_BY_ID:string = '/api/user/';
+        static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/rating/';
 
         recipes:Array<fettyBossy.Data.IRecipe> = [];
-        users:Array<fettyBossy.Data.IUser> = [];
 
         public static $inject = ['$log', '$http', '$q'];
 
@@ -86,10 +91,14 @@ module fettyBossy.Services {
         getRecipe(recipeId:string):fettyBossy.Data.IRecipe {
             this.$log.debug('Repository getRecipe("' + recipeId + '")');
 
+            var filterById = function (recipe) {
+                //if
+            }
+
             return this.getRecipes()[recipeId]; // TODO find by id
         }
 
-        loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser>{
+        loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser> {
             this.$log.debug('Repository loadUser(' + userId + ')');
             var deferred = this.$q.defer();
 
@@ -98,6 +107,20 @@ module fettyBossy.Services {
                 user = <fettyBossy.Data.IUser>(data.data);
                 this.$log.debug('Repository loadUser(' + userId + ') - loaded user');
                 deferred.resolve(user);
+            });
+
+            return deferred.promise;
+        }
+
+        loadRatings(recipeId:string):ng.IPromise<Array<fettyBossy.Data.IRating>> {
+            this.$log.debug('Repository loadRatings(' + recipeId + ')');
+            var deferred = this.$q.defer();
+
+            this.$http.get(Repository.LOAD_RATINGS_BY_RECIPE_ID + recipeId).then((data) => {
+                var ratings:Array<fettyBossy.Data.IRating>;
+                ratings = <Array<fettyBossy.Data.IRating>>(data.data);
+                this.$log.debug("Repository loadRatings(" + recipeId + ") - loaded '" + ratings.length + "' ratings");
+                deferred.resolve(ratings);
             });
 
             return deferred.promise;
