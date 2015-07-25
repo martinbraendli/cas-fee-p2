@@ -2,7 +2,7 @@ Rezept ansehen
 <br/>
 <br/>
 <div ng-controller="SessionController as sessionCtrl">
-    <a href="#/editRecipe/{{viewRecipeCtrl.recipe.id}}" ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author.id)">EDIT</a>
+    <a href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}" ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author._id)">EDIT</a>
 </div>
 <br/>
 <br/>
@@ -21,4 +21,4 @@ Images:
 <!-- TODO roles: roleController:  -->
 
 
-<fb-list-recipe-ratings data-recipe-id="{{viewRecipeCtrl.recipe.id}}"></fb-list-recipe-ratings>
+<fb-list-recipe-ratings data-recipe-id="{{viewRecipeCtrl.recipe._id}}"></fb-list-recipe-ratings>
