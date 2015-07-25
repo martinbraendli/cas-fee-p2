@@ -9,7 +9,6 @@ module fettyBossy.Controllers {
     export class ViewRecipeController {
 
         recipe:fettyBossy.Data.IRecipe;
-        searchQuery:string;
 
         public static $inject = ['$log', 'recipe'];
 
