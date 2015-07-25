@@ -19,11 +19,6 @@ module fettyBossy.Controllers {
 
         }
 
-        setRecipeAndRating(recipeId:string, ratingId:string) {
-            this.$log.debug("AddeditRecipeRatingController setRecipeAndRating('" + recipeId + "', '" + ratingId + "')");
-            this.recipe = this.repository.getRecipe(recipeId);
-            //this.rating = recipe // todo get rating
-        }
     }
 
     angular
