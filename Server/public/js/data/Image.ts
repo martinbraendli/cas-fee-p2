@@ -3,9 +3,10 @@ module fettyBossy.Data {
     'use strict';
 
     export interface IImage {
-        _id: number;
+        _id: string;
+        userId: string;
+
         src: string;
         position: number; // default image will be displayed in search result list
-        author: fettyBossy.Data.IUser;
     }
 }

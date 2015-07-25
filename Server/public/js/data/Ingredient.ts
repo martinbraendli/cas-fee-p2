@@ -3,8 +3,10 @@ module fettyBossy.Data {
     'use strict';
 
     export interface IIngredient {
-        _id: number;
+        _id: string;
+        recipeId: string;
+
         name: string;
-        denomenation: string;
+        denomination: string;
     }
 }

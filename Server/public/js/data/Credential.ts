@@ -2,12 +2,9 @@
 module fettyBossy.Data {
     'use strict';
 
-    export interface IRating {
+    export interface ICredential {
         _id: string;
-        recipeId: string;
         userId: string;
-
-        comment: string;
-        stars: number; // 1 to 5 stars
+        password: string;
     }
 }

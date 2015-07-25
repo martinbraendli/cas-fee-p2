@@ -6,6 +6,5 @@ module fettyBossy.Data {
         _id: string;
         name: string;
         email: string;
-        password: string;
     }
 }
