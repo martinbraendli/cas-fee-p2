@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Services {
     'use strict';
 
@@ -14,7 +18,7 @@ module fettyBossy.Services {
             var filteredRecipes:Array<fettyBossy.Data.IRecipe> = [];
             for (var key in recipes) {
                 var recipe:fettyBossy.Data.IRecipe = recipes[key];
-                if (recipe.author && recipe.author.id == userId) {
+                if (recipe.author && recipe.author._id === userId) {
                     filteredRecipes.push(recipe);
                 }
             }
