@@ -2,7 +2,7 @@
 <label>Results:</label>
 
     <div ng-repeat="recipe in searchResultlistCtrl.recipes | recipeByUserFilter: searchResultlistCtrl.userQuery | filter: searchResultlistCtrl.searchQuery">
-        <a href="#/viewRecipe/{{recipe.id}}">{{recipe.title}}</a>
+        <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
     </div>
 </div>
 
