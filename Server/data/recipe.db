@@ -1,6 +1,6 @@
 {"id":0,"title":"Tomatensauce mit Thymian","_id":"ENEeSU51TN57F05j"}
 {"id":2,"title":"Lasagne","_id":"GrT4sMSzRP5EYpIR"}
-{"id":1,"title":"Spaghetti Carbonara","author":{"id":2,"name":"authorname"},"numPerson":4,"images":[{"id":0,"src":"js/data/IMG_4344.JPG","author":{"id":2,"name":"authorname"}}],"bakingTime":150,"ratings":[{"comment":"Isch super","author":{"id":2},"stars":4},{"comment":"Eher mies","stars":2,"author":{"id":3}}],"_id":"JuhR1boQel48mkYp"}
+{"id":1,"title":"Spaghetti Carbonara","author":{"id":2,"name":"authorname"},"numPerson":4,"images":[{"id":0,"src":"js/data/IMG_4344.JPG","author":{"id":2,"name":"authorname"}}],"bakingTime":150,"_id":"JuhR1boQel48mkYp"}
 {"id":4,"title":"Sandwich mit Thon","_id":"R5ZSXpNT90ODKiWU"}
 {"id":5,"title":"Eier-Salat","_id":"fSBCQcZkM0S9JyiA"}
 {"id":3,"title":"Hamburger mit Speck und Ei","_id":"nibB4se02pDQGk6g"}
