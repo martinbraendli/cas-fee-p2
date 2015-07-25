@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Directive {
     'use strict';
 
@@ -7,8 +11,8 @@ module fettyBossy.Directive {
         .directive('fbAddeditRecipeRating', listRecipeRatings);
 
     interface IAddeditRecipeRatingAttributes extends ng.IAttributes {
-        recipeId: number;
-        ratingId: number;
+        recipeId: string;
+        ratingId: string;
     }
 
     function listRecipeRatings():ng.IDirective {
@@ -20,7 +24,7 @@ module fettyBossy.Directive {
             link: (scope, element, attributes:IAddeditRecipeRatingAttributes) => {
 
                 // if directive has a recipeId parameter, set it into the controller
-                scope.addediRecipeRatingCtrl.setRecipeAndRating(parseInt(attributes.recipeId), parseInt(attributes.ratingId));
+                scope.addediRecipeRatingCtrl.setRecipeAndRating(attributes.recipeId, attributes.ratingId);
             }
         };
     }
