@@ -1,9 +1,17 @@
-///<reference path='../../../typings/tsd.d.ts' />
+///<reference path='_reference.ts' />
+
+/**
+ * app-routes
+ */
 module fettyBossy {
     'use strict';
 
     angular.module('fettyBossy')
         .config(config);
+
+    interface IRecipeViewRouteParams extends ng.route.IRouteParamsService {
+        recipeId: string;
+    }
 
     function config($routeProvider:ng.route.IRouteProvider) {
         $routeProvider
@@ -15,6 +23,15 @@ module fettyBossy {
                 templateUrl: 'views/viewRecipe.tpl.html',
                 controller: 'ViewRecipeController',
                 controllerAs: 'viewRecipeCtrl',
+                resolve: {
+                    recipe: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve for '/viewRecipe/:recipeId' params '" + $route.current.params.recipeId + "'");
+                            return RepositoryService.loadRecipe($route.current.params.recipeId);
+                        }]
+                }
             })
 
         /**
@@ -33,7 +50,15 @@ module fettyBossy {
             .when("/searchRecipe", {
                 templateUrl: 'views/searchRecipe.tpl.html',
                 controller: 'SearchResultlistController',
-                controllerAs: 'searchResultlistCtrl'
+                controllerAs: 'searchResultlistCtrl',
+                resolve: {
+                    'recipes': ['RepositoryService', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve for '/searchRecipe'");
+                            return RepositoryService.loadRecipes();
+                        }]
+                }
             })
 
         /**
@@ -45,10 +70,13 @@ module fettyBossy {
                 controller: 'ViewUserController',
                 controllerAs: 'viewUserCtrl',
                 resolve: {
-                    // TODO obsolete when server runs..
-                    'Something': ['SessionService', function (SessionService:fettyBossy.Services.ISession) {
-                        return SessionService.loadUsers();
-                    }]
+                    user: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
+                            return RepositoryService.loadUser($route.current.params.userId);
+                        }]
                 }
             })
 
@@ -63,6 +91,10 @@ module fettyBossy {
                     // TODO obsolete when server runs..
                     'Something': ['SessionService', function (SessionService:fettyBossy.Services.ISession) {
                         return SessionService.loadUsers();
+                    }],
+
+                    'Recipes': ['RepositoryService', function (RepositoryService:fettyBossy.Services.IRepository) {
+                        return RepositoryService.loadRecipes();
                     }]
                 }
             });
