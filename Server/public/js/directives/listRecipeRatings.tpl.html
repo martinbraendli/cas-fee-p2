@@ -1,20 +1,24 @@
 <div class="listRecipeRatings">
 
-    <h4>Recipe: '{{recipe.titel}}'</h4>
+    <h4>ratings for recipe: '{{recipe.title}}'</h4>
 
-    ADD-Button if no own rating found: "
+    ADD-Button if no own rating found:
     <fb-addedit-recipe-rating
             ng-hide="listRecipeRatingsCtrl.hasOwnRating()"
-            recipe-id="recipe._id"></fb-addedit-recipe-rating>
-    "
+            recipe-id="recipe._id"
+            show-as-edit="false"></fb-addedit-recipe-rating>
 
     List of Ratings:
     <div ng-repeat="rating in ratings">
-        {{rating.comment}} - {{rating.stars}}
-        <fb-addedit-recipe-rating
-                ng-show="listRecipeRatingsCtrl.isOwnRating(rating)"
-                recipe-id="recipe._id"
-                rating="rating"></fb-addedit-recipe-rating>
+        <ul>
+            <li>{{rating.comment}} - {{rating.stars}}
+                <fb-addedit-recipe-rating
+                        ng-show="listRecipeRatingsCtrl.isOwnRating(rating)"
+                        recipe-id="recipe._id"
+                        rating="rating"
+                        show-as-edit="true"></fb-addedit-recipe-rating>
+            </li>
+        </ul>
     </div>
     <br/>
     <a href="" ng-click="listRecipeRatingsCtrl.reloadRatings()">reload ratings from server</a>

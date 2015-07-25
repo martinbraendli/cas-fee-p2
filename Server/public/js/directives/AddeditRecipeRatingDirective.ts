@@ -15,7 +15,8 @@ module fettyBossy.Directive {
             restrict: 'E',
             scope: {
                 recipeId: '=recipeId',
-                rating: '=rating'
+                rating: '=rating',
+                showAsEdit: '=showAsEdit'
             },
             templateUrl: 'js/directives/addeditRecipeRating.tpl.html',
             controllerAs: 'addeditRecipeRatingCtrl',
