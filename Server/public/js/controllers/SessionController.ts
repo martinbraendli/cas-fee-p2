@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Controllers {
     'use strict';
 
@@ -22,7 +26,7 @@ module fettyBossy.Controllers {
         login(user:fettyBossy.Data.IUser):boolean {
             this.$log.debug('SessionController login("' + user + '")');
 
-            this.loginError = <fettyBossy.Data.IFormValidationResponse>{};
+            this.loginError = <fettyBossy.Controllers.IUserFormValidationResponse>{};
 
             if (!this.sessionService.userExists(user)) {
                 this.$log.error('SessionController login("' + user + '") - failed: user unknown');
@@ -64,7 +68,7 @@ module fettyBossy.Controllers {
             }
             var user = this.sessionService.getUser();
             if (user) {
-                return user.id === userId;
+                return user._id === userId;
             }
             return false;
         }

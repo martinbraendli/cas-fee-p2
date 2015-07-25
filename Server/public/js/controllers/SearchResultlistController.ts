@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Controllers {
     'use strict';
 
@@ -8,7 +12,7 @@ module fettyBossy.Controllers {
         searchQuery:string;
         userQuery:fettyBossy.Data.IUser;
 
-        public static $inject = ['$log', 'Repository'];
+        public static $inject = ['$log', 'RepositoryService'];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository) {

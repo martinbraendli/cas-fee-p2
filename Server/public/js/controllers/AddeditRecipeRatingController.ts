@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Controllers {
     'use strict';
 
@@ -6,7 +10,7 @@ module fettyBossy.Controllers {
 
         recipe:fettyBossy.Data.IRecipe;
 
-        public static $inject = ['$log', 'Repository', 'SessionService'];
+        public static $inject = ['$log', 'RepositoryService', 'SessionService'];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
@@ -15,8 +19,8 @@ module fettyBossy.Controllers {
 
         }
 
-        setRecipeAndRating(recipeId:number, ratingId:number) {
-            this.$log.debug('AddeditRecipeRatingController setRecipeAndRating("' + recipeId + '", "' + ratingId + '")');
+        setRecipeAndRating(recipeId:string, ratingId:string) {
+            this.$log.debug("AddeditRecipeRatingController setRecipeAndRating('" + recipeId + "', '" + ratingId + "')");
             this.recipe = this.repository.getRecipe(recipeId);
             //this.rating = recipe // todo get rating
         }

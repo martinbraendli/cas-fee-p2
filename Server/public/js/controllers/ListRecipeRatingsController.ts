@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Controllers {
     'use strict';
 
@@ -6,7 +10,7 @@ module fettyBossy.Controllers {
 
         recipe:fettyBossy.Data.IRecipe;
 
-        public static $inject = ['$log', 'Repository', 'SessionService'];
+        public static $inject = ['$log', 'RepositoryService', 'SessionService'];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
@@ -15,7 +19,7 @@ module fettyBossy.Controllers {
 
         }
 
-        setRecipe(recipeId:number) {
+        setRecipe(recipeId:string) {
             this.$log.debug('ListRecipeRatingsController setRecipe("' + recipeId + '")');
             this.recipe = this.repository.getRecipe(recipeId);
         }
@@ -32,7 +36,7 @@ module fettyBossy.Controllers {
 
             for(var key in this.recipe.ratings){
                 var rating:fettyBossy.Data.IRating = this.recipe.ratings[key];
-                if (this.session.getUser().id === rating.author.id) {
+                if (this.session.getUser()._id === rating.author._id) {
                     return true
                 }
             }
@@ -49,7 +53,7 @@ module fettyBossy.Controllers {
             if (this.session.getUser() == null) {
                 return false;
             }
-            return (this.session.getUser().id === recipe.author.id);
+            return (this.session.getUser()._id === recipe.author._id);
         }
     }
 
