@@ -60,7 +60,7 @@ module fettyBossy.Controllers {
          * @param userId if userId is given return true if userId matches to the logged in user.
          * @returns {boolean}
          */
-        isLoggedIn(userId:number):boolean {
+        isLoggedIn(userId:string):boolean {
             this.$log.debug('SessionController isLoggedIn("' + userId + '")');
             if (!userId) {
                 this.$log.info('SessionController isLoggedIn("' + userId + '") - nope');
