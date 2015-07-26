@@ -15,21 +15,9 @@ var db = new Datastore({filename: './data/user.db', autoload: true});
 function publicLoadUser(userId:string, callback) {
     console.log("userStore - loadUser('" + userId + "')");
 
-
-    //db.findOne({_id: id}, function (err, doc) {
-    //    callback(err, doc);
-    //});
-
-    // TODO read user from database
-
-    var user = {
-        "_id": 2,
-        "name": "rowens1",
-        "email": "ntorres1@weather.com",
-        "password": "rowens1"
-    };
-
-    callback({}, user);
+    db.findOne({_id: userId}, function (err, user) {
+        callback(err, user);
+    });
 }
 
 /**
