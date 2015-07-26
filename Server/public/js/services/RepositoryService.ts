@@ -16,6 +16,7 @@ module fettyBossy.Services {
          * load all available recipes from server - hold result in this.recipes
          */
         loadRecipes():ng.IPromise<Array<fettyBossy.Data.IRecipe>>;
+        loadRecipesByUser(userId:string):ng.IPromise<Array<fettyBossy.Data.IRecipe>>;
         /**
          * load one recipe from server by id
          * @param recipeId
@@ -25,15 +26,11 @@ module fettyBossy.Services {
          * returns loaded recipes
          */
         getRecipes():Array<fettyBossy.Data.IRecipe>;
-
-        getRecipe(recipeId:string);
-
         /**
          * save given recipe in backend
          * @param recipe
          */
         saveRecipe(recipe:fettyBossy.Data.IRecipe):ng.IPromise<fettyBossy.Services.ISaveRecipeResult>;
-
         /**
          * load one user from server by id
          * @param userId
@@ -48,6 +45,7 @@ module fettyBossy.Services {
 
     class Repository implements IRepository {
         static LOAD_ALL_RECIPES_URL:string = '/api/recipe';
+        static LOAD_ALL_RECIPES_BY_USER_URL:string = '/api/recipe/byUser/';
         static LOAD_RECIPE_BY_ID:string = '/api/recipe/';
         static SAVE_RECIPE:string = '/api/recipe';
         static LOAD_USER_BY_ID:string = '/api/user/';
@@ -76,6 +74,20 @@ module fettyBossy.Services {
             return deferred.promise;
         }
 
+        loadRecipesByUser(userId:string):ng.IPromise<Array<fettyBossy.Data.IRecipe>> {
+            this.$log.debug("Repository loadRecipesByUser('" + userId + "')");
+            var deferred = this.$q.defer();
+
+            this.$http.get(Repository.LOAD_ALL_RECIPES_BY_USER_URL + userId).then((data) => {
+                var loadedRecipes = <Array<fettyBossy.Data.IRecipe>>data.data;
+                this.updateCacheForRecipes(loadedRecipes);
+                this.$log.debug("Repository loadRecipesByUser('" + userId + "') - loaded recipes, returning '" + loadedRecipes.length + "' recipes");
+                deferred.resolve(loadedRecipes);
+            });
+
+            return deferred.promise;
+        }
+
         loadRecipe(recipeId:string):ng.IPromise<fettyBossy.Data.IRecipe> {
             this.$log.debug('Repository loadRecipe(' + recipeId + ')');
             var deferred = this.$q.defer();
@@ -84,6 +96,10 @@ module fettyBossy.Services {
                 var recipe:fettyBossy.Data.IRecipe;
                 recipe = <fettyBossy.Data.IRecipe>(data.data);
                 this.$log.debug('Repository loadRecipe(' + recipeId + ') - loaded recipe');
+
+                // update local cache
+                this.updateCacheForRecipes([recipe]);
+
                 deferred.resolve(recipe);
             });
 
@@ -99,16 +115,6 @@ module fettyBossy.Services {
             return this.recipes;
         }
 
-        getRecipe(recipeId:string):fettyBossy.Data.IRecipe {
-            this.$log.debug('Repository getRecipe("' + recipeId + '")');
-
-            var filterById = function (recipe) {
-                //if
-            }
-
-            return this.getRecipes()[recipeId]; // TODO find by id
-        }
-
         saveRecipe(recipe:fettyBossy.Data.IRecipe) {
             this.$log.debug('Repository saveRecipe(' + recipe + ')');
             var deferred = this.$q.defer();
@@ -119,7 +125,11 @@ module fettyBossy.Services {
             this.$http.post(Repository.SAVE_RECIPE, recipe)
                 .success((recipe) => {
                     response.successful = true;
-                    response.savedRecipe = recipe;
+                    response.savedRecipe = <fettyBossy.Data.IRecipe>recipe;
+
+                    // update local cache
+                    this.updateCacheForRecipes([recipe]);
+
                     deferred.resolve(response);
                 }).error((data, status, header, config) => {
                     response.successful = false;
@@ -155,6 +165,25 @@ module fettyBossy.Services {
             });
 
             return deferred.promise;
+        }
+
+        /**
+         * replace recipe in local cache with given recipe
+         * @param loadedRecipes:Array<fettyBossy.Data.IRecipe> the new ones
+         */
+        private updateCacheForRecipes(loadedRecipes:Array<fettyBossy.Data.IRecipe>) {
+            var recipes = this.recipes;
+            loadedRecipes.forEach(function (loadedRecipe) {
+
+                // remove recipe with the same id
+                recipes.forEach(function (oldRecipe, index) {
+                    if (oldRecipe._id === loadedRecipe._id) {
+                        recipes.splice(index, 1);
+                    }
+                });
+                // add the new recipe
+                recipes.push(loadedRecipe);
+            });
         }
     }
 

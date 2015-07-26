@@ -31,6 +31,19 @@ function publicLoadRecipe(recipeId:string, callback) {
 }
 
 /**
+ * load all recipes for given user
+ * @param userId
+ * @param callback
+ */
+function publicLoadRecipesByUser(userId:string, callback) {
+    console.log("recipeStore - publicLoadRecipesByUser('" + userId + "')");
+    db.find({userId: userId}, function (err, recipes) {
+        console.log("recipeStore - publicLoadRecipesByUser('" + userId + "') - returning '" + recipes.length + "' recipes");
+        callback(err, recipes);
+    });
+}
+
+/**
  * load one recipe by it's id
  * @param recipe:fettyBossy.Data.IRecipe
  * @param callback
@@ -38,13 +51,13 @@ function publicLoadRecipe(recipeId:string, callback) {
 function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
     console.log("recipeStore - publicPersistRecipe('" + recipe + "')");
 
-    var dbCallback = function(err, savedRecipe) {
+    var dbCallback = function (err, savedRecipe) {
         callback(err, savedRecipe);
     };
 
-    if (recipe._id){
+    if (recipe._id) {
         db.update({_id: recipe._id}, recipe, dbCallback);
-    }else {
+    } else {
         db.insert(recipe, dbCallback);
     }
 }
@@ -52,5 +65,6 @@ function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
 module.exports = {
     loadAll: publicLoadAll,
     loadRecipe: publicLoadRecipe,
+    loadRecipesByUser: publicLoadRecipesByUser,
     persistRecipe: publicPersistRecipe
 };

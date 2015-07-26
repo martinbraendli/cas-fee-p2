@@ -18,6 +18,7 @@ module.exports = (function () {
     router.get("/", recipeCtrl.getAll);
     router.post("/", recipeCtrl.saveRecipe);
     router.get("/:recipeId/", recipeCtrl.getRecipe);
+    router.get("/byUser/:userId/", recipeCtrl.getRecipeByUser);
 
     return router;
 })();

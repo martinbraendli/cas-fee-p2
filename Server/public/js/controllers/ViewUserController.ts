@@ -9,6 +9,7 @@ module fettyBossy.Controllers {
     export class ViewUserController {
 
         user:fettyBossy.Data.IUser;
+        recipes:Array<fettyBossy.Data.IRecipe>;
         recipeFilter:ISearchRecipeFilter;
 
         public static $inject = ['$log', 'user'];

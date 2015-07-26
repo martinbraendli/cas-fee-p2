@@ -35,6 +35,19 @@ function publicGetRecipe(req, res) {
  * @param req
  * @param res
  */
+function publicGetRecipeByUser(req, res) {
+    var userId:string = req.params.userId;
+
+    recipeStore.loadRecipesByUser(userId, function (err, recipes) {
+        res.json(recipes);
+    });
+}
+
+/**
+ *
+ * @param req
+ * @param res
+ */
 function publicSaveRecipe(req, res) {
     var recipe = req.body;
 
@@ -46,5 +59,6 @@ function publicSaveRecipe(req, res) {
 module.exports = {
     getAll: publicGetAll,
     getRecipe: publicGetRecipe,
+    getRecipeByUser: publicGetRecipeByUser,
     saveRecipe: publicSaveRecipe
 };

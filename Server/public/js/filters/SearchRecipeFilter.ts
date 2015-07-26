@@ -14,6 +14,10 @@ module fettyBossy.Filter {
     export function SearchRecipeFilter() {
         return function (recipes:Array<fettyBossy.Data.IRecipe>,
                          recipeFilter:fettyBossy.Filter.ISearchRecipeFilter):Array<fettyBossy.Data.IRecipe> {
+            if (!recipes || recipes.length == 0){
+                return recipes;
+            }
+
             var resultRecipes:Array<fettyBossy.Data.IRecipe> = recipes;
             // 1. filter by user
             if (recipeFilter.userId) {

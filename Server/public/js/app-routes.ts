@@ -70,16 +70,15 @@ module fettyBossy {
                                   $location:ng.ILocationService) {
                             $log.debug("app-routes: resolve for '/addRecipe' params");
 
-                            //if (!SessionService.getUser()) {
-                            //    // not logged in, redirect to login
-                            //    $location.path("/login");
-                            //    // TODO messaging?
-                            //    alert("Not logged in!");
-                            //    return;
-                            //}
-
+                            if (!SessionService.getUser()) {
+                                alert("Not logged in!");
+                                // not logged in, redirect to login
+                                $location.path("/login");
+                                return;
+                            }
+                            // return new recipe with user set
                             return {
-                   //             userId: SessionService.getUser()._id
+                                userId: SessionService.getUser()._id
                             };
                         }]
                 }
@@ -115,8 +114,15 @@ module fettyBossy {
                         function (RepositoryService:fettyBossy.Services.IRepository,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
-                            $log.debug("app-routes: resolve for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
+                            $log.debug("app-routes: resolve 'user' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
                             return RepositoryService.loadUser($route.current.params.userId);
+                        }],
+                    recipes: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve 'recipes' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
+                            return RepositoryService.loadRecipesByUser($route.current.params.userId);
                         }]
                 }
             })
