@@ -39,6 +39,10 @@ module fettyBossy.Controllers {
                 return false;
             }
 
+            if (!this.$scope.ratings || this.$scope.ratings.length == 0) {
+                return false;
+            }
+
             var filterByUser = function (rating:fettyBossy.Data.IRating) {
                 if (rating.userId) {
                     return (rating.userId === currentUser._id);
