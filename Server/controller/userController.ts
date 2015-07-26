@@ -18,6 +18,31 @@ function publicGetUser(req, res) {
     });
 }
 
+function publicRegisterUser(req, res) {
+    var user:fettyBossy.Data.IUser = req.body;
+
+    userStore.checkUserExists(user, function (err, users) {
+        if (users && users.length > 0) {
+            // error
+            res.status(400);
+            var response = <fettyBossy.Services.IRegisterUserResult>{};
+            response.successful = false;
+            response.message = 'user exists';
+            res.json(response);
+        } else {
+            // user does not exist yet > save it
+            userStore.persistUser(user, function (err, savedUser) {
+                var response = <fettyBossy.Services.IRegisterUserResult>{};
+                response.successful = false;
+                response.message = 'user saved';
+                response.registeredUser = savedUser;
+                res.json(response);
+            });
+        }
+    });
+}
+
 module.exports = {
-    getUser: publicGetUser
+    getUser: publicGetUser,
+    registerUser: publicRegisterUser
 };

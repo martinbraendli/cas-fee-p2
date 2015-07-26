@@ -17,6 +17,7 @@ module.exports = (function () {
 
     router.get("/", userCtrl.getUser);
     router.get("/:userId/", userCtrl.getUser);
+    router.post("/register/", userCtrl.registerUser);
 
     return router;
 })();

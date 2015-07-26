@@ -11,6 +11,12 @@ module fettyBossy.Services {
         savedRecipe: fettyBossy.Data.IRecipe;
     }
 
+    export interface IRegisterUserResult {
+        successful: boolean;
+        message: string;
+        registeredUser: fettyBossy.Data.IUser;
+    }
+
     export interface IRepository {
         /**
          * load all available recipes from server - hold result in this.recipes
@@ -37,6 +43,11 @@ module fettyBossy.Services {
          */
         loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser>;
         /**
+         * register user, check if mail or user exists
+         * @param user
+         */
+        registerUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult>;
+        /**
          * load all ratings for given recipe
          * @param recipeId
          */
@@ -48,7 +59,10 @@ module fettyBossy.Services {
         static LOAD_ALL_RECIPES_BY_USER_URL:string = '/api/recipe/byUser/';
         static LOAD_RECIPE_BY_ID:string = '/api/recipe/';
         static SAVE_RECIPE:string = '/api/recipe';
+
         static LOAD_USER_BY_ID:string = '/api/user/';
+        static REGISTER_USER:string = '/api/user/register';
+
         static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/rating/';
 
         recipes:Array<fettyBossy.Data.IRecipe> = [];
@@ -119,7 +133,6 @@ module fettyBossy.Services {
             this.$log.debug('Repository saveRecipe(' + recipe + ')');
             var deferred = this.$q.defer();
 
-            var response:fettyBossy.Services.ISaveRecipeResult;
             var response = <fettyBossy.Services.ISaveRecipeResult>{};
 
             this.$http.post(Repository.SAVE_RECIPE, recipe)
@@ -152,6 +165,26 @@ module fettyBossy.Services {
 
             return deferred.promise;
         }
+
+        registerUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult> {
+            this.$log.debug('Repository registerUser(' + user + ')');
+            var deferred = this.$q.defer();
+
+            var response = <fettyBossy.Services.IRegisterUserResult>{};
+
+            this.$http.post(Repository.REGISTER_USER, user)
+                .success((data) => {
+                    response.successful = true;
+                    response.registeredUser = data.registeredUser;
+                    deferred.resolve(response);
+                }).error((data, status, header, config) => {
+                    response.successful = false;
+                    deferred.resolve(response);
+                });
+
+            return deferred.promise;
+        }
+
 
         loadRatings(recipeId:string):ng.IPromise<Array<fettyBossy.Data.IRating>> {
             this.$log.debug('Repository loadRatings(' + recipeId + ')');

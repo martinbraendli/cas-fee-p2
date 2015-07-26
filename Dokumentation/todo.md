@@ -16,10 +16,7 @@
  - Security-Module...
 - Security / Roles (clientseitig)
 - Bilder an Server senden
-- Server aufbauen
-- TS-Compile als GULP
-- user-details-directive mit eigenem Controller (ohne URL-Abhängigkeit)
 - Stückelungen von Server inkl. Searchdropdown
 
- 
+http://danialk.github.io/blog/2013/02/20/simple-authentication-in-nodejs/ 
  
