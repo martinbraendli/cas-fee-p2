@@ -12,13 +12,29 @@ console.info("Server starting");
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require("cookie-parser");
 var session = require("express-session");
 
 var app = express();
 var router = express.Router();
 
+app.use(bodyParser());
+app.use(cookieParser('fettyBossy'));
+app.use(session());
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
+
+app.use(function (req, res, next) {
+    var err = req.session.error,
+        msg = req.session.success;
+    delete req.session.error;
+    delete req.session.success;
+    res.locals.message = '';
+    if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
+    if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
+    next();
+});
 
 // routes
 app.use('/api/', require('./routes/indexRoutes.js'));
