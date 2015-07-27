@@ -13,7 +13,7 @@ var db = new Datastore({filename: './data/recipe.db', autoload: true});
  */
 function publicLoadAll(callback) {
     console.log("recipeStore - loadAll()");
-    db.find({}, function (err, recipes) {
+    db.find({}, function (err, recipes:Array<fettyBossy.Data.IRecipe>) {
         callback(err, recipes);
     });
 }
@@ -25,7 +25,7 @@ function publicLoadAll(callback) {
  */
 function publicLoadRecipe(recipeId:string, callback) {
     console.log("recipeStore - loadRecipe('" + recipeId + "')");
-    db.findOne({_id: recipeId}, function (err, recipe) {
+    db.findOne({_id: recipeId}, function (err, recipe:fettyBossy.Data.IRecipe) {
         callback(err, recipe);
     });
 }
@@ -51,7 +51,7 @@ function publicLoadRecipesByUser(userId:string, callback) {
 function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
     console.log("recipeStore - publicPersistRecipe('" + recipe + "')");
 
-    var dbCallback = function (err, savedRecipe) {
+    var dbCallback = function (err, savedRecipe:fettyBossy.Data.IRecipe) {
         callback(err, savedRecipe);
     };
 
