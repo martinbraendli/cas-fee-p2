@@ -1,31 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="fettyBossy">
+<html lang="de" data-ng-app="fettyBossy">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/material.css">
     <link rel="stylesheet" href="css/styles.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="css/style-temp.css" />
-    <title>Fetty Bossy-DB version 0.1</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="css/style-temp.css" />-->
+    <title>Fetty Bossy-DB version 0.12</title>
     <style>
-        body {
-            background-image: url('pictures/pfanni-bg.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            margin: 0;
-        }
+
     </style>
 </head>
 <body>
-
-<fb-menu></fb-menu>
-
-<div class="container">
-    <div data-ng-view>
-        <!--will be filled by angular routing/templating    -->
-    </div>
+<div class="outer-wrapper mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <fb-menu></fb-menu>
+    <main class="container mdl-layout__content fb-layout">
+        <div data-ng-view>
+            <!--will be filled by angular routing/templating    -->
+        </div>
+    </main>
 </div>
-
 <!--libs-->
 <script type="text/javascript" src="js/lib/angular.js"></script>
 <script type="text/javascript" src="js/lib/angular-route.js"></script>

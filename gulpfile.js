@@ -4,7 +4,14 @@ var autoprefixer = require('gulp-autoprefixer');
 var tsd = require('gulp-tsd');
 var ts = require('gulp-typescript');
 
+
+
+ // normal Default
 gulp.task('default', []);
+
+    // watch scss and buildprocess
+gulp.task('fbwatchbuild', ['watch','copyToBuild'], function(){});
+
 
 gulp.task('build', ['sass', 'compileTypescript', 'copyToBuild']);
 
@@ -44,7 +51,7 @@ gulp.task('sass', function () {
         .pipe(autoprefixer("last 3 version", "safari 5", "ie 9"))
         // pipe it to css folder
         .pipe(gulp.dest('Server/public/css/'));
-    console.log('new css written');
+    console.log('new css has been written');
 });
 
 /**
@@ -66,7 +73,19 @@ gulp.task('copyToBuild', function () {
     gulp.src(['Server/**/*.js',
         'Server/**/*.json',
         'Server/**/*.css',
+        //'Server/**/*.jpg',
         'Server/**/*.html'])
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest('build')
+    );
+    console.log('files have been copied to build directory');
 });
 
+
+
+// gulp task-watcher function
+gulp.task('watch', function(){
+    gulp.watch('scss/*.scss', ['sass']);
+    gulp.watch('Server/**/*.html', ['copyToBuild']);
+    }
+    //console.log('watcher done');
+);
