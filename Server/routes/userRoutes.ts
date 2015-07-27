@@ -5,6 +5,7 @@
  */
 
 var userCtrl = require('../controller/userController.js');
+var authCtrl = require('../controller/authController.js');
 
 /**
  * Recipe routes
@@ -17,7 +18,10 @@ module.exports = (function () {
 
     router.get("/", userCtrl.getUser);
     router.get("/:userId/", userCtrl.getUser);
-    router.post("/register/", userCtrl.registerUser);
+
+    router.post("/register/", authCtrl.userNotExist, userCtrl.registerUser);
+    router.post("/login/", authCtrl.login);
+    router.get("/logout/:userName", authCtrl.logout);
 
     return router;
 })();
