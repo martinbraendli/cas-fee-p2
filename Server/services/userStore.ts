@@ -42,7 +42,7 @@ function publicLoadUserByName(name:string, callback) {
 function publicPersistUser(user:fettyBossy.Data.IUser, callback) {
     console.log("userStore - publicPersistUser('" + user + "')");
 
-    var dbCallback = function (err, savedUser) {
+    var dbCallback = function (err, savedUser:fettyBossy.Data.IUser) {
         callback(err, savedUser);
     };
 
