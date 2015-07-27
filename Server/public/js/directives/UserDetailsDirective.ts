@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Directive {
     'use strict';
 
@@ -9,13 +13,10 @@ module fettyBossy.Directive {
     function userDetails():ng.IDirective {
         return {
             restrict: 'E',
-           // scope: {},
+            scope: {
+                user: '=user'
+            },
             templateUrl: 'js/directives/userDetails.tpl.html',
-            controllerAs: 'viewUserCtrl',
-            controller: fettyBossy.Controllers.ViewUserController,
-            link: () => {
-
-            }
         };
     }
 }

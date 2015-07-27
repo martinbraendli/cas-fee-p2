@@ -1,9 +1,17 @@
-///<reference path='../../../typings/tsd.d.ts' />
+///<reference path='_reference.ts' />
+
+/**
+ * app-routes
+ */
 module fettyBossy {
     'use strict';
 
     angular.module('fettyBossy')
         .config(config);
+
+    interface IRecipeViewRouteParams extends ng.route.IRouteParamsService {
+        recipeId: string;
+    }
 
     function config($routeProvider:ng.route.IRouteProvider) {
         $routeProvider
@@ -15,16 +23,65 @@ module fettyBossy {
                 templateUrl: 'views/viewRecipe.tpl.html',
                 controller: 'ViewRecipeController',
                 controllerAs: 'viewRecipeCtrl',
+                resolve: {
+                    recipe: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve for '/viewRecipe/:recipeId' params '" + $route.current.params.recipeId + "'");
+                            return RepositoryService.loadRecipe($route.current.params.recipeId);
+                        }]
+                }
             })
 
         /**
-         * Editview of one recipe
+         * Edit recipe by its id
          * @param recipeId ID of recipe
          */
             .when("/editRecipe/:recipeId", {
-                templateUrl: 'views/editRecipe.tpl.html',
-                controller: 'EditRecipeController',
-                controllerAs: 'editRecipeCtrl'
+                templateUrl: 'views/addeditRecipe.tpl.html',
+                controller: 'AddeditRecipeController',
+                controllerAs: 'addeditRecipeCtrl',
+                resolve: {
+                    recipe: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve for '/editRecipe/:recipeId' params '" + $route.current.params.recipeId + "'");
+                            return RepositoryService.loadRecipe($route.current.params.recipeId);
+                        }]
+                }
+            })
+
+        /**
+         * Add new recipe
+         */
+            .when("/addRecipe", {
+                scope: {
+                    addRecipe: true
+                },
+                templateUrl: 'views/addeditRecipe.tpl.html',
+                controller: 'AddeditRecipeController',
+                controllerAs: 'addeditRecipeCtrl',
+                resolve: {
+                    recipe: ['SessionService', '$log', '$location',
+                        function (SessionService:fettyBossy.Services.ISession,
+                                  $log:ng.ILogService,
+                                  $location:ng.ILocationService) {
+                            $log.debug("app-routes: resolve for '/addRecipe' params");
+
+                            if (!SessionService.getUser()) {
+                                alert("Not logged in!");
+                                // not logged in, redirect to login
+                                $location.path("/login");
+                                return;
+                            }
+                            // return new recipe with user set
+                            return {
+                                userId: SessionService.getUser()._id
+                            };
+                        }]
+                }
             })
 
         /**
@@ -32,8 +89,16 @@ module fettyBossy {
          */
             .when("/searchRecipe", {
                 templateUrl: 'views/searchRecipe.tpl.html',
-                controller: 'SearchResultlistController',
-                controllerAs: 'searchResultlistCtrl'
+                controller: 'SearchRecipeController',
+                controllerAs: 'searchRecipeCtrl',
+                resolve: {
+                    recipes: ['RepositoryService', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve for '/searchRecipe'");
+                            return RepositoryService.loadRecipes();
+                        }]
+                }
             })
 
         /**
@@ -45,10 +110,20 @@ module fettyBossy {
                 controller: 'ViewUserController',
                 controllerAs: 'viewUserCtrl',
                 resolve: {
-                    // TODO obsolete when server runs..
-                    'Something': ['SessionService', function (SessionService:fettyBossy.Services.ISession) {
-                        return SessionService.loadUsers();
-                    }]
+                    user: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve 'user' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
+                            return RepositoryService.loadUser($route.current.params.userId);
+                        }],
+                    recipes: ['RepositoryService', '$route', '$log',
+                        function (RepositoryService:fettyBossy.Services.IRepository,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService) {
+                            $log.debug("app-routes: resolve 'recipes' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
+                            return RepositoryService.loadRecipesByUser($route.current.params.userId);
+                        }]
                 }
             })
 
@@ -58,13 +133,7 @@ module fettyBossy {
             .otherwise({
                 templateUrl: 'views/start.tpl.html',
                 controller: 'SessionController',
-                controllerAs: 'sessionCtrl',
-                resolve: {
-                    // TODO obsolete when server runs..
-                    'Something': ['SessionService', function (SessionService:fettyBossy.Services.ISession) {
-                        return SessionService.loadUsers();
-                    }]
-                }
+                controllerAs: 'sessionCtrl'
             });
     }
 }

@@ -31,6 +31,9 @@
     },
     "express-session/express-session.d.ts": {
       "commit": "54f5b04fab7c173e6bf47a381214582c13f6adea"
+    },
+    "nedb/nedb.d.ts": {
+      "commit": "977da240f263e88215a27cb44f2e31524ca07135"
     }
   }
 }

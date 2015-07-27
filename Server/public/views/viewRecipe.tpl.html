@@ -2,15 +2,19 @@ Rezept ansehen
 <br/>
 <br/>
 <div ng-controller="SessionController as sessionCtrl">
-    <a href="#/editRecipe/{{viewRecipeCtrl.recipe.id}}" ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author.id)">EDIT</a>
+    <a href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
+       ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author._id)">EDIT</a>
 </div>
 <br/>
 <br/>
-Title: {{viewRecipeCtrl.recipe.title}}<br/>
-Author: {{viewRecipeCtrl.recipe.author.name}}<br/>
-Anzahl Personen: {{viewRecipeCtrl.recipe.numPerson}}<br/>
-Backzeit: {{viewRecipeCtrl.recipe.bakingTime | minutesToHoursMinutes}}<br/>
-Vorbereitungszeit: {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinutes}}<br/>
+<div style="background-color: white">
+    Title: {{viewRecipeCtrl.recipe.title}}<br/>
+    Author: {{viewRecipeCtrl.recipe.author.name}}<br/>
+    Anzahl Personen: {{viewRecipeCtrl.recipe.numPerson}}<br/>
+    Backzeit: {{viewRecipeCtrl.recipe.bakingTime | minutesToHoursMinutes}}<br/>
+    Vorbereitungszeit: {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinutes}}
+</div>
+<br/>
 Images:
 <div ng-repeat="image in viewRecipeCtrl.recipe.images">
     <img ng-src="{{image.src}}" width="300"/>
@@ -18,7 +22,4 @@ Images:
 </div>
 
 
-<!-- TODO roles: roleController:  -->
-
-
-<fb-list-recipe-ratings data-recipe-id="{{viewRecipeCtrl.recipe.id}}"></fb-list-recipe-ratings>
+<fb-list-recipe-ratings recipe="viewRecipeCtrl.recipe"></fb-list-recipe-ratings>

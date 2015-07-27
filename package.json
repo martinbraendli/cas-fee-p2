@@ -11,7 +11,8 @@
     "angular-route": "~1.4.*",
     "body-parser": "~1.13.2",
     "express": "~4.13.1",
-    "express-session": "~1.11.3"
+    "express-session": "~1.11.3",
+    "nedb": "~1.1.2"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

@@ -1,8 +1,9 @@
 Mein Account
-<fb-user-details></fb-user-details>
+<fb-user-details user="viewUserCtrl.user"></fb-user-details>
 
 <br/>
 <br/>
 <br/>
 Meine Rezepte:
-<fb-search-resultlist data-user="{{viewUserCtrl.user.id}}"></fb-search-resultlist>
+<fb-search-resultlist recipes="viewUserCtrl.recipes"
+                      recipe-filter="viewUserCtrl.recipeFilter"></fb-search-resultlist>

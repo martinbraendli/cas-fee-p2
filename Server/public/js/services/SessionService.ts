@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Services {
     'use strict';
 
@@ -9,18 +13,12 @@ module fettyBossy.Services {
          * Set the given user as logged in.
          *
          * @param user
-         * @returns false if login failed, otherwise true
          */
-        setUser(user:fettyBossy.Data.IUser):boolean;
+        setUser(user:fettyBossy.Data.IUser);
         /**
          * returns current logged in user, null if not set.
          */
         getUser():fettyBossy.Data.IUser;
-        /**
-         * returns user with given id, null if user not found
-         * @param id
-         */
-        findUser(id:number):fettyBossy.Data.IUser;
         /**
          * check if given user with same name exists.
          * @param user
@@ -61,8 +59,8 @@ module fettyBossy.Services {
             var deferred = this.$q.defer();
 
             if (!this.users) {
-                this.$http.get('js/data/users.json').then((data) => {
-                    this.users = <Array<fettyBossy.Data.IUser>> data.data;
+                this.$http.get('/api/user').then((data) => {
+                 //   this.users = <Array<fettyBossy.Data.IUser>> data.data;
                     deferred.resolve(this.users);
                 });
             } else {
@@ -74,10 +72,12 @@ module fettyBossy.Services {
         setUser(user:fettyBossy.Data.IUser) {
             this.$log.debug('Session setUser("' + user + '")');
             if (user == null) {
-                this.$log.info('Session setUser("' + user + '") - = logout');
+                this.$log.info('Session setUser("' + user + '") - logout');
                 this.user = null;
                 return;
             }
+
+            // TODO do login on server
 
             for (var k in this.users) {
                 var u = this.users[k];
@@ -92,29 +92,7 @@ module fettyBossy.Services {
         }
 
         getUser():fettyBossy.Data.IUser {
-            this.$log.debug('Session getUser()');
-
             return this.user;
-        }
-
-        findUser(id:number):fettyBossy.Data.IUser {
-            this.$log.debug('Session findUser("' + id + '")');
-
-            if (this.user && this.user.id === id) {
-                this.$log.info('Session findUser("' + id + '") - is current user');
-                return this.user;
-            }
-
-            // find user
-            for (var k in this.users) {
-                var u = this.users[k];
-                if (u.id === id) {
-                    this.$log.info('Session findUser("' + id + '") - found');
-                    return u;
-                }
-            }
-
-            return null;
         }
 
         userExists(user:fettyBossy.Data.IUser):boolean {
@@ -151,8 +129,13 @@ module fettyBossy.Services {
             return false;
         }
 
-        register(user:fettyBossy.Data.IUser):user {
-            user.id = 999; // TODO generate on server
+        register(user:fettyBossy.Data.IUser):fettyBossy.Data.IUser {
+            user._id = "999"; // TODO generate on server
+
+            if (!this.users){
+                this.users = [];
+            }
+
             this.users.push(user);
             return user;
         }

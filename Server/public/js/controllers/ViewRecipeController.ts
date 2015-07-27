@@ -1,24 +1,21 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Controllers {
     'use strict';
-
-    interface IRecipeViewRouteParams extends ng.route.IRouteParamsService {
-        recipeId: number;
-    }
 
     export class ViewRecipeController {
 
         recipe:fettyBossy.Data.IRecipe;
-        searchQuery:string;
 
-        public static $inject = ['$log', '$routeParams', 'Repository'];
+        public static $inject = ['$log', 'recipe'];
 
         constructor(private $log:ng.ILogService,
-                    $routeParams:IRecipeViewRouteParams,
-                    private repository:fettyBossy.Services.IRepository) {
+                    recipe:fettyBossy.Data.IRecipe) {
             this.$log.debug('ViewRecipeController constructor');
-
-            this.recipe = repository.getRecipe(parseInt($routeParams.recipeId));
+            this.recipe = recipe;
         }
     }
 

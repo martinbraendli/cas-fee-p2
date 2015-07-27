@@ -1,4 +1,8 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Directive {
     'use strict';
 
@@ -9,13 +13,15 @@ module fettyBossy.Directive {
     function searchForm():ng.IDirective {
         return {
             restrict: 'E',
-           // scope: {},
+            scope: {
+                recipeFilter: '=recipeFilter'
+            },
             templateUrl: 'js/directives/searchForm.tpl.html',
-            controllerAs: 'searchResultlistCtrl',
-            controller: fettyBossy.Controllers.SearchResultlistController,
-            link: () => {
-
-            }
+            //controllerAs: 'searchResultlistCtrl',
+            //controller: fettyBossy.Controllers.SearchResultlistController,
+            //link: () => {
+            //
+            //}
         };
     }
 }

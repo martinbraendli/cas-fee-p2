@@ -1,11 +1,12 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
 module fettyBossy.Data {
     'use strict';
 
     export interface IImage {
-        id: number;
+        _id: string;
+        userId: string;
+
         src: string;
         position: number; // default image will be displayed in search result list
-        author: fettyBossy.Data.IUser;
     }
 }

@@ -1,3 +1,9 @@
+///<reference path='../_reference.ts' />
+
 /**
- * Created by martin on 15.07.2015.
+ * indexController
  */
+
+module.exports = {
+
+};

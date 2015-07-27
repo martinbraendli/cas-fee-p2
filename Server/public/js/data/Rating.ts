@@ -1,11 +1,13 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
 module fettyBossy.Data {
     'use strict';
 
     export interface IRating {
-        id: number;
+        _id: string;
+        recipeId: string;
+        userId: string;
+
         comment: string;
-        author: fettyBossy.Data.IUser;
         stars: number; // 1 to 5 stars
     }
 }

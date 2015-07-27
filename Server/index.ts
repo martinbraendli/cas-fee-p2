@@ -1,6 +1,9 @@
+///<reference path='_reference.ts' />
+
 /**
  * Entry-Point for server
  */
+
 var config = {
     port: 3000
 };
@@ -19,7 +22,9 @@ app.use(bodyParser.json());
 
 // routes
 app.use('/api/', require('./routes/indexRoutes.js'));
+app.use('/api/rating', require('./routes/ratingRoutes.js'));
 app.use('/api/recipe', require('./routes/recipeRoutes.js'));
+app.use('/api/user', require('./routes/userRoutes.js'));
 
 // static serving
 app.use(express.static(__dirname + '/public'));

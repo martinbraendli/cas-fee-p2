@@ -1,8 +1,8 @@
 <div class="searchResultlist">
 <label>Results:</label>
 
-    <div ng-repeat="recipe in searchResultlistCtrl.recipes | recipeByUserFilter: searchResultlistCtrl.userQuery | filter: searchResultlistCtrl.searchQuery">
-        <a href="#/viewRecipe/{{recipe.id}}">{{recipe.title}}</a>
+    <div ng-repeat="recipe in recipes | SearchRecipeFilter: recipeFilter">
+        <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
     </div>
 </div>
 

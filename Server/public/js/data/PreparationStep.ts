@@ -1,9 +1,15 @@
-///<reference path='../../../../typings/tsd.d.ts' />
+///<reference path='../_reference.ts' />
+
+/**
+ *
+ */
 module fettyBossy.Data {
     'use strict';
 
     export interface IPreparationStep {
-        id: number; // unique id
+        _id: string; // unique id
+        recipeId: string;
+
         position: number; // position of step in recipe
         text: string; // text describing the doing
     }
