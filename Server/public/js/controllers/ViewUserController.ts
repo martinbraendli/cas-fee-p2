@@ -12,12 +12,14 @@ module fettyBossy.Controllers {
         recipes:Array<fettyBossy.Data.IRecipe>;
         recipeFilter:ISearchRecipeFilter;
 
-        public static $inject = ['$log', 'user'];
+        public static $inject = ['$log', 'user', 'recipes'];
 
         constructor(private $log:ng.ILogService,
-                    user:fettyBossy.Data.IUser) {
+                    user:fettyBossy.Data.IUser,
+                    recipes:Array<fettyBossy.Data.IRecipe>) {
             this.$log.debug('ViewUserController constructor');
             this.user = user;
+            this.recipes = recipes;
             // recipe filter for current user;
             this.recipeFilter = <ISearchRecipeFilter>{
                 userId: user._id
