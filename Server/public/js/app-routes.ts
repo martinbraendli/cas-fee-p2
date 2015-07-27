@@ -9,10 +9,6 @@ module fettyBossy {
     angular.module('fettyBossy')
         .config(config);
 
-    interface IRecipeViewRouteParams extends ng.route.IRouteParamsService {
-        recipeId: string;
-    }
-
     function config($routeProvider:ng.route.IRouteProvider) {
         $routeProvider
         /**

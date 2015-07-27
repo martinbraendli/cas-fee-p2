@@ -7,14 +7,18 @@ module fettyBossy.Controllers {
     'use strict';
 
     export class SessionController {
+        static SESSION_LOGIN:string = '/api/user/login/';
+        static SESSION_LOGOUT:string = '/api/user/logout/';
 
-        public static $inject = ['$log', '$location', 'SessionService'];
+        public static $inject = ['$log', '$location', 'SessionService', '$http', '$q'];
 
         loginError:fettyBossy.Controllers.IUserFormValidationResponse;
 
         constructor(private $log:ng.ILogService,
                     private $location:ng.ILocationService,
-                    private sessionService:fettyBossy.Services.ISession) {
+                    private sessionService:fettyBossy.Services.ISession,
+                    private $http:ng.IHttpService,
+                    private $q:ng.IQService) {
             this.$log.debug('SessionController constructor');
         }
 
@@ -26,32 +30,24 @@ module fettyBossy.Controllers {
         login(user:fettyBossy.Data.IUser):boolean {
             this.$log.debug('SessionController login("' + user + '")');
 
-            this.loginError = <fettyBossy.Controllers.IUserFormValidationResponse>{};
-
-            if (!this.sessionService.userExists(user)) {
-                this.$log.error('SessionController login("' + user + '") - failed: user unknown');
-                this.loginError.message = "Benutzer nicht bekannt";
-                this.loginError.nameMessage = "Benutzer nicht bekannt";
-                return false;
-            }
-
-            if (!this.sessionService.passwordMatches(user)) {
-                this.$log.error('SessionController login("' + user + '") - failed: password incorrect');
-                this.loginError.message = "Passwort falsch";
-                this.loginError.passwordMessage = "Passwort falsch";
-                return false;
-            }
-            // alles ok
-            this.$log.info('SessionController login("' + user + '") - successful');
-            this.sessionService.setUser(user);
-            this.loginError = null;
-
-            this.$location.path('/searchRecipe');
+            this.$http.post(SessionController.SESSION_LOGIN, user)
+                .success((user) => {
+                    // alles ok
+                    this.$log.info('SessionController login("' + user + '") - successful');
+                    this.sessionService.setUser(user);
+                    this.$location.path('/searchRecipe');
+                })
+                .error((data, status, header, config)=> {
+                    alert("login failed");
+                    // todo antwort auslesen?
+                });
 
             return true;
         }
 
         logout() {
+            this.$log.debug('SessionController logout');
+            this.$http.get(SessionController.SESSION_LOGOUT + this.sessionService.getUser().name);
             this.sessionService.setUser(null);
         }
 
@@ -61,9 +57,7 @@ module fettyBossy.Controllers {
          * @returns {boolean}
          */
         isLoggedIn(userId:string):boolean {
-            this.$log.debug('SessionController isLoggedIn("' + userId + '")');
             if (!userId) {
-                this.$log.info('SessionController isLoggedIn("' + userId + '") - nope');
                 return false;
             }
             var user = this.sessionService.getUser();

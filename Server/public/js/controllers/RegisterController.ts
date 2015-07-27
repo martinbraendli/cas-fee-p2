@@ -8,12 +8,13 @@ module fettyBossy.Controllers {
 
     export class RegisterController {
 
-        public static $inject = ['$log', 'RepositoryService', '$location'];
+        public static $inject = ['$log', 'RepositoryService', 'SessionService', '$location'];
 
         registerError:string;
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
+                    private SessionService:fettyBossy.Services.ISession,
                     private $location:ng.ILocationService) {
             this.$log.debug('RegisterController constructor');
         }
@@ -22,13 +23,16 @@ module fettyBossy.Controllers {
             this.$log.debug('RegisterController register("' + user + '")');
 
             var $location = this.$location;
+            var sessionService = this.SessionService;
             var registerError = this.registerError;
 
             this.repository.registerUser(user)
                 .then(function (result:fettyBossy.Services.IRegisterUserResult) {
                     if (result.successful) {
                         registerError = null;
+                        sessionService.setUser(result.registeredUser);
                         alert("registered user '" + result.registeredUser.name + "'");
+
                         $location.path("/viewUser/" + result.registeredUser._id);
                     } else {
                         registerError = result.message;
