@@ -14,7 +14,7 @@ var ratingStore = require('../services/ratingStore.js');
 function publicGetRatings(req, res) {
     var recipeId:string = req.params.recipeId;
 
-    ratingStore.loadRatings(recipeId, function (err, ratings) {
+    ratingStore.loadRatings(recipeId, function (err, ratings:Array<fettyBossy.Data.IRating>) {
         res.json(ratings);
     })
 }
