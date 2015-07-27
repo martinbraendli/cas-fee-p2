@@ -73,7 +73,7 @@ module fettyBossy {
                             if (!SessionService.getUser()) {
                                 alert("Not logged in!");
                                 // not logged in, redirect to login
-                                $location.path("/login");
+                                $location.path("/");
                                 return;
                             }
                             // return new recipe with user set
