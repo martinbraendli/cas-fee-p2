@@ -5,6 +5,7 @@
  */
 
 var recipeCtrl = require('../controller/recipeController.js');
+var authCtrl = require('../controller/authController.js');
 
 /**
  * Recipe routes
@@ -16,7 +17,7 @@ module.exports = (function () {
     var router = express.Router();
 
     router.get("/", recipeCtrl.getAll);
-    router.post("/", recipeCtrl.saveRecipe);
+    router.post("/", authCtrl.requiredAuthentication, recipeCtrl.saveRecipe);
     router.get("/:recipeId/", recipeCtrl.getRecipe);
     router.get("/byUser/:userId/", recipeCtrl.getRecipeByUser);
 
