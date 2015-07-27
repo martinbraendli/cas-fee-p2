@@ -15,7 +15,7 @@ var db = new Datastore({filename: './data/rating.db', autoload: true});
 function publicLoadRatings(recipeId:string, callback) {
     console.log("ratingStore - loadRatings('" + recipeId + "')");
 
-    db.find({recipeId: recipeId}, function (err, ratings) {
+    db.find({recipeId: recipeId}, function (err, ratings:Array<fettyBossy.Data.IRating>) {
         callback(err, ratings);
     });
 }
