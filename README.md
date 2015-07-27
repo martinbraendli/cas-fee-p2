@@ -10,7 +10,7 @@ Login Username / PW
 - link Register New User
 - Guest View
 - eventuell: Slider mit 3 Neuen Rezepten (Titel, Bild, Link)
-
+- keine weitere Navigation
 
 ### 2. Search View
 
