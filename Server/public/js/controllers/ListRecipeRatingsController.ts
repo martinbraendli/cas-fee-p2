@@ -6,14 +6,20 @@
 module fettyBossy.Controllers {
     'use strict';
 
+    import IRating = fettyBossy.Data.IRating;
+    import IListRecipeRatingsScope = fettyBossy.Directive.IListRecipeRatingsScope;
+    import IRepository = fettyBossy.Services.IRepository;
+    import ISession = fettyBossy.Services.ISession;
+    import ILogService = ng.ILogService;
+
     export class ListRecipeRatingsController {
 
         public static $inject = ['$log', 'RepositoryService', 'SessionService', '$scope'];
 
-        constructor(private $log:ng.ILogService,
-                    private repository:fettyBossy.Services.IRepository,
-                    private session:fettyBossy.Services.ISession,
-                    private $scope:fettyBossy.Directive.IListRecipeRatingsScope) {
+        constructor(private $log:ILogService,
+                    private repository:IRepository,
+                    private session:ISession,
+                    private $scope:IListRecipeRatingsScope) {
             this.$log.debug("ListRecipeRatingsController constructor - loadRatings for recipe '" + $scope.recipe._id + "'");
 
             this.reloadRatings();
@@ -43,7 +49,7 @@ module fettyBossy.Controllers {
                 return false;
             }
 
-            var filterByUser = function (rating:fettyBossy.Data.IRating) {
+            var filterByUser = function (rating:IRating) {
                 if (rating.userId) {
                     return (rating.userId === currentUser._id);
                 }
@@ -57,9 +63,9 @@ module fettyBossy.Controllers {
 
         /**
          * returns true if the given rating belongs to the logged in user
-         * @param rating:fettyBossy.Data.IRating
+         * @param rating:IRating
          */
-        isOwnRating(rating:fettyBossy.Data.IRating):boolean {
+        isOwnRating(rating:IRating):boolean {
             if (this.session.getUser() == null) {
                 return false;
             }
