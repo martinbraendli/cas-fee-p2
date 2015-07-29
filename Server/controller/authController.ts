@@ -5,6 +5,16 @@
  */
 
 var userStore = require('../services/userStore.js');
+var crypto = require('crypto');
+
+/**
+ *
+ * @param password the password in cleartext
+ * @returns the encrypted password
+ */
+function publicEncryptPassword(password:string):string {
+    return crypto.createHash('sha256').update(password).digest('hex');
+}
 
 function publicAuthenticate(name:string, password:string, callback) {
     console.log("authController publicAuthenticate('" + name + "', '****')");
@@ -15,7 +25,7 @@ function publicAuthenticate(name:string, password:string, callback) {
                 return callback(err);
             } else {
                 // check passwort
-                if (password === user.password) {           // TODO passwort verschlüsseln
+                if (publicEncryptPassword(password) === user.password) {
                     console.log("authController publicAuthenticate('" + name + "', '****') - login successful");
                     return callback(null, user);
                 } else {
@@ -89,6 +99,7 @@ function publicRequiredAuthentication(req, res, next) {
 }
 
 module.exports = {
+    encryptPassword: publicEncryptPassword,
     authenticate: publicAuthenticate,
     userNotExist: publicUserNotExist,
     login: publicLogin,

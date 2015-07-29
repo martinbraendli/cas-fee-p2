@@ -22,7 +22,10 @@ function publicGetUser(req, res) {
 function publicRegisterUser(req, res) {
     var user:fettyBossy.Data.IUser = req.body;
 
-    // TODO passwort verschlüsseln!
+    // encrypt password
+    var originalPassword = user.password;
+    user.password = authCtrl.encryptPassword(user.password);
+    // user speichern
     userStore.persistUser(user, function (err, savedUser:fettyBossy.Data.IUser) {
         var response = <fettyBossy.Services.IRegisterUserResult>{};
         response.successful = true;
@@ -30,7 +33,7 @@ function publicRegisterUser(req, res) {
         response.registeredUser = savedUser;
 
         // auto-login after registration was successful
-        authCtrl.authenticate(savedUser.name, savedUser.password, function(err, authenticatedUser:fettyBossy.Data.IUser){
+        authCtrl.authenticate(savedUser.name, originalPassword, function(err, authenticatedUser:fettyBossy.Data.IUser){
             if(authenticatedUser){
                 req.session.regenerate(function(){
                     req.session.user = user;
