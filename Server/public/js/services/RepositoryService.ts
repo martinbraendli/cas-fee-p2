@@ -141,7 +141,8 @@ module fettyBossy.Services {
                     response.savedRecipe = <fettyBossy.Data.IRecipe>recipe;
 
                     // update local cache
-                    this.updateCacheForRecipes([recipe]);
+                    var recipeArray = <Array<fettyBossy.Data.IRecipe>>[recipe];
+                    this.updateCacheForRecipes(recipeArray);
 
                     deferred.resolve(response);
                 }).error((data, status, header, config) => {
