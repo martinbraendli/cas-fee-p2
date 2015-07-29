@@ -3,6 +3,14 @@
         <div class="mdl-cell--8-col">
             <h2>Rezeptsuche</h2>
             <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
+            <div>
+                second switch
+                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                    <input type="checkbox" id="switch-1" class="mdl-switch__input"
+                           ng-model="showSearchOptions" ng-init="showSearchOptions = false"/>
+                    <span class="mdl-switch__label"  >Mehr Suchoptionen</span>
+                </label>
+            </div>
         </div>
         <div class="mdl-cell--4-col">
            <h2>Eigenes Rezept erfassen</h2>
@@ -12,7 +20,7 @@
         </div>
     </div>
     hide this row as default
-    <div class="mdl-grid searchoptions">
+    <div class="mdl-grid searchoptions" ng-show="showSearchOptions">
         <div class="mdl-cell--4-col">
             <h5>nach Kategorie suche</h5>
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Suppe</button>
