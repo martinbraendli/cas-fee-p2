@@ -12,8 +12,8 @@ module fettyBossy.Data {
         preparationTime: number; // in minutes
 
         //images: Array<fettyBossy.Data.IImage>;
-        //ingredients: Array<fettyBossy.Data.IIngredient>;
-        //preparationSteps: Array<fettyBossy.Data.IPreparationStep>;
+        ingredients: Array<fettyBossy.Data.IIngredient>;
+        preparationSteps: Array<fettyBossy.Data.IPreparationStep>;
         //ratings: Array<fettyBossy.Data.IRating>;
     }
 }
