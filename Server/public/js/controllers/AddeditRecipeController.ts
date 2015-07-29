@@ -20,6 +20,7 @@ module fettyBossy.Controllers {
 
             this.recipe = recipe;
             this.addPreparationStep(); // add initial step
+            this.addIngredient(); // add initial ingredient
         }
 
         addPreparationStep() {
@@ -31,6 +32,22 @@ module fettyBossy.Controllers {
                 text: "next..."
             };
             this.recipe.preparationSteps.push(emptyPreparationStep);
+        }
+
+        addIngredient() {
+            if (!this.recipe.ingredients) {
+                this.recipe.ingredients = [];
+            }
+            var emptyIngredient:fettyBossy.Data.IIngredient = {
+                name: null,
+                unit: null,
+                denomination: 1
+            };
+            this.recipe.ingredients.push(emptyIngredient);
+        }
+
+        deleteIngredient(index:number) {
+            this.recipe.ingredients.splice(index, 1);
         }
 
         /**
