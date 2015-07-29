@@ -1,13 +1,63 @@
-Search
+<div class="page-content searchRecipe">
+    <div class="mdl-grid">
+        <div class="mdl-cell--8-col">
+            <h2>Rezeptsuche</h2>
+            <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
+        </div>
+        <div class="mdl-cell--4-col">
+           <h2>Eigenes Rezept erfassen</h2>
+            <br />
+            <p>Registrierte Benutzer können eigene Rezepte erfassen</p>
+            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="#/addRecipe">ADD RECIPE</a>
+        </div>
+    </div>
+    hide this row as default
+    <div class="mdl-grid searchoptions">
+        <div class="mdl-cell--4-col">
+            <h5>nach Kategorie suche</h5>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Suppe</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect ">Dessert</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Hautpspeise</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Grünzeug</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Fleischzeug</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Salate</button>
+        </div>
+        <div class="mdl-cell--4-col">
+            <h5>nach Bewertung suchen</h5>
+            <br />
+            <div class="ratingRecipe">
+               <label>Anzahl Sterne</label>
+                <span>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                    <i class="material-icons">star_border</i>
+                    <i class="material-icons">star_border</i>
+               </span>
+                <input class="mdl-slider mdl-js-slider" min="1" max="5" type="range" >
+            </div>
+
+        </div>
+        <div class="mdl-cell--4-col">
+            <h5>nach Kochzeit suchen</h5>
+            <br />
+
+            <select>
+                <option>10 -20 min</option>
+                <option>20 -30 min</option>
+                <option>30 -40 min</option>
+                <option>40 -50 min</option>
+                <option>60 + min</option>
+            </select>
+        </div>
+    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell--12-col">
+            <h3>Rezepte</h3>
+            <fb-search-resultlist recipes="searchRecipeCtrl.recipes" recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-resultlist>
+        </div>
+
+    </div>
+</div>
 
 
-<a href="#/addRecipe">ADD RECIPE</a>
-
-<br/>
-<br/>
-<fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
-
-<br/>
-<br/>
-<fb-search-resultlist recipes="searchRecipeCtrl.recipes"
-                      recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-resultlist>

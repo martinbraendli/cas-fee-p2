@@ -1,6 +1,20 @@
-<div class="searchForm">
-    <label for="recipeSearchInput">Search:</label>
-
-    <input id="recipeSearchInput" type="text"
+<form class="searchForm">
+    <div class="mdl-textfield mdl-js-textfield ">
+        <label for="recipeSearchInput" class="mdl-textfield__label">ich suche ...</label>
+        <input class="mdl-textfield__input" id="recipeSearchInput" type="text"
            ng-model="recipeFilter.text"/>
-</div>
+    </div>
+    <div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent find-recipe" >Finden</button>
+    </div>
+    <div>
+        <button ng-click="showSearchOptions = !showSearchOptions" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">mehr Suchoptionen</button>
+    </div>
+    <div>
+        second switch
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+            <input type="checkbox" id="switch-1" class="mdl-switch__input"   ng-model="showSearchOptions"/>
+            <span class="mdl-switch__label"  >Mehr Suchoptionen</span>
+        </label>
+    </div>
+</form>
