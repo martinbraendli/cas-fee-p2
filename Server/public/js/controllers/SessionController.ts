@@ -49,6 +49,7 @@ module fettyBossy.Controllers {
             this.$log.debug('SessionController logout');
             this.$http.get(SessionController.SESSION_LOGOUT + this.sessionService.getUser().name);
             this.sessionService.setUser(null);
+            this.$location.path('/');
         }
 
         /**
