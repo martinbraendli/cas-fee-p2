@@ -19,6 +19,18 @@ module fettyBossy.Controllers {
             this.$log.debug('AddeditRecipeController constructor');
 
             this.recipe = recipe;
+            this.addPreparationStep(); // add initial step
+        }
+
+        addPreparationStep() {
+            if (!this.recipe.preparationSteps) {
+                this.recipe.preparationSteps = [];
+            }
+            var emptyPreparationStep:fettyBossy.Data.IPreparationStep = {
+                position: this.recipe.preparationSteps.length + 1,
+                text: "next..."
+            };
+            this.recipe.preparationSteps.push(emptyPreparationStep);
         }
 
         /**

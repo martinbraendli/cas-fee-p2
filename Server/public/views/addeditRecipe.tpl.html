@@ -16,6 +16,7 @@
         <div class="mdl-cell--6-col">
             <h4>Erstes Bild</h4>
             <img class="img-menu" src="../pictures/pfanni_800.jpg">
+
             <div class="img-buttons">
                 <button class="mdl-button">Bilder hinzufügen</button>
 
@@ -23,13 +24,16 @@
             </div>
         </div>
         <div class="mdl-cell--6-col">
-             <form>
-                 <div>
-                    <button class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised" type="submit">Menu Speichern</button>
-                 </div>
-                    <h4>Rezeptname
-                        <input type="text" class="mdl-textfield__input" value="Spaghetti Carbonara" />
-                    </h4>
+            <form>
+                <div>
+                    <button class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised" type="submit">Menu
+                        Speichern
+                    </button>
+                </div>
+                <h4>Rezeptname
+                    <input type="text" class="mdl-textfield__input" value="Spaghetti Carbonara"/>
+                </h4>
+
                 <div class="mdl-textfield mdl-js-textfield">
                     <label>Menu Beschreibung</label>
                     <textarea type="text" rows="2" class="mdl-textfield__input" id="menu-description"></textarea>
@@ -49,7 +53,7 @@
                         </select>
                     </div>
                 </div>
-                <hr />
+                <hr/>
                 <div>
 
                     <h4>Kochzeit</h4>
@@ -61,7 +65,7 @@
                         <option>60 + min</option>
                     </select>
                 </div>
-                <hr />
+                <hr/>
                 <div>
                     <h4>Zubereitungszeit</h4>
                     <select>
@@ -72,60 +76,38 @@
                         <option>60 + min</option>
                     </select>
                 </div>
-                <hr />
+                <hr/>
                 <div>
                     <h4>Zubereitung</h4>
-                    <label>1. Schritt</label>
-                    <textarea type="text" rows="3" class="mdl-textfield__input" id="menu-step-1">Beschreibung 1. Schritt</textarea>
-                    <br />
-                    <label>2. Schritt</label>
-                    <textarea type="text" rows="3" class="mdl-textfield__input" id="menu-step-2">Beschreibung 2. Schritt</textarea>
-                    <br />
-                    <label>3. Schritt</label>
-                    <textarea type="text" rows="3" class="mdl-textfield__input" id="menu-step-3"> Beschreibung 3. Schritt</textarea>
-                    <br />
-                    <button class="mdl-button mdl-button--colored ">Weitere Schritte hinzufügen</button>
+
+                    <div ng-repeat="preparationStep in addeditRecipeCtrl.recipe.preparationSteps">
+                        <label>{{preparationStep.position}}. Schritt</label>
+                        <textarea type="text" rows="3" class="mdl-textfield__input"
+                                  ng-model="preparationStep.text"></textarea>
+                    </div>
+                    <br/>
+                    <button class="mdl-button mdl-button--colored "
+                            ng-click="addeditRecipeCtrl.addPreparationStep()">Weitere Schritte hinzufügen
+                    </button>
                 </div>
-                <hr />
+                <hr/>
                 <div>
-                   <h4>Zutaten</h4>
+                    <h4>Zutaten</h4>
                     <table>
                         <thead>
-                            <tr>
-                                <td style="width: 15%;">Menge</td>
-                                <td style="width: 15%;">Einheit</td>
-                                <td style="width: 70%;">Zutat</td>
-                            </tr>
-                        </thead>
-                        <hr />
                         <tr>
-                            <td>
-                            <div class="mdl-textfield mdl-js-textfield ingredient-count ">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="ingredient-count-1" />
-                                <label class="mdl-textfield__label" >Anzahl</label>
-                                <span class="mdl-textfield__error">Das ist keine Anzahl!</span>
-                            </div>
-                            </td>
-                            <td>
-                                <select>
-                                    <option>EL</option>
-                                    <option>TL</option>
-                                    <option>Prise</option>
-                                    <option>Gramm</option>
-                                    <option>Liter</option>
-                                    <option>Stück</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="text" class="mdl-textfield__input">
-                                <label class="mdl-textfield__label" >Zutat</label>
-                            </td>
+                            <td style="width: 15%;">Menge</td>
+                            <td style="width: 15%;">Einheit</td>
+                            <td style="width: 70%;">Zutat</td>
                         </tr>
+                        </thead>
+                        <hr/>
                         <tr>
                             <td>
-                                <div class="mdl-textfield mdl-js-textfield ingredient-count">
-                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="ingridient-count-2" />
-                                    <label class="mdl-textfield__label" >Anzahl</label>
+                                <div class="mdl-textfield mdl-js-textfield ingredient-count ">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?"
+                                           id="ingredient-count-1"/>
+                                    <label class="mdl-textfield__label">Anzahl</label>
                                     <span class="mdl-textfield__error">Das ist keine Anzahl!</span>
                                 </div>
                             </td>
@@ -141,13 +123,39 @@
                             </td>
                             <td>
                                 <input type="text" class="mdl-textfield__input">
-                                <label class="mdl-textfield__label" >Zutat</label>
+                                <label class="mdl-textfield__label">Zutat</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="mdl-textfield mdl-js-textfield ingredient-count">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?"
+                                           id="ingridient-count-2"/>
+                                    <label class="mdl-textfield__label">Anzahl</label>
+                                    <span class="mdl-textfield__error">Das ist keine Anzahl!</span>
+                                </div>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>EL</option>
+                                    <option>TL</option>
+                                    <option>Prise</option>
+                                    <option>Gramm</option>
+                                    <option>Liter</option>
+                                    <option>Stück</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="mdl-textfield__input">
+                                <label class="mdl-textfield__label">Zutat</label>
                             </td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
-                            <td><button class="mdl-button  mdl-button--raised">Zutat hinzufügen</button> </td>
+                            <td>
+                                <button class="mdl-button  mdl-button--raised">Zutat hinzufügen</button>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -155,13 +163,6 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
 
 
 </div>
