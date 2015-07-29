@@ -15,7 +15,7 @@ function publicAuthenticate(name:string, password:string, callback) {
                 return callback(err);
             } else {
                 // check passwort
-                if (password === user.password) {
+                if (password === user.password) {           // TODO passwort verschlüsseln
                     console.log("authController publicAuthenticate('" + name + "', '****') - login successful");
                     return callback(null, user);
                 } else {
