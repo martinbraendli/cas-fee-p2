@@ -29,7 +29,6 @@ module fettyBossy.Controllers {
             this.repository.saveRecipe(this.recipe)
                 .then(function (result:fettyBossy.Services.ISaveRecipeResult) {
                     if (result.successful) {
-                        // TODO message!
                         alert("Save ok");
                         $location.path("/viewRecipe/" + result.savedRecipe._id);
                     } else {
