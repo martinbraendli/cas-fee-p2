@@ -11,12 +11,6 @@ body {
 .userForm input.ng-valid.ng-touched {
   background-color: #78FA89; }
 
-.user-details {
-  background-color: #0b97c4; }
-
-.searchForm {
-  background-color: #ffcdd2; }
-
 .searchResultlist {
   background-color: #B94A48; }
 
@@ -35,7 +29,6 @@ body {
 
 .outer-wrapper {
   position: absolute;
-  background-image: url("/pictures/pfanni-bg.jpg");
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
@@ -43,6 +36,12 @@ body {
   bottom: 0;
   left: 0;
   right: 0; }
+
+.fb-layout {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  background-color: #FFFFFF; }
 
 input {
   padding: 7px;
@@ -75,31 +74,35 @@ input:focus {
 .loginForm {
   padding: 7px; }
 
-/* Search */
-.fb-layout {
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%; }
+/* ---------------------Search -----*/
+.searchForm {
+  padding-top: 2rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .searchForm input {
+    padding: 7px; }
 
-.rezept1 {
-  background-image: url("../pictures/kafi_200q.jpg");
-  background-position: 50% 50%; }
+#recipeSearchInput {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.searchoptions {
+  border-top: 1px solid #ff4081; }
 
 .demo-card-square.mdl-card {
   width: 320px;
   height: 320px;
   margin-right: 20px; }
 
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background: url("../pictures/kafi_600.jpg") bottom right 15% no-repeat #46B6AC; }
-
 button {
   margin: 0.25rem; }
 
 /*details*/
 .img-detail {
-  background-image: url("../pictures/pfanni_800.jpg");
   min-height: 300px;
   height: 100%;
   background-size: contain;
@@ -109,3 +112,31 @@ button {
   margin: 0 auto;
   max-width: 1200px;
   width: 100%; }
+
+/*------------ Recipe detail - edit -------------------*/
+.editRecipe select {
+  padding: 4px; }
+
+.editRecipe textarea {
+  border: 1px solid #DDDDDD; }
+
+.editRecipe textarea:focus {
+  border: 1px solid #ff4081; }
+
+.img-menu {
+  max-width: 400px;
+  height: auto; }
+
+.img-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .img-buttons button {
+    margin-right: 16px; }
+
+.ingredient-count {
+  max-width: 100px; }
+
+.ingredient-kind {
+  max-width: 90%; }

@@ -2,31 +2,38 @@
 <html lang="de" data-ng-app="fettyBossy">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/material.css">
     <link rel="stylesheet" href="css/styles.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <!--<link rel="stylesheet" href="css/style-temp.css" />-->
+    <!--libs-->
+    <script type="text/javascript" src="js/lib/angular.js"></script>
+    <script type="text/javascript" src="js/lib/angular-animate.js"></script>
+    <script type="text/javascript" src="js/lib/angular-route.js"></script>
     <title>Fetty Bossy-DB version 0.12</title>
     <style>
-
+        .outer-wrapper{
+            background-image: url('pictures/pfanni-bg.jpg');
+        }
     </style>
 </head>
 <body>
 <div class="outer-wrapper mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <fb-menu></fb-menu>
+    <fb-menu></fb-menu>
     <main class="container mdl-layout__content fb-layout">
         <div data-ng-view>
             <!--will be filled by angular routing/templating    -->
         </div>
     </main>
 </div>
-<!--libs-->
-<script type="text/javascript" src="js/lib/angular.js"></script>
-<script type="text/javascript" src="js/lib/angular-route.js"></script>
+
 
 <!--own code - interface not imported because of no need in javascript -->
 <script type="text/javascript" src="js/app-module.js"></script>
+
 <script type="text/javascript" src="js/app-routes.js"></script>
 
 <script type="text/javascript" src="js/controllers/AddeditRecipeRatingController.js"></script>

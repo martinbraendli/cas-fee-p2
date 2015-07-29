@@ -22,7 +22,7 @@ body {
 }
 
 .user-details {
-  background-color: #0b97c4;
+  //background-color: #0b97c4;
 }
 
 .registerForm {
@@ -30,7 +30,7 @@ body {
 }
 
 .searchForm {
-  background-color: #ffcdd2;
+  //background-color: #ffcdd2;
 }
 
 .searchResultlist {
@@ -46,7 +46,7 @@ body {
 }
 
 
-// Header Navigatio
+// Header Navigation
 .header-nav{
   text-decoration: none;
   font-size: 1rem;
@@ -62,7 +62,7 @@ body {
 
 .outer-wrapper{
   position: absolute;
-  background-image: url('/pictures/pfanni-bg.jpg');
+  //background-image: url('/pictures/pfanni-bg.jpg');
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
@@ -72,6 +72,13 @@ body {
   right: 0;
 }
 
+
+.fb-layout{
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  background-color: #FFFFFF;
+}
 
 input{
   padding: 7px;
@@ -105,8 +112,8 @@ input:focus{
     padding: 3px;
     margin-top: 10px;
   }
-}
 
+}
 
 // login Form Card
 .loginForm{
@@ -114,38 +121,38 @@ input:focus{
 
 }
 
-
 // register Form Card
 .registerForm{
-    //background: #0b97c4;
-    //.formfeedback{
-    //  color: #a33;
-    //  font-style: italic;
-    //  border-radius: 2px;
-    //  border: 1px solid #aa3333;
-    //}
+
+}
+
+/* ---------------------Search -----*/
+
+
+.searchRecipe{
+
 }
 
 
-
-
-
-
-
-
-/* Search */
-
-.fb-layout{
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
+.searchForm{
+  padding-top: 2rem;
+  display: flex;
+  input{
+    padding: 7px;
+  }
 }
 
-.rezept1{
-  background-image: url('../pictures/kafi_200q.jpg');
-  background-position: 50% 50%;
+#recipeSearchInput{
+  flex-grow: 1;
 }
 
+.find-recipe{
+
+}
+
+.searchoptions{
+  border-top: 1px solid rgb(255, 64, 129);
+}
 
 .demo-card-square.mdl-card {
   width: 320px;
@@ -153,11 +160,6 @@ input:focus{
   margin-right: 20px;
 }
 
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-  url('../pictures/kafi_600.jpg') bottom right 15% no-repeat #46B6AC;
-}
 
 button{
   margin: 0.25rem;
@@ -167,7 +169,7 @@ button{
 /*details*/
 
 .img-detail{
-  background-image: url("../pictures/pfanni_800.jpg");
+  //background-image: url("../pictures/pfanni_800.jpg");
   min-height: 300px;
   height: 100%;
   background-size: contain;
@@ -178,4 +180,45 @@ button{
   margin: 0 auto;
   max-width: 1200px;
   width: 100%;
+}
+
+
+
+/*------------ Recipe detail - edit -------------------*/
+
+// top class
+.editRecipe{
+  select{
+    padding: 4px;
+  }
+
+  textarea{
+    border: 1px solid #DDDDDD;
+  }
+  textarea:focus{
+    border: 1px solid rgb(255, 64, 129);
+  }
+
+}
+
+
+.img-menu{
+  max-width: 400px;
+  height: auto;
+}
+
+.img-buttons{
+  display: flex;
+  button{
+    margin-right: 16px;
+  }
+}
+
+
+.ingredient-count{
+  max-width: 100px;
+}
+
+.ingredient-kind{
+  max-width: 90%;
 }

@@ -73,7 +73,7 @@ gulp.task('copyToBuild', function () {
     gulp.src(['Server/**/*.js',
         'Server/**/*.json',
         'Server/**/*.css',
-        //'Server/**/*.jpg',
+        'Server/**/*.jpg',
         'Server/**/*.html'])
         .pipe(gulp.dest('build')
     );

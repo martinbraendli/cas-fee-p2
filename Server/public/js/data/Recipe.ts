@@ -7,6 +7,8 @@ module fettyBossy.Data {
         userId: string;
 
         title: string; // name of the recipe
+        description: string; // recipe description
+        category: string; // kind of food
         numPerson: number; // number of person
         bakingTime: number; // in minutes
         preparationTime: number; // in minutes

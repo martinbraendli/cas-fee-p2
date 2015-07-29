@@ -1,7 +1,45 @@
 <div class="user-details">
-    User Details:
-    <br/>
-    <br/>
-    ID: {{user._id}}<br/>
-    Name: {{user.name}}
+    <div class="mdl-grid">
+        <div class="mdl-cell--6-col">
+            &nbsp;
+        </div>
+        <div class="mdl-cell--6-col">
+            <h3>User Details</h3>
+            <br/>
+            <table>
+                <tr>
+                    <td>User-ID:</td>
+                    <td>{{user._id}}</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Name_</td>
+                    <td>
+                        <input type="text" class="mdl-textfield__input" value="{{user.name}}" />
+                    </td>
+                    <td>
+                        <button class="mdl-button mdl-js-button mdl-button--primary" >Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>e-Mail:</td>
+                    <td>
+                        <input type="text" class="mdl-textfield__input" value="{{user.email}}">
+                    </td>
+                    <td>
+                        <button class="mdl-button mdl-js-button mdl-button--primary" >E-mail ändern</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Passwort:</td>
+                    <td>
+                        <input type="password" class="mdl-textfield__input" value="{{user.password}}" />
+                    </td>
+                    <td>
+                        <button class="mdl-button mdl-js-button mdl-button--primary">Passwort ändern</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
