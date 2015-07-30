@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/material.css">
-    <link rel="stylesheet" href="css/styles.css"/>
+    <!--<link rel="stylesheet" href="css/material.css">-->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-    <!--<link rel="stylesheet" href="css/style-temp.css" />-->
+
     <!--libs-->
     <script type="text/javascript" src="js/lib/angular.js"></script>
     <script type="text/javascript" src="js/lib/angular-animate.js"></script>
     <script type="text/javascript" src="js/lib/angular-route.js"></script>
-    <script type="text/javascript" src="js/lib/material.js"></script>
+    <!--<script type="text/javascript" src="js/lib/material.js"></script>-->
+
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">-->
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/fb-styles.css"/>
     <title>Fetty Bossy-DB version 0.12</title>
     <style>
         .outer-wrapper{
@@ -22,15 +26,18 @@
     </style>
 </head>
 <body>
-<div class="outer-wrapper mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="outer-wrapper mdl-layout">
     <fb-menu></fb-menu>
-    <main class="container mdl-layout__content fb-layout">
+    <main class="container">
         <div data-ng-view>
             <!--will be filled by angular routing/templating    -->
         </div>
     </main>
 </div>
 
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/lib/materialize.js"></script>
 
 <!--own code - interface not imported because of no need in javascript -->
 <script type="text/javascript" src="js/app-module.js"></script>
