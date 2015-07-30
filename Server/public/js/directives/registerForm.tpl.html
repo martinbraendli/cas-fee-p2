@@ -3,6 +3,7 @@
     <form id="registerForm" name="registerForm"
           class="userForm"
           ng-submit="registerCtrl.register(user)">
+
         <div class="input-field">
             <input type="text" id="registerName" name="registerName"
                    ng-model="user.name" required/>
@@ -11,6 +12,7 @@
                 <div ng-show="registerForm.registerName.$error.required">Sag uns deinen Namen.</div>
             </div>
         </div>
+
         <div class="input-field">
             <input type="email" id="registerEmail" name="registerEmail"
                    ng-model="user.email" required/>
@@ -20,6 +22,7 @@
                 <span ng-show="registerForm.registerEmail.$error.email">Das ist <i>keine</i> gültige E-mail adresse!</span>
             </div>
         </div>
+
         <div class="input-field">
             <label for="registerPassword">Passwort</label>
             <input type="password" id="registerPassword" name="registerPassword"
@@ -31,6 +34,7 @@
                 <div>{{registerCtrl.registerError}}</div>
             </div>
         </div>
+
         <div class="card-action">
             <button type="submit" class="btn btn-flat white"
                     ng-disabled="registerForm.$invalid">Registrieren
