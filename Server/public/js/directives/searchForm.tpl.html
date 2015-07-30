@@ -1,10 +1,11 @@
 <form class="searchForm">
-    <div class="mdl-textfield mdl-js-textfield ">
-        <label for="recipeSearchInput" class="mdl-textfield__label">ich suche ...</label>
-        <input class="mdl-textfield__input" id="recipeSearchInput" type="text"
+    <div class="input-field">
+        <input id="recipeSearchInput" type="text"
            ng-model="recipeFilter.text"/>
+        <label for="recipeSearchInput" class="">Rezepte suchen</label>
+        <button class="btn orange right-align" >Finden</button>
     </div>
     <div>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent find-recipe" >Finden</button>
+
     </div>
 </form>

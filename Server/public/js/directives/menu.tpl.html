@@ -11,8 +11,8 @@
             <li ng-show="sessionCtrl.getUser()" class="amber">
                 <a href="#/viewUser/{{sessionCtrl.getUser()._id}}">[Hallo {{sessionCtrl.getUser().name}} !]</a>
             </li>
-            <li>
-                <a href="">[Gast]</a>
+            <li ng-show="sessionCtrl.getUser()" >
+                <a href="#/addRecipe" >Rezepte erfassen</a>
             </li>
             <li>
                 <a href="#/start" ng-click="sessionCtrl.logout()" >Logout</a>
