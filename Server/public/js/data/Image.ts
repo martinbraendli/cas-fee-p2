@@ -3,9 +3,7 @@ module fettyBossy.Data {
     'use strict';
 
     export interface IImage {
-        _id: string;
-        userId: string;
-
+        name: string;
         src: string;
         position: number; // default image will be displayed in search result list
     }

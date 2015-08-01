@@ -6,24 +6,22 @@
             </div>
             <div>
                 <span ng-show="addRecipe">Rezept editieren</span>
-                <span ng-hide="addRecipe">Rezept hinzufügen</span>
-                <button type="button" ng-click="addeditRecipeCtrl.save()">Save</button>
-                <input ng-model="addeditRecipeCtrl.recipe.title"/>
+                <span ng-hide="addRecipe">Rezept hinzufï¿½gen</span>
             </div>
         </div>
     </div>
     <div class="mdl-grid">
-        testzeuts
-    </div>
-    <div class="mdl-grid">
         <div class="mdl-cell--6-col">
             <h4>Erstes Bild</h4>
-            <img class="img-menu" src="../pictures/pfanni_800.jpg">
+            <div ng-repeat="image in addeditRecipeCtrl.recipe.images">
+                <img class="img-menu" ng-src="{{image.src}}"/>
+            </div>
+            <fb-file-upload recipe="addeditRecipeCtrl.recipe"></fb-file-upload>
 
             <div class="img-buttons">
-                <button class="mdl-button">Bild hinzufügen</button>
+                <button class="mdl-button">Bild hinzufÃ¼gen</button>
 
-                <button class="mdl-button">Bild löschen</button>
+                <button class="mdl-button">Bild lÃ¶schen</button>
             </div>
         </div>
         <div class="mdl-cell--6-col">
@@ -100,7 +98,7 @@
                     </div>
                     <br/>
                     <button class="mdl-button mdl-button--colored "
-                            ng-click="addeditRecipeCtrl.addPreparationStep()">Weitere Schritte hinzufügen
+                            ng-click="addeditRecipeCtrl.addPreparationStep()">Weitere Schritte hinzufï¿½gen
                     </button>
                 </div>
                 <hr/>
@@ -130,7 +128,7 @@
                                     <option>Prise</option>
                                     <option>Gramm</option>
                                     <option>Liter</option>
-                                    <option>Stück</option>
+                                    <option>Stï¿½ck</option>
                                 </select>
                             </td>
                             <td>
@@ -145,7 +143,7 @@
                             <td>&nbsp;</td>
                             <td>
                                 <button class="mdl-button  mdl-button--raised"
-                                        ng-click="addeditRecipeCtrl.addIngredient()">Zutat hinzufügen
+                                        ng-click="addeditRecipeCtrl.addIngredient()">Zutat hinzufï¿½gen
                                 </button>
                             </td>
                         </tr>

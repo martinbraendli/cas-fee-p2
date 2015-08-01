@@ -1,4 +1,4 @@
-///<reference path="Credential.ts" />
+///<reference path="Image.ts" />
 ///<reference path="Image.ts" />
 ///<reference path="Ingredient.ts" />
 ///<reference path="PreparationStep.ts" />
