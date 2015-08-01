@@ -11,8 +11,8 @@ var db = new Datastore({filename: './data/recipe.db', autoload: true});
  * load all available recipes
  * @param callback
  */
-function publicLoadAll(callback) {
-    console.log("recipeStore - loadAll()");
+function publicLoadAllRecipes(callback) {
+    console.log("recipeStore - loadAllRecipes()");
     db.find({}, function (err, recipes:Array<fettyBossy.Data.IRecipe>) {
         callback(err, recipes);
     });
@@ -63,7 +63,7 @@ function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
 }
 
 module.exports = {
-    loadAll: publicLoadAll,
+    loadAll: publicLoadAllRecipes,
     loadRecipe: publicLoadRecipe,
     loadRecipesByUser: publicLoadRecipesByUser,
     persistRecipe: publicPersistRecipe
