@@ -1,56 +1,32 @@
 <div class="searchResultlist">
-<label>Results:</label>
-    <div ng-repeat="recipe in recipes | SearchRecipeFilter: recipeFilter">
+    <div >
         <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
+    </div>
+    <div ng-show="">
+        Die Suche hat keine Ergebnisse - nix zu essen
     </div>
     <table style="width: 100%;">
         <thead>
             <td>&nbsp;</td>
             <td>Rezept</td>
             <td>Bewertung</td>
-            <td>Kochzeit</td>
+            <td>Author</td>
         </thead>
         <tbody>
-            <tr>
+            <tr ng-repeat="recipe in recipes | SearchRecipeFilter: recipeFilter">
                 <td style="width: 20%;">
-                    <img src="pictures/kafi_200q.jpg" style="max-width: 100px; height: auto" />
+                    <img src="/pictures/food_1_q.jpg" style="max-width: 60px; height: auto" />
                 </td>
                 <td style="width: 50%;">
-                    <h5>Rezepttitel</h5>
-                    <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
+                    <h6>
+                        <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
+                    </h6>
                 </td>
                 <td style="width: 15%;">
-                    <span>
-                        <i class="material-icons">star</i>
-                        <i class="material-icons">star</i>
-                        <i class="material-icons">star_half</i>
-                        <i class="material-icons">star_border</i>
-                        <i class="material-icons">star_border</i>
-                    </span>
+                    rating: -
                 </td>
                 <td style="width: 15%;">
-                    30 min
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 20%;">
-                    <img src="pictures/kafi_200q.jpg" style="max-width: 100px; height: auto" />
-                </td>
-                <td style="width: 50%;">
-                    <h5>Mega langer Rezepttitel mit ausführlicher Beschreibung</h5>
-                    <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
-                </td>
-                <td style="width: 15%;">
-                    <span>
-                        <i class="material-icons">star</i>
-                        <i class="material-icons">star</i>
-                        <i class="material-icons">star</i>
-                        <i class="material-icons">star_half</i>
-                        <i class="material-icons">star_border</i>
-                    </span>
-                </td>
-                <td style="width: 15%;">
-                    30 min
+                   autor: -
                 </td>
             </tr>
         </tbody>

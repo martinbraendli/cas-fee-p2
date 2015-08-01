@@ -1,13 +1,37 @@
-    <header class="mdl-layout__header">
+  <nav>
+      <div class="nav-wrapper orange darken-2">
+          <a href="/" class="brand-logo">Fetty BossY <small>v0.14</small></a>
+          <ul id="nav-mobile" class="right hide-on-small-only" ng-controller="SessionController as sessionCtrl">
+            <li>
+                <a href="#/searchRecipe">Suche</a>
+            </li>
+            <li ng-hide="sessionCtrl.getUser()">
+                <a href="#/login">Login</a>
+            </li>
+            <li ng-show="sessionCtrl.getUser()" class="amber">
+                <a href="#/viewUser/{{sessionCtrl.getUser()._id}}">[Hallo {{sessionCtrl.getUser().name}} !]</a>
+            </li>
+            <li ng-show="sessionCtrl.getUser()" >
+                <a href="#/addRecipe" >Rezepte erfassen</a>
+            </li>
+            <li>
+                <a href="#/start" ng-click="sessionCtrl.logout()" >Logout</a>
+            </li>
+          </ul>
+      </div>
+  </nav>
+
+<!--
+  <header class="mdl-layout__header">
         <div class="mdl-layout__drawer-button">
             <i class="material-icons">menu</i>
         </div>
         <div class="mdl-layout__header-row header-nav">
             <span class="mdl-layout-title">Fetty Bossy DB</span>
-            <!-- Add spacer, to align navigation to the right -->
+            &lt;!&ndash; Add spacer, to align navigation to the right &ndash;&gt;
             <div class="mdl-layout-spacer"></div>
-            <!-- Navigation -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only" ng-controller="SessionController as sessionCtrl">
+            &lt;!&ndash; Navigation &ndash;&gt;
+            <nav class="mdl-navigation mdl-layout&#45;&#45;large-screen-only" ng-controller="SessionController as sessionCtrl">
                 <a href="#/searchRecipe"> Suche </a>
                 <span ng-hide="sessionCtrl.getUser()">
                     <a href="#/login">Login</a>
@@ -15,7 +39,7 @@
                 <span ng-show="sessionCtrl.getUser()">
                     <a href="#/viewUser/{{sessionCtrl.getUser()._id}}">[{{sessionCtrl.getUser().name}}]</a>
                 </span>
-                <!--display gast login-->
+                &lt;!&ndash;display gast login&ndash;&gt;
                 <span ng-hide="sessionCtrl.getUser()">
                     [ Gast ]
                 </span>
@@ -40,3 +64,4 @@
             </span>
         </nav>
     </div>
+-->

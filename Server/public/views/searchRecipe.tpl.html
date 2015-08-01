@@ -1,71 +1,125 @@
-<div class="page-content searchRecipe">
-    <div class="mdl-grid">
-        <div class="mdl-cell--8-col">
-            <h2>Rezeptsuche</h2>
+<div class="searchRecipe" style="background: #FFF;">
+    <div class="row" >
+        <div class="col s5 searchbox">
+            <h3>Rezeptsuche</h3>
+            <!-- Switch Search options-->
+            <div class="right-align">
+                <h5 >Suchoptionen</h5>
+                <div class="switch">
+                    <label>
+                        wenig
+                        <input type="checkbox"
+                               ng-model="showSearchOptions" ng-init="showSearchOptions = false">
+                        <span class="lever"></span>
+                        mehr
+                    </label>
+                </div>
+            </div>
             <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
-            <div>
-                second switch
-                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-                    <input type="checkbox" id="switch-1" class="mdl-switch__input"
-                           ng-model="showSearchOptions" ng-init="showSearchOptions = false"/>
-                    <span class="mdl-switch__label"  >Mehr Suchoptionen</span>
-                </label>
+
+            <!--more search options-->
+            <div class=""  ng-show="showSearchOptions">
+                <div class="divider"></div>
+                <div class="section foodcategory">
+                    <h5>Kategorie auswählen</h5>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="filled-in" id="suppen">
+                            <label for="suppen">Suppen</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filled-in" id="desserts">
+                            <label for="desserts">Desserts</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filled-in" id="hauptspeisen">
+                            <label for="hauptspeisen">Hauptspeisen</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filled-in" id="vegetarisch">
+                            <label for="vegetarisch">Vegetarisch</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filled-in" id="burgers">
+                            <label for="burgers">Burgers</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filled-in" id="salate">
+                            <label for="salate">Salate</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="filled-in" id="sandwitches">
+                            <label for="sandwitches">Sandwitches</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h5>Bewertung</h5>
+                    <div class="range-field">
+                        <!--<label>1 </label>-->
+                        <input type="range" id="" min="1" max="5" style="width: 80%;"/>
+                        <!--<label>5 </label>-->
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h5>Zubereitungszeit</h5>
+                    <!--<label>Zeit</label>-->
+                    <select class="browser-default">
+                        <option value="10">10 - 20 min</option>
+                        <option value="20">20 - 30 min</option>
+                        <option value="30">30 - 40 min</option>
+                        <option value="40">40 - 50 min</option>
+                        <option value="50">1h und mehr</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="mdl-cell--4-col">
-           <h2>Eigenes Rezept erfassen</h2>
-            <br />
-            <p>Registrierte Benutzer können eigene Rezepte erfassen</p>
-            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="#/addRecipe">ADD RECIPE</a>
+        <div class="col s1">
+            &nbsp;
         </div>
-    </div>
-    hide this row as default
-    <div class="mdl-grid searchoptions" ng-show="showSearchOptions">
-        <div class="mdl-cell--4-col">
-            <h5>nach Kategorie suche</h5>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Suppe</button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect ">Dessert</button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Hautpspeise</button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Grünzeug</button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Fleischzeug</button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Salate</button>
-        </div>
-        <div class="mdl-cell--4-col">
-            <h5>nach Bewertung suchen</h5>
-            <br />
-            <div class="ratingRecipe">
-               <label>Anzahl Sterne</label>
-                <span>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star_half</i>
-                    <i class="material-icons">star_border</i>
-                    <i class="material-icons">star_border</i>
-               </span>
-                <input class="mdl-slider mdl-js-slider" min="1" max="5" type="range" >
-            </div>
-
-        </div>
-        <div class="mdl-cell--4-col">
-            <h5>nach Kochzeit suchen</h5>
-            <br />
-
-            <select>
-                <option>10 -20 min</option>
-                <option>20 -30 min</option>
-                <option>30 -40 min</option>
-                <option>40 -50 min</option>
-                <option>60 + min</option>
-            </select>
-        </div>
-    </div>
-    <div class="mdl-grid">
-        <div class="mdl-cell--12-col">
-            <h3>Rezepte</h3>
+        <!--card for add recipe-->
+        <div class="col s6">
+            <h3>Ergebnisse</h3>
             <fb-search-resultlist recipes="searchRecipeCtrl.recipes" recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-resultlist>
         </div>
+    </div>
 
+    <div class="row">
+
+        <div class="col s3">
+            <div class="card  orange lighten-3">
+                <div class="card-title">Neues Rezept</div>
+                <br />
+                <div class="card-image">
+                    <img src="../pictures/food2_400.jpg">
+                </div>
+                <div class="card-content">
+                    <p>Registrierte Benutzer können ihre eigene Rezepte erfassen</p>
+                </div>
+                <div class="card-action">
+                    <a class="btn" href="#/addRecipe">erfassen</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s3">
+            <div class="card amber lighten-2">
+                <div class="card-title">Rezept der Woche</div>
+                <br />
+                <div class="card-image">
+                    <img src="../pictures/food1_400.jpg">
+                </div>
+                <div class="card-content">
+                    <p>Das beste Sandwitch des Kantons Züri - neu mit züribrötli</p>
+                </div>
+                <div class="card-action">
+                    <a class="btn" href="#/addRecipe">zum Rezept</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s6">
+            &nbsp;
+        </div>
     </div>
 </div>
-
-

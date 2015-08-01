@@ -1,38 +1,37 @@
-<div class="loginForm">
+<div class="card-title teal-text ">Login</div>
     <form id="loginForm" name="loginForm"
           class="userForm"
           ng-submit="sessionCtrl.login(user)">
-        <ul>
-            <li>
-                <label for="loginName">Name</label>
-                <input type="text" id="loginName" name="loginName"
-                       ng-model="user.name" required/>
-
-            </li>
-            <li>
-                <label for="loginPassword">Passwort</label>
-                <input type="password" id="loginPassword" name="loginPassword"
-                       ng-model="user.password" required/>
-            </li>
-            <li>
-                <div ng-show="loginForm.$submitted || registerForm.loginName.$dirty || sessionCtrl.loginError">
-                    <div ng-show="registerForm.loginName.$error.required">Säg din name!</div>
-                    <div ng-show="sessionCtrl.loginError.nameMessage">{{sessionCtrl.loginError.nameMessage}}</div>
-                </div>
-                <div ng-show="loginForm.$submitted || loginForm.loginPassword.$dirty || sessionCtrl.loginError">
-                    <div ng-show="loginForm.loginPassword.$error.required">Password required.</div>
-                    <div ng-show="sessionCtrl.loginError.passwordMessage">{{sessionCtrl.loginError.passwordMessage}}</div>
-                </div>
-                <div ng-show="sessionCtrl.loginError">
-                    <div>{{sessionCtrl.loginError.message}}</div>
-                </div>
-            </li>
-            <li>
-                <button type="submit"
-                        ng-disabled="loginForm.$invalid"
-                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login
-                </button>
-            </li>
-        </ul>
+          <div class="input-field">
+             <input type="text" id="loginName" name="loginName"
+                    ng-model="user.name" required/>
+             <label for="loginName">Name</label>
+          </div>
+          <div class="input-field">
+              <input type="password" id="loginPassword" name="loginPassword"
+                     ng-model="user.password" required/>
+              <label for="loginPassword">Passwort</label>
+          </div>
+          <div class="card-reveal">
+              <div ng-show="loginForm.$submitted || registerForm.loginName.$dirty || sessionCtrl.loginError">
+                  <div ng-show="registerForm.loginName.$error.required">Säg din name!</div>
+                  <div ng-show="sessionCtrl.loginError.nameMessage">{{sessionCtrl.loginError.nameMessage}}</div>
+              </div>
+              <div ng-show="loginForm.$submitted || loginForm.loginPassword.$dirty || sessionCtrl.loginError">
+                  <div ng-show="loginForm.loginPassword.$error.required">Password required.</div>
+                  <div ng-show="sessionCtrl.loginError.passwordMessage">{{sessionCtrl.loginError.passwordMessage}}</div>
+              </div>
+              <div ng-show="sessionCtrl.loginError">
+                  <div>{{sessionCtrl.loginError.message}}</div>
+              </div>
+          </div>
+          <div class="card-action">
+              <!--login user-->
+              <button type="submit"
+                      ng-disabled="loginForm.$invalid"
+                      class="btn deep-orange white-text">Login
+              </button>
+              <!--login guest-->
+              <a href="#/searchRecipe" class="btn btn-flat">Gastbesucher</a>
+          </div>
     </form>
-</div>
