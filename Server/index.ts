@@ -18,12 +18,11 @@ var session = require("express-session");
 var app = express();
 var router = express.Router();
 
-app.use(bodyParser());
 app.use(cookieParser('fettyBossy'));
 app.use(session());
 
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use(function (req, res, next) {
     var err = req.session.error,
