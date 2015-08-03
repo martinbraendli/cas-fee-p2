@@ -3,6 +3,7 @@
 body {
   background: lightcyan;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 200;
 }
 
 .clear{
@@ -34,7 +35,7 @@ body {
 }
 
 .searchResultlist {
-  background-color: #B94A48;
+  //background-color: #B94A48;
 }
 
 .menu {
@@ -42,27 +43,15 @@ body {
 }
 
 .listRecipeRatings {
-  background-color: chartreuse;
+  //background-color: chartreuse;
 }
 
 
-// Header Navigation
-.header-nav{
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 0.05rem;
-  span{
-    padding-left: 0.5rem;
-  }
-}
-
-
-
-// Login Screen
+// ------------------- Login Screen
 
 .outer-wrapper{
   position: absolute;
-  //background-image: url('/pictures/pfanni-bg.jpg');
+  //background-image: url('');
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
@@ -70,8 +59,13 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  // temporary
+  min-height: 800px;
 }
 
+.container{
+  width: 85%;
+}
 
 .fb-layout{
   margin: 0 auto;
@@ -80,101 +74,43 @@ body {
   background-color: #FFFFFF;
 }
 
-input{
-  padding: 7px;
-  border: solid 1px #dcdcdc;
-  transition: box-shadow 0.3s, border 0.3s;
-  float:right;
-}
 
-input:focus{
-  border: solid 1px #707070;
-  box-shadow: 0 0 5px 1px #969696;
-}
 
-// general class for login cards
-.login-card-square.mdl-card{
-  width: 320px;
-  height: 340px;
-  margin-right: 60px;
-  margin-bottom: 60px;
-  padding: 1rem;
-
-  li{
-    list-style-type: none;
-    padding-bottom:22px ;
-  }
-  .formfeedback{
-    color: #a33;
-    font-style: italic;
-    border-radius: 3px;
-    border: 1px solid #333;
-    padding: 3px;
-    margin-top: 10px;
-  }
-
-}
 
 // login Form Card
-.loginForm{
-  padding: 7px;
 
-}
 
 // register Form Card
-.registerForm{
 
-}
-
-/* ---------------------Search -----*/
+/* ----------------VIEW Search Recipe -----*/
 
 
 .searchRecipe{
 
 }
 
-
-.searchForm{
-  padding-top: 2rem;
-  display: flex;
-  input{
-    padding: 7px;
-  }
-}
-
 #recipeSearchInput{
-  flex-grow: 1;
+  width: 70%;
 }
+
+.foodcategory ul{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.foodcategory li{
+  display: inline;
+  padding-right: 1.5rem;
+}
+
 
 .find-recipe{
 
 }
 
-.searchoptions{
-  border-top: 1px solid rgb(255, 64, 129);
-}
-
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
-  margin-right: 20px;
-}
-
-
-button{
-  margin: 0.25rem;
-}
 
 
 /*details*/
 
-.img-detail{
-  //background-image: url("../pictures/pfanni_800.jpg");
-  min-height: 300px;
-  height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 
 .fb-layout-detail{
   margin: 0 auto;
@@ -186,34 +122,12 @@ button{
 
 /*------------ Recipe detail - edit -------------------*/
 
-// top class
-.editRecipe{
-  select{
-    padding: 4px;
-  }
 
-  textarea{
-    border: 1px solid #DDDDDD;
-  }
-  textarea:focus{
-    border: 1px solid rgb(255, 64, 129);
-  }
-
-}
-
-
-.img-menu{
-  max-width: 400px;
+.recipe-img{
+  padding: 1rem;
+  max-width: 220px;
   height: auto;
 }
-
-.img-buttons{
-  display: flex;
-  button{
-    margin-right: 16px;
-  }
-}
-
 
 .ingredient-count{
   max-width: 100px;
@@ -221,4 +135,51 @@ button{
 
 .ingredient-kind{
   max-width: 90%;
+}
+
+
+//rating
+
+.star-rating{
+  display: inline;
+  i{
+    padding-left: 15px;
+  }
+}
+/*--------------------- user-details ---------------*/
+
+.user-details{
+  background: #FFF;
+}
+
+
+/*--------------------result List -----------------*/
+
+.searchResultlist{
+  //background: ;
+  // search Result
+  .resulttable{
+    width: 100%;
+    tr{
+      border-top: 1px solid #CCC;
+    }
+    td:nth-child(1){
+      width: 20%;
+    }
+    td:nth-child(2){
+      width: 50%;
+    }
+    td:nth-child(3){
+      width: 15%;
+    }
+    td:nth-child(4) {
+      width: 15%;
+    }
+    img{
+      max-width: 60px;
+      height: auto;
+    }
+
+  }
+
 }

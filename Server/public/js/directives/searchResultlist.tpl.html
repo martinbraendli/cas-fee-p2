@@ -5,7 +5,7 @@
     <div ng-show="">
         Die Suche hat keine Ergebnisse - nix zu essen
     </div>
-    <table style="width: 100%;">
+    <table  class="resulttable">
         <thead>
             <td>&nbsp;</td>
             <td>Rezept</td>
@@ -14,18 +14,18 @@
         </thead>
         <tbody>
             <tr ng-repeat="recipe in recipes | SearchRecipeFilter: recipeFilter">
-                <td style="width: 20%;">
+                <td >
                     <img src="/pictures/food_1_q.jpg" style="max-width: 60px; height: auto" />
                 </td>
-                <td style="width: 50%;">
+                <td >
                     <h6>
                         <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
                     </h6>
                 </td>
-                <td style="width: 15%;">
+                <td >
                     rating: -
                 </td>
-                <td style="width: 15%;">
+                <td >
                    autor: -
                 </td>
             </tr>
