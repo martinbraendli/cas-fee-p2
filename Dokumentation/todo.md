@@ -7,9 +7,6 @@
 
 
 # Martin
-- Bilder an Server senden
-
-- MenÃ¼-EintrÃ¤ge
 - Security / Roles (clientseitig)
 - Stückelungen von Server inkl. Searchdropdown > bs_typeahead
 - Fehlermeldungen generell lösen (popups, messageblock)
