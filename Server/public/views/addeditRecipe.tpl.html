@@ -1,60 +1,89 @@
 <div class="editRecipe">
-    <div class="mdl-grid">
-        <div class="mdl-cell--12-col">
-            <div>
-                <h3>Rezept bearbeiten</h3>
-            </div>
+    <div class="row">
+        <div class="col s12 l12">
+                <h3 class="">Rezept bearbeiten</h3>
             <div>
                 <span ng-show="addRecipe">Rezept editieren</span>
-                <span ng-hide="addRecipe">Rezept hinzuf�gen</span>
+                <span ng-hide="addRecipe">Rezept hinzufuegen</span>
             </div>
         </div>
     </div>
-    <div class="mdl-grid">
-        <div class="mdl-cell--6-col">
-            <h4>Erstes Bild</h4>
+    <div class="row">
+        <div class="col s5 l5">
+            <h5>Erstes Bild</h5>
             <div ng-repeat="image in addeditRecipeCtrl.recipe.images">
                 <img class="img-menu" ng-src="{{image.src}}"/>
             </div>
             <fb-file-upload recipe="addeditRecipeCtrl.recipe"></fb-file-upload>
 
-            <div class="img-buttons">
-                <button class="mdl-button">Bild hinzufügen</button>
 
-                <button class="mdl-button">Bild löschen</button>
+            <div class="img-buttons">
+                <button class="btn">Bild hinzufügen</button>
+
+                <button class="btn">Bild löschen</button>
+            </div>
+            <br />
+            <div >
+            <p>second file upload suggestion</p>
+                <form action="#">
+                    <div class="file-field input-field">
+                        <input class="file-path validate" type="text" fileread="recipe.image"/>
+                        <div class="btn">
+                            <span>Datei</span>
+                            <input type="file" />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="mdl-cell--6-col">
+        <div class="col s1 l1">
+            &nbsp;
+        </div>
+        <div class="col s6 l6">
             <form>
-                <div>
-                    <button class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised" type="button"
+                <div class="row">
+                    <button class="btn right" type="button"
                             ng-click="addeditRecipeCtrl.save()">Menu Speichern
                     </button>
                 </div>
-                <h4>Rezeptname</h4>
-                <input type="text" class="mdl-textfield__input" ng-model="addeditRecipeCtrl.recipe.title"/>
-
-
-                <div class="mdl-textfield mdl-js-textfield">
-                    <label>Menu Beschreibung</label>
-                    <textarea type="text" rows="2" class="mdl-textfield__input" id="menu-description"
-                              ng-model="addeditRecipeCtrl.recipe.description"></textarea>
-                </div>
-                <div>
-                    <h4>Personen</h4>
-                    <select ng-model="addeditRecipeCtrl.recipe.numPerson">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
-                </div>
-                <div>
-                    <div>
-                        <h4>Kategorie</h4>
+                <div class="row">
+                    <h4 class="right-align">Rezeptname</h4>
+                    <div class="input-field">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <input type="text"  ng-model="addeditRecipeCtrl.recipe.title" id="recipename"/>
+                        <label for="recipename">Name des Rezepts</label>
                     </div>
-                    <div>
-                        <select ng-model="addeditRecipeCtrl.recipe.category">
+                    <div class="input-field">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea type="text" rows="2" class="materialize-textarea" id="menu-description"
+                                  ng-model="addeditRecipeCtrl.recipe.description"></textarea>
+                        <label for="menu-description">Menu Beschreibung</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <h6>Personen</h6>
+                    </div>
+                    <div class=" col s6">
+                        <select ng-model="addeditRecipeCtrl.recipe.numPerson" class="browser-default">
+                            <option value="" disabled selected>Anzahl Personen</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div  class="col s6 ">
+                        <h6>Kategorie</h6>
+                    </div>
+                    <div  class=" col s6">
+                        <select ng-model="addeditRecipeCtrl.recipe.category" class="browser-default">
+                            <option value="" disabled selected>Rezeptkategorie</option>
                             <option>Suppen</option>
                             <option>Vorspeise</option>
                             <option>Hauptgang</option>
@@ -65,94 +94,107 @@
                     </div>
                 </div>
                 <hr/>
-                <div>
-
-                    <h4>Kochzeit</h4>
-                    <select ng-model="addeditRecipeCtrl.recipe.bakingTime">
-                        <option value="10">10 -20 min</option>
-                        <option value="20">20 -30 min</option>
-                        <option value="30">30 -40 min</option>
-                        <option value="40">40 -50 min</option>
-                        <option value="50">60 + min</option>
-                    </select>
-                </div>
-                <hr/>
-                <div>
-                    <h4>Zubereitungszeit</h4>
-                    <select ng-model="addeditRecipeCtrl.recipe.preparationTime">
-                        <option value="10">10 -20 min</option>
-                        <option value="20">20 -30 min</option>
-                        <option value="30">30 -40 min</option>
-                        <option value="40">40 -50 min</option>
-                        <option value="50">60 + min</option>
-                    </select>
-                </div>
-                <hr/>
-                <div>
-                    <h4>Zubereitung</h4>
-
-                    <div ng-repeat="preparationStep in addeditRecipeCtrl.recipe.preparationSteps">
-                        <label>{{preparationStep.position}}. Schritt</label>
-                        <textarea type="text" rows="3" class="mdl-textfield__input"
-                                  ng-model="preparationStep.text"></textarea>
+                <div class="row">
+                    <div class="col s6">
+                        <h6>Backzeit</h6>
+                        <i class="material-icons">alarm_on</i>
                     </div>
-                    <br/>
-                    <button class="mdl-button mdl-button--colored "
-                            ng-click="addeditRecipeCtrl.addPreparationStep()">Weitere Schritte hinzuf�gen
+                    <div class="col s6">
+                        <select ng-model="addeditRecipeCtrl.recipe.bakingTime" class="browser-default">
+                            <option value="" disabled selected >Backzeit</option>
+                            <option value="10">10 -20 min</option>
+                            <option value="20">20 -30 min</option>
+                            <option value="30">30 -40 min</option>
+                            <option value="40">40 -50 min</option>
+                            <option value="50">60 + min</option>
+                        </select>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col s6">
+                        <h6>Zubereitungszeit</h6>
+                    </div>
+                    <div class="col s6">
+                        <select ng-model="addeditRecipeCtrl.recipe.preparationTime" class="browser-default">
+                            <option value="" disabled selected>Zubereitungszeit</option>
+                            <option value="10">10 -20 min</option>
+                            <option value="20">20 -30 min</option>
+                            <option value="30">30 -40 min</option>
+                            <option value="40">40 -50 min</option>
+                            <option value="50">60 + min</option>
+                        </select>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <h4 class="right-align">Zubereitung</h4>
+                    <i class="material-icons">receipt</i>
+                    <p class="">Beschreibe hier Schritt für Schritt der Ablauf des Rezeptes</p>
+
+                    <div ng-repeat="preparationStep in addeditRecipeCtrl.recipe.preparationSteps" >
+                        <div class="input-field col s12">
+                            <textarea type="text" rows="3" class="materialize-textarea" id="menustep"
+                                      ng-model="preparationStep.text"></textarea>
+                            <label for="menustep">{{preparationStep.position}}. Schritt</label>
+                        </div>
+
+                    </div>
+                    <br />
+                    <button class="btn right"
+                            ng-click="addeditRecipeCtrl.addPreparationStep()">Naechster Schritt
                     </button>
                 </div>
                 <hr/>
-                <div>
-                    <h4>Zutaten</h4>
-                    <table>
+                <div class="row">
+                    <h4 class="right-align">Zutaten</h4>
+                    <table class="table-ingredients">
                         <thead>
                         <tr>
-                            <td style="width: 15%;">Menge</td>
-                            <td style="width: 15%;">Einheit</td>
-                            <td style="width: 60%;">Zutat</td>
-                            <td style="width: 10%;">Entfernen</td>
+                            <td>Menge</td>
+                            <td>Einheit</td>
+                            <td>Zutat</td>
+                            <td>Entfernen</td>
                         </tr>
                         </thead>
                         <tr ng-repeat="ingredient in addeditRecipeCtrl.recipe.ingredients">
                             <td>
-                                <div class="mdl-textfield mdl-js-textfield ingredient-count ">
-                                    <input class="mdl-textfield__input" type="number"
+                                <div class="ingredient-count input-field ">
+                                    <input class="mdl-textfield__input" type="number" id="ingredient-type"
                                            ng-model="ingredient.denomination"/>
-
+                                    <label for="ingredient-type">Anzahl</label>
                                 </div>
                             </td>
                             <td>
-                                <select ng-model="ingredient.unit">
+                                <select ng-model="ingredient.unit" class="browser-default">
                                     <option>EL</option>
                                     <option>TL</option>
                                     <option>Prise</option>
                                     <option>Gramm</option>
                                     <option>Liter</option>
-                                    <option>St�ck</option>
+                                    <option>Stueck</option>
                                 </select>
                             </td>
                             <td>
-                                <input type="text" class="mdl-textfield__input" ng-model="ingredient.name">
+                                <div class="input-field">
+                                    <input type="text" class="mdl-textfield__input" ng-model="ingredient.name" id="ingredient-name">
+                                    <label for="ingredient-name">Zutat</label>
+                                </div>
                             </td>
                             <td>
-                                <a href="" ng-click="addeditRecipeCtrl.deleteIngredient($index)">[X]</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <button class="mdl-button  mdl-button--raised"
-                                        ng-click="addeditRecipeCtrl.addIngredient()">Zutat hinzuf�gen
-                                </button>
+                                <a href="" ng-click="addeditRecipeCtrl.deleteIngredient($index)" class="right-align">[X]</a>
                             </td>
                         </tr>
                     </table>
+                    <div class="row">
+                        <div class="col s12">
+                            <button class="btn right"
+                                    ng-click="addeditRecipeCtrl.addIngredient()">weitere Zutaten
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
-
     </div>
-
-
 </div>

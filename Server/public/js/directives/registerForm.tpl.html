@@ -1,4 +1,4 @@
-<div class="card-title">Registrieren</div>
+<div class="card-title teal-text ">Registrieren</div>
 <div ng-hide="sessionCtrl.isLoggedIn()">
     <form id="registerForm" name="registerForm"
           class="userForm"
@@ -36,9 +36,13 @@
         </div>
 
         <div class="card-action">
-            <button type="submit" class="btn btn-flat white"
-                    ng-disabled="registerForm.$invalid">Registrieren
-            </button>
+            <div class="row">
+                <div class="col s12">
+                    <button type="submit" class="btn teal darken-2 waves-effect right"
+                            ng-disabled="registerForm.$invalid">Registrieren
+                    </button>
+                </div>
+            </div>
         </div>
     </form>
 </div>

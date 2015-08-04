@@ -2,7 +2,7 @@
 
 body {
   background: lightcyan;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
   font-weight: 200;
 }
 
@@ -11,11 +11,11 @@ body {
 }
 
 .userForm input.ng-invalid.ng-touched {
-  background-color: #ffcdd2;
+  background-color: #ffc2b8;
 }
 
 .userForm input.ng-valid.ng-touched {
-  background-color: #78FA89;
+  border: 1px solid #0b4730;
 }
 
 .loginForm {
@@ -78,10 +78,21 @@ body {
 
 
 // login Form Card
+#loginForm{
 
+  input{
+    width: 60%;
+  }
+}
 
 // register Form Card
+#registerForm{
 
+  input{
+    width: 60%;
+  }
+
+}
 /* ----------------VIEW Search Recipe -----*/
 
 
@@ -120,7 +131,7 @@ body {
 
 
 
-/*------------ Recipe detail - edit -------------------*/
+/*------------ Recipe detail - add & edit ----------------*/
 
 
 .recipe-img{
@@ -146,6 +157,32 @@ body {
     padding-left: 15px;
   }
 }
+
+.table-ingredients{
+  td:nth-child(1){
+    width: 15%;
+  }
+  td:nth-child(2){
+    width: 20%;
+  }
+  td:nth-child(3){
+    width: 55%;
+  }
+  td:nth-child(4){
+    width: 10%;
+  }
+
+}
+
+/*------------ Recipe detail - view -------------------*/
+
+
+.viewrecipe{
+  background: #0b97c4;
+}
+
+
+
 /*--------------------- user-details ---------------*/
 
 .user-details{
@@ -153,7 +190,7 @@ body {
 }
 
 
-/*--------------------result List -----------------*/
+/*---------------Search result List -----------------*/
 
 .searchResultlist{
   //background: ;
