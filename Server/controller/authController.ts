@@ -71,10 +71,15 @@ function publicLogin(req, res) {
             });
         } else {
             console.log("authController publicLogin('" + user.name + "') - failed, user not found");
-            req.session.error = 'Authentication failed, please check your username and password.';
+            var msg = 'Authentication failed, please check your username and password.'
+            req.session.error = msg;
             req.session.destroy(); // to be sure
             res.status(401);
-            res.send(false);
+            var responseMessage = {
+                successful: false,
+                message: msg
+            };
+            res.json(responseMessage);
         }
     })
 }

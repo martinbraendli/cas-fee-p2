@@ -38,8 +38,7 @@ module fettyBossy.Controllers {
                     this.$location.path('/searchRecipe');
                 })
                 .error((data, status, header, config)=> {
-                    alert("login failed");
-                    // todo antwort auslesen?
+                    alert("login failed: " + data.message);
                 });
 
             return true;
