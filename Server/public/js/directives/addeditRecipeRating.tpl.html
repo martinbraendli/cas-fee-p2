@@ -2,4 +2,10 @@
     <span ng-show="showAsEdit">EDIT</span>
     <span ng-show="!showAsEdit">ADD Rating</span>
 
+    <label for="comment">Kommentar</label>
+    <textarea id="comment" ng-model="rating.comment"></textarea>
+
+    <button class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised" type="button"
+            ng-click="addeditRecipeRatingCtrl.save()">Speichern
+    </button>
 </div>

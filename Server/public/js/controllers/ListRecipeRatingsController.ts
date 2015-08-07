@@ -39,22 +39,22 @@ module fettyBossy.Controllers {
         /**
          * check if current user has already added a rating
          */
-        hasOwnRating():boolean {
+        canCreateRating():boolean {
             var currentUser = this.session.getUser();
             if (currentUser == null) {
                 return false;
             }
 
             if (!this.$scope.ratings || this.$scope.ratings.length == 0) {
-                return false;
+                return true;
             }
 
             var filterByUser = function (rating:IRating) {
                 if (rating.userId) {
-                    return (rating.userId === currentUser._id);
+                    return (rating.userId != currentUser._id);
                 }
                 // no author on recipe set
-                return false;
+                return true;
             };
             var ownRatings = this.$scope.ratings.filter(filterByUser);
 

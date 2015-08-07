@@ -10,6 +10,11 @@ module fettyBossy.Directive {
         .module('fettyBossy')
         .directive('fbAddeditRecipeRating', listRecipeRatings);
 
+    export interface IAddeditRecipeRatingScope extends ng.IScope {
+        rating: fettyBossy.Data.IRating;
+        recipeId: string;
+    }
+
     function listRecipeRatings():ng.IDirective {
         return {
             restrict: 'E',

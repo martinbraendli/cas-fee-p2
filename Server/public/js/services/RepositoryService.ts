@@ -11,6 +11,11 @@ module fettyBossy.Services {
         savedRecipe: fettyBossy.Data.IRecipe;
     }
 
+    export interface ISaveRatingResult {
+        successful: boolean;
+        savedRating: fettyBossy.Data.IRating
+    }
+
     export interface IRegisterUserResult {
         successful: boolean;
         message: string;
@@ -52,6 +57,11 @@ module fettyBossy.Services {
          * @param recipeId
          */
         loadRatings(recipeId:string):ng.IPromise<Array<fettyBossy.Data.IRating>>;
+        /**
+         * save given ratign
+         * @param rating
+         */
+        saveRating(rating:fettyBossy.Data.IRating);
     }
 
     class Repository implements IRepository {
@@ -64,6 +74,7 @@ module fettyBossy.Services {
         static REGISTER_USER:string = '/api/user/register';
 
         static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/rating/';
+        static SAVE_RATING:string = '/api/rating';
 
         recipes:Array<fettyBossy.Data.IRecipe> = [];
 
@@ -199,6 +210,23 @@ module fettyBossy.Services {
             });
 
             return deferred.promise;
+        }
+
+        saveRating(rating:fettyBossy.Data.IRating):ng.IPromise<fettyBossy.Data.IRating> {
+            this.$log.debug('Repository saveRating(' + rating + ')');
+            var deffered = this.$q.defer();
+
+            this.$http.post(Repository.SAVE_RATING, rating).then((data) => {
+                var rating = data.data;
+
+                var result = <ISaveRatingResult>{};
+                result.successful = true;
+                result.savedRating = rating;
+
+                deffered.resolve(rating);
+            });
+
+            return deffered.promise;
         }
 
         /**

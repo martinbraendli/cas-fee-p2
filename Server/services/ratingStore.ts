@@ -20,6 +20,22 @@ function publicLoadRatings(recipeId:string, callback) {
     });
 }
 
+function publicPersistRating(rating:fettyBossy.Data.IRating, callback) {
+    console.log("ratingStore - persistRating('" + rating + "')");
+
+    var dbCallback = function (err, savedRating:fettyBossy.Data.IRating) {
+        callback(err, savedRating);
+    };
+    if (rating._id) {
+        console.log("ratingStore - persistRating('" + rating + "') - exists: update");
+        db.update({_id: rating._id}, rating, dbCallback);
+    } else {
+        console.log("ratingStore - persistRating('" + rating + "') - does not exists: insert");
+        db.insert(rating, dbCallback);
+    }
+}
+
 module.exports = {
-    loadRatings: publicLoadRatings
+    loadRatings: publicLoadRatings,
+    persistRating: publicPersistRating
 };

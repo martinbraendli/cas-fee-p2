@@ -4,9 +4,11 @@
 
     ADD-Button if no own rating found:
     <fb-addedit-recipe-rating
-            ng-hide="listRecipeRatingsCtrl.hasOwnRating()"
+            ng-show="listRecipeRatingsCtrl.canCreateRating()"
+            rating="{}"
             recipe-id="recipe._id"
             show-as-edit="false"></fb-addedit-recipe-rating>
+    <span ng-hide="listRecipeRatingsCtrl.canCreateRating()">Not logged in, kein Kommentar möglich</span>
 
     List of Ratings:
     <div ng-repeat="rating in ratings">
