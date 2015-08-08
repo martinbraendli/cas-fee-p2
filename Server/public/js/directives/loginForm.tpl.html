@@ -26,12 +26,19 @@
               </div>
           </div>
           <div class="card-action">
-              <!--login user-->
-              <button type="submit"
-                      ng-disabled="loginForm.$invalid"
-                      class="btn deep-orange white-text">Login
-              </button>
-              <!--login guest-->
-              <a href="#/searchRecipe" class="btn btn-flat">Gastbesucher</a>
+              <div class="row">
+                  <div class="col s6">
+                      <!--login user-->
+                      <button type="submit"
+                              ng-disabled="loginForm.$invalid"
+                              class="btn deep-orange white-text waves-effect waves-light left">Login
+                      </button>
+                  </div>
+                  <div class="col s6">
+                      <!--login guest-->
+                      <a href="#/searchRecipe" class="btn waves-effect waves-light text-accent-1 right">Gast</a>
+                  </div>
+              </div>
+
           </div>
     </form>

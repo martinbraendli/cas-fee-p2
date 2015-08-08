@@ -1,27 +1,37 @@
-<div class="viewRecipe" style="background: #FFF;">
+<div class="viewrecipe" >
     <div class="row">
+        <div class="col s1">
+            <i class="medium material-icons prefix">receipt</i>
+        </div>
         <div class="col s10">
             <h4>Rezept {{viewRecipeCtrl.recipe.title}}</h4>
             <br/>
-            <p>schönner es adersmal... </p>
+            <h5>Beschreibung</h5>
+            <p class="flow-text">{{viewRecipeCtrl.recipe.description}}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col s6">
+        <div class="col s1">
+           &nbsp;
+        </div>
+        <div class="col s3">
             <div ng-repeat="image in viewRecipeCtrl.recipe.images">
-                <img ng-src="{{image.src}}" width="300"/>
+                <img ng-src="{{image.src}}" class="recipe-img z-depth-2"/>
                 <br />
-                (Bild von: {{image.author.name}})
+                <caption>
+                    (Bild von: {{image.author.name}})
+                </caption>
+
             </div>
             <div ng-controller="SessionController as sessionCtrl">
                 <a class="btn btn-flat" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
                    ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author._id)">EDIT</a>
             </div>
         </div>
-        <div class="col s6">
+        <div class="col s8">
             <div class="card">
                 <div class="card-content">
-                    <h5>Rezeptdate</h5>
+                    <h5>Rezeptdaten</h5>
                     Title: {{viewRecipeCtrl.recipe.title}}<br/>
                     Author: {{viewRecipeCtrl.recipe.userId}}<br/>    <!-- TODO filter for userId > Name   filter für userausgabe / author -->
                     Anzahl Personen: {{viewRecipeCtrl.recipe.numPerson}}<br/>
@@ -32,7 +42,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s10">
+        <div class="col s12">
             <fb-list-recipe-ratings recipe="viewRecipeCtrl.recipe"></fb-list-recipe-ratings>
         </div>
     </div>

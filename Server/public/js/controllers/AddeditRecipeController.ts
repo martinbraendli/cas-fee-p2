@@ -28,8 +28,8 @@ module fettyBossy.Controllers {
                 this.recipe.preparationSteps = [];
             }
             var emptyPreparationStep:fettyBossy.Data.IPreparationStep = {
-                position: this.recipe.preparationSteps.length + 1,
-                text: "next..."
+                position: this.recipe.preparationSteps.length + 1
+                //text: "next..."
             };
             this.recipe.preparationSteps.push(emptyPreparationStep);
         }

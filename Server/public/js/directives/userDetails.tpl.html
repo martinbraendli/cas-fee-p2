@@ -1,42 +1,43 @@
 <div class="user-details">
-    <div class="mdl-grid">
-        <div class="mdl-cell--6-col">
-            &nbsp;
+    <div class="row">
+        <div class="col s4">
+            <h3>Mein Account</h3>
+            <p>hier könnten Bewertungen zu den Rezepten stehen</p>
         </div>
-        <div class="mdl-cell--6-col">
+        <div class="col s8">
             <h3>User Details</h3>
-            <br/>
+
             <table>
                 <tr>
                     <td>User-ID:</td>
                     <td>{{user._id}}</td>
-                    <td>&nbsp;</td>
+                    <td><i class="medium material-icons prefix">perm_identity</i></td>
                 </tr>
                 <tr>
-                    <td>Name_</td>
-                    <td>
-                        <input type="text" class="mdl-textfield__input" value="{{user.name}}" />
+                    <td>Name</td>
+                    <td class="input-field">
+                        <input type="text"  value="{{user.name}}" />
                     </td>
                     <td>
-                        <button class="mdl-button mdl-js-button mdl-button--primary" >Edit</button>
+                        <button class="btn" >Name ändern</button>
                     </td>
                 </tr>
                 <tr>
                     <td>e-Mail:</td>
-                    <td>
-                        <input type="text" class="mdl-textfield__input" value="{{user.email}}">
+                    <td class="input-field">
+                        <input  type="email" class="validate" value="{{user.email}}">
                     </td>
                     <td>
-                        <button class="mdl-button mdl-js-button mdl-button--primary" >E-mail ändern</button>
+                        <button class="btn" >Adresse ändern</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Passwort:</td>
-                    <td>
-                        <input type="password" class="mdl-textfield__input" value="{{user.password}}" />
+                    <td class="input-field">
+                        <input type="password" class="validate" value="{{user.password}}" />
                     </td>
                     <td>
-                        <button class="mdl-button mdl-js-button mdl-button--primary">Passwort ändern</button>
+                        <button class="btn">Passwort ändern</button>
                     </td>
                 </tr>
             </table>
