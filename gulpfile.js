@@ -6,14 +6,6 @@ var ts = require('gulp-typescript');
 
 
 
- // normal Default
-gulp.task('default', []);
-
-    // watch scss and buildprocess
-gulp.task('fbwatchbuild', ['watch','copyToBuild'], function(){});
-
-
-gulp.task('build', ['sass', 'compileTypescript', 'copyToBuild']);
 
 /**
  * TSD Task "reinstall"
@@ -89,3 +81,13 @@ gulp.task('watch', function(){
     }
     //console.log('watcher done');
 );
+
+
+//  Default Task: watcher activate
+gulp.task('default', ['watch']);
+
+// watch scss and buildprocess
+gulp.task('fbwatchbuild', ['watch','copyToBuild'], function(){});
+
+
+gulp.task('build', ['sass', 'compileTypescript', 'copyToBuild']);

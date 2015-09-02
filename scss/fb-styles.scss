@@ -1,14 +1,20 @@
-// test colors
+
+@import "color";
+$primary-color:     color("amber", "lighten-1") !default;
+$secondary-color:   color("orange", "darken-3") !default;
 
 body {
   background: lightcyan;
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  font-size: 0.9rem;
   font-weight: 200;
 }
 
 .clear{
   clear: both;
 }
+
+
 
 .userForm input.ng-invalid.ng-touched {
   background-color: #ffc2b8;
@@ -17,7 +23,7 @@ body {
 .userForm input.ng-valid.ng-touched {
   border: 1px solid #0b4730;
 }
-
+// test colors
 .loginForm {
   //background-color: blueviolet;
 }
@@ -64,7 +70,7 @@ body {
 }
 
 .container{
-  width: 85%;
+  width: 90%;
 }
 
 .fb-layout{
@@ -133,12 +139,28 @@ body {
 
 /*------------ Recipe detail - add & edit ----------------*/
 
+.editRecipe{
+  background: #FFF;
+    button{
+      background: $secondary-color;
+    }
+}
+
+.pixupload{
+  border:  1px solid $primary-color;
+  padding: 1rem;
+}
 
 .recipe-img{
-  padding: 1rem;
   max-width: 220px;
   height: auto;
 }
+
+.recipe-form{
+  border: 1px solid $primary-color;
+  padding: 1rem;
+}
+
 
 .ingredient-count{
   max-width: 100px;
@@ -159,17 +181,22 @@ body {
 }
 
 .table-ingredients{
+  // Anzahl
   td:nth-child(1){
     width: 15%;
   }
+  // Eiheit
   td:nth-child(2){
     width: 20%;
   }
+  // Zutat
   td:nth-child(3){
-    width: 55%;
+    width: 57%;
   }
+  // Entfernen
   td:nth-child(4){
-    width: 10%;
+    width: 7%;
+    color: $primary-color;
   }
 
 }
