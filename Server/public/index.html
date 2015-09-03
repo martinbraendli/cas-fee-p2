@@ -18,19 +18,19 @@
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/fb-styles.css"/>
     <title>Fetty Bossy-DB version 0.12</title>
-   <style>
+  <!-- <style>
         .outer-wrapper{
             background-image: url('pictures/pfanni-bg.jpg');
             min-height: 800px;
         }
-    </style>
-
+    </style>-->
 </head>
 <body>
-<div class="outer-wrapper mdl-layout">
+<div class="outer-wrapper">
     <fb-menu></fb-menu>
-    <main class="container">
-        <div data-ng-view>
+    <div class="ribbon"></div>
+    <main class="supercontainer">
+        <div data-ng-view style="border: 1px dashed darkred;">
             <!--will be filled by angular routing/templating    -->
         </div>
     </main>

@@ -1,12 +1,27 @@
-
 @import "color";
-$primary-color:     color("amber", "lighten-1") !default;
-$secondary-color:   color("orange", "darken-3") !default;
+
+//
+/*** Colors ***/
+
+
+$primary-color: color("amber", "lighten-2") !default;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+
+$secondary-color: color("light-blue", "lighten-1") !default;
+$secondary-color-hover: color("blue", "darken-3") !default;
+$success-color: color("deep-orange", "base") !default;
+$error-color: color("blue", "base") !default;
+$link-color: color("light-blue", "darken-1") !default;
+
+
+$bgcolor-blue: color("light-blue", "darken-3") !default;
+
 
 body {
   background: lightcyan;
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 200;
 }
 
@@ -14,6 +29,33 @@ body {
   clear: both;
 }
 
+
+// background picture in a ribbon
+.ribbon{
+  background-image: url('../pictures/bg_artfood_1500.jpg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 290px;
+}
+
+.supercontainer{
+  margin:  auto;
+  margin-top: -210px;
+  max-width: 1000px;
+}
+
+
+// resets
+.container{
+  width:100%!important;
+  padding: 0;
+}
+
+.container .row{
+  margin-left: 0;
+  margin-right: 0;
+}
 
 
 .userForm input.ng-invalid.ng-touched {
@@ -55,6 +97,7 @@ body {
 
 // ------------------- Login Screen
 
+/*
 .outer-wrapper{
   position: absolute;
   //background-image: url('');
@@ -68,10 +111,8 @@ body {
   // temporary
   min-height: 800px;
 }
+*/
 
-.container{
-  width: 90%;
-}
 
 .fb-layout{
   margin: 0 auto;
@@ -141,14 +182,42 @@ body {
 
 .editRecipe{
   background: #FFF;
-    button{
-      background: $secondary-color;
+  font-size: 1rem;
+  .title-bg{
+    background: $bgcolor-blue;
+    color: #FFF;
+    height: 150px;
+    width: 100%;
+    h3{
+      font-weight: 100;
+      color: #81d4fa;
     }
+
+  }
+  button{
+    background: $secondary-color;
+  }
+  button:hover{
+    background: $secondary-color-hover;
+  }
+
+  .btn{
+    background: $secondary-color;
+  }
+  .btn:hover{
+    background: $secondary-color-hover;
+  }
+  .btn.disabled{
+    background: #F3F3F3;
+  }
 }
 
 .pixupload{
-  border:  1px solid $primary-color;
+  //border:  1px solid #aa3333;
   padding: 1rem;
+  button{
+    margin-left: 1rem;
+  }
 }
 
 .recipe-img{
@@ -156,9 +225,21 @@ body {
   height: auto;
 }
 
+.recipe-name{
+  //border: 1px dashed #a44;
+  margin-left: 1rem;
+
+}
+.form-title{
+  color: $secondary-color-hover;
+}
+
 .recipe-form{
-  border: 1px solid $primary-color;
+  //border: 1px solid  #aa3333;
   padding: 1rem;
+  label:focus{
+    color: $secondary-color-hover;
+  }
 }
 
 
