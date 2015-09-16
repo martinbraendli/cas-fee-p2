@@ -581,7 +581,6 @@ body {
   width: 60%; }
 
 /* ----------------VIEW Search Recipe -----*/
-/* ----------------VIEW Search Recipe -----*/
 .searchRecipe {
   background: #F2F2F2; }
   .searchRecipe .title-bg {
@@ -686,7 +685,19 @@ body {
 
 /*------------ Recipe detail - view -------------------*/
 .viewrecipe {
-  background: #0b97c4; }
+  background: #FFF; }
+  .viewrecipe .title-bg {
+    background: #0277bd;
+    color: #FFF;
+    height: 150px;
+    width: 100%; }
+    .viewrecipe .title-bg h3 {
+      font-weight: 100;
+      color: #81d4fa; }
+
+.swiper-container {
+  width: 400px;
+  height: 300px; }
 
 /*--------------------- user-details ---------------*/
 .user-details {

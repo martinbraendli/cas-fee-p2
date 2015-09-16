@@ -140,7 +140,7 @@ body {
   }
 
 }
-/* ----------------VIEW Search Recipe -----*/
+
 
 /* ----------------VIEW Search Recipe -----*/
 
@@ -301,11 +301,27 @@ body {
 
 }
 
+
 /*------------ Recipe detail - view -------------------*/
 
 
 .viewrecipe{
-  background: #0b97c4;
+  background: #FFF;
+  .title-bg {
+    background: $bgcolor-blue;
+    color: #FFF;
+    height: 150px;
+    width: 100%;
+    h3 {
+      font-weight: 100;
+      color: #81d4fa;
+    }
+  }
+}
+
+.swiper-container {
+  width: 400px;
+  height: 300px;
 }
 
 

@@ -1,49 +1,79 @@
+<!--start view  single recipe-->
 <div class="viewrecipe" >
-    <div class="row">
-        <div class="col s1">
-            <i class="medium material-icons prefix">receipt</i>
+    <div class="container">
+        <!--big title-->
+        <div class="row title-bg">
+            <div class="col s12 l12">
+                <h3 class="">Rezepte <i class="medium material-icons ">receipt</i></h3>
+                <span>lesen und Kochen</span>
+            </div>
         </div>
-        <div class="col s10">
-            <h4>Rezept {{viewRecipeCtrl.recipe.title}}</h4>
-            <br/>
-            <h5>Beschreibung</h5>
-            <p class="flow-text">{{viewRecipeCtrl.recipe.description}}</p>
+        <!--content header-->
+        <div class="row">
+            <div class="col s2 l2"><br/>
+                <i class="large material-icons prefix">receipt</i>
+            </div>
+            <div class="col s10 l10 recipe-header">
+                <h2>Spaghetti Carbonara mit Zwiebeln {{viewRecipeCtrl.recipe.title}}</h2>
+                        <span class="clearfix">
+                            <h5>Beschreibung</h5>
+                        </span>
+                <p class="flow-text text-accent-1">Kohlenhydrate sind fein{{viewRecipeCtrl.recipe.description}}</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s1">
-           &nbsp;
-        </div>
-        <div class="col s3">
-            <div ng-repeat="image in viewRecipeCtrl.recipe.images">
-                <img ng-src="{{image.src}}" class="recipe-img z-depth-2"/>
-                <br />
-                <caption>
-                    (Bild von: {{image.author.name}})
-                </caption>
+        <!--content image and data-->
+        <div class="row">
+            <div class="col s6 l6">
+                <div ng-repeat="image in viewRecipeCtrl.recipe.images">
+                    <div class="swiper-container z-depth-2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <!--<img src="pictures/food4_400.jpg" />-->
+                                <img ng-src="{{image.src}}" class="recipe-img"/>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="pictures/food2_400.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="pictures/food3_400.jpg" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev btn btn-flat" >prev</div>
+                        <div class="swiper-button-next btn" >next</div>
+                    </div>
 
+                    <!---->
+                    <br />
+                    <caption>
+                        (Bild von: {{image.author.name}})
+                    </caption>
+                </div>
+                <div ng-controller="SessionController as sessionCtrl">
+                    <a class="btn btn-flat" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
+                       ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author._id)">EDIT</a>
+                </div>
             </div>
-            <div ng-controller="SessionController as sessionCtrl">
-                <a class="btn btn-flat" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
-                   ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author._id)">EDIT</a>
-            </div>
-        </div>
-        <div class="col s8">
-            <div class="card">
-                <div class="card-content">
-                    <h5>Rezeptdaten</h5>
-                    Title: {{viewRecipeCtrl.recipe.title}}<br/>
-                    Author: {{viewRecipeCtrl.recipe.userId}}<br/>    <!-- TODO filter for userId > Name   filter für userausgabe / author -->
-                    Anzahl Personen: {{viewRecipeCtrl.recipe.numPerson}}<br/>
-                    Backzeit: {{viewRecipeCtrl.recipe.bakingTime | minutesToHoursMinutes}}<br/>
-                    Vorbereitungszeit: {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinutes}}<br/>
+            <!--recipe data-->
+            <div class="col s5 l5">
+                <div class="card z-depth-2">
+                    <div class="card-title blue white-text">
+                        <span>Rezeptdaten</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Title: {{viewRecipeCtrl.recipe.title}}<br/></p>
+                        <p>Author: {{viewRecipeCtrl.recipe.userId}}<br/></p>    <!-- TODO filter for userId > Name   filter für userausgabe / author -->
+                        <p>Anzahl Personen: {{viewRecipeCtrl.recipe.numPerson}}<br/><p/>
+                        <p>Backzeit: {{viewRecipeCtrl.recipe.bakingTime | minutesToHoursMinutes}}<br/></p>
+                        <p>Vorbereitungszeit: {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinutes}}<br/></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <fb-list-recipe-ratings recipe="viewRecipeCtrl.recipe"></fb-list-recipe-ratings>
+        <div class="row">
+            <div class="col s12">
+                <fb-list-recipe-ratings recipe="viewRecipeCtrl.recipe"></fb-list-recipe-ratings>
+            </div>
         </div>
     </div>
 </div>
+<!--Finish view recipe-->
