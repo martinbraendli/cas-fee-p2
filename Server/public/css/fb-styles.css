@@ -581,15 +581,34 @@ body {
   width: 60%; }
 
 /* ----------------VIEW Search Recipe -----*/
+/* ----------------VIEW Search Recipe -----*/
+.searchRecipe {
+  background: #F2F2F2; }
+  .searchRecipe .title-bg {
+    background: #0277bd;
+    color: #FFF;
+    height: 150px;
+    width: 100%; }
+    .searchRecipe .title-bg h3 {
+      font-weight: 100;
+      color: #81d4fa; }
+
+#searchbox {
+  margin-left: 0.75rem !important; }
+
+.searchplus {
+  padding: 1rem;
+  min-height: 20rem; }
+
 #recipeSearchInput {
   width: 70%; }
 
 .foodcategory ul {
-  padding-left: 1rem;
+  padding-left: 2rem;
   padding-right: 1rem; }
 
 .foodcategory li {
-  display: inline;
+  display: block;
   padding-right: 1.5rem; }
 
 /*details*/
