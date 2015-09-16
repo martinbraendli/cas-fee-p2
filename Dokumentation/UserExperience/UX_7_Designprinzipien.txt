@@ -1,0 +1,85 @@
+UX -Repetition und anforderungen für Pojekt
+-------------------------------------------
+
+6+1 Designprinzipien
+--------------------
+
+1. Affordanz
+------------
+
+(Affordanz = anbieten, gestatten, ermöglichen) - Angebot der Natur
+
+		> Räder sind rund weil sie besser rollen; Stühle zum Sitzen, 
+		> Ein Schalter hat den Angebotscharakter, dass er in die jeweils andere Position umgelegt werden kann – gestreichelt zu werden gehört dagegen nicht zu seinem Angebotscharakter.
+		
+		Kann Wahrnehmung &  Usability verbessern: keine Erklährung notwendig, Fehlbediendung wird verhindert
+
+
+2. Anordnung
+------------
+
+		> Optische Ausrichtung: Grid Systeme
+		> Kann Wahrnehmung & Lesbarkeit verbessern, Attraktivität erhöhen
+		
+		Aneinandergerichtete Elemente gehören zusamen
+		Auge wird geführt
+		Optisch ausgerichtete Designs sind ansprechender
+		
+	
+	
+3. Blank Slate
+--------------
+
+(Bedeutung: Was ist der blank- staus, empty folder?)
+		
+		> Kann Usability verbessern, User zu einer Aktion auffordern
+		> Keine Daten vorhanden ist kein Fehler!
+
+4. Farbe
+--------
+
+		> Kann Attraktivität erhöhen
+		> kann Wahrnehmung verbessern
+		> kann Orientierungshilfe bieten
+		> kann Botschaft verstärken
+		
+		Gruppieren, zusammenhänge aufzeigen. 
+
+
+5. Fitt's Law
+-------------
+
+(Size Matters)
+	
+		Bedienung von Click und Point interface verbessern
+		
+		> Kann usability verbessern
+				
+
+
+6. Horror Vacui
+----------------
+ 
+(Bedeutung: "fear of empty space")
+> in visual art: is the filling of the entire surface of a space or an artwork with detail.
+> current usage: "value perception" = Minimalism, reduce to the max. (Showcase window - less is more)
+
+		> Kann Wahrnehmung verbessern
+		
+		Less-is-more für alle die viel haben
+		More-is-more für alle die wenig haben
+
+
+6+1= 
+7. Progressive Disclosure
+--------------------------
+
+		(User intelligenter machen, stress vermeiden)
+		> zB: Google search, 1-2-3 wizards, 
+		
+		> Information overload verhindern
+		> Zielgruppenspezifische Interfaces nach Bedarf
+		> Verbesserung für Neulinge und seltene Benuzter
+		> Anzahl Fehlbedienung reduzieren. 
+
+
