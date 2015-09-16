@@ -1,10 +1,12 @@
 # Felix
 
-- Menue einbinden / ausblenden
 - Templates @ Directive Templates
 - SCSS file struktur
+- GULP Sass & livereload 
 - tab-system Login/ Register
-
+- Message Feedback window: color and animate
+- Start view: respond valid message with ng
+- minimal view tablet max-width
 
 # Martin
 - Security / Roles (clientseitig)
