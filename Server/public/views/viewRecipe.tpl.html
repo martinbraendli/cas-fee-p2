@@ -24,29 +24,18 @@
         <!--content image and data-->
         <div class="row">
             <div class="col s6 l6">
-                <div ng-repeat="image in viewRecipeCtrl.recipe.images">
-                    <div class="swiper-container z-depth-2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <!--<img src="pictures/food4_400.jpg" />-->
-                                <img ng-src="{{image.src}}" class="recipe-img"/>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="pictures/food2_400.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="pictures/food3_400.jpg" />
-                            </div>
+                <div class="swiper-container z-depth-2 fb-init-swiper" fb-init-swiper>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" ng-repeat="image in viewRecipeCtrl.recipe.images">
+                            <img ng-src="{{image.src}}" class="recipe-img"/>
+                            <br/>
+                            <caption>
+                                (Bild von: {{image.author.name}})
+                            </caption>
                         </div>
-                        <div class="swiper-button-prev btn btn-flat" >prev</div>
-                        <div class="swiper-button-next btn" >next</div>
                     </div>
-
-                    <!---->
-                    <br />
-                    <caption>
-                        (Bild von: {{image.author.name}})
-                    </caption>
+                    <div class="swiper-button-prev btn btn-flat">prev</div>
+                    <div class="swiper-button-next btn">next</div>
                 </div>
                 <div ng-controller="SessionController as sessionCtrl">
                     <a class="btn btn-flat" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"

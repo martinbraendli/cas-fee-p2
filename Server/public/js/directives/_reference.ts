@@ -1,4 +1,6 @@
 ///<reference path="AddeditRecipeRatingDirective.ts" />
+///<reference path="FileChooserDirective.ts" />
+///<reference path="InitSwiper.ts" />
 ///<reference path="ListRecipeRatingsDirective.ts" />
 ///<reference path="LoginFormDirective.ts" />
 ///<reference path="MenuDirective.ts" />

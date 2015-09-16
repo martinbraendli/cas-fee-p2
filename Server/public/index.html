@@ -3,31 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!--<link rel="stylesheet" href="css/material.css">-->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <!--<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>-->
+    <title>Fetty Bossy-DB version 0.15</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="css/swiper.css"/>
+    <link rel="stylesheet" href="css/materialize.css"/>
+    <link rel="stylesheet" href="css/fb-styles.css"/>
 
     <!--libs-->
     <script type="text/javascript" src="js/lib/angular.js"></script>
     <script type="text/javascript" src="js/lib/angular-animate.js"></script>
     <script type="text/javascript" src="js/lib/angular-route.js"></script>
-    <!--<script type="text/javascript" src="js/lib/material.js"></script>-->
-
-    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">-->
-    <link rel="stylesheet" href="css/swiper.css" />
-    <link rel="stylesheet" href="css/materialize.css" />
-    <link rel="stylesheet" href="css/fb-styles.css" />
-    <title>Fetty Bossy-DB version 0.15</title>
-  <!-- <style>
-        .outer-wrapper{
-            background-image: url('pictures/pfanni-bg.jpg');
-            min-height: 800px;
-        }
-    </style>-->
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/lib/materialize.js"></script>
+    <script type="text/javascript" src="js/lib/swiper.js"></script>
 </head>
 <body>
 <div class="outer-wrapper">
@@ -35,38 +26,10 @@
     <div class="ribbon"></div>
     <main class="supercontainer">
         <div data-ng-view style="border: 1px dashed darkred;">
-            <!--will be filled by angular routing/templating    -->
+            <!-- will be filled by angular routing/templating -->
         </div>
     </main>
 </div>
-
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/lib/materialize.js"></script>
-<script type="text/javascript" src="js/lib/swiper.min.js"></script>
-<!--Temporary here ->exclude this in seperate file-->
-<script>
-    var mySwiper = new Swiper ('.swiper-container', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-
-
-        // Navigation arrows
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
-
-        // And if we need scrollbar
-        //        scrollbar: '.swiper-scrollbar',
-    });
-
-    $(document).ready(function(){
-        var mySwiper = new Swiper ('swiper-container', {
-            direction: 'horizontal',
-            loop: true
-        })
-    });
-</script>
 
 <!--own code - interface not imported because of no need in javascript -->
 <script type="text/javascript" src="js/app-module.js"></script>
@@ -83,6 +46,7 @@
 
 <script type="text/javascript" src="js/directives/AddeditRecipeRatingDirective.js"></script>
 <script type="text/javascript" src="js/directives/FileChooserDirective.js"></script>
+<script type="text/javascript" src="js/directives/InitSwiper.js"></script>
 <script type="text/javascript" src="js/directives/ListRecipeRatingsDirective.js"></script>
 <script type="text/javascript" src="js/directives/LoginFormDirective.js"></script>
 <script type="text/javascript" src="js/directives/MenuDirective.js"></script>
