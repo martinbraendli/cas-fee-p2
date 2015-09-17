@@ -8,11 +8,12 @@ module fettyBossy.Controllers {
 
     export class AddeditRecipeRatingController {
 
-        public static $inject = ['$log', 'RepositoryService', 'SessionService', '$scope'];
+        public static $inject = ['$log', 'RepositoryService', 'SessionService', 'MessageService', '$scope'];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
                     private sessionService:fettyBossy.Services.ISession,
+                    private messageService:fettyBossy.Services.IMessage,
                     private $scope:fettyBossy.Directive.IAddeditRecipeRatingScope) {
             this.$log.debug('AddeditRecipeRatingController constructor');
         }
@@ -23,13 +24,15 @@ module fettyBossy.Controllers {
             this.$scope.rating.userId = this.sessionService.getUser()._id;
             this.$scope.rating.recipeId = this.$scope.recipeId;
 
+            var messageService = this.messageService;
+
             this.repository.saveRating(this.$scope.rating)
                 .then(function (result:fettyBossy.Services.ISaveRatingResult) {
                     if (result.successful) {
-                        alert("Save ok");
+                        messageService.setText("Bewertung erfolgreich gespeichert");
                       // todo event bus for ping listRecipeRatingsController to reload its data -->reload auslösen!
                     } else {
-                        alert("Save failed");
+                        messageService.setText("Bewertung konnte nicht gespeichert werden");
                     }
                 });
         }
