@@ -6,20 +6,36 @@
 module fettyBossy.Services {
     'use strict';
 
+    export const SEVERITY_INFO:number = 0;
+    export const SEVERITY_WARN:number = 1;
+    export const SEVERITY_ERROR:number = 2;
 
+    /**
+     * interface of this service
+     */
     export interface IMessageService {
         /**
          *
          * @param text
+         * @param severity
          */
-        setText(text:string):void;
+        setMessage(text:string, severity:number):void;
         /**
          */
-        getText():string;
+        getMessage():IMessage;
+    }
+
+    export interface IMessage {
+        text: string;
+        severity: number; // see SEVERITY_INFO, SEVERITY_WARN, SEVERITY_ERROR
     }
 
     class Message implements IMessageService {
-        text:string = "EMPTY";
+
+        message:IMessage = <IMessage>{
+            text: "EMPTY"
+            , severity: SEVERITY_INFO
+        };
 
         public static $inject = ['$log'];
 
@@ -27,13 +43,16 @@ module fettyBossy.Services {
             this.$log.debug('Message constructor');
         }
 
-        setText(text:string):void {
-            this.$log.debug('Message setText("' + text + '")');
-            this.text = text;
+        setMessage(text:string, severity:number):void {
+            this.message = <IMessage>{
+                text: text,
+                severity: severity
+            };
+            this.$log.debug('Message setMessage("' + this.message.text + "/" + this.message.severity + '")');
         }
 
-        getText():string {
-            return this.text;
+        getMessage():IMessage {
+            return this.message;
         }
     }
 

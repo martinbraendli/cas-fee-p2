@@ -27,7 +27,7 @@ module fettyBossy.Controllers {
             if (!this.recipe.preparationSteps) {
                 this.recipe.preparationSteps = [];
             }
-            var emptyPreparationStep:fettyBossy.Data.IPreparationStep = {
+            var emptyPreparationStep:fettyBossy.Data.IPreparationStep = <fettyBossy.Data.IPreparationStep>{
                 position: this.recipe.preparationSteps.length + 1
                 //text: "next..."
             };

@@ -29,10 +29,10 @@ module fettyBossy.Controllers {
             this.repository.saveRating(this.$scope.rating)
                 .then(function (result:fettyBossy.Services.ISaveRatingResult) {
                     if (result.successful) {
-                        messageService.setText("Bewertung erfolgreich gespeichert");
-                      // todo event bus for ping listRecipeRatingsController to reload its data -->reload auslösen!
+                        messageService.setMessage("Bewertung erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO);
+                        // todo event bus for ping listRecipeRatingsController to reload its data -->reload auslösen!
                     } else {
-                        messageService.setText("Bewertung konnte nicht gespeichert werden");
+                        messageService.setMessage("Bewertung konnte nicht gespeichert werden", fettyBossy.Services.SEVERITY_ERROR);
                     }
                 });
         }
