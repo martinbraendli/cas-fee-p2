@@ -7,7 +7,7 @@ module fettyBossy.Services {
     'use strict';
 
 
-    export interface IMessage {
+    export interface IMessageService {
         /**
          *
          * @param text
@@ -18,7 +18,7 @@ module fettyBossy.Services {
         getText():string;
     }
 
-    class Message implements IMessage {
+    class Message implements IMessageService {
         text:string = "EMPTY";
 
         public static $inject = ['$log'];

@@ -13,7 +13,7 @@ module fettyBossy.Controllers {
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
                     private sessionService:fettyBossy.Services.ISession,
-                    private messageService:fettyBossy.Services.IMessage,
+                    private messageService:fettyBossy.Services.IMessageService,
                     private $scope:fettyBossy.Directive.IAddeditRecipeRatingScope) {
             this.$log.debug('AddeditRecipeRatingController constructor');
         }

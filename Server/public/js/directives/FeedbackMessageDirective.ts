@@ -11,7 +11,7 @@ module fettyBossy.Directive {
         templateUrl = 'js/directives/feedbackMessage.tpl.html';
         messageService;
 
-        constructor(messageService:fettyBossy.Services.IMessage) {
+        constructor(messageService:fettyBossy.Services.IMessageService) {
             this.messageService = messageService;
         }
 
