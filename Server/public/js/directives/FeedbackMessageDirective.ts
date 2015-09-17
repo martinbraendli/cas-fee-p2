@@ -15,9 +15,23 @@ module fettyBossy.Directive {
             this.messageService = messageService;
         }
 
+        getMessageClass = function (severity:number) {
+            switch (severity) {
+                case fettyBossy.Services.SEVERITY_WARN:
+                    return "warn";
+                case fettyBossy.Services.SEVERITY_ERROR:
+                    return "error";
+                case fettyBossy.Services.SEVERITY_INFO:
+                default:
+                    return "info";
+            }
+        };
+
         link = (scope) => {
             // bind messageService into scope to have access from template
             scope.messageService = this.messageService;
+
+            scope.getMessageClass = this.getMessageClass;
         }
     }
 

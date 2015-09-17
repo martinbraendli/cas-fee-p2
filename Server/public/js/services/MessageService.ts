@@ -6,9 +6,9 @@
 module fettyBossy.Services {
     'use strict';
 
-    export const SEVERITY_INFO:number = 0;
-    export const SEVERITY_WARN:number = 1;
-    export const SEVERITY_ERROR:number = 2;
+    export var SEVERITY_INFO:number = 0;
+    export var SEVERITY_WARN:number = 1;
+    export var SEVERITY_ERROR:number = 2;
 
     /**
      * interface of this service
