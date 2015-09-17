@@ -32,10 +32,7 @@ module fettyBossy.Services {
 
     class Message implements IMessageService {
 
-        message:IMessage = <IMessage>{
-            text: "EMPTY"
-            , severity: SEVERITY_INFO
-        };
+        message:IMessage = null;
 
         public static $inject = ['$log'];
 

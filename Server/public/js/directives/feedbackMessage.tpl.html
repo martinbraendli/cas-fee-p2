@@ -1,3 +1,4 @@
-<div ng-class="getMessageClass(messageService.getMessage().severity)">
+<div ng-class="getMessageClass(messageService.getMessage().severity)"
+     ng-show="messageService.getMessage()">
     {{messageService.getMessage().text}}
 </div>
