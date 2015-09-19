@@ -6,30 +6,31 @@
 module fettyBossy.Directive {
     'use strict';
 
-    angular
-        .module('fettyBossy')
-        .directive('fbFileUpload', fileUpload);
-
     export interface IListRecipeRatingsScope extends ng.IScope {
         recipe: fettyBossy.Data.IRecipe;
         ratings: Array<fettyBossy.Data.IRating>;
     }
 
-    function fileUpload():ng.IDirective {
-        return {
-            restrict: 'E',
-            scope: {
-                recipe: '=recipe'
-            },
-            templateUrl: 'js/directives/fileUpload.tpl.html',
-            link: (scope, element) => {
+    class FileUploadDirective implements ng.IDirective {
+        restrict = 'E';
+        scope = {
+            recipe: '=recipe'
+        };
+        templateUrl = 'js/directives/fileUpload.tpl.html';
+        messageService:fettyBossy.Services.IMessageService;
 
-                element.bind("change", function (changeEvent) {
+        constructor(messageService:fettyBossy.Services.IMessageService) {
+            this.messageService = messageService;
+        }
+
+        link = (scope, element) => {
+            var messageService = this.messageService;
+            element.bind("change", function (changeEvent) {
                     var file = changeEvent.target.files[0];
 
                     // Only process image files.
                     if (!file.type.match('image.*')) {
-                        alert("Kein Bild");
+                        messageService.setMessage("Datei nicht vom Typ 'Bild'", fettyBossy.Services.SEVERITY_WARN);
                         return;
                     }
 
@@ -53,9 +54,13 @@ module fettyBossy.Directive {
 
                     // Read in the image file as a data URL.
                     reader.readAsDataURL(file);
-                });
-
-            }
-        };
+                }
+            );
+        }
     }
+
+    angular
+        .module('fettyBossy')
+        .directive('fbFileUpload',
+        ["MessageService", (MessageService) =>  new FileUploadDirective(MessageService)]);
 }
