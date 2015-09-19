@@ -10,13 +10,14 @@ module fettyBossy.Controllers {
         static SESSION_LOGIN:string = '/api/user/login/';
         static SESSION_LOGOUT:string = '/api/user/logout/';
 
-        public static $inject = ['$log', '$location', 'SessionService', '$http', '$q'];
+        public static $inject = ['$log', '$location', 'SessionService', 'MessageService', '$http', '$q'];
 
         loginError:fettyBossy.Controllers.IUserFormValidationResponse;
 
         constructor(private $log:ng.ILogService,
                     private $location:ng.ILocationService,
                     private sessionService:fettyBossy.Services.ISession,
+                    private messageService:fettyBossy.Services.IMessageService,
                     private $http:ng.IHttpService,
                     private $q:ng.IQService) {
             this.$log.debug('SessionController constructor');
@@ -29,6 +30,7 @@ module fettyBossy.Controllers {
          */
         login(user:fettyBossy.Data.IUser):boolean {
             this.$log.debug('SessionController login("' + user + '")');
+            var messageService = this.messageService;
 
             this.$http.post(SessionController.SESSION_LOGIN, user)
                 .success((user) => {
@@ -38,7 +40,7 @@ module fettyBossy.Controllers {
                     this.$location.path('/searchRecipe');
                 })
                 .error((data, status, header, config)=> {
-                    alert("login failed: " + data.message);
+                    messageService.setMessage("Login fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR);
                 });
 
             return true;

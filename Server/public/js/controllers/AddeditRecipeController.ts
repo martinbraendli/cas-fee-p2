@@ -10,10 +10,11 @@ module fettyBossy.Controllers {
 
         recipe:fettyBossy.Data.IRecipe;
 
-        public static $inject = ['$log', 'RepositoryService', '$location', 'recipe'];
+        public static $inject = ['$log', 'RepositoryService', 'MessageService', '$location', 'recipe'];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
+                    private messageService:fettyBossy.Services.IMessageService,
                     private $location:ng.ILocationService,
                     recipe:fettyBossy.Data.IRecipe) {
             this.$log.debug('AddeditRecipeController constructor');
@@ -55,13 +56,15 @@ module fettyBossy.Controllers {
          */
         save() {
             var $location = this.$location;
+            var messageService = this.messageService;
+
             this.repository.saveRecipe(this.recipe)
                 .then(function (result:fettyBossy.Services.ISaveRecipeResult) {
                     if (result.successful) {
-                        alert("Save ok");
+                        messageService.setMessage("Rezept erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO);
                         $location.path("/viewRecipe/" + result.savedRecipe._id);
                     } else {
-                        alert("Save failed");
+                        messageService.setMessage("Rezept erfolgreich gespeichert", fettyBossy.Services.SEVERITY_ERROR);
                     }
                 });
         }

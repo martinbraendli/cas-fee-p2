@@ -8,13 +8,14 @@ module fettyBossy.Controllers {
 
     export class RegisterController {
 
-        public static $inject = ['$log', 'RepositoryService', 'SessionService', '$location'];
+        public static $inject = ['$log', 'RepositoryService', 'SessionService', 'MessageService', '$location'];
 
         registerError:string;
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
                     private SessionService:fettyBossy.Services.ISession,
+                    private messageService:fettyBossy.Services.IMessageService,
                     private $location:ng.ILocationService) {
             this.$log.debug('RegisterController constructor');
         }
@@ -24,6 +25,7 @@ module fettyBossy.Controllers {
 
             var $location = this.$location;
             var sessionService = this.SessionService;
+            var messageService = this.messageService;
             var registerError = this.registerError;
 
             this.repository.registerUser(user)
@@ -31,7 +33,7 @@ module fettyBossy.Controllers {
                     if (result.successful) {
                         registerError = null;
                         sessionService.setUser(result.registeredUser);
-                        alert("registered user '" + result.registeredUser.name + "'");
+                        messageService.setMessage("Benutzer erfolgreich registriert.", fettyBossy.Services.SEVERITY_INFO);
 
                         $location.path("/viewUser/" + result.registeredUser._id);
                     } else {
