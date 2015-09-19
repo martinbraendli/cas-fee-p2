@@ -9,7 +9,7 @@ module fettyBossy.Directive {
     class FeedbackMessageDirective implements ng.IDirective {
         restrict = 'E';
         templateUrl = 'js/directives/feedbackMessage.tpl.html';
-        messageService;
+        messageService:fettyBossy.Services.IMessageService;
 
         constructor(messageService:fettyBossy.Services.IMessageService) {
             this.messageService = messageService;

@@ -1,3 +1,5 @@
+///<reference path='../_reference.ts' />
+
 module fettyBossy.Directive {
     'use strict';
 

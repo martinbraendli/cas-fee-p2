@@ -61,7 +61,7 @@ module fettyBossy.Services {
          * save given ratign
          * @param rating
          */
-        saveRating(rating:fettyBossy.Data.IRating);
+        saveRating(rating:fettyBossy.Data.IRating):void;
     }
 
     class Repository implements IRepository {
