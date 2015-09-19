@@ -16,12 +16,7 @@ module fettyBossy.Directive {
             scope: {
                 recipeFilter: '=recipeFilter'
             },
-            templateUrl: 'js/directives/searchForm.tpl.html',
-            //controllerAs: 'searchResultlistCtrl',
-            //controller: fettyBossy.Controllers.SearchResultlistController,
-            //link: () => {
-            //
-            //}
+            templateUrl: 'js/directives/searchForm.tpl.html'
         };
     }
 }
