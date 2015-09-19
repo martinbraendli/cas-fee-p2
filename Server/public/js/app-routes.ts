@@ -60,14 +60,15 @@ module fettyBossy {
                 controller: 'AddeditRecipeController',
                 controllerAs: 'addeditRecipeCtrl',
                 resolve: {
-                    recipe: ['SessionService', '$log', '$location',
+                    recipe: ['SessionService','MessageService', '$log', '$location',
                         function (SessionService:fettyBossy.Services.ISession,
+                                  MessageService:fettyBossy.Services.IMessageService,
                                   $log:ng.ILogService,
                                   $location:ng.ILocationService) {
                             $log.debug("app-routes: resolve for '/addRecipe' params");
 
                             if (!SessionService.getUser()) {
-                                alert("Not logged in!");
+                                MessageService.setMessage("Nicht eingeloggt!", fettyBossy.Services.SEVERITY_WARN);
                                 // not logged in, redirect to login
                                 $location.path("/");
                                 return;
