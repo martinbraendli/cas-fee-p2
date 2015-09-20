@@ -9,7 +9,6 @@
 - minimal view tablet max-width
 
 # Martin
-- Rezept > Author > Edit-Knopf fehlt
 - Fehlermeldungen generell lösen (popups, messageblock) > messageDirective
 - UnitTests..
 
