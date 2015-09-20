@@ -51,6 +51,10 @@ module fettyBossy.Controllers {
             this.recipe.ingredients.splice(index, 1);
         }
 
+        removeImage(index:number) {
+            this.recipe.images.splice(index, 1);
+        }
+
         /**
          * save recipe from current form
          */

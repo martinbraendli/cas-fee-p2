@@ -24,8 +24,7 @@
                 <img ng-show="!addeditRecipeCtrl.recipe.images" class="recipe-img" src="pictures/empty_plate.jpg">
                 <div ng-repeat="image in addeditRecipeCtrl.recipe.images">
                     <img class="img-menu" ng-src="{{image.src}}"/>
-                    <!-- TODO lösch-funktion -->
-                    <button class="btn right disabled">löschen</button>
+                    <button class="btn right" ng-click="addeditRecipeCtrl.removeImage($index)">löschen</button>
                 </div>
                 <br />
                 <fb-file-upload recipe="addeditRecipeCtrl.recipe"></fb-file-upload>
