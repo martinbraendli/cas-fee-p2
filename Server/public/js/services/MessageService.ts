@@ -23,6 +23,8 @@ module fettyBossy.Services {
         /**
          */
         getMessage():IMessage;
+
+        addListener(callback);
     }
 
     export interface IMessage {
@@ -33,6 +35,8 @@ module fettyBossy.Services {
     class Message implements IMessageService {
 
         message:IMessage = null;
+
+        listener = [];
 
         public static $inject = ['$log'];
 
@@ -46,10 +50,19 @@ module fettyBossy.Services {
                 severity: severity
             };
             this.$log.debug('Message setMessage("' + this.message.text + "/" + this.message.severity + '")');
+
+            var message = this.message;
+            this.listener.forEach(function (listener) {
+                listener(message);
+            });
         }
 
         getMessage():IMessage {
             return this.message;
+        }
+
+        addListener(callback) {
+            this.listener.push(callback);
         }
     }
 

@@ -6,6 +6,11 @@
 module fettyBossy.Directive {
     'use strict';
 
+    interface FeedbackMessageScope extends ng.IScope {
+        message:fettyBossy.Services.IMessage,
+        getMessageClass(severity:number):string
+    }
+
     class FeedbackMessageDirective implements ng.IDirective {
         restrict = 'E';
         templateUrl = 'js/directives/feedbackMessage.tpl.html';
@@ -27,9 +32,10 @@ module fettyBossy.Directive {
             }
         };
 
-        link = (scope) => {
-            // bind messageService into scope to have access from template
-            scope.messageService = this.messageService;
+        link = (scope:FeedbackMessageScope) => {
+            this.messageService.addListener(function (msg) {
+                scope.message = msg;
+            });
 
             scope.getMessageClass = this.getMessageClass;
         }
