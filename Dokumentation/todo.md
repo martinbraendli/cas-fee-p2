@@ -9,7 +9,6 @@
 - minimal view tablet max-width
 
 # Martin
-- Fehlermeldungen generell lösen (popups, messageblock) > messageDirective
 - UnitTests..
 
 - Stückelungen von Server inkl. Searchdropdown > bs_typeahead
