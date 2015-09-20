@@ -55,8 +55,17 @@ function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
         callback(err, savedRecipe);
     };
 
+    var dbCallbackInsert = function (err) {
+        if (err) {
+            return callback(err);
+        } else {
+            // load updated recipe and return it
+            publicLoadRecipe(recipe._id, callback);
+        }
+    };
+
     if (recipe._id) {
-        db.update({_id: recipe._id}, recipe, dbCallback);
+        db.update({_id: recipe._id}, recipe, dbCallbackInsert);
     } else {
         db.insert(recipe, dbCallback);
     }

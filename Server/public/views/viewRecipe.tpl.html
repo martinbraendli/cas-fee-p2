@@ -39,7 +39,7 @@
                 </div>
                 <div ng-controller="SessionController as sessionCtrl">
                     <a class="btn btn-flat" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
-                       ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.author._id)">EDIT</a>
+                       ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.userId)">EDIT</a>
                 </div>
             </div>
             <!--recipe data-->
