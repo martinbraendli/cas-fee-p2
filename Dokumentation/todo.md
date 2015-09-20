@@ -10,7 +10,6 @@
 
 # Martin
 - Rezept > Author > Edit-Knopf fehlt
-- Bilder-List: lösch knopf
 - Fehlermeldungen generell lösen (popups, messageblock) > messageDirective
 - UnitTests..
 
