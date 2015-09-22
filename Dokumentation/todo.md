@@ -12,7 +12,7 @@
 - UnitTests..
 
 - Stückelungen von Server inkl. Searchdropdown > bs_typeahead
-- Filter für userausgabe / author
+- Doppelte Kommentare > Reload
 
 http://danialk.github.io/blog/2013/02/20/simple-authentication-in-nodejs/ 
  
