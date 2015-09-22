@@ -22,6 +22,7 @@ module fettyBossy.Controllers {
             this.$log.debug('AddeditRecipeRatingController save()');
 
             this.$scope.rating.userId = this.sessionService.getUser()._id;
+            this.$scope.rating.userName = this.sessionService.getUser().name; // TODO lookup > nicht nötig
             this.$scope.rating.recipeId = this.$scope.recipeId;
 
             var messageService = this.messageService;

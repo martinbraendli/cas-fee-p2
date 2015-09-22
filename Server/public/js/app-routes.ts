@@ -75,7 +75,8 @@ module fettyBossy {
                             }
                             // return new recipe with user set
                             return {
-                                userId: SessionService.getUser()._id
+                                userId: SessionService.getUser()._id,
+                                userName: SessionService.getUser().name
                             };
                         }]
                 }

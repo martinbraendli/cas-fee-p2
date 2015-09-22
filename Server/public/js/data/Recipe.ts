@@ -5,6 +5,7 @@ module fettyBossy.Data {
     export interface IRecipe {
         _id: string;
         userId: string;
+        userName: string; // TODO lookup in user.db instead of saving it into recipe.db
 
         title: string; // name of the recipe
         description: string; // recipe description
