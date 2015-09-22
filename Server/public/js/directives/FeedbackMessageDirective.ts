@@ -7,8 +7,8 @@ module fettyBossy.Directive {
     'use strict';
 
     interface FeedbackMessageScope extends ng.IScope {
-        message:fettyBossy.Services.IMessage,
-        getMessageClass(severity:number):string
+        message:fettyBossy.Services.IMessage;
+        getMessageClass(severity:number):string;
     }
 
     class FeedbackMessageDirective implements ng.IDirective {
