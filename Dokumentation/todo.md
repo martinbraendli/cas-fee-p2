@@ -1,4 +1,4 @@
-# Felix
+﻿# Felix
 
 - Templates @ Directive Templates
 - SCSS file struktur
@@ -10,9 +10,8 @@
 
 # Martin
 - UnitTests..
-
+- Minify-Build > js.min
 - Stückelungen von Server inkl. Searchdropdown > bs_typeahead
-- Doppelte Kommentare > Reload
 
 http://danialk.github.io/blog/2013/02/20/simple-authentication-in-nodejs/ 
  
