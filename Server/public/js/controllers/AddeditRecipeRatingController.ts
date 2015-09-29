@@ -31,7 +31,6 @@ module fettyBossy.Controllers {
                 .then(function (result:fettyBossy.Services.ISaveRatingResult) {
                     if (result.successful) {
                         messageService.setMessage("Bewertung erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO);
-                        // todo event bus for ping listRecipeRatingsController to reload its data -->reload auslösen!
                     } else {
                         messageService.setMessage("Bewertung konnte nicht gespeichert werden", fettyBossy.Services.SEVERITY_ERROR);
                     }

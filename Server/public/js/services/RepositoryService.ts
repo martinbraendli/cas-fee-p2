@@ -62,6 +62,8 @@ module fettyBossy.Services {
          * @param rating
          */
         saveRating(rating:fettyBossy.Data.IRating):void;
+
+        addListener(callback);
     }
 
     class Repository implements IRepository {
@@ -77,6 +79,7 @@ module fettyBossy.Services {
         static SAVE_RATING:string = '/api/rating';
 
         recipes:Array<fettyBossy.Data.IRecipe> = [];
+        listener = [];
 
         public static $inject = ['$log', '$http', '$q'];
 
@@ -223,10 +226,16 @@ module fettyBossy.Services {
                 result.successful = true;
                 result.savedRating = rating;
 
+                this.notifyListener();
+
                 deffered.resolve(rating);
             });
 
             return deffered.promise;
+        }
+
+        addListener(callback) {
+            this.listener.push(callback)
         }
 
         /**
@@ -245,6 +254,13 @@ module fettyBossy.Services {
                 });
                 // add the new recipe
                 recipes.push(loadedRecipe);
+            });
+            this.notifyListener();
+        }
+
+        private notifyListener(){
+            this.listener.forEach(function (listener) {
+                listener();
             });
         }
     }

@@ -22,15 +22,21 @@ module fettyBossy.Controllers {
                     private $scope:IListRecipeRatingsScope) {
             this.$log.debug("ListRecipeRatingsController constructor - loadRatings for recipe '" + $scope.recipe._id + "'");
 
-            this.reloadRatings();
+            this.reloadRatings($scope, repository);
+
+            // register listener
+            var reloadRatings = this.reloadRatings;
+            var setCurrentRatings = function () {
+                reloadRatings($scope, repository);
+            };
+            this.repository.addListener(setCurrentRatings);
         }
 
         /**
          * reload ratings from server
          */
-        reloadRatings() {
-            var scope = this.$scope;
-            this.repository.loadRatings(this.$scope.recipe._id)
+        reloadRatings(scope, repository) {
+            repository.loadRatings(scope.recipe._id)
                 .then(function (loadedRatings) {
                     scope.ratings = loadedRatings;
                 });
