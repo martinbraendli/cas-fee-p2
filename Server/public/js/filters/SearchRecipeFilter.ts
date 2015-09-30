@@ -34,6 +34,9 @@ module fettyBossy.Filter {
             // 2. filter by text
             if (recipeFilter.text) {
                 var filterByText = function (recipe:fettyBossy.Data.IRecipe) {
+                    if (!recipe.title){
+                        return false;
+                    }
                     return (recipe.title.toLowerCase().indexOf(recipeFilter.text.toLowerCase()) > -1);
                 };
                 resultRecipes = resultRecipes.filter(filterByText);
