@@ -30,6 +30,24 @@ body {
 }
 
 
+// resets
+.container{
+  width:100%;
+  padding: 0;
+}
+
+.container .row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+// fb-menu top
+
+.nav-wrapper{
+  background: $bgcolor-blue;
+}
+
 // background picture in a ribbon
 .ribbon{
   background-image: url('../pictures/bg_artfood_1500.jpg');
@@ -42,21 +60,18 @@ body {
 .supercontainer{
   margin:  auto;
   margin-top: -210px;
-  max-width: 1000px;
+  min-width: 767px;
+  max-width: 1100px;
 }
 
-
-// resets
-.container{
-  width:100%!important;
-  padding: 0;
+// Feedback window messages
+.feedback-window{
+  min-width: 500px;
+  background: #0059bc;
+  color: red;
 }
 
-.container .row{
-  margin-left: 0;
-  margin-right: 0;
-}
-
+// login
 
 .userForm input.ng-invalid.ng-touched {
   background-color: #ffc2b8;
@@ -97,21 +112,7 @@ body {
 
 // ------------------- Login Screen
 
-/*
-.outer-wrapper{
-  position: absolute;
-  //background-image: url('');
-  background-size: cover;
-  background-attachment: fixed;
-  margin: 0;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  // temporary
-  min-height: 800px;
-}
-*/
+
 
 
 .fb-layout{
@@ -126,7 +127,6 @@ body {
 
 // login Form Card
 #loginForm{
-
   input{
     width: 60%;
   }
@@ -238,10 +238,27 @@ body {
     margin-left: 1rem;
   }
 }
+.img-chooser{
+  border: 1px solid #AA3333;
+  background: $secondary-color;
+
+}
 
 .recipe-img{
   max-width: 220px;
   height: auto;
+}
+
+
+.recipe-img-slider{
+  max-width: 100%;
+  height: auto;
+}
+
+.img-caption{
+  z-index: 50;
+  background: rgba(22, 22, 22, 0.3);
+  color: $primary-color;
 }
 
 .recipe-name{

@@ -1,7 +1,8 @@
   <nav>
-      <div class="nav-wrapper orange darken-2">
-          <a href="/" class="brand-logo">Fetty BossY <small>v0.14</small></a>
-          <ul id="nav-mobile" class="right hide-on-small-only" ng-controller="SessionController as sessionCtrl">
+      <div class="nav-wrapper">
+          <a href="/" class="brand-logo left">Fetty Bossy <small>v0.14</small></a>
+          <!--<a href="#"  class="button-collapse"><i class="material-icons">menu</i></a>-->
+          <ul class="header-nav  right" ng-controller="SessionController as sessionCtrl">
             <li>
                 <a href="#/searchRecipe">Suche</a>
             </li>
@@ -18,6 +19,7 @@
                 <a href="#/start" ng-click="sessionCtrl.logout()" >Logout</a>
             </li>
           </ul>
+
       </div>
   </nav>
 

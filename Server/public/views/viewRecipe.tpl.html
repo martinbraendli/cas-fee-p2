@@ -27,15 +27,15 @@
                 <div class="swiper-container z-depth-2 fb-init-swiper" fb-init-swiper>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" ng-repeat="image in viewRecipeCtrl.recipe.images">
-                            <img ng-src="{{image.src}}" class="recipe-img"/>
+                            <img ng-src="{{image.src}}" class="recipe-img-slider"/>
                             <br/>
-                            <caption>
+                            <caption class="img-caption">
                                 (Bild von: {{image.author.name}})
                             </caption>
                         </div>
                     </div>
-                    <div class="swiper-button-prev btn btn-flat">prev</div>
-                    <div class="swiper-button-next btn">next</div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next "></div>
                 </div>
                 <div ng-controller="SessionController as sessionCtrl">
                     <a class="btn btn-flat" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"

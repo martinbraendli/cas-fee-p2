@@ -12,6 +12,7 @@
                 </div>
             </div>
         </div>
+        <!--first row-->
         <div class="row">
             <!--FOTO UPLOAD -->
             <div class="col m12 l5 pixupload card text-darken-2">
@@ -23,7 +24,7 @@
                 <p>Bitte mindestens ein Photo hochladen. Danke!</p>
                 <img ng-show="!addeditRecipeCtrl.recipe.images" class="recipe-img" src="pictures/empty_plate.jpg">
                 <div ng-repeat="image in addeditRecipeCtrl.recipe.images">
-                    <img class="img-menu" ng-src="{{image.src}}"/>
+                    <img class="recipe-img" ng-src="{{image.src}}"/>
                     <button class="btn right" ng-click="addeditRecipeCtrl.removeImage($index)">löschen</button>
                 </div>
                 <br />
@@ -198,6 +199,13 @@
                             ng-click="addeditRecipeCtrl.addIngredient()">weitere Zutaten
                     </button>
                 </div>
+            </div>
+        </div>
+        <div class="row recipe-footer">
+            <div class="col s12 l12">
+                <button class="btn right" type="button"
+                        ng-click="addeditRecipeCtrl.save()">Menu Speichern
+                </button>
             </div>
         </div>
     </div>
