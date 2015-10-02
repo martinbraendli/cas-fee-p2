@@ -33,6 +33,7 @@ module fettyBossy.Services {
     }
 
     class Message implements IMessageService {
+        self:IMessageService;
 
         message:IMessage = null;
 
@@ -42,17 +43,20 @@ module fettyBossy.Services {
 
         constructor(private $log:ng.ILogService) {
             this.$log.debug('Message constructor');
+
+            self = this;
+            window.setMessage = this.setMessage;
         }
 
         setMessage(text:string, severity:number):void {
-            this.message = <IMessage>{
+            self.message = <IMessage>{
                 text: text,
                 severity: severity
             };
-            this.$log.debug('Message setMessage("' + this.message.text + "/" + this.message.severity + '")');
+            self.$log.debug('Message setMessage("' + self.message.text + "/" + self.message.severity + '")');
 
-            var message = this.message;
-            this.listener.forEach(function (listener) {
+            var message = self.message;
+            self.listener.forEach(function (listener) {
                 listener(message);
             });
         }
