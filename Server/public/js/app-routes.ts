@@ -36,7 +36,7 @@ module fettyBossy {
          */
             .when("/editRecipe/:recipeId", {
                 templateUrl: 'views/addeditRecipe.tpl.html',
-                controller: 'AddeditRecipeController',
+                controller: $injects.controllers.addeditRecipeController,
                 controllerAs: 'addeditRecipeCtrl',
                 resolve: {
                     recipe: ['RepositoryService', '$route', '$log',
@@ -57,7 +57,7 @@ module fettyBossy {
                     addRecipe: true
                 },
                 templateUrl: 'views/addeditRecipe.tpl.html',
-                controller: 'AddeditRecipeController',
+                controller: $injects.controllers.addeditRecipeController,
                 controllerAs: 'addeditRecipeCtrl',
                 resolve: {
                     recipe: ['SessionService','MessageService', '$log', '$location',

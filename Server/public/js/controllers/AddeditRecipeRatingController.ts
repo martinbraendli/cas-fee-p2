@@ -8,7 +8,12 @@ module fettyBossy.Controllers {
 
     export class AddeditRecipeRatingController {
 
-        public static $inject = ['$log', 'RepositoryService', 'SessionService', 'MessageService', '$scope'];
+        public static $inject = [
+            $injects.$log,
+            $injects.services.repositoryService,
+            $injects.services.sessionService,
+            $injects.services.messageService,
+            $injects.$scope];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
@@ -39,6 +44,6 @@ module fettyBossy.Controllers {
     }
 
     angular
-        .module('fettyBossy')
-        .controller('AddeditRecipeRatingController', AddeditRecipeRatingController);
+        .module($injects.fettyBossy)
+        .controller($injects.controllers.addeditRecipeRatingController, AddeditRecipeRatingController);
 }
