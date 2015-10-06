@@ -8,7 +8,12 @@ module fettyBossy.Controllers {
 
     export class RegisterController {
 
-        public static $inject = ['$log', 'RepositoryService', 'SessionService', 'MessageService', '$location'];
+        public static $inject = [
+            $injects.$log,
+            $injects.services.repositoryService,
+            $injects.services.sessionService,
+            $injects.services.messageService,
+            $injects.$location];
 
         registerError:string;
 
@@ -46,6 +51,6 @@ module fettyBossy.Controllers {
     }
 
     angular
-        .module('fettyBossy')
-        .controller('RegisterController', RegisterController);
+        .module($injects.fettyBossy)
+        .controller($injects.controllers.registerController, RegisterController);
 }

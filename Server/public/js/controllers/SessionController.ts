@@ -10,7 +10,13 @@ module fettyBossy.Controllers {
         static SESSION_LOGIN:string = '/api/user/login/';
         static SESSION_LOGOUT:string = '/api/user/logout/';
 
-        public static $inject = ['$log', '$location', 'SessionService', 'MessageService', '$http', '$q'];
+        public static $inject = [
+            $injects.$log,
+            $injects.$location,
+            $injects.services.sessionService,
+            $injects.services.messageService,
+            $injects.$http,
+            $injects.$q];
 
         loginError:fettyBossy.Controllers.IUserFormValidationResponse;
 
@@ -33,7 +39,7 @@ module fettyBossy.Controllers {
             var messageService = this.messageService;
 
             this.$http.post(SessionController.SESSION_LOGIN, user)
-                .success((user) => {
+                .success((user:fettyBossy.Data.IUser) => {
                     // alles ok
                     this.$log.info('SessionController login("' + user + '") - successful');
                     this.sessionService.setUser(user);
@@ -75,6 +81,6 @@ module fettyBossy.Controllers {
     }
 
     angular
-        .module('fettyBossy')
-        .controller('SessionController', SessionController);
+        .module($injects.fettyBossy)
+        .controller($injects.controllers.sessionController, SessionController);
 }

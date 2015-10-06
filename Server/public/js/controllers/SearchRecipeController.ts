@@ -16,10 +16,9 @@ module fettyBossy.Controllers {
         recipes:Array<fettyBossy.Data.IRecipe>;
         recipeFilter:ISearchRecipeFilter;
 
-        //searchQuery:string;
-        //userQuery:fettyBossy.Data.IUser;
-
-        public static $inject = ['$log', 'recipes'];
+        public static $inject = [
+            $injects.$log,
+            'recipes'];
 
         constructor(private $log:ng.ILogService,
                     recipes:Array<fettyBossy.Data.IRecipe>) {
@@ -30,6 +29,6 @@ module fettyBossy.Controllers {
     }
 
     angular
-        .module('fettyBossy')
-        .controller('SearchRecipeController', SearchRecipeController);
+        .module($injects.fettyBossy)
+        .controller($injects.controllers.searchRecipeController, SearchRecipeController);
 }

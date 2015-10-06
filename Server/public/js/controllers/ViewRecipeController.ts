@@ -10,7 +10,9 @@ module fettyBossy.Controllers {
 
         recipe:fettyBossy.Data.IRecipe;
 
-        public static $inject = ['$log', 'recipe'];
+        public static $inject = [
+            $injects.$log,
+            'recipe'];
 
         constructor(private $log:ng.ILogService,
                     recipe:fettyBossy.Data.IRecipe) {
@@ -20,6 +22,6 @@ module fettyBossy.Controllers {
     }
 
     angular
-        .module('fettyBossy')
-        .controller('ViewRecipeController', ViewRecipeController);
+        .module($injects.fettyBossy)
+        .controller($injects.controllers.viewRecipeController, ViewRecipeController);
 }
