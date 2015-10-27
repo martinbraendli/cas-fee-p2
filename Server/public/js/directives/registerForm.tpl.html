@@ -1,4 +1,4 @@
-<div class="card-title amber-text ">Registrieren</div>
+<div class="card-title amber-text ">Neu Registrieren</div>
 <div ng-hide="sessionCtrl.isLoggedIn()">
     <form id="registerForm" name="registerForm"
           class="userForm"
@@ -9,7 +9,7 @@
                    ng-model="user.name" required/>
             <label for="registerName">Name</label>
             <div ng-show="registerForm.$submitted || registerForm.registerName.$dirty || registerCtrl.registerEror">
-                <div ng-show="registerForm.registerName.$error.required">Sag uns deinen Namen.</div>
+                <div ng-show="registerForm.registerName.$error.required">Ihr Name bitte.</div>
             </div>
         </div>
 
@@ -18,7 +18,7 @@
                    ng-model="user.email" required/>
             <label for="registerEmail">E-Mail</label>
             <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
-                <span ng-show="registerForm.registerEmail.$error.required">Bitte gib Deine E-mail adresse an.</span>
+                <span ng-show="registerForm.registerEmail.$error.required">Bitte geben Sie eine E-mail Adresse an.</span>
                 <span ng-show="registerForm.registerEmail.$error.email">Das ist <i>keine</i> gültige E-mail adresse!</span>
             </div>
         </div>
@@ -28,20 +28,18 @@
             <input type="password" id="registerPassword" name="registerPassword"
                    ng-model="user.password" required/>
             <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
-                <div ng-show="registerForm.registerPassword.$error.required">Bitte gib ein Passwort ein.</div>
+                <div ng-show="registerForm.registerPassword.$error.required">Bitte geben Sie ein Passwort ein.</div>
             </div>
             <div ng-show="registerCtrl.registerEror">
                 <div>{{registerCtrl.registerError}}</div>
             </div>
         </div>
-
-        <div class="card-action">
-            <div class="row">
-                <div class="col s12">
-                    <button type="submit" class="btn amber darken-2 white-text waves-effect right"
-                            ng-disabled="registerForm.$invalid">Registrieren
-                    </button>
-                </div>
+        <hr />
+        <div class="row">
+            <div class="col s12">
+                <button type="submit" class="btn amber darken-2 white-text waves-effect right"
+                        ng-disabled="registerForm.$invalid">Neu Registrieren
+                </button>
             </div>
         </div>
     </form>

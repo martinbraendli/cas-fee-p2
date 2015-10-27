@@ -11,9 +11,9 @@ $primary-color-dark: darken($primary-color, 15%) !default;
 $secondary-color: color("light-blue", "lighten-1") !default;
 $secondary-color-hover: color("blue", "darken-3") !default;
 $success-color: color("deep-orange", "base") !default;
-$error-color: color("blue", "base") !default;
-$link-color: color("light-blue", "darken-1") !default;
 
+$error-color: color("deep-orange", "darken-4") !default;
+$link-color: color("light-blue", "darken-1") !default;
 
 $bgcolor-blue: color("light-blue", "darken-3") !default;
 
@@ -67,10 +67,41 @@ body {
 
 // Feedback window messages
 .feedback-window{
-  min-width: 500px;
-  background: #0059bc;
-  color: red;
+  position: absolute;
+  top: 25px;
+  z-index: 20;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(250,250,250,0.2);
+  padding: 10px;
+  &.info{
+    color: $bgcolor-blue;
+    background: #FFF;
+  }
+  &.warn{
+    color:#999;
+    background: rgb(250, 255, 189);
+  }
+  &.error{
+    color: $error-color;
+    background: #222;
+  }
+
+  p{
+    //border: 1px dotted #999;
+    text-align: center;
+    font-size: 1.5rem;
+    //border-radius: 5px;
+  }
 }
+
+
 
 // login
 
@@ -135,7 +166,6 @@ body {
 
 // register Form Card
 #registerForm{
-
   input{
     width: 60%;
   }
