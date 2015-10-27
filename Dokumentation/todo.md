@@ -33,15 +33,11 @@ http://danialk.github.io/blog/2013/02/20/simple-authentication-in-nodejs/
 
 - Add Rating - > POST 404 /api/rating
 
-Generell
-- Message entfernen nach x-Sekunden oder nach click
+- Message entfernen nach x-Sekunden oder nach click             (MB mit JavaScript)
 - Laden der Such-Seite dauert sehr lange --> Bilder kleiner speichern?
-Suche
 - Mehr-Filter: alle drei Kriterien implementieren
-Detail-View
-- anzahl Sterne eingabe fehlt
-Menü erfassen
-- Pflicht-Felder
-- Backzeit  / Kochzeit mit Wert "ohne", "keine nötig"
-
+- Detail-View, anzahl Sterne eingabe fehlt
+- Rezept erfassen mit Pflicht-Felder (MB: name, beschr)
+- user edit funktion mit nur 1 button zum speichern
+- teaser bottom
 
