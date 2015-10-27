@@ -8,6 +8,7 @@ module $injects {
     export var $log:string = '$log';
     export var $q:string = '$q';
     export var $scope:string = '$scope';
+    export var $timeout:string = '$timeout';
 
 
     export module controllers {
