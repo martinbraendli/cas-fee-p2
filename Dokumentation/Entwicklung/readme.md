@@ -1,5 +1,5 @@
 ## TSD / typings
-Erstellt / lädt Mappings f�r JS-Bibliotheken zur Verwendung von Typen in Typescript. 
+Erstellt / lädt Mappings für JS-Bibliotheken zur Verwendung von Typen in Typescript. 
 - gulp-tsd
 - Gulp-Task "tsd"
 - tsd.json
