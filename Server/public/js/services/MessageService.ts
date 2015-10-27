@@ -39,9 +39,9 @@ module fettyBossy.Services {
 
         listener = [];
 
-        public static $inject = ['$log'];
+        public static $inject = [$injects.$log, $injects.$timeout];
 
-        constructor(private $log:ng.ILogService) {
+        constructor(private $log:ng.ILogService, private $timeout:ng.ITimeoutService) {
             this.$log.debug('Message constructor');
 
             self = this;
@@ -49,16 +49,34 @@ module fettyBossy.Services {
         }
 
         setMessage(text:string, severity:number):void {
-            self.message = <IMessage>{
-                text: text,
-                severity: severity
-            };
-            self.$log.debug('Message setMessage("' + self.message.text + "/" + self.message.severity + '")');
+            if (!text) {
+                self.message = null;
+                self.$log.debug('Message setMessage(null)');
+            } else {
+                self.message = <IMessage>{
+                    text: text,
+                    severity: severity
+                };
+                self.$log.debug('Message setMessage("' + self.message.text + "/" + self.message.severity + '")');
+            }
 
             var message = self.message;
             self.listener.forEach(function (listener) {
                 listener(message);
             });
+
+            // start timer to remove text after certain time
+            if (text && text.length > 0) {
+                // cancel existing timeout
+                if (self.resetTimeout) {
+                    self.$timeout.cancel(self.resetTimeout);
+                }
+
+                var onTimeout = function () {
+                    self.setMessage("");
+                };
+                self.resetTimeout = self.$timeout(onTimeout, 1800);
+            }
         }
 
         getMessage():IMessage {
