@@ -518,8 +518,9 @@
 body {
   background: lightcyan;
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  font-size: 1rem;
-  font-weight: 200; }
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 300; }
 
 .clear {
   clear: both; }
@@ -672,11 +673,6 @@ body {
 .ingredient-kind {
   max-width: 90%; }
 
-.star-rating {
-  display: inline; }
-  .star-rating i {
-    padding-left: 15px; }
-
 .table-ingredients td:nth-child(1) {
   width: 15%; }
 
@@ -726,3 +722,28 @@ body {
   .searchResultlist .resulttable img {
     max-width: 60px;
     height: auto; }
+
+/*------------ Recipe rating    ----------------*/
+.addeditRecipeRating {
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  border-bottom: 1px solid #CCC; }
+  .addeditRecipeRating textarea {
+    height: 5rem; }
+
+.star-rating {
+  display: inline; }
+  .star-rating i {
+    padding-left: 15px; }
+
+.range-field label {
+  padding: 5px;
+  font-size: 1.3rem; }
+
+.thumb {
+  background: #ff5722;
+  margin-left: 16px !important;
+  padding: 7px;
+  border-radius: 100%;
+  color: white;
+  font-size: 1.3rem; }

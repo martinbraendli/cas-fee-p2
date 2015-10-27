@@ -1,11 +1,25 @@
 <div class="addeditRecipeRating">
     <span ng-show="showAsEdit">EDIT</span>
     <span ng-show="!showAsEdit">ADD Rating</span>
-
-    <label for="comment">Kommentar</label>
-    <textarea id="comment" ng-model="rating.comment"></textarea>
-
-    <button class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised" type="button"
-            ng-click="addeditRecipeRatingCtrl.save()">Speichern
-    </button>
+    <div class="row">
+        <div class="col s12 l6">
+            <h4>Bewerten Sie dieses Rezept</h4>
+            <p>in Sternen</p>
+            <p class="range-field">
+                <label>1 </label>
+                <input type="range" id="" min="1" max="5" style="max-width: 70%;" class="amber" />
+                <label>5 </label>
+            </p>
+        </div>
+        <div class="col s12 l6">
+            <h5>Ihr Kommentar</h5>
+            <div class="input-field">
+                <textarea id="comment" ng-model="rating.comment"></textarea>
+                <label for="comment">Kommentar</label>
+            </div>
+            <button class="btn blue right" type="button"
+                    ng-click="addeditRecipeRatingCtrl.save()">Rating Speichern
+            </button>
+        </div>
+    </div>
 </div>

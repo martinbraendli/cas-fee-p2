@@ -1,4 +1,4 @@
-<div class="card-title teal-text ">Login</div>
+<div class="card-title blue-text">Login</div>
     <form id="loginForm" name="loginForm"
           class="userForm"
           ng-submit="sessionCtrl.login(user)">
@@ -14,11 +14,11 @@
           </div>
           <div class="card-reveal">
               <div ng-show="loginForm.$submitted || registerForm.loginName.$dirty || sessionCtrl.loginError">
-                  <div ng-show="registerForm.loginName.$error.required">Säg din name!</div>
+                  <div ng-show="registerForm.loginName.$error.required">Dein Name ist ein Pflichtfeld</div>
                   <div ng-show="sessionCtrl.loginError.nameMessage">{{sessionCtrl.loginError.nameMessage}}</div>
               </div>
               <div ng-show="loginForm.$submitted || loginForm.loginPassword.$dirty || sessionCtrl.loginError">
-                  <div ng-show="loginForm.loginPassword.$error.required">Password required.</div>
+                  <div ng-show="loginForm.loginPassword.$error.required">Ein Password ist notwendig</div>
                   <div ng-show="sessionCtrl.loginError.passwordMessage">{{sessionCtrl.loginError.passwordMessage}}</div>
               </div>
               <div ng-show="sessionCtrl.loginError">
@@ -31,12 +31,12 @@
                       <!--login user-->
                       <button type="submit"
                               ng-disabled="loginForm.$invalid"
-                              class="btn deep-orange white-text waves-effect waves-light left">Login
+                              class="btn light-blue white-text waves-effect waves-light left">Login
                       </button>
                   </div>
                   <div class="col s6">
                       <!--login guest-->
-                      <a href="#/searchRecipe" class="btn waves-effect waves-light text-accent-1 right">Gast</a>
+                      <a href="#/searchRecipe" class="btn white text-accent-1 blue-text waves-effect  right">Gast -Login</a>
                   </div>
               </div>
 

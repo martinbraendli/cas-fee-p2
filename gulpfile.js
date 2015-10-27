@@ -74,7 +74,7 @@ gulp.task('copyToBuild', function () {
 
 
 
-// gulp task-watcher functioncd
+// gulp task-watcher function - sass, copytobuild
 gulp.task('watch', function(){
     gulp.watch('scss/*.scss', ['sass']);
     gulp.watch('Server/**/*.html', ['copyToBuild']);

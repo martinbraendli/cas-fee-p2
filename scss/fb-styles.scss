@@ -21,8 +21,9 @@ $bgcolor-blue: color("light-blue", "darken-3") !default;
 body {
   background: lightcyan;
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  font-size: 1rem;
-  font-weight: 200;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 300;
 }
 
 .clear{
@@ -232,7 +233,6 @@ body {
 }
 
 .pixupload{
-  //border:  1px solid #aa3333;
   padding: 1rem;
   button{
     margin-left: 1rem;
@@ -288,14 +288,6 @@ body {
 }
 
 
-//rating
-
-.star-rating{
-  display: inline;
-  i{
-    padding-left: 15px;
-  }
-}
 
 .table-ingredients{
   // Anzahl
@@ -379,4 +371,40 @@ body {
 
   }
 
+}
+
+/*------------ Recipe rating    ----------------*/
+
+.addeditRecipeRating{
+  border-top: 1px solid #222;
+  //border-top: 1px solid $primary-color;
+  padding-top: 20px;
+  border-bottom: 1px solid #CCC;
+  textarea{
+    height: 5rem ;
+  }
+}
+.star-rating{
+  display: inline;
+  i{
+    padding-left: 15px;
+  }
+}
+
+.range-field{
+ //font-size: 1.2rem;
+
+  label{
+    padding: 5px;
+    font-size: 1.3rem;
+  }
+}
+
+.thumb{
+  background: $success-color;
+  margin-left: 16px!important;
+  padding: 7px;
+  border-radius:100%;
+  color: white;
+  font-size: 1.3rem;
 }
