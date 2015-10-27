@@ -10,9 +10,11 @@
 
 # Martin
 - UnitTests..
-- Minify-Build > js.min
+- Minify-Build > js.min (1x head, 1x body@end)
 - Stückelungen von Server inkl. Searchdropdown > bs_typeahead
-- injections (bringmehome)
+bringmehome:
+- injections
+- angularInit (constant)
 
 http://danialk.github.io/blog/2013/02/20/simple-authentication-in-nodejs/
 
@@ -30,6 +32,16 @@ http://danialk.github.io/blog/2013/02/20/simple-authentication-in-nodejs/
 
 
 - Add Rating - > POST 404 /api/rating
--
+
+Generell
+- Message entfernen nach x-Sekunden oder nach click
+- Laden der Such-Seite dauert sehr lange --> Bilder kleiner speichern?
+Suche
+- Mehr-Filter: alle drei Kriterien implementieren
+Detail-View
+- anzahl Sterne eingabe fehlt
+Menü erfassen
+- Pflicht-Felder
+- Backzeit  / Kochzeit mit Wert "ohne", "keine nötig"
 
 
