@@ -6,7 +6,7 @@
 module fettyBossy {
     'use strict';
 
-    angular.module('fettyBossy')
+    angular.module($injects.fettyBossy)
         .config(config);
 
     function config($routeProvider:ng.route.IRouteProvider) {
@@ -17,10 +17,12 @@ module fettyBossy {
          */
             .when("/viewRecipe/:recipeId", {
                 templateUrl: 'views/viewRecipe.tpl.html',
-                controller: 'ViewRecipeController',
+                controller: $injects.controllers.viewRecipeController,
                 controllerAs: 'viewRecipeCtrl',
                 resolve: {
-                    recipe: ['RepositoryService', '$route', '$log',
+                    recipe: [$injects.services.repositoryService,
+                        $injects.$route,
+                        $injects.$log,
                         function (RepositoryService:fettyBossy.Services.IRepository,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
@@ -39,7 +41,9 @@ module fettyBossy {
                 controller: $injects.controllers.addeditRecipeController,
                 controllerAs: 'addeditRecipeCtrl',
                 resolve: {
-                    recipe: ['RepositoryService', '$route', '$log',
+                    recipe: [$injects.services.repositoryService,
+                        $injects.$route,
+                        $injects.$log,
                         function (RepositoryService:fettyBossy.Services.IRepository,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
@@ -60,7 +64,10 @@ module fettyBossy {
                 controller: $injects.controllers.addeditRecipeController,
                 controllerAs: 'addeditRecipeCtrl',
                 resolve: {
-                    recipe: ['SessionService','MessageService', '$log', '$location',
+                    recipe: [$injects.services.sessionService,
+                        $injects.services.messageService,
+                        $injects.$log,
+                        $injects.$location,
                         function (SessionService:fettyBossy.Services.ISession,
                                   MessageService:fettyBossy.Services.IMessageService,
                                   $log:ng.ILogService,
@@ -87,10 +94,11 @@ module fettyBossy {
          */
             .when("/searchRecipe", {
                 templateUrl: 'views/searchRecipe.tpl.html',
-                controller: 'SearchRecipeController',
+                controller: $injects.controllers.searchRecipeController,
                 controllerAs: 'searchRecipeCtrl',
                 resolve: {
-                    recipes: ['RepositoryService', '$log',
+                    recipes: [$injects.services.repositoryService,
+                        $injects.$log,
                         function (RepositoryService:fettyBossy.Services.IRepository,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve for '/searchRecipe'");
@@ -105,17 +113,21 @@ module fettyBossy {
          */
             .when("/viewUser/:userId", {
                 templateUrl: 'views/viewUser.tpl.html',
-                controller: 'ViewUserController',
+                controller: $injects.controllers.viewUserController,
                 controllerAs: 'viewUserCtrl',
                 resolve: {
-                    user: ['RepositoryService', '$route', '$log',
+                    user: [$injects.services.repositoryService,
+                        $injects.$route,
+                        $injects.$log,
                         function (RepositoryService:fettyBossy.Services.IRepository,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve 'user' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
                             return RepositoryService.loadUser($route.current.params.userId);
                         }],
-                    recipes: ['RepositoryService', '$route', '$log',
+                    recipes: [$injects.services.repositoryService,
+                        $injects.$route,
+                        $injects.$log,
                         function (RepositoryService:fettyBossy.Services.IRepository,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
@@ -130,7 +142,7 @@ module fettyBossy {
          */
             .otherwise({
                 templateUrl: 'views/start.tpl.html',
-                controller: 'SessionController',
+                controller: $injects.controllers.sessionController,
                 controllerAs: 'sessionCtrl'
             });
     }

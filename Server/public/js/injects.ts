@@ -7,8 +7,10 @@ module $injects {
     export var $location:string = '$location';
     export var $log:string = '$log';
     export var $q:string = '$q';
+    export var $route:string = '$route';
     export var $scope:string = '$scope';
     export var $timeout:string = '$timeout';
+    export var toastr:string = 'toastr';
 
 
     export module controllers {
@@ -19,6 +21,12 @@ module $injects {
         export var searchRecipeController:string = 'SearchRecipeController';
         export var sessionController:string = 'SessionController';
         export var viewRecipeController:string = 'ViewRecipeController';
+        export var viewUserController:string = 'ViewUserController';
+    }
+
+    export module filter {
+        export var searchRecipeFilter:string = 'SearchRecipeFilter';
+        export var minutesToHoursMinutes:string = 'minutesToHoursMinutes';
     }
 
     export module services {

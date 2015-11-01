@@ -23,7 +23,7 @@ module fettyBossy.Services {
     class Session implements ISession {
         user:fettyBossy.Data.IUser = null;
 
-        public static $inject = ['$log'];
+        public static $inject = [$injects.$log];
 
         constructor(private $log:ng.ILogService) {
             this.$log.debug('Session constructor');
@@ -39,6 +39,6 @@ module fettyBossy.Services {
         }
     }
 
-    angular.module('fettyBossy')
-        .service('SessionService', Session);
+    angular.module($injects.fettyBossy)
+        .service($injects.services.sessionService, Session);
 }

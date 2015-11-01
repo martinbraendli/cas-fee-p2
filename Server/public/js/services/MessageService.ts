@@ -34,7 +34,7 @@ module fettyBossy.Services {
 
         listener = [];
 
-        public static $inject = [$injects.$log, 'toastr'];
+        public static $inject = [$injects.$log, $injects.toastr];
 
         constructor(private $log:ng.ILogService, private $toastr) {
             this.$log.debug('Message constructor');
@@ -76,6 +76,6 @@ module fettyBossy.Services {
         }
     }
 
-    angular.module('fettyBossy')
-        .service('MessageService', Message);
+    angular.module($injects.fettyBossy)
+        .service($injects.services.messageService, Message);
 }

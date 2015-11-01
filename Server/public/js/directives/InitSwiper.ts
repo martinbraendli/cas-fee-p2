@@ -4,7 +4,7 @@ module fettyBossy.Directive {
     'use strict';
 
     angular
-        .module('fettyBossy')
+        .module($injects.fettyBossy)
         .directive('fbInitSwiper', initSwiper);
 
     function initSwiper(private $timeout:ng.ITimeoutService):ng.IDirective {

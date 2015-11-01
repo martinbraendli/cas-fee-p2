@@ -60,7 +60,7 @@ module fettyBossy.Directive {
     }
 
     angular
-        .module('fettyBossy')
+        .module($injects.fettyBossy)
         .directive('fbFileUpload',
-        ["MessageService", (MessageService) =>  new FileUploadDirective(MessageService)]);
+        [$injects.services.messageService, (MessageService) =>  new FileUploadDirective(MessageService)]);
 }

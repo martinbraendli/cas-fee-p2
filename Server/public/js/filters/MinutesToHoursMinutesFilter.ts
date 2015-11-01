@@ -21,6 +21,6 @@ module fettyBossy.Services {
         };
     }
 
-    angular.module('fettyBossy')
-        .filter('minutesToHoursMinutes', MinutesToHoursMinutesFilter);
+    angular.module($injects.fettyBossy)
+        .filter($injects.filter.minutesToHoursMinutes, MinutesToHoursMinutesFilter);
 }

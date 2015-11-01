@@ -7,7 +7,7 @@ module fettyBossy.Directive {
     'use strict';
 
     angular
-        .module('fettyBossy')
+        .module($injects.fettyBossy)
         .directive('fbSearchResultlist', searchResultlist);
 
     function searchResultlist():ng.IDirective {

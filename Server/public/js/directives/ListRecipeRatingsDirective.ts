@@ -7,7 +7,7 @@ module fettyBossy.Directive {
     'use strict';
 
     angular
-        .module('fettyBossy')
+        .module($injects.fettyBossy)
         .directive('fbListRecipeRatings', listRecipeRatings);
 
     export interface IListRecipeRatingsScope extends ng.IScope {

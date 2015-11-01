@@ -46,6 +46,6 @@ module fettyBossy.Filter {
         };
     }
 
-    angular.module('fettyBossy')
-        .filter('SearchRecipeFilter', SearchRecipeFilter);
+    angular.module($injects.fettyBossy)
+        .filter($injects.filter.searchRecipeFilter, SearchRecipeFilter);
 }

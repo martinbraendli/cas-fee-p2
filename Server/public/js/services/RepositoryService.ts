@@ -265,6 +265,6 @@ module fettyBossy.Services {
         }
     }
 
-    angular.module('fettyBossy')
-        .service('RepositoryService', Repository);
+    angular.module($injects.fettyBossy)
+        .service($injects.services.repositoryService, Repository);
 }
