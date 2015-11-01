@@ -7,7 +7,8 @@ module fettyBossy {
     'use strict';
 
     angular.module('fettyBossy', [
-        'ngRoute'
+        'ngRoute',
+        'toastr'
     ]);
 
 }

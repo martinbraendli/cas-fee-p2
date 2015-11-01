@@ -20,11 +20,6 @@ module fettyBossy.Services {
          * @param severity
          */
         setMessage(text:string, severity:number):void;
-        /**
-         */
-        getMessage():IMessage;
-
-        addListener(callback);
     }
 
     export interface IMessage {
@@ -39,12 +34,13 @@ module fettyBossy.Services {
 
         listener = [];
 
-        public static $inject = [$injects.$log, $injects.$timeout];
+        public static $inject = [$injects.$log, 'toastr'];
 
-        constructor(private $log:ng.ILogService, private $timeout:ng.ITimeoutService) {
+        constructor(private $log:ng.ILogService, private $toastr) {
             this.$log.debug('Message constructor');
 
             self = this;
+            // temp for links on startpage
             window.setMessage = this.setMessage;
         }
 
@@ -60,31 +56,23 @@ module fettyBossy.Services {
                 self.$log.debug('Message setMessage("' + self.message.text + "/" + self.message.severity + '")');
             }
 
-            var message = self.message;
-            self.listener.forEach(function (listener) {
-                listener(message);
-            });
+            var config = {
+                // closeButton: true,
+                // timeOut: 60000,
+            };
 
-            // start timer to remove text after certain time
-            if (text && text.length > 0) {
-                // cancel existing timeout
-                if (self.resetTimeout) {
-                    self.$timeout.cancel(self.resetTimeout);
-                }
-
-                var onTimeout = function () {
-                    self.setMessage("");
-                };
-                self.resetTimeout = self.$timeout(onTimeout, 1800);
+            switch (self.message.severity) {
+                case fettyBossy.Services.SEVERITY_ERROR:
+                    self.$toastr.error(self.message.text, config);
+                    break;
+                case fettyBossy.Services.SEVERITY_WARN:
+                    self.$toastr.warning(self.message.text, config);
+                    break;
+                case fettyBossy.Services.SEVERITY_INFO:
+                default:
+                    self.$toastr.success(self.message.text, config);
+                    break;
             }
-        }
-
-        getMessage():IMessage {
-            return this.message;
-        }
-
-        addListener(callback) {
-            this.listener.push(callback);
         }
     }
 
