@@ -11,7 +11,6 @@
 # Martin
 - UnitTests..
 - Minify-Build > js.min (1x head, 1x body@end)
-- Searchdropdown > bs_typeahead
 - injections (bringmehome)
 
 - Laden der Such-Seite dauert sehr lange --> Bilder kleiner speichern?
@@ -19,9 +18,6 @@
 - Detail-View, anzahl Sterne eingabe fehlt
 - user edit funktion mit nur 1 button zum speichern
 - teaser bottom
-
-# Optional
-- Stückelungen von Server
 
 # Bugs2Fix
 -EditRecipe > labeltext <-> populated text übereinander

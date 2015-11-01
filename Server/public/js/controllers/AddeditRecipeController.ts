@@ -30,7 +30,7 @@ module fettyBossy.Controllers {
             this.addPreparationStep(); // add initial step
             this.addIngredient(); // add initial ingredient
 
-            $scope.ingredients =  ["Eier", "Mehl", "Speck", "Tomaten", "Weizen"];
+            $scope.ingredients = fettyBossy.Data.Ingredients;
         }
 
         addPreparationStep() {
