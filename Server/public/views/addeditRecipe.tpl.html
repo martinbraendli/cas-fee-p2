@@ -202,7 +202,10 @@
                                 <td>
                                     <div class="input-field">
                                         <input type="text" class="mdl-textfield__input" ng-model="ingredient.name"
-                                               id="ingredient-name">
+                                               id="ingredient-name" list="ingredientsList">
+                                        <datalist id="ingredientsList">
+                                            <option ng-repeat="ingredient in ingredients" value="{{ingredient}}">
+                                        </datalist>
                                         <label for="ingredient-name">Zutat</label>
                                     </div>
                                 </td>

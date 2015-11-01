@@ -15,18 +15,22 @@ module fettyBossy.Controllers {
             $injects.services.repositoryService,
             $injects.services.messageService,
             $injects.$location,
+            $injects.$scope,
             'recipe'];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
                     private messageService:fettyBossy.Services.IMessageService,
                     private $location:ng.ILocationService,
+                    private $scope:ng.IScope,
                     recipe:fettyBossy.Data.IRecipe) {
             this.$log.debug('AddeditRecipeController constructor');
 
             this.recipe = recipe;
             this.addPreparationStep(); // add initial step
             this.addIngredient(); // add initial ingredient
+
+            $scope.ingredients =  ["Eier", "Mehl", "Speck", "Tomaten", "Weizen"];
         }
 
         addPreparationStep() {
