@@ -49,7 +49,7 @@ function publicUserNotExist(req, res, next) {
             // user exist, register not possible
             req.session.error = "User exist";
             res.status(401);
-            res.send(false);
+            res.send({"successful": false, "message": "User bereits registriert"});
         } else {
             next();
         }

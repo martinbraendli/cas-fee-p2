@@ -194,6 +194,15 @@ module fettyBossy.Services {
                     deferred.resolve(response);
                 }).error((data, status, header, config) => {
                     response.successful = false;
+                    if (data && data.message) {
+                        response.message = data.message;
+                    } else {
+                        if (status == 0){
+                            response.message = "Server nicht erreichbar"
+                        } else {
+                            response.message = "Server-Fehler"
+                        }
+                    }
                     deferred.resolve(response);
                 });
 
@@ -258,7 +267,7 @@ module fettyBossy.Services {
             this.notifyListener();
         }
 
-        private notifyListener(){
+        private notifyListener() {
             this.listener.forEach(function (listener) {
                 listener();
             });

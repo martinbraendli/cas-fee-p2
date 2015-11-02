@@ -43,6 +43,7 @@ module fettyBossy.Controllers {
                         $location.path("/viewUser/" + result.registeredUser._id);
                     } else {
                         registerError = result.message;
+                        messageService.setMessage("Fehler: " + result.message, fettyBossy.Services.SEVERITY_ERROR);
                     }
                 });
 

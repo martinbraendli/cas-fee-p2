@@ -20,11 +20,9 @@
 - injections (bringmehome)
 - EditRecipe > labeltext <-> populated text übereinander
 - searchREcipe > hover state
-- Message Feedback window: wann wird es engezeigt? wie alerts in fb-message includen? --> fixed (minus in index.html)
 
 - (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. 
-- (mgfeller) Gibt es einen Grund weshalb der "eingeloggte" Button Gelb ist? 
-- (mgfeller) Beim Registrieren kommt kein "Fehler" wenn es nicht geklappt hat. 
+- (mgfeller) Gibt es einen Grund weshalb der "geloggte" Button Gelb ist? 
 - (mgfeller) F5 ist nicht unterstützt 
 - (mgfeller) Nach einem Login kommt man direkt auf die Übersicht 
 - (mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)
@@ -42,5 +40,7 @@ REST-API
 - Rezept erfassen mit Pflicht-Felder (MB: name, beschr)
 - Add Rating - > POST 404 /api/rating
 - add rating erscheint immer auch wenn schon ein rating von mir da ist
+- Message Feedback window: wann wird es engezeigt? wie alerts in fb-message includen? --> fixed (minus in index.html)
 - (mgfeller) Login und Logout Button gleichzeitig "visible"  
 - (mgfeller) "Suche" als Titel für den Main-Inhalt finde ich speziel ist ein spezieller Titel, wäre eher "Rezepte"? 
+- (mgfeller) Beim Registrieren kommt kein "Fehler" wenn es nicht geklappt hat. 
