@@ -21,16 +21,16 @@
 - EditRecipe > labeltext <-> populated text übereinander
 - searchREcipe > hover state
 
+- (mgfeller) F5 ist nicht unterstützt
+- (mgfeller) Rest: Die Nomen sollten Mehrzahl sein also nicht "recipe" sondern "recipes" 
+- (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
+- (mgfeller) Rest: Bei den Client Routes wäre es ev.- sinnvoll die Routes mit placeholders zu versehen z.B.  "/api/recipe/{id}"
+ 
 - (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. 
 - (mgfeller) Gibt es einen Grund weshalb der "geloggte" Button Gelb ist? 
-- (mgfeller) F5 ist nicht unterstützt 
 - (mgfeller) Nach einem Login kommt man direkt auf die Übersicht 
 - (mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)
 
-REST-API
-- (mgfeller) Die Nomen sollten Mehrzahl sein also nicht "recipe" sondern "recipes" 
-- (mgfeller) Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
-- (mgfeller) Bei den Client Routes wäre es ev.- sinnvoll die Routes mit placeholders zu versehen z.B.  "/api/recipe/{id}"
 
 # Bugs done
 - Rezept erfassen mit Pflicht-Felder (MB: name, beschr)
