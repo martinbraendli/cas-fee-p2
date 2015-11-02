@@ -4,7 +4,7 @@
           <!--<a href="#"  class="button-collapse"><i class="material-icons">menu</i></a>-->
           <ul class="header-nav  right" ng-controller="SessionController as sessionCtrl">
             <li>
-                <a href="#/searchRecipe">Suche</a>
+                <a href="#/searchRecipe">Rezepte</a>
             </li>
             <li ng-hide="sessionCtrl.getUser()">
                 <a href="#/login">Login</a>
@@ -15,7 +15,7 @@
             <li ng-show="sessionCtrl.getUser()" >
                 <a href="#/addRecipe" >Rezepte erfassen</a>
             </li>
-            <li>
+              <li ng-show="sessionCtrl.getUser()" >
                 <a href="#/start" ng-click="sessionCtrl.logout()" >Logout</a>
             </li>
           </ul>
