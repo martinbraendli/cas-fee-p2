@@ -17,7 +17,6 @@
 - teaser bottom
 
 # Bugs2Fix
-- injections (bringmehome)
 - EditRecipe > labeltext <-> populated text übereinander
 - searchREcipe > hover state
 
@@ -33,6 +32,7 @@
 
 
 # Bugs done
+- injections (bringmehome)
 - Rezept erfassen mit Pflicht-Felder (MB: name, beschr)
 - EditRecipe > After Edit zum ViewRecipe Redirect Screen gelangen. --> ?
 - Message entfernen nach x-Sekunden oder nach click             (MB mit JavaScript)
@@ -44,3 +44,4 @@
 - (mgfeller) Login und Logout Button gleichzeitig "visible"  
 - (mgfeller) "Suche" als Titel für den Main-Inhalt finde ich speziel ist ein spezieller Titel, wäre eher "Rezepte"? 
 - (mgfeller) Beim Registrieren kommt kein "Fehler" wenn es nicht geklappt hat. 
+- jquery für materialize in eigene libs aufnehmen
