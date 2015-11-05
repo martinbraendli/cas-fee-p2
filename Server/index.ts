@@ -37,9 +37,9 @@ app.use(function (req, res, next) {
 
 // routes
 app.use('/api/', require('./routes/indexRoutes.js'));
-app.use('/api/rating', require('./routes/ratingRoutes.js'));
-app.use('/api/recipe', require('./routes/recipeRoutes.js'));
-app.use('/api/user', require('./routes/userRoutes.js'));
+app.use('/api/ratings', require('./routes/ratingRoutes.js'));
+app.use('/api/recipes', require('./routes/recipeRoutes.js'));
+app.use('/api/users', require('./routes/userRoutes.js'));
 
 // static serving
 app.use(express.static(__dirname + '/public'));

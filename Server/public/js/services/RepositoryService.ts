@@ -67,16 +67,16 @@ module fettyBossy.Services {
     }
 
     class Repository implements IRepository {
-        static LOAD_ALL_RECIPES_URL:string = '/api/recipe';
-        static LOAD_ALL_RECIPES_BY_USER_URL:string = '/api/recipe/byUser/';
-        static LOAD_RECIPE_BY_ID:string = '/api/recipe/';
-        static SAVE_RECIPE:string = '/api/recipe';
+        static LOAD_ALL_RECIPES_URL:string = '/api/recipes';
+        static LOAD_ALL_RECIPES_BY_USER_URL:string = '/api/recipes/byUser/';
+        static LOAD_RECIPE_BY_ID:string = '/api/recipes/';
+        static SAVE_RECIPE:string = '/api/recipes';
 
-        static LOAD_USER_BY_ID:string = '/api/user/';
-        static REGISTER_USER:string = '/api/user/register';
+        static LOAD_USER_BY_ID:string = '/api/users/';
+        static REGISTER_USER:string = '/api/users/register';
 
-        static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/rating/';
-        static SAVE_RATING:string = '/api/rating';
+        static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/ratings/';
+        static SAVE_RATING:string = '/api/ratings';
 
         recipes:Array<fettyBossy.Data.IRecipe> = [];
         listener = [];

@@ -7,8 +7,8 @@ module fettyBossy.Controllers {
     'use strict';
 
     export class SessionController {
-        static SESSION_LOGIN:string = '/api/user/login/';
-        static SESSION_LOGOUT:string = '/api/user/logout/';
+        static SESSION_LOGIN:string = '/api/users/login/';
+        static SESSION_LOGOUT:string = '/api/users/logout/';
 
         public static $inject = [
             $injects.$log,
