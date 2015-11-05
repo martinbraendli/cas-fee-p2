@@ -518,8 +518,8 @@
 body {
   background: lightcyan;
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 16px;
+  line-height: 18px;
   font-weight: 300; }
 
 .clear {
@@ -535,6 +535,13 @@ body {
 
 .nav-wrapper {
   background: #0277bd; }
+
+.fb-title {
+  padding-left: 15px;
+  font-size: 1.6rem; }
+
+.userlogedin {
+  border-bottom: double 1px #ff5722; }
 
 .ribbon {
   background-image: url("../pictures/bg_artfood_1500.jpg");
@@ -617,7 +624,7 @@ body {
   min-height: 20rem; }
 
 #recipeSearchInput {
-  width: 70%; }
+  width: 55%; }
 
 .foodcategory ul {
   padding-left: 2rem;

@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var webserver = require('gulp-server-livereload');
 var autoprefixer = require('gulp-autoprefixer');
 var tsd = require('gulp-tsd');
 var ts = require('gulp-typescript');
@@ -72,6 +73,19 @@ gulp.task('copyToBuild', function () {
     console.log('files have been copied to build directory');
 });
 
+// gulp task web serve and live reload
+gulp.task('serve', function(){
+    gulp.src('Server/public')
+        .pipe(webserver({
+            port: '3001',
+            livereload: true,
+            //fallback: 'index.html',
+            open: true
+        })
+    );
+    console.log('webserver reloaded - have a look');
+});
+
 
 
 // gulp task-watcher function - sass, copytobuild
@@ -84,7 +98,7 @@ gulp.task('watch', function(){
 
 
 //  Default Task: watcher activate
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'serve']);
 
 // watch scss and buildprocess
 gulp.task('fbwatchbuild', ['watch','copyToBuild'], function(){});

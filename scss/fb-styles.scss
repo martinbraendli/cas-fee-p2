@@ -2,8 +2,6 @@
 
 //
 /*** Colors ***/
-
-
 $primary-color: color("amber", "lighten-2") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
@@ -21,8 +19,8 @@ $bgcolor-blue: color("light-blue", "darken-3") !default;
 body {
   background: lightcyan;
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 16px;
+  line-height: 18px;
   font-weight: 300;
 }
 
@@ -42,11 +40,19 @@ body {
   margin-right: 0;
 }
 
-
 // fb-menu top
 
 .nav-wrapper{
   background: $bgcolor-blue;
+}
+
+.fb-title{
+  padding-left: 15px;
+  font-size: 1.6rem;
+}
+
+.userlogedin{
+  border-bottom: double 1px $success-color;
 }
 
 // background picture in a ribbon
@@ -199,7 +205,7 @@ body {
 
 
 #recipeSearchInput{
-  width: 70%;
+  width: 55%;
 }
 
 .foodcategory ul{

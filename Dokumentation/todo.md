@@ -1,11 +1,11 @@
 ﻿# Felix
 - Templates @ Directive Templates
 - SCSS file struktur
-- GULP Sass & livereload 
-- tab-system Login/ Register
+- GULP Sass & livereload server auf port 3001  - done
+- tab-system Login/ Register ->tried - again soon ...
 - Message Feedback window: color and animate
-- Start view: respond valid message with ng
-- done:minimal view tablet max-width
+- Start view: respond valid message with ng -done
+- minimal view tablet max-width -done
 
 # Martin
 - UnitTests..
@@ -26,9 +26,9 @@
 - (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
 - (mgfeller) Rest: Bei den Client Routes wäre es ev.- sinnvoll die Routes mit placeholders zu versehen z.B.  "/api/recipe/{id}"
  
-- (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. 
-- (mgfeller) Gibt es einen Grund weshalb der "geloggte" Button Gelb ist? 
-- (mgfeller) Nach einem Login kommt man direkt auf die Übersicht 
+- (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. --> improved, not perfect
+- (mgfeller) Gibt es einen Grund weshalb der "geloggte" Button Gelb ist? -> nein, aber als UX auszeichnung
+- (mgfeller) Nach einem Login kommt man direkt auf die Übersicht  -> Programmed as specified
 - (mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)
 
 
