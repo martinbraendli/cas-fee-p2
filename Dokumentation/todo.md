@@ -1,4 +1,5 @@
 ﻿# Felix
+- Default-Datenbank mit einigen Rezepten
 - Templates @ Directive Templates
 - SCSS file struktur
 - GULP Sass & livereload server auf port 3001  - done
@@ -15,12 +16,14 @@
 - Detail-View, anzahl Sterne eingabe fehlt
 - user edit funktion mit nur 1 button zum speichern
 - teaser bottom
+- https://fonts.googleapis.com/icon?family=Material+Icons lokal
+- $resource statt $http?
+- $http.get mit success statt then?
 
 # Bugs2Fix
 - EditRecipe > labeltext <-> populated text übereinander
 - searchREcipe > hover state
 
-- (mgfeller) F5 ist nicht unterstützt
 - (mgfeller) Rest: Die Nomen sollten Mehrzahl sein also nicht "recipe" sondern "recipes" 
 - (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
 - (mgfeller) Rest: Bei den Client Routes wäre es ev.- sinnvoll die Routes mit placeholders zu versehen z.B.  "/api/recipe/{id}"
@@ -45,3 +48,4 @@
 - (mgfeller) "Suche" als Titel für den Main-Inhalt finde ich speziel ist ein spezieller Titel, wäre eher "Rezepte"? 
 - (mgfeller) Beim Registrieren kommt kein "Fehler" wenn es nicht geklappt hat. 
 - jquery für materialize in eigene libs aufnehmen
+- (mgfeller) F5 ist nicht unterstützt
