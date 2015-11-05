@@ -71,7 +71,7 @@ function publicLogin(req, res) {
             });
         } else {
             console.log("authController publicLogin('" + user.name + "') - failed, user not found");
-            var msg = 'Authentication failed, please check your username and password.'
+            var msg = 'Authentication failed, please check your username and password.';
             req.session.error = msg;
             req.session.destroy(); // to be sure
             res.status(401);
