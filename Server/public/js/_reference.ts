@@ -5,6 +5,7 @@
 ///<reference path="services/_reference.ts" />
 ///<reference path="app-module.ts" />
 ///<reference path="app-routes.ts" />
+///<reference path="constants.ts" />
 ///<reference path="injects.ts" />
 
 ///<reference path='../../../typings/tsd.d.ts' />
