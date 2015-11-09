@@ -14,7 +14,6 @@
 - Laden der Such-Seite dauert sehr lange --> Bilder kleiner speichern?
 - Mehr-Filter: alle drei Kriterien implementieren
 - Detail-View, anzahl Sterne eingabe fehlt
-- user edit funktion mit nur 1 button zum speichern
 - teaser bottom
 - https://fonts.googleapis.com/icon?family=Material+Icons lokal
 - $resource statt $http?
@@ -24,7 +23,6 @@
 - EditRecipe > labeltext <-> populated text übereinander
 - searchREcipe > hover state
 
-- (mgfeller) Rest: Die Nomen sollten Mehrzahl sein also nicht "recipe" sondern "recipes" 
 - (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
 - (mgfeller) Rest: Bei den Client Routes wäre es ev.- sinnvoll die Routes mit placeholders zu versehen z.B.  "/api/recipe/{id}"
  
@@ -49,3 +47,5 @@
 - (mgfeller) Beim Registrieren kommt kein "Fehler" wenn es nicht geklappt hat. 
 - jquery für materialize in eigene libs aufnehmen
 - (mgfeller) F5 ist nicht unterstützt
+- (mgfeller) Rest: Die Nomen sollten Mehrzahl sein also nicht "recipe" sondern "recipes" 
+- user edit funktion mit nur 1 button zum speichern

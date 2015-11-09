@@ -35,7 +35,7 @@ module fettyBossy.Controllers {
          * @returns false if login failed, otherwise true
          */
         login(user:fettyBossy.Data.IUser):boolean {
-            this.$log.debug('SessionController login("' + user + '")');
+            this.$log.debug('SessionController login("' + user.name + '")');
             var messageService = this.messageService;
 
             this.$http.post(SessionController.SESSION_LOGIN, user)

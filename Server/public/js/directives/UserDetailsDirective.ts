@@ -14,9 +14,15 @@ module fettyBossy.Directive {
         return {
             restrict: 'E',
             scope: {
-                user: '=user'
+                user: '=user',
+                save: '=save'
             },
             templateUrl: 'js/directives/userDetails.tpl.html',
+            link: ($scope) => {
+                $scope.$log = $scope.$parent.viewUserCtrl.$log;
+                $scope.messageService = $scope.$parent.viewUserCtrl.messageService;
+                $scope.repository = $scope.$parent.viewUserCtrl.repository;
+            }
         };
     }
 }

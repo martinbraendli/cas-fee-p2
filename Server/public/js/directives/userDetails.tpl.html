@@ -15,28 +15,30 @@
                 <tr>
                     <td>Name</td>
                     <td class="input-field">
-                        <input type="text"  value="{{user.name}}" />
+                        <input type="text" ng-model="user.name" readonly/>
                     </td>
-                    <td>
-                        <button class="btn blue" >Name ändern</button>
-                    </td>
+                    <td><i class="medium material-icons prefix">perm_identity</i></td>
                 </tr>
                 <tr>
                     <td>e-Mail:</td>
                     <td class="input-field">
-                        <input  type="email" class="validate" value="{{user.email}}">
+                        <input type="email" class="validate" ng-model="user.email">
                     </td>
-                    <td>
-                        <button class="btn blue">Adresse ändern</button>
-                    </td>
+                    <td><i class="medium material-icons prefix">perm_identity</i></td>
                 </tr>
                 <tr>
                     <td>Passwort:</td>
                     <td class="input-field">
-                        <input type="password" class="validate" value="{{user.password}}" />
+                        <input type="password" class="validate" ng-model="user.password"/>
                     </td>
+                    <td><i class="medium material-icons prefix">perm_identity</i></td>
+                </tr>
+                <tr>
                     <td>
-                        <button class="btn blue">Passwort ändern</button>
+                        <button class="btn blue"
+                                type="button"
+                                ng-click="save()">Speichern
+                        </button>
                     </td>
                 </tr>
             </table>

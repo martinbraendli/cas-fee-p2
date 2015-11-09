@@ -20,6 +20,7 @@ module.exports = (function () {
     router.get("/:userId/", userCtrl.getUser);
 
     router.post("/register/", authCtrl.userNotExist, userCtrl.registerUser);
+    router.post("/save/", authCtrl.requiredAuthentication, userCtrl.saveUser);
     router.post("/login/", authCtrl.login);
     router.get("/logout/:userName", authCtrl.logout);
 

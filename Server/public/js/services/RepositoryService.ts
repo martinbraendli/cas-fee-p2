@@ -53,6 +53,10 @@ module fettyBossy.Services {
          */
         registerUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult>;
         /**
+         * save user
+         */
+        saveUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult>;
+        /**
          * load all ratings for given recipe
          * @param recipeId
          */
@@ -74,6 +78,7 @@ module fettyBossy.Services {
 
         static LOAD_USER_BY_ID:string = '/api/users/';
         static REGISTER_USER:string = '/api/users/register';
+        static SAVE_USER:string = '/api/users/save';
 
         static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/ratings/';
         static SAVE_RATING:string = '/api/ratings';
@@ -197,7 +202,7 @@ module fettyBossy.Services {
                     if (data && data.message) {
                         response.message = data.message;
                     } else {
-                        if (status == 0){
+                        if (status == 0) {
                             response.message = "Server nicht erreichbar"
                         } else {
                             response.message = "Server-Fehler"
@@ -209,6 +214,33 @@ module fettyBossy.Services {
             return deferred.promise;
         }
 
+        saveUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult> {
+            this.$log.debug('Repository saveUser(' + user + ')');
+
+            var response = <fettyBossy.Services.IRegisterUserResult>{};
+
+            var deferred = this.$q.defer();
+            this.$http.post(Repository.SAVE_USER, user)
+                .success((data) => {
+                    response.successful = true;
+                    response.registeredUser = data.registeredUser;
+                    deferred.resolve(response);
+                }).error((data, status, header, config) => {
+                    response.successful = false;
+                    if (data && data.message) {
+                        response.message = data.message;
+                    } else {
+                        if (status == 0) {
+                            response.message = "Server nicht erreichbar"
+                        } else {
+                            response.message = "Server-Fehler"
+                        }
+                    }
+                    deferred.resolve(response);
+                });
+
+            return deferred.promise;
+        }
 
         loadRatings(recipeId:string):ng.IPromise<Array<fettyBossy.Data.IRating>> {
             this.$log.debug('Repository loadRatings(' + recipeId + ')');

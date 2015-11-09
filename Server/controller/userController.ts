@@ -33,9 +33,9 @@ function publicRegisterUser(req, res) {
         response.registeredUser = savedUser;
 
         // auto-login after registration was successful
-        authCtrl.authenticate(savedUser.name, originalPassword, function(err, authenticatedUser:fettyBossy.Data.IUser){
-            if(authenticatedUser){
-                req.session.regenerate(function(){
+        authCtrl.authenticate(savedUser.name, originalPassword, function (err, authenticatedUser:fettyBossy.Data.IUser) {
+            if (authenticatedUser) {
+                req.session.regenerate(function () {
                     req.session.user = user;
                     req.session.success = 'Authenticated as ' + authenticatedUser.name;
 
@@ -56,7 +56,26 @@ function publicRegisterUser(req, res) {
     });
 }
 
+function publicSaveUser(req, res) {
+    var user:fettyBossy.Data.IUser = req.body;
+
+    // encrypt password
+    var originalPassword = user.password;
+    user.password = authCtrl.encryptPassword(user.password);
+
+    // user speichern
+    userStore.persistUser(user, function (err, savedUser:fettyBossy.Data.IUser) {
+        var response = <fettyBossy.Services.IRegisterUserResult>{};
+        response.successful = true;
+        response.message = 'user saved';
+        response.registeredUser = savedUser;
+
+        res.json(response);
+    });
+}
+
 module.exports = {
     getUser: publicGetUser,
-    registerUser: publicRegisterUser
+    registerUser: publicRegisterUser,
+    saveUser: publicSaveUser
 };
