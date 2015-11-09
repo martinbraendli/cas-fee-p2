@@ -40,15 +40,44 @@ module fettyBossy.Directive {
                     reader.onload = (function (loadedFile) {
                         return function (e) {
                             var image = <fettyBossy.Data.IImage>{};
-                            image.src = e.target.result;
                             image.name = loadedFile.name;
 
-                            scope.$apply(function () {
-                                if (!scope.recipe.images) {
-                                    scope.recipe.images = [];
-                                }
-                                scope.recipe.images.push(image);
-                            });
+                            /**
+                             * Takes a data URI and returns the Data URI corresponding to the resized image at the wanted size.
+                             * @see http://stackoverflow.com/a/26884245
+                             */
+                            function resizedataURL(datas, wantedWidth, wantedHeight) {
+                                // We create an image to receive the Data URI
+                                var img = document.createElement('img');
+
+                                // When the event "onload" is triggered we can resize the image.
+                                img.onload = function () {
+                                    // We create a canvas and get its context.
+                                    var canvas = document.createElement('canvas');
+                                    var ctx = canvas.getContext('2d');
+
+                                    // We set the dimensions at the wanted size.
+                                    canvas.width = wantedWidth;
+                                    canvas.height = wantedHeight;
+
+                                    // We resize the image with the canvas method drawImage();
+                                    ctx.drawImage(this, 0, 0, wantedWidth, wantedHeight);
+
+                                    image.src = canvas.toDataURL();
+
+                                    scope.$apply(function () {
+                                        if (!scope.recipe.images) {
+                                            scope.recipe.images = [];
+                                        }
+                                        scope.recipe.images.push(image);
+                                    });
+                                };
+
+                                // We put the Data URI in the image's src attribute
+                                img.src = datas;
+                            }
+
+                            resizedataURL(e.target.result, $constants.image.maxLengthA, $constants.image.maxLengthB);
                         };
                     })(file);
 
