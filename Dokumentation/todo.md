@@ -11,12 +11,9 @@
 # Martin
 - UnitTests..
 - Minify-Build > js.min (1x head, 1x body@end)
-- Laden der Such-Seite dauert sehr lange --> Bilder kleiner speichern?
 - Mehr-Filter: alle drei Kriterien implementieren
 - Detail-View, anzahl Sterne eingabe fehlt
 - teaser bottom
-- https://fonts.googleapis.com/icon?family=Material+Icons lokal
-- $resource statt $http?
 - $http.get mit success statt then?
 
 # Bugs2Fix
@@ -49,3 +46,4 @@
 - (mgfeller) F5 ist nicht unterstützt
 - (mgfeller) Rest: Die Nomen sollten Mehrzahl sein also nicht "recipe" sondern "recipes" 
 - user edit funktion mit nur 1 button zum speichern
+- Laden der Such-Seite dauert sehr lange --> Bilder kleiner speichern?
