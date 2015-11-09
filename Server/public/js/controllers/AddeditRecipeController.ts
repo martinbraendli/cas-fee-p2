@@ -77,7 +77,7 @@ module fettyBossy.Controllers {
                         messageService.setMessage("Rezept erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO);
                         $location.path("/viewRecipe/" + result.savedRecipe._id);
                     } else {
-                        messageService.setMessage("Rezept erfolgreich gespeichert", fettyBossy.Services.SEVERITY_ERROR);
+                        messageService.setMessage("Speichern fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR);
                     }
                 });
         }
