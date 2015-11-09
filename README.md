@@ -1,5 +1,8 @@
 # Rezept-Single-Page-App
 
+## Besonderes
+- Bilder werden vor dem Hochladen auf eine Grösse von 400x300 Pixel verkleinert.
+
 ## Anforderungen (Views / Sichten)
 
 ### 1. Start View
