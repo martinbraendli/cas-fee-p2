@@ -7,8 +7,8 @@ describe("FettyBossy - Message Service", function () {
 
     beforeEach(module("fettyBossy"));
 
-    beforeEach(inject(function (MessageService) {
-        service = MessageService;
+    beforeEach(inject(function ($injector) {
+        service = $injector.get('MessageService');
     }));
 
     beforeEach(function () {
@@ -20,12 +20,12 @@ describe("FettyBossy - Message Service", function () {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
-    it('should set message', function () {
+    it('should set message', function() {
         expect(service).toBeDefined();
 
         service.setMessage("Testmessage", 0);
 
-        var message = service.getMessage();
+        var message = service.message;
         expect(message).toBeDefined();
         expect(message.text).toBe("Testmessage");
         expect(message.severity).toBe(0);
@@ -38,7 +38,7 @@ describe("FettyBossy - Message Service", function () {
         service.setMessage("Testmessage2", 1);
         service.setMessage("Testmessage3", 2);
 
-        var message = service.getMessage();
+        var message = service.message;
         expect(message).toBeDefined();
         expect(message.text).toBe("Testmessage3");
         expect(message.severity).toBe(2);
@@ -48,25 +48,15 @@ describe("FettyBossy - Message Service", function () {
         expect(service).toBeDefined();
 
         service.setMessage("Testmessage1", 0);
-        var message = service.getMessage();
+        var message = service.message;
         expect(message).toBeDefined();
         expect(message.text).toBe("Testmessage1");
         expect(message.severity).toBe(0);
 
         service.setMessage(null, null);
-        message = service.getMessage();
+        message = service.message;
         expect(message).toBeDefined();
         expect(message.text).toBeFalsy();
         expect(message.severity).toBeFalsy();
-    });
-
-    it("should call listener", function (done) {
-        expect(service).toBeDefined();
-
-        service.addListener(done);
-
-        service.setMessage("Testmessage1", 0);
-        message = service.getMessage();
-        expect(message).toBeDefined();
     });
 });

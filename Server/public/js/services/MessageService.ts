@@ -46,7 +46,10 @@ module fettyBossy.Services {
 
         setMessage(text:string, severity:number):void {
             if (!text) {
-                self.message = null;
+                self.message = {
+                    text: null,
+                    severity: null
+                };
                 self.$log.debug('Message setMessage(null)');
             } else {
                 self.message = <IMessage>{
@@ -69,8 +72,10 @@ module fettyBossy.Services {
                     self.$toastr.warning(self.message.text, config);
                     break;
                 case fettyBossy.Services.SEVERITY_INFO:
-                default:
                     self.$toastr.success(self.message.text, config);
+                    break;
+                default:
+                    //noop;
                     break;
             }
         }
