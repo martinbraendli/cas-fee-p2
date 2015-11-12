@@ -16,15 +16,14 @@ module fettyBossy.Services {
     export interface IMessageService {
         /**
          *
-         * @param text
-         * @param severity
          */
-        setMessage(text:string, severity:number):void;
+        setMessage(text:string, severity:number, details:string):void;
     }
 
     export interface IMessage {
         text: string;
         severity: number; // see SEVERITY_INFO, SEVERITY_WARN, SEVERITY_ERROR
+        details: string;
     }
 
     class Message implements IMessageService {
@@ -44,30 +43,32 @@ module fettyBossy.Services {
             window.setMessage = this.setMessage;
         }
 
-        setMessage(text:string, severity:number):void {
+        setMessage(text:string, severity:number, details:string):void {
             if (!text) {
                 self.message = {
                     text: null,
-                    severity: null
+                    severity: null,
+                    details: null
                 };
             } else {
                 self.message = <IMessage>{
                     text: text,
-                    severity: severity
+                    severity: severity,
+                    details: details
                 };
             }
 
             switch (self.message.severity) {
                 case fettyBossy.Services.SEVERITY_ERROR:
-                    self.$log.error(self.message.text);
+                    self.$log.error(self.message.text + "(" + details + ")");
                     self.$toastr.error(self.message.text);
                     break;
                 case fettyBossy.Services.SEVERITY_WARN:
-                    self.$log.warn(self.message.text);
+                    self.$log.warn(self.message.text + "(" + details + ")");
                     self.$toastr.warning(self.message.text);
                     break;
                 case fettyBossy.Services.SEVERITY_INFO:
-                    self.$log.info(self.message.text);
+                    self.$log.info(self.message.text + "(" + details + ")");
                     self.$toastr.success(self.message.text);
                     break;
                 default:
