@@ -4,6 +4,8 @@
 - Bilder werden vor dem Hochladen auf eine Grösse von 400x300 Pixel verkleinert.
 - Backend selbst entwickelt
 
+- Unittests: spec/SpecRunner.html
+
 ## Anforderungen (Views / Sichten)
 
 ### 1. Start View
