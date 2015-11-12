@@ -34,10 +34,6 @@ module fettyBossy.Services {
          */
         loadRecipe(recipeId:string):ng.IPromise<fettyBossy.Data.IRecipe>;
         /**
-         * returns loaded recipes
-         */
-        getRecipes():Array<fettyBossy.Data.IRecipe>;
-        /**
          * save given recipe in backend
          * @param recipe
          */
@@ -83,7 +79,6 @@ module fettyBossy.Services {
         static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/ratings/';
         static SAVE_RATING:string = '/api/ratings';
 
-        recipes:Array<fettyBossy.Data.IRecipe> = [];
         listener = [];
 
         public static $inject = ['$log', '$http', '$q'];
@@ -99,9 +94,9 @@ module fettyBossy.Services {
             var deferred = this.$q.defer();
 
             this.$http.get(Repository.LOAD_ALL_RECIPES_URL).then((data) => {
-                this.recipes = <Array<fettyBossy.Data.IRecipe>> data.data;
-                this.$log.debug('Repository loadRecipes() - loaded recipes, returning ' + this.recipes.length + ' recipes');
-                deferred.resolve(this.recipes);
+                var recipes = <Array<fettyBossy.Data.IRecipe>> data.data;
+                this.$log.debug('Repository loadRecipes() - loaded recipes, returning ' + recipes.length + ' recipes');
+                deferred.resolve(recipes);
             });
 
             return deferred.promise;
@@ -113,7 +108,6 @@ module fettyBossy.Services {
 
             this.$http.get(Repository.LOAD_ALL_RECIPES_BY_USER_URL + userId).then((data) => {
                 var loadedRecipes = <Array<fettyBossy.Data.IRecipe>>data.data;
-                this.updateCacheForRecipes(loadedRecipes);
                 this.$log.debug("Repository loadRecipesByUser('" + userId + "') - loaded recipes, returning '" + loadedRecipes.length + "' recipes");
                 deferred.resolve(loadedRecipes);
             });
@@ -130,22 +124,10 @@ module fettyBossy.Services {
                 recipe = <fettyBossy.Data.IRecipe>(data.data);
                 this.$log.debug('Repository loadRecipe(' + recipeId + ') - loaded recipe');
 
-                // update local cache
-                this.updateCacheForRecipes([recipe]);
-
                 deferred.resolve(recipe);
             });
 
             return deferred.promise;
-        }
-
-        getRecipes():Array<fettyBossy.Data.IRecipe> {
-            if (!this.recipes) {
-                this.$log.debug('Repository getRecipes() - no recipes found');
-                return [];
-            }
-            this.$log.debug('Repository getRecipes() - returning ' + this.recipes.length + ' recipes');
-            return this.recipes;
         }
 
         saveRecipe(recipe:fettyBossy.Data.IRecipe) {
@@ -158,11 +140,6 @@ module fettyBossy.Services {
                 .success((recipe) => {
                     response.successful = true;
                     response.savedRecipe = <fettyBossy.Data.IRecipe>recipe;
-
-                    // update local cache
-                    var recipeArray = <Array<fettyBossy.Data.IRecipe>>[recipe];
-                    this.updateCacheForRecipes(recipeArray);
-
                     deferred.resolve(response);
                 }).error((data, status, header, config) => {
                     response.successful = false;
@@ -277,26 +254,6 @@ module fettyBossy.Services {
 
         addListener(callback) {
             this.listener.push(callback)
-        }
-
-        /**
-         * replace recipe in local cache with given recipe
-         * @param loadedRecipes:Array<fettyBossy.Data.IRecipe> the new ones
-         */
-        private updateCacheForRecipes(loadedRecipes:Array<fettyBossy.Data.IRecipe>) {
-            var recipes = this.recipes;
-            loadedRecipes.forEach(function (loadedRecipe) {
-
-                // remove recipe with the same id
-                recipes.forEach(function (oldRecipe, index) {
-                    if (oldRecipe._id === loadedRecipe._id) {
-                        recipes.splice(index, 1);
-                    }
-                });
-                // add the new recipe
-                recipes.push(loadedRecipe);
-            });
-            this.notifyListener();
         }
 
         private notifyListener() {
