@@ -2,6 +2,7 @@
 
 ## Besonderes
 - Bilder werden vor dem Hochladen auf eine Grösse von 400x300 Pixel verkleinert.
+- Backend selbst entwickelt
 
 ## Anforderungen (Views / Sichten)
 
