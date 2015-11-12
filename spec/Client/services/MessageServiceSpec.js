@@ -9,6 +9,7 @@ describe("FettyBossy - Message Service", function () {
 
     beforeEach(inject(function ($injector) {
         service = $injector.get('MessageService');
+        expect(service).toBeDefined();
     }));
 
     beforeEach(function () {
@@ -21,8 +22,6 @@ describe("FettyBossy - Message Service", function () {
     });
 
     it('should set message', function() {
-        expect(service).toBeDefined();
-
         service.setMessage("Testmessage", 0);
 
         var message = service.message;
@@ -32,8 +31,6 @@ describe("FettyBossy - Message Service", function () {
     });
 
     it('should replace message', function () {
-        expect(service).toBeDefined();
-
         service.setMessage("Testmessage1", 0);
         service.setMessage("Testmessage2", 1);
         service.setMessage("Testmessage3", 2);
@@ -45,8 +42,6 @@ describe("FettyBossy - Message Service", function () {
     });
 
     it('should reset message', function () {
-        expect(service).toBeDefined();
-
         service.setMessage("Testmessage1", 0);
         var message = service.message;
         expect(message).toBeDefined();
