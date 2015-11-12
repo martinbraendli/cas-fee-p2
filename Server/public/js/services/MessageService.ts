@@ -50,29 +50,25 @@ module fettyBossy.Services {
                     text: null,
                     severity: null
                 };
-                self.$log.debug('Message setMessage(null)');
             } else {
                 self.message = <IMessage>{
                     text: text,
                     severity: severity
                 };
-                self.$log.debug('Message setMessage("' + self.message.text + "/" + self.message.severity + '")');
             }
-
-            var config = {
-                // closeButton: true,
-                // timeOut: 60000,
-            };
 
             switch (self.message.severity) {
                 case fettyBossy.Services.SEVERITY_ERROR:
-                    self.$toastr.error(self.message.text, config);
+                    self.$log.error(self.message.text);
+                    self.$toastr.error(self.message.text);
                     break;
                 case fettyBossy.Services.SEVERITY_WARN:
-                    self.$toastr.warning(self.message.text, config);
+                    self.$log.warn(self.message.text);
+                    self.$toastr.warning(self.message.text);
                     break;
                 case fettyBossy.Services.SEVERITY_INFO:
-                    self.$toastr.success(self.message.text, config);
+                    self.$log.info(self.message.text);
+                    self.$toastr.success(self.message.text);
                     break;
                 default:
                     //noop;
