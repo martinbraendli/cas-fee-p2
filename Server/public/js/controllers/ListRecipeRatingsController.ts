@@ -24,6 +24,9 @@ module fettyBossy.Controllers {
                     private repository:IRepository,
                     private session:ISession,
                     private $scope:IListRecipeRatingsScope) {
+            if (!$scope.recipe) {
+                return;
+            }
             this.$log.debug("ListRecipeRatingsController constructor - loadRatings for recipe '" + $scope.recipe._id + "'");
 
             this.reloadRatings($scope, repository);
