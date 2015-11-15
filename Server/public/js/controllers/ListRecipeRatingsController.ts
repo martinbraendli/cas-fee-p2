@@ -4,6 +4,7 @@
  *
  */
 module fettyBossy.Controllers {
+    import IRating = fettyBossy.Data.IRating;
     'use strict';
 
     import IRating = fettyBossy.Data.IRating;
@@ -83,6 +84,16 @@ module fettyBossy.Controllers {
                 return false;
             }
             return (this.session.getUser()._id === rating.userId);
+        }
+
+        /**
+         * Returns the name of the current star, depending of the rating and the required position
+         */
+        starName(rating:IRating, starNumber:number):string {
+            if (rating.stars >= starNumber) {
+                return "star";
+            }
+            return "star_border";
         }
     }
 
