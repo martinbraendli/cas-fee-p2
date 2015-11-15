@@ -1,16 +1,15 @@
 <div class="listRecipeRatings">
     <h3>Alle Bewertungen für: '{{recipe.title}}'</h3>
 
-    <small>ADD-Button if no own rating found:
+    <small>
         <fb-addedit-recipe-rating
                 ng-show="listRecipeRatingsCtrl.canCreateRating()"
                 rating="{}"
                 recipe-id="recipe._id"
                 show-as-edit="false"></fb-addedit-recipe-rating>
-        <span ng-hide="listRecipeRatingsCtrl.canCreateRating()">Not logged in, kein Kommentar möglich</span>
+        <!--<span ng-hide="listRecipeRatingsCtrl.canCreateRating()">Not logged in, kein Kommentar möglich</span>-->
     </small>
 
-    List of Ratings:
     <div ng-repeat="rating in ratings">
         <ul class="collection">
             <li class="collection-item">
