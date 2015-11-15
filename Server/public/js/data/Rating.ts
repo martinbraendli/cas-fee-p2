@@ -6,7 +6,7 @@ module fettyBossy.Data {
         _id: string;
         recipeId: string;
         userId: string;
-        userName: string; // TODO lookup in user.db instead of saving it into rating.db
+        userName: string;
 
         comment: string;
         stars: number; // 1 to 5 stars
