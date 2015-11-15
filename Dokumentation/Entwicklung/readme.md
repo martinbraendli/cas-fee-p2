@@ -9,3 +9,5 @@ Erstellt / lädt Mappings für JS-Bibliotheken zur Verwendung von Typen in Types
 
 ## Session
 http://danialk.github.io/blog/2013/02/20/simple-authentication-in-nodejs/
+## Icons
+https://www.google.com/design/icons/
