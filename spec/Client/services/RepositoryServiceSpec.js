@@ -27,7 +27,16 @@ describe("FettyBossy - Repository Service", function () {
         httpBackend.whenGET('/api/recipes').respond(200, expectedJson);
         service.loadRecipes().then(checkResult);
         httpBackend.flush();
+    });
 
+    it('should load all recipes > handle error', function () {
+        var checkResult = function (data) {
+            expect(data.status).toBe(401);
+        };
+
+        httpBackend.whenGET('/api/recipes').respond(401, "");
+        service.loadRecipes().then(shouldNotBeCalled, checkResult);
+        httpBackend.flush();
     });
 
     it('should load recipe by user', function () {
@@ -44,8 +53,37 @@ describe("FettyBossy - Repository Service", function () {
         httpBackend.whenGET('/api/recipes/byUser/123').respond(200, expectedJson);
         service.loadRecipesByUser("123").then(checkResult);
         httpBackend.flush();
-
-     // todo   check updateCacheForRecipes
     });
 
+    it('should load recipe by id', function () {
+        expect(false).toBeTruthy();
+    });
+
+    it('should save recipe', function () {
+        expect(false).toBeTruthy();
+    });
+
+    it('should load user by id', function () {
+        expect(false).toBeTruthy();
+    });
+
+    it('should register user', function () {
+        expect(false).toBeTruthy();
+    });
+
+    it('should save user', function () {
+        expect(false).toBeTruthy();
+    });
+
+    it('should load ratings', function () {
+        expect(false).toBeTruthy();
+    });
+
+    it('should save rating', function () {
+        expect(false).toBeTruthy();
+    });
+
+    shouldNotBeCalled = function () {
+        fail("not method called");
+    };
 });
