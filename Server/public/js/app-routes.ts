@@ -4,6 +4,11 @@
  * app-routes
  */
 module fettyBossy {
+    import IMessageService = fettyBossy.Services.IMessageService;
+    import IRepository = fettyBossy.Services.IRepository;
+    import ISession = fettyBossy.Services.ISession;
+    import IMessageService = fettyBossy.Services.IMessageService;
+    import IMessageService = fettyBossy.Services.IMessageService;
     'use strict';
 
     angular.module($injects.fettyBossy)
@@ -21,21 +26,37 @@ module fettyBossy {
                 controllerAs: 'viewRecipeCtrl',
                 resolve: {
                     recipe: [$injects.services.repositoryService,
+                        $injects.services.messageService,
                         $injects.$route,
                         $injects.$log,
-                        function (RepositoryService:fettyBossy.Services.IRepository,
+                        $injects.$location,
+                        function (RepositoryService:IRepository,
+                                  MessageService:IMessageService,
                                   $route:ng.route.IRouteService,
-                                  $log:ng.ILogService) {
+                                  $log:ng.ILogService,
+                                  $location:ng.ILocationService) {
                             $log.debug("app-routes: resolve for '/viewRecipe/:recipeId' params '" + $route.current.params.recipeId + "'");
-                            return RepositoryService.loadRecipe($route.current.params.recipeId);
+                            return RepositoryService.loadRecipe($route.current.params.recipeId).then(
+                                // success
+                                (data) => {
+                                    return data;
+                                },
+                                // error, show error
+                                (error) => {
+                                    MessageService.setMessage("Fehler beim Laden des Rezepts",
+                                        fettyBossy.Services.SEVERITY_ERROR,
+                                        error.status + " " + error.statusText);
+                                    $location.path("/searchRecipe");
+                                }
+                            );
                         }]
                 }
             })
 
-        /**
-         * Edit recipe by its id
-         * @param recipeId ID of recipe
-         */
+            /**
+             * Edit recipe by its id
+             * @param recipeId ID of recipe
+             */
             .when("/editRecipe/:recipeId", {
                 templateUrl: 'views/addeditRecipe.tpl.html',
                 controller: $injects.controllers.addeditRecipeController,
@@ -44,7 +65,7 @@ module fettyBossy {
                     recipe: [$injects.services.repositoryService,
                         $injects.$route,
                         $injects.$log,
-                        function (RepositoryService:fettyBossy.Services.IRepository,
+                        function (RepositoryService:IRepository,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve for '/editRecipe/:recipeId' params '" + $route.current.params.recipeId + "'");
@@ -53,9 +74,9 @@ module fettyBossy {
                 }
             })
 
-        /**
-         * Add new recipe
-         */
+            /**
+             * Add new recipe
+             */
             .when("/addRecipe", {
                 scope: {
                     addRecipe: true
@@ -68,14 +89,14 @@ module fettyBossy {
                         $injects.services.messageService,
                         $injects.$log,
                         $injects.$location,
-                        function (SessionService:fettyBossy.Services.ISession,
-                                  MessageService:fettyBossy.Services.IMessageService,
+                        function (SessionService:ISession,
+                                  MessageService:IMessageService,
                                   $log:ng.ILogService,
                                   $location:ng.ILocationService) {
                             $log.debug("app-routes: resolve for '/addRecipe' params");
 
                             if (!SessionService.getUser()) {
-                                MessageService.setMessage("Nicht eingeloggt!", fettyBossy.Services.SEVERITY_WARN);
+                                MessageService.setMessage("Nicht eingeloggt!", fettyBossy.Services.SEVERITY_WARN, "");
                                 // not logged in, redirect to login
                                 $location.path("/");
                                 return;
@@ -89,28 +110,41 @@ module fettyBossy {
                 }
             })
 
-        /**
-         * Searchview
-         */
+            /**
+             * Searchview
+             */
             .when("/searchRecipe", {
                 templateUrl: 'views/searchRecipe.tpl.html',
                 controller: $injects.controllers.searchRecipeController,
                 controllerAs: 'searchRecipeCtrl',
                 resolve: {
                     recipes: [$injects.services.repositoryService,
+                        $injects.services.messageService,
                         $injects.$log,
                         function (RepositoryService:fettyBossy.Services.IRepository,
+                                  MessageService:IMessageService,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve for '/searchRecipe'");
-                            return RepositoryService.loadRecipes();
+                            return RepositoryService.loadRecipes().then(
+                                // success
+                                (data) => {
+                                    return data;
+                                },
+                                // error, show error
+                                (error) => {
+                                    MessageService.setMessage("Fehler beim Laden von Rezepten",
+                                        fettyBossy.Services.SEVERITY_ERROR,
+                                        error.status + " " + error.statusText);
+                                }
+                            );
                         }]
                 }
             })
 
-        /**
-         * user detail view
-         * @param userId ID of the user
-         */
+            /**
+             * user detail view
+             * @param userId ID of the user
+             */
             .when("/viewUser/:userId", {
                 templateUrl: 'views/viewUser.tpl.html',
                 controller: $injects.controllers.viewUserController,
@@ -119,27 +153,41 @@ module fettyBossy {
                     user: [$injects.services.repositoryService,
                         $injects.$route,
                         $injects.$log,
-                        function (RepositoryService:fettyBossy.Services.IRepository,
+                        function (RepositoryService:IRepository,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve 'user' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
                             return RepositoryService.loadUser($route.current.params.userId);
                         }],
                     recipes: [$injects.services.repositoryService,
+                        $injects.services.messageService,
                         $injects.$route,
                         $injects.$log,
-                        function (RepositoryService:fettyBossy.Services.IRepository,
+                        function (RepositoryService:IRepository,
+                                  MessageService:IMessageService,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve 'recipes' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
-                            return RepositoryService.loadRecipesByUser($route.current.params.userId);
+                            return RepositoryService.loadRecipesByUser($route.current.params.userId).then(
+
+                                // success
+                                (data) => {
+                                    return data;
+                                },
+                                // error, show error
+                                (error) => {
+                                    MessageService.setMessage("Fehler beim Laden von Rezepten",
+                                        fettyBossy.Services.SEVERITY_ERROR,
+                                        error.status + " " + error.statusText);
+                                }
+                            );
                         }]
                 }
             })
 
-        /**
-         * Default: Startpage with login/register form
-         */
+            /**
+             * Default: Startpage with login/register form
+             */
             .otherwise({
                 templateUrl: 'views/start.tpl.html',
                 controller: $injects.controllers.sessionController,

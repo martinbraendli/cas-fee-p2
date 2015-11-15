@@ -27,7 +27,7 @@ module fettyBossy.Controllers {
             this.$log.debug('AddeditRecipeRatingController save()');
 
             this.$scope.rating.userId = this.sessionService.getUser()._id;
-            this.$scope.rating.userName = this.sessionService.getUser().name; // TODO lookup > nicht nötig
+            this.$scope.rating.userName = this.sessionService.getUser().name;
             this.$scope.rating.recipeId = this.$scope.recipeId;
 
             var messageService = this.messageService;
@@ -35,9 +35,9 @@ module fettyBossy.Controllers {
             this.repository.saveRating(this.$scope.rating)
                 .then(function (result:fettyBossy.Services.ISaveRatingResult) {
                     if (result.successful) {
-                        messageService.setMessage("Bewertung erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO);
+                        messageService.setMessage("Bewertung erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO, "");
                     } else {
-                        messageService.setMessage("Bewertung konnte nicht gespeichert werden", fettyBossy.Services.SEVERITY_ERROR);
+                        messageService.setMessage("Bewertung konnte nicht gespeichert werden", fettyBossy.Services.SEVERITY_ERROR, "");
                     }
                 });
         }

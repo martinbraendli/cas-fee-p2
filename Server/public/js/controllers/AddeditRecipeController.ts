@@ -72,14 +72,16 @@ module fettyBossy.Controllers {
             var messageService = this.messageService;
 
             this.repository.saveRecipe(this.recipe)
-                .then(function (result:fettyBossy.Services.ISaveRecipeResult) {
-                    if (result.successful) {
-                        messageService.setMessage("Rezept erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO);
+                .then(
+                    // success
+                    (result:fettyBossy.Services.ISaveRecipeResult) => {
+                        messageService.setMessage("Rezept erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO, "");
                         $location.path("/viewRecipe/" + result.savedRecipe._id);
-                    } else {
-                        messageService.setMessage("Speichern fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR);
-                    }
-                });
+                    },
+                    // error
+                    () => {
+                        messageService.setMessage("Speichern fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR, "");
+                    });
         }
     }
 

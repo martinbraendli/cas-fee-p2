@@ -93,12 +93,19 @@ module fettyBossy.Services {
             this.$log.debug('Repository loadRecipes()');
             var deferred = this.$q.defer();
 
-            this.$http.get(Repository.LOAD_ALL_RECIPES_URL).then((data) => {
-                var recipes = <Array<fettyBossy.Data.IRecipe>> data.data;
-                this.$log.debug('Repository loadRecipes() - loaded recipes, returning ' + recipes.length + ' recipes');
-                deferred.resolve(recipes);
-            });
-
+            this.$http.get(Repository.LOAD_ALL_RECIPES_URL).then(
+                // success
+                (data) => {
+                    var recipes = <Array<fettyBossy.Data.IRecipe>> data.data;
+                    this.$log.debug('Repository loadRecipes() - loaded recipes, returning ' + recipes.length + ' recipes');
+                    deferred.resolve(recipes);
+                },
+                // error
+                (reason) => {
+                    this.$log.warn("Repository loadRecipes() - loaded recipes failed, returning:" + reason);
+                    deferred.reject(reason);
+                }
+            );
             return deferred.promise;
         }
 
@@ -106,11 +113,19 @@ module fettyBossy.Services {
             this.$log.debug("Repository loadRecipesByUser('" + userId + "')");
             var deferred = this.$q.defer();
 
-            this.$http.get(Repository.LOAD_ALL_RECIPES_BY_USER_URL + userId).then((data) => {
-                var loadedRecipes = <Array<fettyBossy.Data.IRecipe>>data.data;
-                this.$log.debug("Repository loadRecipesByUser('" + userId + "') - loaded recipes, returning '" + loadedRecipes.length + "' recipes");
-                deferred.resolve(loadedRecipes);
-            });
+            this.$http.get(Repository.LOAD_ALL_RECIPES_BY_USER_URL + userId).then(
+                // success
+                (data) => {
+                    var loadedRecipes = <Array<fettyBossy.Data.IRecipe>>data.data;
+                    this.$log.debug("Repository loadRecipesByUser('" + userId + "') - loaded recipes, returning '" + loadedRecipes.length + "' recipes");
+                    deferred.resolve(loadedRecipes);
+                },
+                // error
+                (reason) => {
+                    this.$log.warn("Repository loadRecipesByUser('" + userId + "') - loaded recipes failed, returning:" + reason);
+                    deferred.reject(reason);
+                }
+            );
 
             return deferred.promise;
         }
@@ -119,13 +134,20 @@ module fettyBossy.Services {
             this.$log.debug('Repository loadRecipe(' + recipeId + ')');
             var deferred = this.$q.defer();
 
-            this.$http.get(Repository.LOAD_RECIPE_BY_ID + recipeId).then((data) => {
-                var recipe:fettyBossy.Data.IRecipe;
-                recipe = <fettyBossy.Data.IRecipe>(data.data);
-                this.$log.debug('Repository loadRecipe(' + recipeId + ') - loaded recipe');
-
-                deferred.resolve(recipe);
-            });
+            this.$http.get(Repository.LOAD_RECIPE_BY_ID + recipeId).then(
+                // success
+                (data) => {
+                    var recipe:fettyBossy.Data.IRecipe;
+                    recipe = <fettyBossy.Data.IRecipe>(data.data);
+                    this.$log.debug('Repository loadRecipe(' + recipeId + ') - loaded recipe');
+                    deferred.resolve(recipe);
+                },
+                // error
+                (reason) => {
+                    this.$log.warn("Repository loadRecipe('" + recipeId + "') - loaded recipe failed, returning:" + reason);
+                    deferred.reject(reason);
+                }
+            );
 
             return deferred.promise;
         }
@@ -138,12 +160,13 @@ module fettyBossy.Services {
 
             this.$http.post(Repository.SAVE_RECIPE, recipe)
                 .success((recipe) => {
-                    response.successful = true;
+                    //response.successful = true;
                     response.savedRecipe = <fettyBossy.Data.IRecipe>recipe;
                     deferred.resolve(response);
-                }).error((data, status, header, config) => {
-                    response.successful = false;
-                    deferred.resolve(response);
+                })
+                .error((data, status, header, config) => {
+                    this.$log.warn("Repository saveRecipe('" + recipe + "') - failed, returning:" + status);
+                    deferred.reject(response);
                 });
 
             return deferred.promise;
@@ -174,7 +197,9 @@ module fettyBossy.Services {
                     response.successful = true;
                     response.registeredUser = data.registeredUser;
                     deferred.resolve(response);
-                }).error((data, status, header, config) => {
+                })
+                // Fehler beim Request
+                .error((data, status, header, config) => {
                     response.successful = false;
                     if (data && data.message) {
                         response.message = data.message;
@@ -202,7 +227,9 @@ module fettyBossy.Services {
                     response.successful = true;
                     response.registeredUser = data.registeredUser;
                     deferred.resolve(response);
-                }).error((data, status, header, config) => {
+                })
+                // Fehler
+                .error((data, status, header, config) => {
                     response.successful = false;
                     if (data && data.message) {
                         response.message = data.message;
@@ -229,7 +256,6 @@ module fettyBossy.Services {
                 this.$log.debug("Repository loadRatings(" + recipeId + ") - loaded '" + ratings.length + "' ratings");
                 deferred.resolve(ratings);
             });
-
             return deferred.promise;
         }
 
