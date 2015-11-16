@@ -14,6 +14,8 @@ module fettyBossy.Data {
         bakingTime: number; // in minutes
         preparationTime: number; // in minutes
 
+        avgRating: number; // average over all ratings
+
         images: Array<fettyBossy.Data.IImage>;
         ingredients: Array<IIngredient>;
         preparationSteps: Array<IPreparationStep>;

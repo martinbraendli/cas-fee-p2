@@ -1,11 +1,13 @@
 ///<reference path='../_reference.ts' />
 
+import IRating = fettyBossy.Data.IRating;
 /**
  * recipeStore
  */
 
 var Datastore = require('nedb');
 var db = new Datastore({filename: './data/recipe.db', autoload: true});
+var ratingStore = require('../services/ratingStore.js');
 
 /**
  * load all available recipes
@@ -14,7 +16,46 @@ var db = new Datastore({filename: './data/recipe.db', autoload: true});
 function publicLoadAllRecipes(callback) {
     console.log("recipeStore - loadAllRecipes()");
     db.find({}, function (err, recipes:Array<fettyBossy.Data.IRecipe>) {
-        callback(err, recipes);
+        var recipeIds = [];
+        for (i = 0; i < recipes.length; i++) {
+            var recipe = recipes[i];
+            recipeIds.push(recipe._id);
+        }
+
+        // calculate avg rating
+        ratingStore.loadRatingsForRecipes(recipeIds, function (err, ratings:IRating[]) {
+            var ratingMap = new Array();
+            for (i = 0; i < ratings.length; i++) {
+                var rating = ratings[i];
+
+                var ratingCount = ratingMap[rating.recipeId];
+                if (!ratingCount) {
+                    ratingCount = {total: 0, count: 0};
+                    ratingMap[rating.recipeId] = ratingCount;
+                }
+                ratingCount.total = ratingCount.total + parseInt(rating.stars);
+                ratingCount.count = ratingCount.count + 1;
+            }
+
+            for (var property in ratingMap) {
+                if (ratingMap.hasOwnProperty(property)) {
+                    var rm = ratingMap[property];
+                    var schnitt = rm.total / rm.count;
+                    rm.avg = rm.total / rm.count;
+                }
+            }
+
+            for (i = 0; i < recipes.length; i++) {
+                var recipe = recipes[i];
+                if (ratingMap[recipe._id]) {
+                    recipe.avgRating = ratingMap[recipe._id].avg;
+                } else {
+                    recipe.avgRating = 1;
+                }
+            }
+
+            callback(err, recipes);
+        });
     });
 }
 

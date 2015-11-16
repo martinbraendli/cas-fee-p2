@@ -1,34 +1,41 @@
 <div class="searchResultlist">
-    <div >
+    <div>
         <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
     </div>
     <div ng-show="">
         Die Suche hat keine Ergebnisse - nix zu essen
     </div>
-    <table  class="resulttable">
+    <table class="resulttable">
         <thead>
-            <td>&nbsp;</td>
-            <td>Rezept</td>
-            <td>Bewertung</td>
-            <td>Author</td>
+        <td>&nbsp;</td>
+        <td>Rezept</td>
+        <td>Bewertung</td>
+        <td>Author</td>
         </thead>
         <tbody>
-            <tr ng-repeat="recipe in recipes | SearchRecipeFilter: recipeFilter">
-                <td >
-                    <img ng-src="{{recipe.images[0].src}}" class="recipe-img"/>
-                </td>
-                <td >
-                    <h6>
-                        <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
-                    </h6>
-                </td>
-                <td >
-                    rating: -
-                </td>
-                <td >
-                    {{recipe.userName}}
-                </td>
-            </tr>
+        <tr ng-repeat="recipe in (filteredRecipes = (recipes | SearchRecipeFilter: recipeFilter))">
+            <td>
+                <img ng-src="{{recipe.images[0].src}}" class="recipe-img"/>
+            </td>
+            <td>
+                <h6>
+                    <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
+                </h6>
+            </td>
+            <td>
+                rating: {{recipe.avgRating}}
+            </td>
+            <td>
+                {{recipe.userName}}
+            </td>
+        </tr>
+
+        <tr ng-show="filteredRecipes.length == 0">
+            <td colspan="4">
+                Keine Rezepte zum gesetzten Filter gefunden
+            </td>
+        </tr>
+
         </tbody>
     </table>
 </div>

@@ -7,10 +7,9 @@
 - Message Feedback window: color and animate
 
 ## Martin
-- UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
-- Minify-Build > js.min (1x head, 1x body@end)
-- Mehr-Filter: alle drei Kriterien implementieren
 - teaser bottom
+- Minify-Build > js.min (1x head, 1x body@end)
+- UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
 - (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
 
 # Bugs2Fix
@@ -52,3 +51,4 @@
 - minimal view tablet max-width -done
 - error handling für backend-call error's
 - Detail-View, anzahl Sterne eingabe fehlt
+- Mehr-Filter: alle drei Kriterien implementieren

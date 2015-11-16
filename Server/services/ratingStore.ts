@@ -20,6 +20,14 @@ function publicLoadRatings(recipeId:string, callback) {
     });
 }
 
+function publicLoadRatingsForRecipes(recipeIds:string[], callback) {
+    console.log("ratingStore - publicLoadRatingsForRecipes('" + recipeIds + "')");
+
+    db.find({recipeId: {$in: recipeIds}}, function (err, ratings:Array<fettyBossy.Data.IRating>) {
+        callback(err, ratings);
+    });
+}
+
 function publicPersistRating(rating:fettyBossy.Data.IRating, callback) {
     console.log("ratingStore - persistRating('" + rating + "')");
 
@@ -37,5 +45,6 @@ function publicPersistRating(rating:fettyBossy.Data.IRating, callback) {
 
 module.exports = {
     loadRatings: publicLoadRatings,
+    loadRatingsForRecipes: publicLoadRatingsForRecipes,
     persistRating: publicPersistRating
 };

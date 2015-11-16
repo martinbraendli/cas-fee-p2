@@ -1,5 +1,5 @@
 <div class="searchRecipe">
-    <div class="container" >
+    <div class="container">
         <div class="row title-bg">
             <div class="col s12 l12">
                 <h3 class="">Rezepte auswählen</h3>
@@ -11,18 +11,19 @@
         <div class="col s10 l10 card" id="searchbox">
             <div class="col s6 l6">
                 <h4 class="left">Rezeptsuche</h4>
-                <br />
+                <br/>
                 <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
-                <br />
+                <br/>
             </div>
             <div class="col s4 l4">
                 <!-- Switch Search options-->
                 <h4>Suchoptionen</h4>
+
                 <div class="switch">
                     <label>
                         wenig
                         <input type="checkbox"
-                               ng-model="showSearchOptions" ng-init="showSearchOptions = false">
+                               ng-model="searchRecipeCtrl.recipeFilter.showSearchOptions">
                         <span class="lever"></span>
                         mehr
                     </label>
@@ -32,61 +33,56 @@
     </div>
     <!--more search options-->
     <div class="row">
-        <div class="col s4"  ng-show="showSearchOptions">
+        <div class="col s4" ng-show="searchRecipeCtrl.recipeFilter.showSearchOptions">
             <div class="card foodcategory searchplus clearfix">
                 <h5>Kategorie auswählen</h5>
                 <ul class="left">
                     <li>
-                        <input type="checkbox" class="filled-in" id="suppen">
-                        <label for="suppen">Suppen</label>
+                        <input type="checkbox" class="filled-in" id="vorspeise"
+                               ng-model="searchRecipeCtrl.recipeFilter.vorspeise">
+                        <label for="vorspeise">Vorspeise</label>
                     </li>
                     <li>
-                        <input type="checkbox" class="filled-in" id="desserts">
-                        <label for="desserts">Desserts</label>
+                        <input type="checkbox" class="filled-in" id="hauptspeise"
+                               ng-model="searchRecipeCtrl.recipeFilter.hauptspeise">
+                        <label for="hauptspeise">Hauptspeise</label>
                     </li>
                     <li>
-                        <input type="checkbox" class="filled-in" id="hauptspeisen">
-                        <label for="hauptspeisen">Hauptspeisen</label>
+                        <input type="checkbox" class="filled-in" id="dessert"
+                               ng-model="searchRecipeCtrl.recipeFilter.dessert">
+                        <label for="dessert">Dessert</label>
                     </li>
                     <li>
-                        <input type="checkbox" class="filled-in" id="vegetarisch">
-                        <label for="vegetarisch">Vegetarisch</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="filled-in" id="burgers">
-                        <label for="burgers">Burgers</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="filled-in" id="salate">
-                        <label for="salate">Salate</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="filled-in" id="sandwitches">
-                        <label for="sandwitches">Sandwitches</label>
+                        <input type="checkbox" class="filled-in" id="snack"
+                               ng-model="searchRecipeCtrl.recipeFilter.snack">
+                        <label for="snack">Snack</label>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="col s4" ng-show="showSearchOptions">
+        <div class="col s4" ng-show="searchRecipeCtrl.recipeFilter.showSearchOptions">
             <div class="card searchplus">
                 <h5>Bewertung</h5>
-                <br />
+                <br/>
+
                 <p>suchen Sie nach Bewertung</p>
-                <br />
+                <br/>
+
                 <div class="range-field">
                     <label>1 </label>
-                    <input type="range" id="" min="1" max="5" style="width: 70%;" />
+                    <input type="range" id="" min="1" max="5" style="width: 70%;"
+                           ng-model="searchRecipeCtrl.recipeFilter.rating"/>
                     <label>5 </label>
                 </div>
             </div>
         </div>
 
-        <div class="col s4" ng-show="showSearchOptions">
+        <div class="col s4" ng-show="searchRecipeCtrl.recipeFilter.showSearchOptions">
             <div class="card searchplus">
                 <h5>Zubereitungszeit</h5>
                 <!--<label>Zeit</label>-->
-                <select class="browser-default">
+                <select class="browser-default" ng-model="searchRecipeCtrl.recipeFilter.backzeit">
                     <option value="10">10 - 20 min</option>
                     <option value="20">20 - 30 min</option>
                     <option value="30">30 - 40 min</option>
@@ -104,7 +100,8 @@
                     <h3 class="orange-text">Ergebnisse</h3>
                 </div>
 
-                <fb-search-resultlist recipes="searchRecipeCtrl.recipes" recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-resultlist>
+                <fb-search-resultlist recipes="searchRecipeCtrl.recipes"
+                                      recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-resultlist>
             </div>
         </div>
     </div>
@@ -113,7 +110,8 @@
         <div class="col s3">
             <div class="card  orange lighten-3">
                 <div class="card-title">Neues Rezept</div>
-                <br />
+                <br/>
+
                 <div class="card-image">
                     <img src="pictures/food2_400.jpg">
                 </div>
@@ -128,7 +126,8 @@
         <div class="col s3">
             <div class="card amber lighten-2">
                 <div class="card-title">Rezept der Woche</div>
-                <br />
+                <br/>
+
                 <div class="card-image">
                     <img src="pictures/food1_400.jpg">
                 </div>
@@ -143,7 +142,8 @@
         <div class="col s3">
             <div class="card  orange lighten-3">
                 <div class="card-title">Mega Fein</div>
-                <br />
+                <br/>
+
                 <div class="card-image">
                     <img src="pictures/food2_400.jpg">
                 </div>
@@ -158,7 +158,8 @@
         <div class="col s3">
             <div class="card amber lighten-2">
                 <div class="card-title">Rezept der Woche</div>
-                <br />
+                <br/>
+
                 <div class="card-image">
                     <img src="pictures/food1_400.jpg">
                 </div>

@@ -4,12 +4,8 @@
  *
  */
 module fettyBossy.Controllers {
+    import ISearchRecipeFilter = fettyBossy.Filter.ISearchRecipeFilter;
     'use strict';
-
-    export interface ISearchRecipeFilter {
-        text:string;
-        userId:string;
-    }
 
     export class SearchRecipeController {
 
@@ -25,6 +21,8 @@ module fettyBossy.Controllers {
             $log.debug('SearchRecipeController constructor');
             this.recipes = recipes;
             this.recipeFilter = <fettyBossy.Filter.ISearchRecipeFilter>{};
+            this.recipeFilter.showSearchOptions = false;
+            this.recipeFilter.rating = 1;
         }
     }
 
