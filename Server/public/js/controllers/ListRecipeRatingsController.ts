@@ -91,9 +91,9 @@ module fettyBossy.Controllers {
          */
         starName(rating:IRating, starNumber:number):string {
             if (rating.stars >= starNumber) {
-                return "star";
+                return "star_border";
             }
-            return "star_border";
+            return "star";
         }
     }
 
