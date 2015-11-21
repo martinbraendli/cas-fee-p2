@@ -13,11 +13,19 @@
 - (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
 
 # Bugs2Fix
-- EditRecipe > labeltext <-> populated text übereinander
-- searchRecipe > hover state
+- EditRecipe > labeltext <-> populated text übereinander -> fixed
+- searchRecipe > hover state ->fixed
 
 - (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. --> improved, not perfect
 - (mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)
+
+
+- ViewUser Safe-button: Fehler bei Speichern. Button inactive setzen?
+- beim eingeloggtem User sollte editUser geladen werden um pw oder email zu ändern. keine Editiermöglichkeit.
+- ViewRecipe: Rating anzeigen? - Rating abspeichern geht nicht.
+- addRecipe: photoupload wird nicht im überprüft, ob new file selected. Wenn schwierig- > lassenwirsein
+
+
 
 # Closed
 

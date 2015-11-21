@@ -52,7 +52,7 @@
                                 <input type="text" ng-model="addeditRecipeCtrl.recipe.title" id="recipename"
                                        name="recipename" required/>
                                 <label for="recipename">Name des Rezepts</label>
-                                <span class="error" ng-show="addeditRecipeForm.recipename.$error.required">Bitte Wert eingeben</span>
+                                <span class="error" ng-show="addeditRecipeForm.recipename.$error.required">Bitte eine Beschreibung erfassen</span>
                             </div>
                         </div>
                         <div class="row">
@@ -63,7 +63,7 @@
                                                   name="menudescription"
                                                   ng-model="addeditRecipeCtrl.recipe.description" required></textarea>
                                 <label for="menu-description">Beschreibung des Menus in ein paar Sätzen</label>
-                                <span class="error" ng-show="addeditRecipeForm.menudescription.$error.required">Bitte Wert eingeben</span>
+                                <span class="error" ng-show="addeditRecipeForm.menudescription.$error.required">Bitte alles vollständig ausfüllen</span>
                             </div>
                         </div>
                         <div class="row">
@@ -174,15 +174,15 @@
                                 <td>Menge</td>
                                 <td>Einheit</td>
                                 <td>Zutat</td>
-                                <td>Entfernen</td>
+                                <td>Löschen</td>
                             </tr>
                             </thead>
                             <tr ng-repeat="ingredient in addeditRecipeCtrl.recipe.ingredients">
                                 <td>
                                     <div class="ingredient-count input-field ">
+                                        <label for="ingredient-type">Anzahl</label>
                                         <input class="mdl-textfield__input" type="number" id="ingredient-type"
                                                ng-model="ingredient.denomination"/>
-                                        <label for="ingredient-type">Anzahl</label>
                                     </div>
                                 </td>
                                 <td>
@@ -193,7 +193,7 @@
                                         <option>Prise</option>
                                         <option>Gramm</option>
                                         <option>Liter</option>
-                                        <option>Stueck</option>
+                                        <option>Stück</option>
                                     </select>
                                 </td>
                                 <td>

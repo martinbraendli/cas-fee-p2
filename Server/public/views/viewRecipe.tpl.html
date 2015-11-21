@@ -10,17 +10,22 @@
         </div>
         <!--content header-->
         <div class="row">
-            <div class="col s2 l2"><br/>
+            <div class="col s6 l6"><br/>
                 <i class="large material-icons prefix">receipt</i>
             </div>
-            <div class="col s10 l10 recipe-header">
+            <div class="col s6 l6 recipe-header">
                 <h2>{{viewRecipeCtrl.recipe.title}}</h2>
                         <span class="clearfix">
                             <h5>Beschreibung</h5>
                         </span>
                 <p class="flow-text text-accent-1">{{viewRecipeCtrl.recipe.description}}</p>
+                <div ng-controller="SessionController as sessionCtrl">
+                    <a class="btn btn-flat deep-orange white-text left" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
+                       ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.userId)">Dieses Rezept bearbeiten</a>
+                </div>
             </div>
         </div>
+
         <!--content image and data-->
         <div class="row">
             <div class="col s6 l6">
@@ -36,10 +41,6 @@
                     </div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next "></div>
-                </div>
-                <div ng-controller="SessionController as sessionCtrl">
-                    <a class="btn btn-flat" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
-                       ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.userId)">EDIT</a>
                 </div>
             </div>
             <!--recipe data-->

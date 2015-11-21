@@ -40,6 +40,12 @@ body {
   margin-right: 0;
 }
 
+.small{
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 21px;
+}
+
 // fb-menu top
 
 .nav-wrapper{
@@ -151,16 +157,12 @@ body {
 // ------------------- Login Screen
 
 
-
-
 .fb-layout{
   margin: 0 auto;
   max-width: 1200px;
   width: 100%;
   background-color: #FFFFFF;
 }
-
-
 
 
 // login Form Card
@@ -248,7 +250,6 @@ body {
       font-weight: 100;
       color: #81d4fa;
     }
-
   }
   button{
     background: $secondary-color;
@@ -256,7 +257,10 @@ body {
   button:hover{
     background: $secondary-color-hover;
   }
-
+  .input-field label{
+    position: absolute;
+    top:-0.3rem;
+  }
   .btn{
     background: $secondary-color;
   }
@@ -265,6 +269,9 @@ body {
   }
   .btn.disabled{
     background: #F3F3F3;
+  }
+  .error{
+    color: $primary-color-dark;
   }
 }
 
@@ -277,7 +284,6 @@ body {
 .img-chooser{
   border: 1px solid #AA3333;
   background: $secondary-color;
-
 }
 
 .recipe-img{
@@ -326,22 +332,27 @@ body {
 
 
 .table-ingredients{
+  //generell
+  td{
+    padding: 0 7px 0 7px;
+  }
+
   // Anzahl
   td:nth-child(1){
     width: 15%;
   }
   // Eiheit
   td:nth-child(2){
-    width: 20%;
+    width: 25%;
   }
   // Zutat
   td:nth-child(3){
-    width: 57%;
+    width: 55%;
   }
   // Entfernen
   td:nth-child(4){
-    width: 7%;
-    color: $primary-color;
+    width: 5%;
+    color: $secondary-color;
   }
 
 }
@@ -361,6 +372,20 @@ body {
       font-weight: 100;
       color: #81d4fa;
     }
+    .input-field label{
+      position: absolute;
+      top:0.1rem;
+
+    }
+  }
+  .card{
+    padding:0;
+  }
+  .card-title{
+    padding: 15px;
+  }
+  .card-content{
+    line-height: 34px;
   }
 }
 
@@ -439,8 +464,8 @@ body {
 .thumb{
   background: $success-color;
   margin-left: 16px!important;
-  padding: 7px;
-  border-radius:100%;
+  padding: 8px;
+  border-radius:50%;
   color: white;
   font-size: 1.3rem;
 }
