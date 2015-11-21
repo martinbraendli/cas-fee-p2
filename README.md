@@ -1,7 +1,7 @@
 # Rezept-Single-Page-App
 
 ## Besonderes
-- Bilder werden vor dem Hochladen auf eine Grösse von 400x300 Pixel verkleinert.
+- Bilder werden vor dem Hochladen auf eine Grösse von 400x300 Pixel clientseitig verkleinert.
 - Backend selbst entwickelt
 
 - Unittests: spec/SpecRunner.html
@@ -15,7 +15,6 @@ Login Username / PW
 - link Login
 - link Register New User
 - Guest View
-- eventuell: Slider mit 3 Neuen Rezepten (Titel, Bild, Link)
 - keine weitere Navigation
 
 ### 2. Search View
@@ -27,7 +26,7 @@ Login Username / PW
 - Sotierung nach Bewertung
 - Sortierung nach Zubereitungszeit
 - Neueste Rezepte
-
+- eventuell: Teaser mit 3 Neuen Rezepten (Titel, Bild, Link)
 
 ### 3. Listview der Treffer (Scrollable)
 
@@ -44,8 +43,7 @@ Login Username / PW
 - Anzahl Personen
 - Bilder (Slider?) Rezept
 - Zutaten
-- Zubereitung 
-
+- Zubereitung in n Steps
 - Backzeit
 - Zubereitungszeit
 -	Buttons: Link -> Print Rezept
@@ -124,7 +122,7 @@ Rezept 1 Edit / Delete
 
 
 ## Technik
-- Style auf Basis von Material Design Lite  http://www.getmdl.io/index.html
+- Styles auf Basis von Material Design https://www.google.com/design/spec/material-design/introduction.html
 - SCSS Präprozessor
 - Gulp
 - Angular 1.4
