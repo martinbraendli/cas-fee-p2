@@ -10,13 +10,14 @@
 - teaser bottom
 - Minify-Build > js.min (1x head, 1x body@end)
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
-- (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
+- rating in user's recipes, edit + add gleichzeitig!
+- login nach user-change schlägt fehl
+- warn nicht modal!
 
 # Bugs2Fix
 - EditRecipe > labeltext <-> populated text übereinander -> fixed
 - searchRecipe > hover state ->fixed
 
-- (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. --> improved, not perfect
 - (mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)
 
 
@@ -60,3 +61,5 @@
 - error handling für backend-call error's
 - Detail-View, anzahl Sterne eingabe fehlt
 - Mehr-Filter: alle drei Kriterien implementieren
+- (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. --> improved, not perfect
+- (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
