@@ -261,6 +261,10 @@ body {
     position: absolute;
     top:-0.3rem;
   }
+  .input-field label .active{
+    transform: translateY(-150%);
+    display: none;
+  }
   .btn{
     background: $secondary-color;
   }
@@ -272,6 +276,9 @@ body {
   }
   .error{
     color: $primary-color-dark;
+  }
+  .ingredient-label .active{
+    color: #F44;
   }
 }
 

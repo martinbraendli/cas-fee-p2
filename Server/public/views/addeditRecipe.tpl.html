@@ -1,7 +1,6 @@
 <div class="editRecipe">
     <div class="container">
         <form id="addeditRecipeForm" name="addeditRecipeForm">
-
             <div class="row title-bg">
                 <div class="col s12 l12">
                     <h3 class="">Rezept bearbeiten</h3>
@@ -21,7 +20,7 @@
                 <div class="col m12 l5 pixupload card text-darken-2">
                             <span class="clearfix form-title">
                                  <i class="material-icons medium left ">picture_in_picture</i>
-                                <h4 class="right-align "> 1. Foto</h4>
+                                <h4 class="right-align ">1. Foto</h4>
                             </span>
 
                     <div class="divider"></div>
@@ -47,8 +46,8 @@
                     <div class="divider"></div>
                     <form class="recipe-form">
                         <div class="row">
-                            <div class="input-field">
-                                <i class="material-icons prefix small form-title">mode_edit</i>
+                            <div class="input-field ">
+                                <i class="material-icons orange-text prefix small form-title">mode_edit</i>
                                 <input type="text" ng-model="addeditRecipeCtrl.recipe.title" id="recipename"
                                        name="recipename" required/>
                                 <label for="recipename">Name des Rezepts</label>
@@ -57,7 +56,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field">
-                                <i class="material-icons prefix small form-title">mode_edit</i>
+                                <i class="material-icons orange-text prefix small form-title">mode_edit</i>
                                         <textarea type="text" rows="2" class="materialize-textarea"
                                                   id="menu-description"
                                                   name="menudescription"
@@ -180,9 +179,9 @@
                             <tr ng-repeat="ingredient in addeditRecipeCtrl.recipe.ingredients">
                                 <td>
                                     <div class="ingredient-count input-field ">
-                                        <label for="ingredient-type">Anzahl</label>
-                                        <input class="mdl-textfield__input" type="number" id="ingredient-type"
+                                        <input class="mdl-textfield__input" type="number" id="ingredient-type" min="0" step="1"
                                                ng-model="ingredient.denomination"/>
+                                        <!--<label class="ingredient-label" for="ingredient-type">Anzahl</label>-->
                                     </div>
                                 </td>
                                 <td>
@@ -203,7 +202,7 @@
                                         <datalist id="ingredientsList">
                                             <option ng-repeat="ingredient in ingredients" value="{{ingredient}}">
                                         </datalist>
-                                        <label for="ingredient-name">Zutat</label>
+                                        <label for="ingredient-name" class="ingredient-label">Zutat</label>
                                     </div>
                                 </td>
                                 <td>

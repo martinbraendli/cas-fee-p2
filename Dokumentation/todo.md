@@ -2,12 +2,13 @@
 ## Felix
 - Default-Datenbank mit einigen Rezepten
 - SCSS file struktur
-- Toastr-Meldung nicht modal
+- Toastr-Meldung nicht modal -> in einem container im index.html eingelagert. aktionen wärend toast-anzeige möglich. problem fixed?
 - Placeholder bei Bewertung [(mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)]
-- user test durchführen
-- viewRecipe: Ingredients + Steps anzeigen
+- user test durchführen -> skeleton für Usertests im Dokumentation Folder.
+- viewRecipe: Ingredients + Steps anzeigen -> done
 - editUser: Name kein Input-Feld + UserId nicht anzeigen
 - viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars
+- AddRecipe: Zutaten min gt 0, keine minuswerte - done
 
 ## Martin
 - teaser bottom

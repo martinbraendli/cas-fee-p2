@@ -664,6 +664,11 @@ body {
   .editRecipe .input-field label {
     position: absolute;
     top: -0.3rem; }
+  .editRecipe .input-field label .active {
+    -webkit-transform: translateY(-150%);
+        -ms-transform: translateY(-150%);
+            transform: translateY(-150%);
+    display: none; }
   .editRecipe .btn {
     background: #29b6f6; }
   .editRecipe .btn:hover {
@@ -672,6 +677,8 @@ body {
     background: #F3F3F3; }
   .editRecipe .error {
     color: #ffc303; }
+  .editRecipe .ingredient-label .active {
+    color: #F44; }
 
 .pixupload {
   padding: 1rem; }
