@@ -20,7 +20,6 @@
 - addRecipe: photoupload wird nicht im überprüft, ob new file selected. Wenn schwierig- > lassenwirsein... mind 1 pflicht!
 - ViewRecipe: Rating anzeigen? - Rating abspeichern geht nicht.
 - user test durchführen
-- edit recipe > cancel
 - menge nur >0
 
 # Closed
@@ -64,3 +63,4 @@
 - beim eingeloggtem User sollte editUser geladen werden um pw oder email zu ändern. keine Editiermöglichkeit.
 - tab-system Login/ Register ->tried - again soon ...
 - Message Feedback window: color and animate
+- edit recipe > cancel
