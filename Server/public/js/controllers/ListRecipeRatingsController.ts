@@ -45,10 +45,10 @@ module fettyBossy.Controllers {
 
             var filterByUser = function (rating:IRating) {
                 if (rating.userId) {
-                    return (rating.userId != currentUser._id);
+                    return (rating.userId == currentUser._id);
                 }
                 // no author on recipe set
-                return true;
+                return false;
             };
             var ownRatings = this.$scope.ratings.filter(filterByUser);
 
