@@ -36,6 +36,11 @@ module fettyBossy.Controllers {
 
             var messageService = this.messageService;
 
+            // check if new password is set
+            if (this.passwordNew){
+                this.user.password = this.passwordNew;
+            }
+
             this.userService.saveUser(this.user)
                 .then(function (result:fettyBossy.Services.IRegisterUserResult) {
                     if (result.successful) {

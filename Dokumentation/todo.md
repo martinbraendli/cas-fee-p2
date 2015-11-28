@@ -13,7 +13,6 @@
 ## Martin
 - teaser bottom
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
-- login nach user-change schlägt fehl (viele users in db?)
 - warn nicht modal!
 - user test durchführen
 
@@ -64,3 +63,4 @@
 - AddRecipe: Zutaten min gt 0, keine minuswerte - done
 - rating in user's recipes, edit + add gleichzeitig!
 - Minify-Build > js.min (1x head, 1x body@end)
+- login nach user-change schlägt fehl (viele users in db?)
