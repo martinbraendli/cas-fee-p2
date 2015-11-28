@@ -9,7 +9,7 @@
                             ng-disabled="addeditRecipeForm.$invalid || !addeditRecipeCtrl.recipe.images || addeditRecipeCtrl.recipe.images.length <= 0"
                             ng-click="addeditRecipeCtrl.save()">Menu Speichern
                     </button>
-                    <button class="btn right" type="button"
+                    <button class="btn right cancel" type="button"
                             ng-click="addeditRecipeCtrl.cancel()">Abbrechen
                     </button>
                 </div>
@@ -17,12 +17,11 @@
             <!--first row-->
             <div class="row">
                 <!--FOTO UPLOAD -->
-                <div class="col m12 l5 pixupload card text-darken-2">
-                            <span class="clearfix form-title">
-                                 <i class="material-icons medium left ">picture_in_picture</i>
-                                <h4 class="right-align ">1. Foto</h4>
-                            </span>
-
+                <div class="col s12 m12 l5 pixupload card text-darken-2">
+                        <span class="clearfix form-title">
+                             <i class="material-icons medium left ">picture_in_picture</i>
+                            <h4 class="right-align ">1. Foto</h4>
+                        </span>
                     <div class="divider"></div>
                     <p>Bitte mindestens ein Photo hochladen. Danke!</p>
                     <img ng-show="!addeditRecipeCtrl.recipe.images" class="recipe-img" src="pictures/empty_plate.jpg">
@@ -34,14 +33,14 @@
                     <br/>
                     <fb-file-upload recipe="addeditRecipeCtrl.recipe"></fb-file-upload>
                 </div>
-                <div class="col l2">&nbsp;</div>
+                <!--<div class="col l2">&nbsp;</div>-->
                 <!--right side: Add Recipe-->
                 <!--REZEPT NAME -->
-                <div class="col m12 l5 card text-accent-3 recipe-name">
-                            <span class="clearfix form-title">
-                                <i class="material-icons medium left">receipt</i>
-                                <h4 class="right-align form-title">2. Rezeptname</h4>
-                            </span>
+                <div class="col s12 m12 l6 right card text-accent-3 recipe-name">
+                        <span class="clearfix form-title">
+                            <i class="material-icons medium left">receipt</i>
+                            <h4 class="right-align ">2. Rezeptname</h4>
+                        </span>
 
                     <div class="divider"></div>
                     <form class="recipe-form">
@@ -62,7 +61,7 @@
                                                   name="menudescription"
                                                   ng-model="addeditRecipeCtrl.recipe.description" required></textarea>
                                 <label for="menu-description">Beschreibung des Menus in ein paar Sätzen</label>
-                                <span class="error" ng-show="addeditRecipeForm.menudescription.$error.required">Bitte alles vollständig ausfüllen</span>
+                                <span class="error" ng-show="addeditRecipeForm.menudescription.$error.required">Bitte alle Angaben vollständig ausfüllen</span>
                             </div>
                         </div>
                         <div class="row">
@@ -132,15 +131,13 @@
             </div>
             <!--second row-->
             <div class="row">
-                <div class="col m12 l5 card text-accent-3 recipe-name">
-                            <span class="form-title clearfix">
-                                <i class="material-icons medium left">view_list</i>
-                                <h4 class="right-align">3. Zubereitung</h4>
-                            </span>
-
+                <div class="col s12 m12 l5 left card text-accent-3 recipe-name">
+                        <span class="form-title clearfix">
+                            <i class="material-icons medium left">view_list</i>
+                            <h4 class="right-align">3. Zubereitung</h4>
+                        </span>
                     <div class="divider"></div>
-                    <p>Beschreibe hier <strong>Schritt für Schritt</strong> der Ablauf des Rezeptes</p>
-
+                    <p>Beschreibe hier <strong>Schritt für Schritt</strong> den Ablauf des Rezeptes</p>
                     <div class="row">
                         <div ng-repeat="preparationStep in addeditRecipeCtrl.recipe.preparationSteps">
                             <div class="input-field col s12">
@@ -159,13 +156,14 @@
                     &nbsp;
                 </div>
                 <!--4REZEPT ZUTATEN -->
-                <div class="col m12 l5 card text-accent-3 recipe-name">
-                            <span class="form-title clearfix">
-                                 <i class="material-icons medium left">play_for_work</i>
-                                 <h4 class="right-align">4. Zutaten</h4>
-                            </span>
-
+                <div class="col s12 m12 l6 right card text-accent-3 recipe-name">
+                        <span class="form-title clearfix">
+                             <i class="material-icons medium left">play_for_work</i>
+                             <h4 class="right-align">4. Zutaten</h4>
+                        </span>
                     <div class="divider"></div>
+                    <p>Nenne alle notwendigen <strong>Zutaten</strong> für des Rezeptes</p>
+                    <br />
                     <div class="row">
                         <table class="table-ingredients">
                             <thead>
@@ -224,7 +222,7 @@
                             ng-disabled="addeditRecipeForm.$invalid"
                             ng-click="addeditRecipeCtrl.save()">Menu Speichern
                     </button>
-                    <button class="btn right" type="button"
+                    <button class="btn right cancel" type="button"
                             ng-click="addeditRecipeCtrl.cancel()">Abbrechen
                     </button>
                 </div>

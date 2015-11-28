@@ -5,9 +5,11 @@
 - Toastr-Meldung nicht modal -> in einem container im index.html eingelagert. aktionen wärend toast-anzeige möglich. problem fixed?
 - Placeholder bei Bewertung [(mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)]
 - user test durchführen -> skeleton für Usertests im Dokumentation Folder.
-- editUser: Name kein Input-Feld + UserId nicht anzeigen
-- viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars
-
+- editUser: Name kein Input-Feld + UserId nicht anzeigen -> done
+- viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars -> grösse geändert. User Filter funtioniert nicht im Template. -> tbd
+- font und titel anpassen. -> done
+- label active wird nach oben rechts translated. -> done
+-
 ## Martin
 - teaser bottom
 - Minify-Build > js.min (1x head, 1x body@end)

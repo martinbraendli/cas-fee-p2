@@ -2,32 +2,64 @@
 
 //
 /*** Colors ***/
-$primary-color: color("amber", "lighten-2") !default;
+$primary-color: color("blue", "darken-4") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: color("light-blue", "lighten-1") !default;
 $secondary-color-hover: color("blue", "darken-3") !default;
-$success-color: color("deep-orange", "base") !default;
+$success-color-hover: color("deep-orange", "darken-3") !default;
 
 $error-color: color("deep-orange", "darken-4") !default;
 $link-color: color("light-blue", "darken-1") !default;
 
 $bgcolor-blue: color("light-blue", "darken-3") !default;
 
+// body declarations
 
 body {
   background: lightcyan;
-  font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  font-size: 16px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  //font-size: 16px;
   line-height: 18px;
   font-weight: 300;
+
+  h2{
+    color: #44AA44;
+    background: #004444;
+    font-size: 2.1rem;
+    line-height: 2.2rem;
+  }
+  h3{
+    color: $secondary-color;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    line-height: 1.7rem;
+  }
+  h4{
+    color: $primary-color;
+    //background: #e6ee9c;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    line-height: 16px;
+  }
+  // default text size
+  p{
+    //color: #007069;
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+  }
+  textarea{
+    color: #A33;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+    line-height: 1.6rem;
+  }
 }
 
 .clear{
   clear: both;
 }
-
 
 // resets
 .container{
@@ -63,7 +95,7 @@ body {
 
 // background picture in a ribbon
 .ribbon{
-  background-image: url('../pictures/bg_artfood_1500.jpg');
+  //background-image: url('../pictures/bg_artfood_1500.jpg');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -196,6 +228,8 @@ body {
     }
   }
 }
+
+
 #searchbox{
   margin-left: 0.75rem !important; ;
 }
@@ -240,46 +274,57 @@ body {
 
 .editRecipe{
   background: #FFF;
-  font-size: 1rem;
   .title-bg{
     background: $bgcolor-blue;
     color: #FFF;
-    height: 150px;
+    height: 120px;
     width: 100%;
     h3{
       font-weight: 100;
       color: #81d4fa;
+    }
+    .ingredient-label .active{
+      color: #F44;
     }
   }
   button{
     background: $secondary-color;
   }
   button:hover{
-    background: $secondary-color-hover;
+    background: $success-color-hover;
   }
-  .input-field label{
+
+
+  .input-field label {
     position: absolute;
     top:-0.3rem;
+    &.active{
+      font-size: 1.3rem;
+      transform: translateY(-150%)!important;
+      transform: translateX(40%)!important;
+      color: $secondary-color;
+    }
   }
-  .input-field label .active{
-    transform: translateY(-150%);
-    display: none;
-  }
+
+
+
+
   .btn{
     background: $secondary-color;
   }
   .btn:hover{
-    background: $secondary-color-hover;
+    background:  $success-color-hover;
   }
-  .btn.disabled{
+  .btn .disabled{
     background: #F3F3F3;
+  }
+  .cancel{
+    margin-right: 1.4rem;
   }
   .error{
     color: $primary-color-dark;
   }
-  .ingredient-label .active{
-    color: #F44;
-  }
+
 }
 
 .pixupload{
@@ -311,12 +356,11 @@ body {
 }
 
 .recipe-name{
-  //border: 1px dashed #a44;
   margin-left: 1rem;
 
 }
 .form-title{
-  color: $secondary-color-hover;
+  color: $secondary-color;
 }
 
 .recipe-form{
@@ -407,6 +451,13 @@ body {
 
 .user-details{
   background: #FFF;
+  .read-only{
+    color: #666;
+  }
+
+  .editable{
+    color: $bgcolor-blue;
+  }
 }
 
 
@@ -454,6 +505,7 @@ body {
 }
 .star-rating{
   display: inline;
+  color: $primary-color;
   i{
     padding-left: 15px;
   }
@@ -469,7 +521,7 @@ body {
 }
 
 .thumb{
-  background: $success-color;
+  //background: $success-color;
   margin-left: 16px!important;
   padding: 8px;
   border-radius:50%;

@@ -1,37 +1,34 @@
 <div class="user-details">
     <div class="row">
-        <div class="col l4">
+        <div class="col s12 l8">
             <h3>Mein Account</h3>
-            <h4>Bewertungen zu deinen Rezepten</h4>
+            <h4> Meine Rezepte:</h4>
+            <fb-search-resultlist recipes="viewUserCtrl.recipes"
+                                  recipe-filter="viewUserCtrl.recipeFilter"></fb-search-resultlist>
         </div>
-        <div class="col m12 l8">
+        <div class="col s12 l4">
             <h3>User Login Details</h3>
             <table>
                 <tr>
-                    <td>User-ID:</td>
-                    <td>{{user._id}}</td>
-                    <td><i class="medium material-icons prefix">perm_identity</i></td>
+                    <td>Name: <br/>(kann nicht geändert werden)</td>
+                    <td><i class="small material-icons prefix">done</i></td>
+                    <td class="input-field">
+                        <input type="text" ng-model="user.name" class="readonly" readonly/>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Name</td>
-                    <td class="input-field">
-                        <input type="text" ng-model="user.name" readonly/>
+                    <td>E-Mail:</td>
+                    <td><i class="small material-icons prefix">email</i></td>
+                    <td class="input-field ">
+                        <input type="email" class="validate editable" ng-model="user.email">
                     </td>
-                    <td><i class="medium material-icons prefix">perm_identity</i></td>
-                </tr>
-                <tr>
-                    <td>e-Mail:</td>
-                    <td class="input-field">
-                        <input type="email" class="validate" ng-model="user.email">
-                    </td>
-                    <td><i class="medium material-icons prefix">perm_identity</i></td>
                 </tr>
                 <tr>
                     <td>Passwort:</td>
+                    <td><i class="small material-icons prefix">fingerprint</i></td>
                     <td class="input-field">
-                        <input type="password" class="validate" ng-model="user.password"/>
+                        <input type="password" class="validate editable" ng-model="user.password"/>
                     </td>
-                    <td><i class="medium material-icons prefix">perm_identity</i></td>
                 </tr>
                 <tr>
                     <td>
@@ -43,6 +40,5 @@
                 </tr>
             </table>
         </div>
-
     </div>
 </div>
