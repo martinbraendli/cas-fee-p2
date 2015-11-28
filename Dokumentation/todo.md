@@ -1,32 +1,26 @@
 ﻿# Open
 ## Felix
 - Default-Datenbank mit einigen Rezepten
-- Templates @ Directive Templates
 - SCSS file struktur
-- tab-system Login/ Register ->tried - again soon ...
-- Message Feedback window: color and animate
+- Toastr-Meldung nicht modal
+- Placeholder bei Bewertung [(mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)]
+- user test durchführen
+- viewRecipe: Ingredients + Steps anzeigen
+- editUser: Name kein Input-Feld + UserId nicht anzeigen
+- viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars
 
 ## Martin
 - teaser bottom
 - Minify-Build > js.min (1x head, 1x body@end)
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
 - rating in user's recipes, edit + add gleichzeitig!
-- login nach user-change schlägt fehl
+- login nach user-change schlägt fehl (viele users in db?)
 - warn nicht modal!
-
-# Bugs2Fix
-- EditRecipe > labeltext <-> populated text übereinander -> fixed
-- searchRecipe > hover state ->fixed
-
-- (mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)
-
-
-- ViewUser Safe-button: Fehler bei Speichern. Button inactive setzen?
-- beim eingeloggtem User sollte editUser geladen werden um pw oder email zu ändern. keine Editiermöglichkeit.
+- addRecipe: photoupload wird nicht im überprüft, ob new file selected. Wenn schwierig- > lassenwirsein... mind 1 pflicht!
 - ViewRecipe: Rating anzeigen? - Rating abspeichern geht nicht.
-- addRecipe: photoupload wird nicht im überprüft, ob new file selected. Wenn schwierig- > lassenwirsein
-
-
+- user test durchführen
+- edit recipe > cancel
+- menge nur >0
 
 # Closed
 
@@ -63,3 +57,9 @@
 - Mehr-Filter: alle drei Kriterien implementieren
 - (mgfeller) Der erste Dialog (Login und Registrieren) sieht auf kleinen Devices nicht sehr ideal aus. --> improved, not perfect
 - (mgfeller) Rest: Bei Client sind alle REST-Routen in einem Service abgebieltet (User und Recipe) 
+- EditRecipe > labeltext <-> populated text übereinander -> fixed
+- searchRecipe > hover state ->fixed
+- ViewUser Safe-button: Fehler bei Speichern. Button inactive setzen?
+- beim eingeloggtem User sollte editUser geladen werden um pw oder email zu ändern. keine Editiermöglichkeit.
+- tab-system Login/ Register ->tried - again soon ...
+- Message Feedback window: color and animate
