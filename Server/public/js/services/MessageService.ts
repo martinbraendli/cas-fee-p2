@@ -27,49 +27,42 @@ module fettyBossy.Services {
     }
 
     class Message implements IMessageService {
-        self:IMessageService;
-
-        message:IMessage = null;
-
         listener = [];
 
         public static $inject = [$injects.$log, $injects.toastr];
 
         constructor(private $log:ng.ILogService, private $toastr) {
             this.$log.debug('Message constructor');
-
-            self = this;
-            // temp for links on startpage
-            window.setMessage = this.setMessage;
         }
 
-        setMessage(text:string, severity:number, details:string):void {
+        public setMessage(text:string, severity:number, details:string):void {
+            var message = <IMessage>{};
             if (!text) {
-                self.message = {
+                message = {
                     text: null,
                     severity: null,
                     details: null
                 };
             } else {
-                self.message = <IMessage>{
+                message = <IMessage>{
                     text: text,
                     severity: severity,
                     details: details
                 };
             }
 
-            switch (self.message.severity) {
+            switch (message.severity) {
                 case fettyBossy.Services.SEVERITY_ERROR:
-                    self.$log.error(self.message.text + "(" + details + ")");
-                    self.$toastr.error(self.message.text);
+                    this.$log.error(message.text + "(" + details + ")");
+                    this.$toastr.error(message.text);
                     break;
                 case fettyBossy.Services.SEVERITY_WARN:
-                    self.$log.warn(self.message.text + "(" + details + ")");
-                    self.$toastr.warning(self.message.text);
+                    this.$log.warn(message.text + "(" + details + ")");
+                    this.$toastr.warning(message.text);
                     break;
                 case fettyBossy.Services.SEVERITY_INFO:
-                    self.$log.info(self.message.text + "(" + details + ")");
-                    self.$toastr.success(self.message.text);
+                    this.$log.info(message.text + "(" + details + ")");
+                    this.$toastr.success(message.text);
                     break;
                 default:
                     //noop;

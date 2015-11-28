@@ -4,12 +4,11 @@
  * app-routes
  */
 module fettyBossy {
+    'use strict';
     import IMessageService = fettyBossy.Services.IMessageService;
     import IRepository = fettyBossy.Services.IRepository;
     import ISession = fettyBossy.Services.ISession;
-    import IMessageService = fettyBossy.Services.IMessageService;
-    import IMessageService = fettyBossy.Services.IMessageService;
-    'use strict';
+    import IUserService = fettyBossy.Services.IUserService;
 
     angular.module($injects.fettyBossy)
         .config(config);
@@ -150,14 +149,14 @@ module fettyBossy {
                 controller: $injects.controllers.viewUserController,
                 controllerAs: 'viewUserCtrl',
                 resolve: {
-                    user: [$injects.services.repositoryService,
+                    user: [$injects.services.userService,
                         $injects.$route,
                         $injects.$log,
-                        function (RepositoryService:IRepository,
+                        function (userService:IUserService,
                                   $route:ng.route.IRouteService,
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve 'user' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
-                            return RepositoryService.loadUser($route.current.params.userId);
+                            return userService.loadUser($route.current.params.userId);
                         }],
                     recipes: [$injects.services.repositoryService,
                         $injects.services.messageService,

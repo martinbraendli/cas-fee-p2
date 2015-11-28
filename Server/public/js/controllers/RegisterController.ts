@@ -10,7 +10,7 @@ module fettyBossy.Controllers {
 
         public static $inject = [
             $injects.$log,
-            $injects.services.repositoryService,
+            $injects.services.userService,
             $injects.services.sessionService,
             $injects.services.messageService,
             $injects.$location];
@@ -18,7 +18,7 @@ module fettyBossy.Controllers {
         registerError:string;
 
         constructor(private $log:ng.ILogService,
-                    private repository:fettyBossy.Services.IRepository,
+                    private userService:fettyBossy.Services.IUserService,
                     private SessionService:fettyBossy.Services.ISession,
                     private messageService:fettyBossy.Services.IMessageService,
                     private $location:ng.ILocationService) {
@@ -33,17 +33,17 @@ module fettyBossy.Controllers {
             var messageService = this.messageService;
             var registerError = this.registerError;
 
-            this.repository.registerUser(user)
+            this.userService.registerUser(user)
                 .then(function (result:fettyBossy.Services.IRegisterUserResult) {
                     if (result.successful) {
                         registerError = null;
                         sessionService.setUser(result.registeredUser);
-                        messageService.setMessage("Benutzer erfolgreich registriert.", fettyBossy.Services.SEVERITY_INFO);
+                        messageService.setMessage("Benutzer erfolgreich registriert.", fettyBossy.Services.SEVERITY_INFO, "");
 
                         $location.path("/viewUser/" + result.registeredUser._id);
                     } else {
                         registerError = result.message;
-                        messageService.setMessage("Fehler: " + result.message, fettyBossy.Services.SEVERITY_ERROR);
+                        messageService.setMessage("Fehler: " + result.message, fettyBossy.Services.SEVERITY_ERROR, "");
                     }
                 });
 

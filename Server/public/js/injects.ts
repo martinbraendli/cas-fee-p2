@@ -33,6 +33,6 @@ module $injects {
         export var messageService:string = 'MessageService';
         export var repositoryService:string = 'RepositoryService';
         export var sessionService:string = 'SessionService';
-
+        export var userService:string = 'UserService';
     }
 }

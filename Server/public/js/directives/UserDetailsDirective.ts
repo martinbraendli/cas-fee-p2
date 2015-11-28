@@ -21,6 +21,7 @@ module fettyBossy.Directive {
             link: ($scope) => {
                 $scope.$log = $scope.$parent.viewUserCtrl.$log;
                 $scope.messageService = $scope.$parent.viewUserCtrl.messageService;
+                $scope.userService = $scope.$parent.viewUserCtrl.userService;
                 $scope.repository = $scope.$parent.viewUserCtrl.repository;
             }
         };

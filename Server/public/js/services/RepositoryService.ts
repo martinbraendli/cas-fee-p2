@@ -5,6 +5,7 @@
  */
 module fettyBossy.Services {
     'use strict';
+    import IRating = fettyBossy.Data.IRating;
 
     export interface ISaveRecipeResult {
         successful: boolean;
@@ -39,20 +40,6 @@ module fettyBossy.Services {
          */
         saveRecipe(recipe:fettyBossy.Data.IRecipe):ng.IPromise<fettyBossy.Services.ISaveRecipeResult>;
         /**
-         * load one user from server by id
-         * @param userId
-         */
-        loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser>;
-        /**
-         * register user, check if mail or user exists
-         * @param user
-         */
-        registerUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult>;
-        /**
-         * save user
-         */
-        saveUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult>;
-        /**
          * load all ratings for given recipe
          * @param recipeId
          */
@@ -61,7 +48,7 @@ module fettyBossy.Services {
          * save given ratign
          * @param rating
          */
-        saveRating(rating:fettyBossy.Data.IRating):void;
+        saveRating(rating:fettyBossy.Data.IRating):ng.IPromise;
 
         addListener(callback);
     }
@@ -71,10 +58,6 @@ module fettyBossy.Services {
         static LOAD_ALL_RECIPES_BY_USER_URL:string = '/api/recipes/byUser/';
         static LOAD_RECIPE_BY_ID:string = '/api/recipes/';
         static SAVE_RECIPE:string = '/api/recipes';
-
-        static LOAD_USER_BY_ID:string = '/api/users/';
-        static REGISTER_USER:string = '/api/users/register';
-        static SAVE_USER:string = '/api/users/save';
 
         static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/ratings/';
         static SAVE_RATING:string = '/api/ratings';
@@ -152,7 +135,7 @@ module fettyBossy.Services {
             return deferred.promise;
         }
 
-        saveRecipe(recipe:fettyBossy.Data.IRecipe) {
+        saveRecipe(recipe:fettyBossy.Data.IRecipe):ng.IPromise {
             this.$log.debug('Repository saveRecipe(' + recipe + ')');
             var deferred = this.$q.defer();
 
@@ -167,80 +150,6 @@ module fettyBossy.Services {
                 .error((data, status, header, config) => {
                     this.$log.warn("Repository saveRecipe('" + recipe + "') - failed, returning:" + status);
                     deferred.reject(response);
-                });
-
-            return deferred.promise;
-        }
-
-        loadUser(userId:string):ng.IPromise<fettyBossy.Data.IUser> {
-            this.$log.debug('Repository loadUser(' + userId + ')');
-            var deferred = this.$q.defer();
-
-            this.$http.get(Repository.LOAD_USER_BY_ID + userId).then((data) => {
-                var user:fettyBossy.Data.IUser;
-                user = <fettyBossy.Data.IUser>(data.data);
-                this.$log.debug('Repository loadUser(' + userId + ') - loaded user');
-                deferred.resolve(user);
-            });
-
-            return deferred.promise;
-        }
-
-        registerUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult> {
-            this.$log.debug('Repository registerUser(' + user + ')');
-            var deferred = this.$q.defer();
-
-            var response = <fettyBossy.Services.IRegisterUserResult>{};
-
-            this.$http.post(Repository.REGISTER_USER, user)
-                .success((data) => {
-                    response.successful = true;
-                    response.registeredUser = data.registeredUser;
-                    deferred.resolve(response);
-                })
-                // Fehler beim Request
-                .error((data, status, header, config) => {
-                    response.successful = false;
-                    if (data && data.message) {
-                        response.message = data.message;
-                    } else {
-                        if (status == 0) {
-                            response.message = "Server nicht erreichbar"
-                        } else {
-                            response.message = "Server-Fehler"
-                        }
-                    }
-                    deferred.resolve(response);
-                });
-
-            return deferred.promise;
-        }
-
-        saveUser(user:fettyBossy.Data.IUser):ng.IPromise<IRegisterUserResult> {
-            this.$log.debug('Repository saveUser(' + user + ')');
-
-            var response = <fettyBossy.Services.IRegisterUserResult>{};
-
-            var deferred = this.$q.defer();
-            this.$http.post(Repository.SAVE_USER, user)
-                .success((data) => {
-                    response.successful = true;
-                    response.registeredUser = data.registeredUser;
-                    deferred.resolve(response);
-                })
-                // Fehler
-                .error((data, status, header, config) => {
-                    response.successful = false;
-                    if (data && data.message) {
-                        response.message = data.message;
-                    } else {
-                        if (status == 0) {
-                            response.message = "Server nicht erreichbar"
-                        } else {
-                            response.message = "Server-Fehler"
-                        }
-                    }
-                    deferred.resolve(response);
                 });
 
             return deferred.promise;
@@ -264,7 +173,7 @@ module fettyBossy.Services {
             var deffered = this.$q.defer();
 
             this.$http.post(Repository.SAVE_RATING, rating).then((data) => {
-                var rating = data.data;
+                var rating = <IRating>data.data;
 
                 var result = <ISaveRatingResult>{};
                 result.successful = true;
