@@ -4,7 +4,6 @@
  *
  */
 module fettyBossy.Controllers {
-    import IRating = fettyBossy.Data.IRating;
     'use strict';
 
     import IRating = fettyBossy.Data.IRating;
