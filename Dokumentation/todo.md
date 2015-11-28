@@ -5,15 +5,13 @@
 - Toastr-Meldung nicht modal -> in einem container im index.html eingelagert. aktionen wärend toast-anzeige möglich. problem fixed?
 - Placeholder bei Bewertung [(mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)]
 - user test durchführen -> skeleton für Usertests im Dokumentation Folder.
-- editUser: Name kein Input-Feld + UserId nicht anzeigen -> done
 - viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars -> grösse geändert. User Filter funtioniert nicht im Template. -> tbd
-- font und titel anpassen. -> done
 - label active wird nach oben rechts translated. -> done
--
+
 ## Martin
 - teaser bottom
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
-- warn nicht modal!
+- Toastr --> Style!
 - user test durchführen
 
 # Closed
@@ -64,3 +62,5 @@
 - rating in user's recipes, edit + add gleichzeitig!
 - Minify-Build > js.min (1x head, 1x body@end)
 - login nach user-change schlägt fehl (viele users in db?)
+- editUser: Name kein Input-Feld + UserId nicht anzeigen -> done
+- font und titel anpassen. -> done

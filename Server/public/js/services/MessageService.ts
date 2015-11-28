@@ -73,4 +73,11 @@ module fettyBossy.Services {
 
     angular.module($injects.fettyBossy)
         .service($injects.services.messageService, Message);
+
+    angular.module($injects.fettyBossy)
+        .config(function(toastrConfig) {
+        angular.extend(toastrConfig, {
+            target: '#toast-container'
+        });
+    });
 }
