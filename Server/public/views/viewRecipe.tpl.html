@@ -4,31 +4,30 @@
         <!--big title-->
         <div class="row title-bg">
             <div class="col s12 l12">
-                <h3 class="">Rezepte <i class="medium material-icons ">receipt</i></h3>
+                <h3 class="">Rezepte <i class="small material-icons prefix">receipt</i></h3>
                 <span>lesen und Kochen</span>
+                <div class="right">
+                    <div ng-controller="SessionController as sessionCtrl">
+                        <a class="btn btn-flat deep-orange white-text left" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
+                           ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.userId)">Dieses Rezept bearbeiten</a>
+                    </div>
+                </div>
             </div>
         </div>
         <!--content header-->
-        <div class="row">
-            <div class="col s6 l6"><br/>
-                <i class="large material-icons prefix">receipt</i>
-            </div>
+        <div class="row card">
             <div class="col s6 l6 recipe-header">
-                <h2>{{viewRecipeCtrl.recipe.title}}</h2>
-                        <span class="clearfix">
-                            <h5>Beschreibung</h5>
-                        </span>
+                <h4>{{viewRecipeCtrl.recipe.title}}</h4>
+            </div>
+            <div class="col s6 l6 ">
+                <h5>Beschreibung</h5>
                 <p class="flow-text text-accent-1">{{viewRecipeCtrl.recipe.description}}</p>
-                <div ng-controller="SessionController as sessionCtrl">
-                    <a class="btn btn-flat deep-orange white-text left" href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
-                       ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.userId)">Dieses Rezept bearbeiten</a>
-                </div>
             </div>
         </div>
 
         <!--content image and data-->
         <div class="row">
-            <div class="col s6 l6">
+            <div class="col s12 l6">
                 <div class="swiper-container z-depth-2 fb-init-swiper" fb-init-swiper>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" ng-repeat="image in viewRecipeCtrl.recipe.images">
@@ -44,17 +43,38 @@
                 </div>
             </div>
             <!--recipe data-->
-            <div class="col s5 l5">
+            <div class="col s12 l6">
                 <div class="card z-depth-2">
                     <div class="card-title blue white-text">
                         <span>Rezeptdaten</span>
                     </div>
                     <div class="card-content">
-                        <p>Title: {{viewRecipeCtrl.recipe.title}}<br/></p>
-                        <p>Author: {{viewRecipeCtrl.recipe.userName}}<br/></p>
-                        <p>Anzahl Personen: {{viewRecipeCtrl.recipe.numPerson}}<br/><p/>
-                        <p>Backzeit: {{viewRecipeCtrl.recipe.bakingTime | minutesToHoursMinutes}}<br/></p>
-                        <p>Vorbereitungszeit: {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinutes}}<br/></p>
+                        <p><strong>Rezept:</strong> {{viewRecipeCtrl.recipe.title}}<br/></p>
+                        <p><strong>Author:</strong> {{viewRecipeCtrl.recipe.userName}}<br/></p>
+                        <p><strong>Anzahl Personen:</strong> {{viewRecipeCtrl.recipe.numPerson}}<br/></p>
+                        <p><strong>Backzeit:</strong> {{viewRecipeCtrl.recipe.bakingTime | minutesToHoursMinutes}}<br/></p>
+                        <p><strong>Vorbereitungszeit:</strong> {{viewRecipeCtrl.recipe.preparationTime | minutesToHoursMinutes}}<br/></p>
+                    </div>
+                </div>
+                <div class="card z-depth-2">
+                    <div class="card-title green white-text">
+                        <span>Vorbereitung: Zutaten</span>
+                    </div>
+                    <div class="card-content">
+                        <div ng-repeat="ingredient in viewRecipeCtrl.recipe.ingredients">
+                            <p><strong>{{ingredient.name}}:</strong>&nbsp; {{ingredient.denomination}}{{ingredient.unit}}<br/></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card z-depth-2">
+                    <div class="card-title deep-orange white-text">
+                        <span>Zubereitung Schritt für Schritt</span>
+                    </div>
+                    <div class="card-content">
+                        <div ng-repeat="preparationStep in viewRecipeCtrl.recipe.preparationSteps">
+                            <p><strong>Schritt {{preparationStep.position}}:</strong> {{preparationStep.text}}<br/></p>
+                            <hr>
+                        </div>
                     </div>
                 </div>
             </div>
