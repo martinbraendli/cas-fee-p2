@@ -86,15 +86,25 @@ gulp.task('compileTypescript_client',
  * Copy all files to build
  */
 gulp.task('copyToBuild', function () {
-    gulp.src(['Server/**/*.json',
+    gulp.src([
+            '!Server/public/index.html', // index.html will be processed later
+            'Server/**/*.json',
             'Server/**/*.css',
             'Server/**/*.jpg',
-            'Server/**/*.html'])
+            'Server/**/*.html'
+        ])
         .pipe(gulp.dest('build'));
 
     // copy foreign libs
     gulp.src(['Server/public/js/lib/*.js'])
         .pipe(gulp.dest('build/public/js/lib'));
+
+    // process index.html > delete unused script tags
+    gulp.src(['Server/public/index.html'])
+        .pipe(deleteLines({
+            'filters': ['^<script type=\"text\/javascript\" src=\"js\/((?!fettybossy.js).)*\"><\/script>']
+        }))
+        .pipe(gulp.dest('build/public'));
 
     console.log('files have been copied to build directory');
 });
