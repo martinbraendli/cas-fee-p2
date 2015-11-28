@@ -12,10 +12,8 @@
 - teaser bottom
 - Minify-Build > js.min (1x head, 1x body@end)
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
-- rating in user's recipes, edit + add gleichzeitig!
 - login nach user-change schlägt fehl (viele users in db?)
 - warn nicht modal!
-- ViewRecipe: Rating anzeigen? - Rating abspeichern geht nicht.
 - user test durchführen
 
 # Closed
@@ -63,3 +61,4 @@
 - addRecipe: photoupload wird nicht im überprüft, ob new file selected. Wenn schwierig- > lassenwirsein... mind 1 pflicht!
 - viewRecipe: Ingredients + Steps anzeigen -> done
 - AddRecipe: Zutaten min gt 0, keine minuswerte - done
+- rating in user's recipes, edit + add gleichzeitig!

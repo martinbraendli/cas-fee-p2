@@ -28,25 +28,6 @@ module fettyBossy.Controllers {
                 return;
             }
             this.$log.debug("ListRecipeRatingsController constructor - loadRatings for recipe '" + $scope.recipe._id + "'");
-
-            this.reloadRatings($scope, repository);
-
-            // register listener
-            var reloadRatings = this.reloadRatings;
-            var setCurrentRatings = function () {
-                reloadRatings($scope, repository);
-            };
-            this.repository.addListener(setCurrentRatings);
-        }
-
-        /**
-         * reload ratings from server
-         */
-        reloadRatings(scope, repository) {
-            repository.loadRatings(scope.recipe._id)
-                .then(function (loadedRatings) {
-                    scope.ratings = loadedRatings;
-                });
         }
 
         /**
@@ -71,7 +52,7 @@ module fettyBossy.Controllers {
             };
             var ownRatings = this.$scope.ratings.filter(filterByUser);
 
-            return (ownRatings.length > 0);
+            return (ownRatings.length == 0);
         }
 
         /**
