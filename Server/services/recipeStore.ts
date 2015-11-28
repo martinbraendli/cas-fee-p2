@@ -17,7 +17,7 @@ function publicLoadAllRecipes(callback) {
     console.log("recipeStore - loadAllRecipes()");
     db.find({}, function (err, recipes:Array<fettyBossy.Data.IRecipe>) {
         var recipeIds = [];
-        for (i = 0; i < recipes.length; i++) {
+        for (var i = 0; i < recipes.length; i++) {
             var recipe = recipes[i];
             recipeIds.push(recipe._id);
         }
@@ -25,7 +25,7 @@ function publicLoadAllRecipes(callback) {
         // calculate avg rating
         ratingStore.loadRatingsForRecipes(recipeIds, function (err, ratings:IRating[]) {
             var ratingMap = new Array();
-            for (i = 0; i < ratings.length; i++) {
+            for (var i = 0; i < ratings.length; i++) {
                 var rating = ratings[i];
 
                 var ratingCount = ratingMap[rating.recipeId];
@@ -45,7 +45,7 @@ function publicLoadAllRecipes(callback) {
                 }
             }
 
-            for (i = 0; i < recipes.length; i++) {
+            for (var i = 0; i < recipes.length; i++) {
                 var recipe = recipes[i];
                 if (ratingMap[recipe._id]) {
                     recipe.avgRating = ratingMap[recipe._id].avg;
