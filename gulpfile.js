@@ -1,12 +1,11 @@
 var gulp = require('gulp');
+var concat = require('gulp-concat');
+var deleteLines = require('gulp-delete-lines');
 var sass = require('gulp-sass');
 var webserver = require('gulp-server-livereload');
 var autoprefixer = require('gulp-autoprefixer');
 var tsd = require('gulp-tsd');
 var ts = require('gulp-typescript');
-
-
-
 
 /**
  * TSD Task "reinstall"
@@ -25,7 +24,6 @@ gulp.task('copyLibs', function () {
     gulp.src(['node_modules/angular/angular.js', 'node_modules/angular-route/angular-route.js'])
         .pipe(gulp.dest('Server/public/js/lib'));
 });
-
 
 /**
  * sass function: style sass
@@ -50,48 +48,75 @@ gulp.task('sass', function () {
 /**
  * compile typescript
  */
-gulp.task('compileTypescript', function () {
-    var tsResult = gulp.src('Server/**/*.ts')
+gulp.task('compileTypescript_server', function () {
+    // server code without uglify
+    var tsResult = gulp.src(
+        ['!Server/public/**/*.ts', // without client code
+            'Server/**/*.ts']) // all server code
         .pipe(ts({
-            noImplicitAny: true,
             outDir: 'output'
         }));
-    tsResult.js.pipe(gulp.dest('build'));
+    return tsResult.js.pipe(gulp.dest('build'));
 });
+gulp.task('compileTypescript_client_compile', function () {
+    var tsResult = gulp.src(['Server/public/js/**/*.ts'])
+        .pipe(ts({
+            removeComments: true
+        }));
+    return tsResult.js.pipe(gulp.dest('build_temp'));
+});
+gulp.task('compileTypescript_client',
+    ['compileTypescript_client_compile'],
+    function () {
+        var tsResult = gulp.src([
+                'build_temp/constants.js',
+                'build_temp/injects.js',
+                'build_temp/app-module.js',
+                'build_temp/app-routes.js',
+                'build_temp/**/*.js'
+            ])
+            .pipe(concat('fettybossy.js'))
+            .pipe(deleteLines({
+                'filters': ['\/\/\/.*']
+            }));
+        return tsResult.pipe(gulp.dest('build/public/js'));
+    });
 
 /**
  * Copy all files to build
  */
 gulp.task('copyToBuild', function () {
-    gulp.src(['Server/**/*.js',
-        'Server/**/*.json',
-        'Server/**/*.css',
-        'Server/**/*.jpg',
-        'Server/**/*.html'])
-        .pipe(gulp.dest('build')
-    );
+    gulp.src(['Server/**/*.json',
+            'Server/**/*.css',
+            'Server/**/*.jpg',
+            'Server/**/*.html'])
+        .pipe(gulp.dest('build'));
+
+    // copy foreign libs
+    gulp.src(['Server/public/js/lib/*.js'])
+        .pipe(gulp.dest('build/public/js/lib'));
+
     console.log('files have been copied to build directory');
 });
 
 // gulp task web serve and live reload
-gulp.task('serve', function(){
+gulp.task('serve', function () {
     gulp.src('Server/public')
         .pipe(webserver({
-            port: '3001',
-            livereload: true,
-            //fallback: 'index.html',
-            open: true
-        })
-    );
+                port: '3001',
+                livereload: true,
+                //fallback: 'index.html',
+                open: true
+            })
+        );
     console.log('webserver reloaded - have a look');
 });
 
 
-
 // gulp task-watcher function - sass, copytobuild
-gulp.task('watch', function(){
-    gulp.watch('scss/*.scss', ['sass']);
-    gulp.watch('Server/**/*.html', ['copyToBuild']);
+gulp.task('watch', function () {
+        gulp.watch('scss/*.scss', ['sass']);
+        gulp.watch('Server/**/*.html', ['copyToBuild']);
     }
     //console.log('watcher done');
 );
@@ -101,7 +126,8 @@ gulp.task('watch', function(){
 gulp.task('default', ['watch', 'serve']);
 
 // watch scss and buildprocess
-gulp.task('fbwatchbuild', ['watch','copyToBuild'], function(){});
+gulp.task('fbwatchbuild', ['watch', 'copyToBuild'], function () {
+});
 
 
-gulp.task('build', ['sass', 'compileTypescript', 'copyToBuild']);
+gulp.task('build', ['sass', 'compileTypescript_server', 'compileTypescript_client', 'copyToBuild']);
