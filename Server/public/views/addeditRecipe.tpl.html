@@ -3,15 +3,15 @@
         <form id="addeditRecipeForm" name="addeditRecipeForm">
             <div class="row title-bg">
                 <div class="col s12 l12">
-                    <h3 class="">Rezept bearbeiten</h3>
+                    <h3 class="" ng-show="addeditRecipeCtrl.recipe._id">Rezept bearbeiten</h3>
+                    <h3 class="" ng-hide="addeditRecipeCtrl.recipe._id">Rezept hinzufügen</h3>
                     <button class="btn right" type="button"
                             ng-disabled="addeditRecipeForm.$invalid"
                             ng-click="addeditRecipeCtrl.save()">Menu Speichern
                     </button>
-                    <div>
-                        <span ng-show="addRecipe">Rezept editieren</span>
-                        <span ng-hide="addRecipe">Rezept hinzufügen</span>
-                    </div>
+                    <button class="btn right" type="button"
+                            ng-click="addeditRecipeCtrl.cancel()">Abbrechen
+                    </button>
                 </div>
             </div>
             <!--first row-->
@@ -223,6 +223,9 @@
                     <button class="btn right" type="button"
                             ng-disabled="addeditRecipeForm.$invalid"
                             ng-click="addeditRecipeCtrl.save()">Menu Speichern
+                    </button>
+                    <button class="btn right" type="button"
+                            ng-click="addeditRecipeCtrl.cancel()">Abbrechen
                     </button>
                 </div>
             </div>

@@ -83,6 +83,10 @@ module fettyBossy.Controllers {
                         messageService.setMessage("Speichern fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR, "");
                     });
         }
+
+        cancel() {
+            this.$location.path("/viewRecipe/" + this.recipe._id);
+        }
     }
 
 
