@@ -5,10 +5,8 @@
 - Toastr-Meldung nicht modal -> in einem container im index.html eingelagert. aktionen wärend toast-anzeige möglich. problem fixed?
 - Placeholder bei Bewertung [(mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)]
 - user test durchführen -> skeleton für Usertests im Dokumentation Folder.
-- viewRecipe: Ingredients + Steps anzeigen -> done
 - editUser: Name kein Input-Feld + UserId nicht anzeigen
 - viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars
-- AddRecipe: Zutaten min gt 0, keine minuswerte - done
 
 ## Martin
 - teaser bottom
@@ -17,10 +15,8 @@
 - rating in user's recipes, edit + add gleichzeitig!
 - login nach user-change schlägt fehl (viele users in db?)
 - warn nicht modal!
-- addRecipe: photoupload wird nicht im überprüft, ob new file selected. Wenn schwierig- > lassenwirsein... mind 1 pflicht!
 - ViewRecipe: Rating anzeigen? - Rating abspeichern geht nicht.
 - user test durchführen
-- menge nur >0
 
 # Closed
 
@@ -64,3 +60,6 @@
 - tab-system Login/ Register ->tried - again soon ...
 - Message Feedback window: color and animate
 - edit recipe > cancel
+- addRecipe: photoupload wird nicht im überprüft, ob new file selected. Wenn schwierig- > lassenwirsein... mind 1 pflicht!
+- viewRecipe: Ingredients + Steps anzeigen -> done
+- AddRecipe: Zutaten min gt 0, keine minuswerte - done

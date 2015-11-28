@@ -6,7 +6,7 @@
                     <h3 class="" ng-show="addeditRecipeCtrl.recipe._id">Rezept bearbeiten</h3>
                     <h3 class="" ng-hide="addeditRecipeCtrl.recipe._id">Rezept hinzufügen</h3>
                     <button class="btn right" type="button"
-                            ng-disabled="addeditRecipeForm.$invalid"
+                            ng-disabled="addeditRecipeForm.$invalid || !addeditRecipeCtrl.recipe.images || addeditRecipeCtrl.recipe.images.length <= 0"
                             ng-click="addeditRecipeCtrl.save()">Menu Speichern
                     </button>
                     <button class="btn right" type="button"
