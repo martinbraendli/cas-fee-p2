@@ -1,13 +1,17 @@
-Vorgehen:
+Usertests
 
 Zielgruppen Persona
 -------------------
-
 Geschlecht: Männlich und Weiblich
 Alter: zwischen 20 und 50
 Technische Affinität: routiniert in der Bedienung von Apps und aktive Webseitenbenutung
 Sprache: Deutsch
 Device: PC und Tablet
+
+
+Vorgehen:
+
+Die Testpersonen sollen folgende Tasks selbstständig durchführen können.
 
 Tasks:
 ------
@@ -36,16 +40,15 @@ Acceptable Case:
 
 
 
-
 Beobachtungen:
 --------------
 
-
+(in Prosa erfassen)
 
 Feedback der Testperson:
 ------------------------
 
-
+(in Prosa erfassen)
 
 
 Ziel:
