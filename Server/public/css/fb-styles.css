@@ -546,7 +546,7 @@ body {
   font-size: 1.6rem; }
 
 .userlogedin {
-  border-bottom: double 1px #ff5722; }
+  background: #29b6f6; }
 
 .ribbon {
   background-image: url("../pictures/bg_artfood_1500.jpg");
@@ -671,7 +671,7 @@ body {
   .editRecipe .btn.disabled {
     background: #F3F3F3; }
   .editRecipe .error {
-    color: #ffc302; }
+    color: #ffc303; }
 
 .pixupload {
   padding: 1rem; }
