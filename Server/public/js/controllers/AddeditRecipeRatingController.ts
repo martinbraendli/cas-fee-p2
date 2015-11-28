@@ -13,13 +13,15 @@ module fettyBossy.Controllers {
             $injects.services.repositoryService,
             $injects.services.sessionService,
             $injects.services.messageService,
-            $injects.$scope];
+            $injects.$scope,
+            $injects.$route];
 
         constructor(private $log:ng.ILogService,
                     private repository:fettyBossy.Services.IRepository,
                     private sessionService:fettyBossy.Services.ISession,
                     private messageService:fettyBossy.Services.IMessageService,
-                    private $scope:fettyBossy.Directive.IAddeditRecipeRatingScope) {
+                    private $scope:fettyBossy.Directive.IAddeditRecipeRatingScope,
+                    private $route:ng.route.IRouteService) {
             this.$log.debug('AddeditRecipeRatingController constructor');
         }
 
@@ -31,11 +33,13 @@ module fettyBossy.Controllers {
             this.$scope.rating.recipeId = this.$scope.recipeId;
 
             var messageService = this.messageService;
+            var route = this.$route;
 
             this.repository.saveRating(this.$scope.rating)
                 .then(function (result:fettyBossy.Services.ISaveRatingResult) {
                     if (result.successful) {
                         messageService.setMessage("Bewertung erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO, "");
+                        route.reload(); // rerender current page
                     } else {
                         messageService.setMessage("Bewertung konnte nicht gespeichert werden", fettyBossy.Services.SEVERITY_ERROR, "");
                     }

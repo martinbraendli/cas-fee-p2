@@ -5,19 +5,25 @@
  */
 module fettyBossy.Controllers {
     'use strict';
+    import IRating = fettyBossy.Data.IRating;
+    import IRecipe = fettyBossy.Data.IRecipe;
 
     export class ViewRecipeController {
 
-        recipe:fettyBossy.Data.IRecipe;
+        recipe:IRecipe;
+        ratings:IRating[];
 
         public static $inject = [
             $injects.$log,
-            'recipe'];
+            'recipe',
+            'ratings'];
 
         constructor(private $log:ng.ILogService,
-                    recipe:fettyBossy.Data.IRecipe) {
+                    recipe:fettyBossy.Data.IRecipe,
+                    ratings:Array<IRating>) {
             this.$log.debug('ViewRecipeController constructor');
             this.recipe = recipe;
+            this.ratings = ratings;
         }
     }
 

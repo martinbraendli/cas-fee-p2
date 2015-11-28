@@ -48,6 +48,31 @@ module fettyBossy {
                                     $location.path("/searchRecipe");
                                 }
                             );
+                        }],
+                    ratings: [$injects.services.repositoryService,
+                        $injects.services.messageService,
+                        $injects.$route,
+                        $injects.$log,
+                        $injects.$location,
+                        function (RepositoryService:IRepository,
+                                  MessageService:IMessageService,
+                                  $route:ng.route.IRouteService,
+                                  $log:ng.ILogService,
+                                  $location:ng.ILocationService) {
+                            $log.debug("app-routes: resolve for '/viewRecipe/:recipeId' params '" + $route.current.params.recipeId + "'");
+                            return RepositoryService.loadRatings($route.current.params.recipeId).then(
+                                // success
+                                (data) => {
+                                    return data;
+                                },
+                                // error, show error
+                                (error) => {
+                                    MessageService.setMessage("Fehler beim Laden der Bewertungen",
+                                        fettyBossy.Services.SEVERITY_ERROR,
+                                        error.status + " " + error.statusText);
+                                    $location.path("/searchRecipe");
+                                }
+                            );
                         }]
                 }
             })
@@ -168,7 +193,6 @@ module fettyBossy {
                                   $log:ng.ILogService) {
                             $log.debug("app-routes: resolve 'recipes' for '/viewUser/:userId' params '" + $route.current.params.userId + "'");
                             return RepositoryService.loadRecipesByUser($route.current.params.userId).then(
-
                                 // success
                                 (data) => {
                                     return data;
