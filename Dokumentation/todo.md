@@ -9,10 +9,10 @@
 - label active wird nach oben rechts translated. -> done
 
 ## Martin
-- teaser bottom
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
 - Toastr --> Style!
 - user test durchführen
+- sort searchlist
 
 # Closed
 
@@ -66,3 +66,4 @@
 - font und titel anpassen. -> done
 - searchlist limit to 10 and button for more
 - searchList with stars
+- teaser bottom

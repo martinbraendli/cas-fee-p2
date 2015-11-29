@@ -4,6 +4,7 @@
 ///<reference path="ListRecipeRatingsDirective.ts" />
 ///<reference path="LoginFormDirective.ts" />
 ///<reference path="MenuDirective.ts" />
+///<reference path="RecipeTeaserDirective.ts" />
 ///<reference path="RegisterFormDirective.ts" />
 ///<reference path="SearchFormDirective.ts" />
 ///<reference path="SearchResultlistDirective.ts" />

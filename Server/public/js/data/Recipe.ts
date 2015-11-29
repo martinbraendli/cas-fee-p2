@@ -6,6 +6,7 @@ module fettyBossy.Data {
         _id: string;
         userId: string;
         userName: string;
+        dateCreated: number;
 
         title: string; // name of the recipe
         description: string; // recipe description

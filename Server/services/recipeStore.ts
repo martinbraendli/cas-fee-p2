@@ -20,6 +20,11 @@ function publicLoadAllRecipes(callback) {
         for (var i = 0; i < recipes.length; i++) {
             var recipe = recipes[i];
             recipeIds.push(recipe._id);
+
+            // check if recipe has a createdDate
+            if (!recipe.dateCreated) {
+                recipe.dateCreated = new Date(1983, 5, 14).getTime();
+            }
         }
 
         // calculate avg rating
@@ -108,6 +113,9 @@ function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
     if (recipe._id) {
         db.update({_id: recipe._id}, recipe, dbCallbackInsert);
     } else {
+        if (!recipe.dateCreated) {
+            recipe.dateCreated = new Date().getTime();
+        }
         db.insert(recipe, dbCallback);
     }
 }

@@ -27,6 +27,13 @@ module fettyBossy.Directive {
             controller: controller,
             link: ($scope) => {
                 $scope.maxRecipes = 10;
+
+                $scope.starName = function(rating:IRating, starNumber:number):string {
+                    if (rating >= starNumber) {
+                        return "star_border";
+                    }
+                    return "star";
+                }
             }
         }
     }
