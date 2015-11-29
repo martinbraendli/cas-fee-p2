@@ -10,6 +10,12 @@ module fettyBossy.Directive {
         .module($injects.fettyBossy)
         .directive('fbSearchResultlist', searchResultlist);
 
+    var controller = ['$scope', function ($scope) {
+        $scope.showMoreRecipes = function () {
+            $scope.maxRecipes = $scope.maxRecipes + 10;
+        };
+    }];
+
     function searchResultlist():ng.IDirective {
         return {
             restrict: 'E',
@@ -17,7 +23,11 @@ module fettyBossy.Directive {
                 recipes: '=recipes',
                 recipeFilter: '=recipeFilter'
             },
-            templateUrl: 'js/directives/searchResultlist.tpl.html'
-        };
+            templateUrl: 'js/directives/searchResultlist.tpl.html',
+            controller: controller,
+            link: ($scope) => {
+                $scope.maxRecipes = 10;
+            }
+        }
     }
 }

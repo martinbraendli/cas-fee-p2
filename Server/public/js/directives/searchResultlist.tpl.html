@@ -13,7 +13,7 @@
         <td>Author</td>
         </thead>
         <tbody>
-        <tr ng-repeat="recipe in (filteredRecipes = (recipes | SearchRecipeFilter: recipeFilter))">
+        <tr ng-repeat="recipe in (filteredLimitedRecipes = (filteredRecipes = (recipes | SearchRecipeFilter: recipeFilter) | limitTo : maxRecipes : 0))">
             <td>
                 <img ng-src="{{recipe.images[0].src}}" class="recipe-img"/>
             </td>
@@ -29,7 +29,14 @@
                 {{recipe.userName}}
             </td>
         </tr>
-
+        <tr ng-show="filteredRecipes.length > maxRecipes">
+            <td>
+                Mehr als {{maxRecipes}} Rezepte gefunden
+            </td>
+            <td colspan="3">
+                <button class="btn orange right-align" ng-click="showMoreRecipes()" >weitere 10 anzeigen</button>
+            </td>
+        </tr>
         <tr ng-show="filteredRecipes.length == 0">
             <td colspan="4">
                 Keine Rezepte zum gesetzten Filter gefunden

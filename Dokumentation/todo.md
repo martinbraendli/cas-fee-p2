@@ -64,3 +64,4 @@
 - login nach user-change schlägt fehl (viele users in db?)
 - editUser: Name kein Input-Feld + UserId nicht anzeigen -> done
 - font und titel anpassen. -> done
+- searchlist limit to 10 and button for more
