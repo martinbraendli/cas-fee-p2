@@ -30,7 +30,7 @@ module fettyBossy.Directive {
 
                     // Only process image files.
                     if (!file.type.match('image.*')) {
-                        messageService.setMessage("Datei nicht vom Typ 'Bild'", fettyBossy.Services.SEVERITY_WARN);
+                        messageService.setMessage("Datei nicht vom Typ 'Bild'", fettyBossy.Services.SEVERITY_WARN, "");
                         return;
                     }
 
