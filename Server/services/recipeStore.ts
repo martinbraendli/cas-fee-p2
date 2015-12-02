@@ -33,6 +33,10 @@ function publicLoadAllRecipes(callback) {
             for (var i = 0; i < ratings.length; i++) {
                 var rating = ratings[i];
 
+                if (!rating.stars) {
+                   continue; // ignore ratings without stars
+                }
+
                 var ratingCount = ratingMap[rating.recipeId];
                 if (!ratingCount) {
                     ratingCount = {total: 0, count: 0};
@@ -55,7 +59,7 @@ function publicLoadAllRecipes(callback) {
                 if (ratingMap[recipe._id]) {
                     recipe.avgRating = ratingMap[recipe._id].avg;
                 } else {
-                    recipe.avgRating = 1;
+                    recipe.avgRating = 0;
                 }
             }
 
