@@ -7,6 +7,7 @@
 - user test durchführen -> skeleton für Usertests im Dokumentation Folder.
 - viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars -> grösse geändert. User Filter funtioniert nicht im Template. -> tbd
 - label active wird nach oben rechts translated. -> done
+- focus auf alle Buttons
 
 ## Martin
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
