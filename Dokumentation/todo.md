@@ -69,3 +69,4 @@
 - teaser bottom
 - neuestes rezept ist das beste!!
 - avg-recipe rating berechnung! (unittest)
+- neuestes Rezept falsch
