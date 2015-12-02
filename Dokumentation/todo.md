@@ -67,3 +67,5 @@
 - searchlist limit to 10 and button for more
 - searchList with stars
 - teaser bottom
+- neuestes rezept ist das beste!!
+- avg-recipe rating berechnung! (unittest)
