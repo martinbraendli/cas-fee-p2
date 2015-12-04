@@ -1,9 +1,12 @@
+<div class="user-details">
+    <div class="row">
+        <div class="col s12 l8">
+            <h3>Mein Account</h3>
+            <h4>Meine Rezepte:</h4>
+            <fb-search-resultlist recipes="viewUserCtrl.recipes"
+                                  recipe-filter="viewUserCtrl.recipeFilter"></fb-search-resultlist>
+        </div>
 
-<fb-user-details user="viewUserCtrl.user" save="viewUserCtrl.save"></fb-user-details>
-
-<br/>
-<br/>
-<br/>
-Meine Rezepte:
-<fb-search-resultlist recipes="viewUserCtrl.recipes"
-                      recipe-filter="viewUserCtrl.recipeFilter"></fb-search-resultlist>
+        <fb-user-details user="viewUserCtrl.user" save="viewUserCtrl.save"></fb-user-details>
+    </div>
+</div>

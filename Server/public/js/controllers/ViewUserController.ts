@@ -39,6 +39,8 @@ module fettyBossy.Controllers {
             // check if new password is set
             if (this.passwordNew){
                 this.user.password = this.passwordNew;
+            } else {
+                this.user.password = null;
             }
 
             this.userService.saveUser(this.user)

@@ -60,8 +60,9 @@ function publicSaveUser(req, res) {
     var user:fettyBossy.Data.IUser = req.body;
 
     // encrypt password
-    var originalPassword = user.password;
-    user.password = authCtrl.encryptPassword(user.password);
+    if (user.password) {
+        user.password = authCtrl.encryptPassword(user.password);
+    }
 
     // user speichern
     userStore.persistUser(user, function (err, savedUser:fettyBossy.Data.IUser) {

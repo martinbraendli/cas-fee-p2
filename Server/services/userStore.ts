@@ -1,5 +1,6 @@
 ///<reference path='../_reference.ts' />
 
+import IUser = fettyBossy.Data.IUser;
 /**
  * userStore
  */
@@ -47,7 +48,15 @@ function publicPersistUser(user:fettyBossy.Data.IUser, callback) {
     };
 
     if (user._id) {
-        db.update({_id: user._id}, user, dbCallback);
+
+        var updateObject = <IUser> {
+            email: user.email
+        };
+        if (user.password) {
+            updateObject.password = user.password;
+        }
+
+        db.update({_id: user._id}, {$set: updateObject}, dbCallback);
     } else {
         db.insert(user, dbCallback);
     }
