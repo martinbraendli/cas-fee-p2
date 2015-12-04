@@ -14,6 +14,15 @@ module fettyBossy.Directive {
         $scope.showMoreRecipes = function () {
             $scope.maxRecipes = $scope.maxRecipes + 10;
         };
+
+        $scope.orderBy = function (fieldName) {
+            if ($scope.recipeFilter.orderBy == fieldName) {
+                $scope.recipeFilter.orderAsc = !$scope.recipeFilter.orderAsc;
+            } else {
+                $scope.recipeFilter.orderBy = fieldName;
+                $scope.recipeFilter.orderAsc = false;
+            }
+        }
     }];
 
     function searchResultlist():ng.IDirective {
@@ -27,12 +36,26 @@ module fettyBossy.Directive {
             controller: controller,
             link: ($scope) => {
                 $scope.maxRecipes = 10;
+                $scope.recipeFilter.orderBy = 'dateCreated';
+                $scope.recipeFilter.orderAsc = true;
 
-                $scope.starName = function(rating:IRating, starNumber:number):string {
+                $scope.starName = function (rating:IRating, starNumber:number):string {
                     if (rating >= starNumber) {
                         return "star_border";
                     }
                     return "star";
+                };
+
+                /**
+                 * Return name of icon which displays the current ordering
+                 */
+                $scope.orderName = function (fieldName):string {
+                    if ($scope.recipeFilter.orderBy === fieldName) {
+                        if ($scope.recipeFilter.orderAsc) {
+                            return "call_received"
+                        }
+                        return "call_made"
+                    }
                 }
             }
         }

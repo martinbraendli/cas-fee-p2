@@ -19,6 +19,10 @@ module fettyBossy.Filter {
 
         rating:number;
         backzeit:number;
+
+        // sorting
+        orderBy:string;
+        orderAsc:boolean;
     }
 
     export function SearchRecipeFilter() {

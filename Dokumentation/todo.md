@@ -12,7 +12,8 @@
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
 - Toastr --> Style!
 - user test durchführen
-- sort searchlist
+- multi lang
+- Rezept löschen
 
 # Closed
 
@@ -70,3 +71,4 @@
 - neuestes rezept ist das beste!!
 - avg-recipe rating berechnung! (unittest)
 - neuestes Rezept falsch
+- sort searchlist

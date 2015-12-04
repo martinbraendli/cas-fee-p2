@@ -7,13 +7,13 @@
     </div>
     <table class="resulttable">
         <thead>
-        <td>&nbsp;</td>
-        <td>Rezept</td>
-        <td>Bewertung</td>
-        <td>Author</td>
+        <th>&nbsp;</th>
+        <th><a ng-click="orderBy('title')">Rezept<i class="material-icons">{{orderName('title')}}</i></a></th>
+        <th><a ng-click="orderBy('avgRating')">Bewertung<i class="material-icons">{{orderName('avgRating')}}</i></a></th>
+        <th><a ng-click="orderBy('userName')">Author<i class="material-icons">{{orderName('userName')}}</i></a></th>
         </thead>
         <tbody>
-        <tr ng-repeat="recipe in (filteredLimitedRecipes = (filteredRecipes = (recipes | SearchRecipeFilter: recipeFilter) | limitTo : maxRecipes : 0))">
+        <tr ng-repeat="recipe in (filteredLimitedRecipes = (filteredRecipes = (recipes | orderBy: recipeFilter.orderBy : recipeFilter.orderAsc   | SearchRecipeFilter: recipeFilter) | limitTo : maxRecipes : 0))">
             <td>
                 <img ng-src="{{recipe.images[0].src}}" class="recipe-img"/>
             </td>
