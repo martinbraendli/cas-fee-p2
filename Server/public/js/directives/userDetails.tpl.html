@@ -1,22 +1,22 @@
 <div class="col s12 l4">
-    <h3>User Login Details</h3>
+    <h3 translate="USER_LOGIN_DETAILS_TITLE">User Login Details</h3>
     <table>
         <tr>
-            <td>Name: <br/>(kann nicht geändert werden)</td>
+            <td translate="USERDETAIL_NAME">Name: <br/>(kann nicht geändert werden)</td>
             <td><i class="small material-icons prefix">done</i></td>
             <td class="input-field">
                 <input type="text" ng-model="user.name" class="readonly" readonly/>
             </td>
         </tr>
         <tr>
-            <td>E-Mail:</td>
+            <td translate="EMAIL">E-Mail:</td>
             <td><i class="small material-icons prefix">email</i></td>
             <td class="input-field ">
                 <input type="email" class="validate editable" ng-model="user.email">
             </td>
         </tr>
         <tr>
-            <td>Passwort:</td>
+            <td translate="PASSWORD">Passwort:</td>
             <td><i class="small material-icons prefix">fingerprint</i></td>
             <td class="input-field">
                 <input type="password" class="validate editable" ng-model="passwordNew"/>
@@ -26,7 +26,7 @@
             <td>
                 <button class="btn blue"
                         type="button"
-                        ng-click="save()">Speichern
+                        ng-click="save()" translate="BUTTON_SAVE">Speichern
                 </button>
             </td>
         </tr>

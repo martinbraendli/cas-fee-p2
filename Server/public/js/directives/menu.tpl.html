@@ -1,22 +1,28 @@
 <nav>
   <div class="nav-wrapper">
-      <a href="/" class="left fb-title"><i class="material-icons small prefix" style="display: inline; padding-right: 1em; height: 25px;">face</i>Fetty Bossy<small>v0.17</small></a>
+      <a href="/" class="left fb-title"><i class="material-icons small prefix" style="display: inline; padding-right: 1em; height: 25px;">face</i>Fetty Bossy</a>
       <ul class="header-nav  right" ng-controller="SessionController as sessionCtrl">
-        <li>
-            <a href="#/searchRecipe">Alle Rezepte</a>
-        </li>
-        <li ng-hide="sessionCtrl.getUser()">
-            <a href="#/login">Login</a>
-        </li>
-        <li ng-show="sessionCtrl.getUser()" >
-            <a href="#/addRecipe" >Rezepte erfassen</a>
-        </li>
-        <li ng-show="sessionCtrl.getUser()" class="userlogedin">
-           <a href="#/viewUser/{{sessionCtrl.getUser()._id}}">User: {{sessionCtrl.getUser().name}}</a>
-        </li>
-        <li ng-show="sessionCtrl.getUser()" >
-            <a href="#/start" ng-click="sessionCtrl.logout()" >Logout {{sessionCtrl.getUser().name}}</a>
-        </li>
+          <li>
+              <a href="#/searchRecipe" translate="MENU_ALL">Alle Rezepte</a>
+          </li>
+          <li ng-hide="sessionCtrl.getUser()">
+              <a href="#/login" translate="MENU_LOGIN">Login</a>
+          </li>
+          <li ng-show="sessionCtrl.getUser()">
+              <a href="#/addRecipe" translate="MENU_CREATE">Rezepte erfassen</a>
+          </li>
+          <li ng-show="sessionCtrl.getUser()" class="userlogedin">
+              <a href="#/viewUser/{{sessionCtrl.getUser()._id}}" >{{ 'MENU_USER' | translate }}: {{sessionCtrl.getUser().name}}</a>
+          </li>
+          <li>
+              <a type="button" ng-click="sessionCtrl.switchLang('en')" translate="BUTTON_LANG_EN">English</a>
+          </li>
+          <li>
+              <a type="button" ng-click="sessionCtrl.switchLang('de')" translate="BUTTON_LANG_DE">Deutsch</a>
+          </li>
+          <li ng-show="sessionCtrl.getUser()">
+              <a href="#/start" ng-click="sessionCtrl.logout()">{{ 'MENU_LOGOUT' | translate }} {{sessionCtrl.getUser().name}}</a>
+          </li>
       </ul>
   </div>
 </nav>

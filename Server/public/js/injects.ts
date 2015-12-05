@@ -11,6 +11,7 @@ module $injects {
     export var $scope:string = '$scope';
     export var $timeout:string = '$timeout';
     export var toastr:string = 'toastr';
+    export var $translate:string = '$translate';
 
 
     export module controllers {

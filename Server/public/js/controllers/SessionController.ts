@@ -16,7 +16,7 @@ module fettyBossy.Controllers {
             $injects.services.sessionService,
             $injects.services.messageService,
             $injects.$http,
-            $injects.$q];
+            $injects.$translate];
 
         loginError:fettyBossy.Controllers.IUserFormValidationResponse;
 
@@ -25,7 +25,7 @@ module fettyBossy.Controllers {
                     private sessionService:fettyBossy.Services.ISession,
                     private messageService:fettyBossy.Services.IMessageService,
                     private $http:ng.IHttpService,
-                    private $q:ng.IQService) {
+                    private $translate) {
             this.$log.debug('SessionController constructor');
         }
 
@@ -77,6 +77,10 @@ module fettyBossy.Controllers {
 
         getUser():fettyBossy.Data.IUser {
             return this.sessionService.getUser();
+        }
+
+        switchLang(language:string):void {
+            this.$translate.use(language);
         }
     }
 
