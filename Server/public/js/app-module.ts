@@ -23,22 +23,26 @@ module fettyBossy {
             BUTTON_SAVE: 'save',
             BUTTON_FIND: 'find',
             BUTTON_TO_RECIPE: 'view recipe',
+            BUTTON_LOGON_GUEST: 'Guest - Login',
+            BUTTON_REGISTER: 'register',
 
             MENU_ALL: 'all recipes',
             MENU_CREATE: 'create recpie',
-            MENU_USER: 'user: ',
             MENU_LOGIN: 'login',
             MENU_LOGOUT: 'logout',
-            MENU_USER: 'User',
+            MENU_USER: 'user',
 
             USER_LOGIN_DETAILS_TITLE: 'User Login Details',
             USERDETAIL_NAME: 'Name: <br/>(can not be changed)',
             PASSWORD: 'Password',
-            EMAIL: 'email',
+            EMAIL: 'Email',
 
             LOGIN_TITLE: 'Login for members',
             LOGIN_NAME: 'Username',
             LOGIN_PW: 'Password',
+            LOGIN_GUEST: 'Logon for guests',
+
+            REGISTER_TITLE: 'New registration',
 
             SEARCH_RECIPES: 'search recipes'
 
@@ -50,10 +54,11 @@ module fettyBossy {
             BUTTON_SAVE: 'Speichern',
             BUTTON_FIND: 'Finden',
             BUTTON_TO_RECIPE: 'zum Rezept',
+            BUTTON_LOGON_GUEST: 'Gast - Login',
+            BUTTON_REGISTER: 'Registrieren',
 
             MENU_ALL: 'Alle Rezepte',
             MENU_CREATE: 'Rezepte erfassen',
-            MENU_USER: 'user: ',
             MENU_LOGIN: 'Einloggen',
             MENU_LOGOUT: 'Abmelden',
             MENU_USER: 'Benutzer',
@@ -66,6 +71,9 @@ module fettyBossy {
             LOGIN_TITLE: 'Anmeldung für Mitglieder',
             LOGIN_NAME: 'Benutzername',
             LOGIN_PW: 'Passwort',
+            LOGIN_GUEST: 'Login für Gäste',
+
+            REGISTER_TITLE: 'Neu registrieren',
 
             SEARCH_RECIPES: 'Rezepte suchen'
         });
