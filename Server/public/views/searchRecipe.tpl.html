@@ -8,25 +8,27 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s10 l10 card" id="searchbox">
-            <div class="col s6 l6">
-                <h4 class="left">Rezeptsuche</h4>
-                <br/>
-                <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
-                <br/>
-            </div>
-            <div class="col s4 l4">
+        <div class="col s12 m12 l12 " >
+            <div class="card ">
+                <div class="left" id="searchbox">
+                    <h3 class="left">Ich suche nach</h3>
+                    <br/>
+                    <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
+                    <br/>
+                    <br/>
+                </div>
                 <!-- Switch Search options-->
-                <h4>Suchoptionen</h4>
-
-                <div class="switch">
-                    <label>
-                        wenig
-                        <input type="checkbox"
-                               ng-model="searchRecipeCtrl.recipeFilter.showSearchOptions">
-                        <span class="lever"></span>
-                        mehr
-                    </label>
+                <div class="left">
+                    <h3>Suchoptionen</h3>
+                    <div class="switch">
+                        <label>
+                            wenig
+                            <input type="checkbox"
+                                   ng-model="searchRecipeCtrl.recipeFilter.showSearchOptions">
+                            <span class="lever"></span>
+                            mehr
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>

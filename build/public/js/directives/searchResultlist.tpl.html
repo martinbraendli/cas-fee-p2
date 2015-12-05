@@ -1,0 +1,54 @@
+<div class="searchResultlist">
+    <div>
+        <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
+    </div>
+    <div ng-show="">
+        Die Suche hat keine Ergebnisse - nix zu essen
+    </div>
+    <table class="resulttable">
+        <thead>
+        <th>&nbsp;</th>
+        <th><a ng-click="orderBy('title')">Rezept<i class="material-icons">{{orderName('title')}}</i></a></th>
+        <th><a ng-click="orderBy('avgRating')">Bewertung<i class="material-icons">{{orderName('avgRating')}}</i></a></th>
+        <th><a ng-click="orderBy('userName')">Author<i class="material-icons">{{orderName('userName')}}</i></a></th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="recipe in (filteredLimitedRecipes = (filteredRecipes = (recipes | orderBy: recipeFilter.orderBy : recipeFilter.orderAsc   | SearchRecipeFilter: recipeFilter) | limitTo : maxRecipes : 0))">
+            <td>
+                <img ng-src="{{recipe.images[0].src}}" class="recipe-img"/>
+            </td>
+            <td>
+                <h6>
+                    <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
+                </h6>
+            </td>
+            <td>
+                <i class="material-icons">{{starName(recipe.avgRating, 1)}}</i>
+                <i class="material-icons">{{starName(recipe.avgRating, 2)}}</i>
+                <i class="material-icons">{{starName(recipe.avgRating, 3)}}</i>
+                <i class="material-icons">{{starName(recipe.avgRating, 4)}}</i>
+                <i class="material-icons">{{starName(recipe.avgRating, 5)}}</i>
+            </td>
+            <td>
+                {{recipe.userName}}
+            </td>
+        </tr>
+        <tr ng-show="filteredRecipes.length > maxRecipes">
+            <td>
+                Mehr als {{maxRecipes}} Rezepte gefunden
+            </td>
+            <td colspan="3">
+                <button class="btn orange right-align" ng-click="showMoreRecipes()">weitere 10 anzeigen</button>
+            </td>
+        </tr>
+        <tr ng-show="filteredRecipes.length == 0">
+            <td colspan="4">
+                Keine Rezepte zum gesetzten Filter gefunden
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+

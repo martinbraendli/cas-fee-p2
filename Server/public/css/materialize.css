@@ -6052,7 +6052,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   position: relative;
   margin-top: 1rem; }
   .input-field label {
-    color: #9e9e9e;
+    color: #1565C0;
     position: absolute;
     top: 0.8rem;
     left: 0.75rem;
@@ -6064,12 +6064,12 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     -ms-transition: .2s ease-out;
     transition: .2s ease-out; }
   .input-field label.active {
-    font-size: 0.8rem;
-    -webkit-transform: translateY(-140%);
-    -moz-transform: translateY(-140%);
-    -ms-transform: translateY(-140%);
-    -o-transform: translateY(-140%);
-    transform: translateY(-140%); }
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-170%);
+    -moz-transform: translateY(-170%);
+    -ms-transform: translateY(-170%);
+    -o-transform: translateY(-170%);
+    transform: translateY(-170%); }
   .input-field .prefix {
     position: absolute;
     width: 3rem;

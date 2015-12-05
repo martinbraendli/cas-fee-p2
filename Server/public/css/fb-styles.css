@@ -539,7 +539,7 @@ body {
     font-size: 1.3rem;
     line-height: 1.4rem; }
   body textarea {
-    color: #A33;
+    color: #1565C0;
     font-size: 1.5rem;
     letter-spacing: 0.05rem;
     line-height: 1.6rem; }
@@ -562,6 +562,9 @@ body {
 
 .nav-wrapper {
   background: #0277bd; }
+  .nav-wrapper a:focus {
+    background: #07285a;
+    border: 1px solid white; }
 
 .fb-title {
   padding-left: 15px;
@@ -579,7 +582,7 @@ body {
 .supercontainer {
   margin: auto;
   margin-top: -210px;
-  min-width: 767px;
+  min-width: 560px;
   max-width: 1100px; }
 
 .feedback-window {
@@ -627,8 +630,14 @@ body {
 #loginForm input {
   width: 60%; }
 
-#registerForm input {
-  width: 60%; }
+#loginForm .input-field label {
+  color: #777; }
+  #loginForm .input-field label.active {
+    font-size: 1.2rem;
+    -webkit-transform: translateX(180%) !important;
+        -ms-transform: translateX(180%) !important;
+            transform: translateX(180%) !important;
+    color: #1565C0; }
 
 /* ----------------VIEW Search Recipe -----*/
 .searchRecipe {
@@ -643,7 +652,8 @@ body {
       color: #81d4fa; }
 
 #searchbox {
-  margin-left: 0.75rem !important; }
+  min-width: 63%;
+  min-height: 50%; }
 
 .searchplus {
   padding: 1rem;
@@ -688,12 +698,9 @@ body {
     top: -0.3rem; }
     .editRecipe .input-field label.active {
       font-size: 1.3rem;
-      -webkit-transform: translateY(-150%) !important;
-          -ms-transform: translateY(-150%) !important;
-              transform: translateY(-150%) !important;
-      -webkit-transform: translateX(40%) !important;
-          -ms-transform: translateX(40%) !important;
-              transform: translateX(40%) !important;
+      -webkit-transform: translateY(-150%), translateX(40%) !important;
+          -ms-transform: translateY(-150%), translateX(40%) !important;
+              transform: translateY(-150%), translateX(40%) !important;
       color: #29b6f6; }
   .editRecipe .btn {
     background: #29b6f6; }
@@ -775,6 +782,8 @@ body {
     .viewrecipe .title-bg .input-field label {
       position: absolute;
       top: 0.1rem; }
+  .viewrecipe .margin-left {
+    margin-left: 1rem; }
   .viewrecipe .card {
     padding: 0; }
   .viewrecipe .card-title {
@@ -796,20 +805,35 @@ body {
 
 /*---------------Search result List -----------------*/
 .searchResultlist .resulttable {
-  width: 100%; }
+  margin: 0 auto;
+  width: 90%; }
   .searchResultlist .resulttable tr {
     border-top: 1px solid #CCC; }
   .searchResultlist .resulttable td:nth-child(1) {
-    width: 20%; }
+    width: 25%; }
   .searchResultlist .resulttable td:nth-child(2) {
-    width: 50%; }
+    width: 30%; }
+    .searchResultlist .resulttable td:nth-child(2) h6 {
+      font-size: 1.6rem; }
+      .searchResultlist .resulttable td:nth-child(2) h6 a:link {
+        text-decoration: underline;
+        padding-bottom: 10px;
+        color: #f4511e; }
+      .searchResultlist .resulttable td:nth-child(2) h6 a:hover {
+        color: #dd2c00; }
+      .searchResultlist .resulttable td:nth-child(2) h6 a:focus {
+        padding: 3px;
+        border: 1px solid #dd2c00; }
   .searchResultlist .resulttable td:nth-child(3) {
-    width: 15%; }
+    width: 25%; }
   .searchResultlist .resulttable td:nth-child(4) {
-    width: 15%; }
+    width: 20%; }
   .searchResultlist .resulttable img {
-    max-width: 60px;
+    max-width: 110px;
     height: auto; }
+  .searchResultlist .resulttable i {
+    color: #f4511e;
+    border: #000000; }
 
 /*------------ Recipe rating    ----------------*/
 .addeditRecipeRating {
@@ -831,7 +855,8 @@ body {
 
 .thumb {
   margin-left: 16px !important;
-  padding: 8px;
+  padding: 1px 10px 3px 10px;
+  border: 1px solid #d84315;
   border-radius: 50%;
-  color: white;
+  color: #d84315;
   font-size: 1.3rem; }

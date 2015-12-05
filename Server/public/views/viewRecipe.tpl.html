@@ -9,11 +9,11 @@
 
                 <div class="right">
                     <div ng-controller="SessionController as sessionCtrl">
-                        <a class="btn btn-flat deep-orange white-text left"
+                        <a class="btn btn-flat orange white-text left"
                            href="#/editRecipe/{{viewRecipeCtrl.recipe._id}}"
                            ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.userId)">Dieses Rezept bearbeiten</a>
 
-                        <button class="btn btn-flat orange white-text right" type="button"
+                        <button class="btn btn-flat white red-text right margin-left" type="button"
                                 ng-show="sessionCtrl.isLoggedIn(viewRecipeCtrl.recipe.userId)"
                                 ng-click="viewRecipeCtrl.deleteRecipe()">Dieses Rezept löschen
                         </button>

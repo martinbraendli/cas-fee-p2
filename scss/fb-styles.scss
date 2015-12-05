@@ -2,13 +2,18 @@
 
 //
 /*** Colors ***/
+
+//blue
 $primary-color: color("blue", "darken-4") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: color("light-blue", "lighten-1") !default;
 $secondary-color-hover: color("blue", "darken-3") !default;
+// orange
 $success-color-hover: color("deep-orange", "darken-3") !default;
+$indicater-color: color("deep-orange", "darken-1") !default;
+$focus-color: color("deep-orange", "accent-4") !default;
 
 $error-color: color("deep-orange", "darken-4") !default;
 $link-color: color("light-blue", "darken-1") !default;
@@ -50,11 +55,12 @@ body {
     line-height: 1.4rem;
   }
   textarea{
-    color: #A33;
+    color: #1565C0;
     font-size: 1.5rem;
     letter-spacing: 0.05rem;
     line-height: 1.6rem;
   }
+
 }
 
 .clear{
@@ -82,6 +88,10 @@ body {
 
 .nav-wrapper{
   background: $bgcolor-blue;
+  a:focus{
+     background: $primary-color-dark;
+     border: 1px solid white;
+  }
 }
 
 .fb-title{
@@ -105,7 +115,8 @@ body {
 .supercontainer{
   margin:  auto;
   margin-top: -210px;
-  min-width: 767px;
+  //min-width: 767px;
+  min-width: 560px;
   max-width: 1100px;
 }
 
@@ -198,333 +209,368 @@ body {
 
 
 // login Form Card
-#loginForm{
-  input{
+#loginForm {
+  input {
     width: 60%;
   }
-}
-
-// register Form Card
-#registerForm{
-  input{
-    width: 60%;
+  .input-field label {
+    color: #777;
+    &.active {
+      font-size: 1.2rem;
+      //transform: translateY(-150%) !important;
+      transform: translateX(180%) !important;
+      color: #1565C0;
+    }
   }
 
+  // register Form Card
+  //#registerForm {
+  //  background: $link-color;
+  //
+  //  .input-field label{
+  //    color: #004444;
+  //    &.active {
+  //      font-size: 1.3rem;
+  //      transform: translateX(180%) !important, translateY(0%) ;
+  //      color: #44AA44;
+  //    }
+  //  }
+  //}
 }
-
-
 /* ----------------VIEW Search Recipe -----*/
 
-.searchRecipe{
-  background: #F2F2F2;
-  .title-bg{
-    background: $bgcolor-blue;
-    color: #FFF;
-    height: 150px;
-    width: 100%;
-    h3{
-      font-weight: 100;
-      color: #81d4fa;
+    .searchRecipe {
+      background: #F2F2F2;
+      .title-bg {
+        background: $bgcolor-blue;
+        color: #FFF;
+        height: 150px;
+        width: 100%;
+        h3 {
+          font-weight: 100;
+          color: #81d4fa;
+        }
+      }
     }
-  }
-}
 
-
-#searchbox{
-  margin-left: 0.75rem !important; ;
-}
-
-.searchplus{
-  padding: 1rem;
-  min-height:20rem;
-}
-
-
-#recipeSearchInput{
-  width: 55%;
-}
-
-.foodcategory ul{
-  padding-left: 2rem;
-  padding-right: 1rem;
-}
-.foodcategory li{
-  display: block;
-  padding-right: 1.5rem;
-}
-
-
-.find-recipe{
-
-}
-
-
-/*details*/
-
-
-.fb-layout-detail{
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
-}
-
-
-
-/*------------ Recipe detail - add & edit ----------------*/
-
-.editRecipe{
-  background: #FFF;
-  .title-bg{
-    background: $bgcolor-blue;
-    color: #FFF;
-    height: 120px;
-    width: 100%;
-    h3{
-      font-weight: 100;
-      color: #81d4fa;
+    #searchbox {
+      //margin-left: 0.75rem !important;
+      //background: #e6ee9c;
+      min-width: 63%;
+      min-height: 50%;
     }
-    .ingredient-label .active{
-      color: #F44;
+
+    .searchplus {
+      padding: 1rem;
+      min-height: 20rem;
     }
-  }
-  button{
-    background: $secondary-color;
-  }
-  button:hover{
-    background: $success-color-hover;
-  }
 
-
-  .input-field label {
-    position: absolute;
-    top:-0.3rem;
-    &.active{
-      font-size: 1.3rem;
-      transform: translateY(-150%)!important;
-      transform: translateX(40%)!important;
-      color: $secondary-color;
+    #recipeSearchInput {
+      width: 55%;
     }
-  }
 
-
-
-
-  .btn{
-    background: $secondary-color;
-  }
-  .btn:hover{
-    background:  $success-color-hover;
-  }
-  .btn .disabled{
-    background: #F3F3F3;
-  }
-  .cancel{
-    margin-right: 1.4rem;
-  }
-  .error{
-    color: $primary-color-dark;
-  }
-
-}
-
-.pixupload{
-  padding: 1rem;
-  button{
-    margin-left: 1rem;
-  }
-}
-.img-chooser{
-  border: 1px solid #AA3333;
-  background: $secondary-color;
-}
-
-.recipe-img{
-  max-width: 220px;
-  height: auto;
-}
-
-
-.recipe-img-slider{
-  max-width: 100%;
-  height: auto;
-}
-
-.img-caption{
-  z-index: 50;
-  background: rgba(22, 22, 22, 0.3);
-  color: $primary-color;
-}
-
-.recipe-name{
-  margin-left: 1rem;
-
-}
-.form-title{
-  color: $secondary-color;
-}
-
-.recipe-form{
-  //border: 1px solid  #aa3333;
-  padding: 1rem;
-  label:focus{
-    color: $secondary-color-hover;
-  }
-}
-
-
-.ingredient-count{
-  max-width: 100px;
-}
-
-.ingredient-kind{
-  max-width: 90%;
-}
-
-
-
-.table-ingredients{
-  //generell
-  td{
-    padding: 0 7px 0 7px;
-  }
-
-  // Anzahl
-  td:nth-child(1){
-    width: 15%;
-  }
-  // Eiheit
-  td:nth-child(2){
-    width: 25%;
-  }
-  // Zutat
-  td:nth-child(3){
-    width: 55%;
-  }
-  // Entfernen
-  td:nth-child(4){
-    width: 5%;
-    color: $secondary-color;
-  }
-
-}
-
-
-/*------------ Recipe detail - view -------------------*/
-
-
-.viewrecipe{
-  background: #FFF;
-  .title-bg {
-    background: $bgcolor-blue;
-    color: #FFF;
-    height: 150px;
-    width: 100%;
-    h3 {
-      font-weight: 100;
-      color: #81d4fa;
+    .foodcategory ul {
+      padding-left: 2rem;
+      padding-right: 1rem;
     }
-    .input-field label{
-      position: absolute;
-      top:0.1rem;
+    .foodcategory li {
+      display: block;
+      padding-right: 1.5rem;
+    }
+
+    .find-recipe {
 
     }
-  }
-  .card{
-    padding:0;
-  }
-  .card-title{
-    padding: 15px;
-  }
-  .card-content{
-    line-height: 34px;
-  }
-}
 
-.swiper-container {
-  width: 400px;
-  height: 300px;
-}
+    /*details*/
 
-
-
-/*--------------------- user-details ---------------*/
-
-.user-details{
-  background: #FFF;
-  .read-only{
-    color: #666;
-  }
-
-  .editable{
-    color: $bgcolor-blue;
-  }
-}
-
-
-/*---------------Search result List -----------------*/
-
-.searchResultlist{
-  //background: ;
-  // search Result
-  .resulttable{
-    width: 100%;
-    tr{
-      border-top: 1px solid #CCC;
+    .fb-layout-detail {
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 100%;
     }
-    td:nth-child(1){
-      width: 20%;
+
+    /*------------ Recipe detail - add & edit ----------------*/
+
+    .editRecipe {
+      background: #FFF;
+      .title-bg {
+        background: $bgcolor-blue;
+        color: #FFF;
+        height: 120px;
+        width: 100%;
+        h3 {
+          font-weight: 100;
+          color: #81d4fa;
+        }
+        .ingredient-label .active {
+          color: #F44;
+        }
+      }
+      button {
+        background: $secondary-color;
+      }
+      button:hover {
+        background: $success-color-hover;
+      }
+
+      .input-field label {
+        position: absolute;
+        top: -0.3rem;
+        &.active {
+          font-size: 1.3rem;
+          transform: translateY(-150%), translateX(40%) !important;
+          //transform:  !important;
+          color: $secondary-color;
+        }
+      }
+
+      .btn {
+        background: $secondary-color;
+      }
+      .btn:hover {
+        background: $success-color-hover;
+      }
+      .btn .disabled {
+        background: #F3F3F3;
+      }
+      .cancel {
+        margin-right: 1.4rem;
+      }
+      .error {
+        color: $primary-color-dark;
+      }
+
     }
-    td:nth-child(2){
-      width: 50%;
+
+    .pixupload {
+      padding: 1rem;
+      button {
+        margin-left: 1rem;
+      }
     }
-    td:nth-child(3){
-      width: 15%;
+    .img-chooser {
+      border: 1px solid #AA3333;
+      background: $secondary-color;
     }
-    td:nth-child(4) {
-      width: 15%;
-    }
-    img{
-      max-width: 60px;
+
+    .recipe-img {
+      max-width: 220px;
       height: auto;
     }
 
-  }
+    .recipe-img-slider {
+      max-width: 100%;
+      height: auto;
+    }
 
-}
+    .img-caption {
+      z-index: 50;
+      background: rgba(22, 22, 22, 0.3);
+      color: $primary-color;
+    }
 
-/*------------ Recipe rating    ----------------*/
+    .recipe-name {
+      margin-left: 1rem;
 
-.addeditRecipeRating{
-  border-top: 1px solid #222;
-  //border-top: 1px solid $primary-color;
-  padding-top: 20px;
-  border-bottom: 1px solid #CCC;
-  textarea{
-    height: 5rem ;
-  }
-}
-.star-rating{
-  display: inline;
-  color: $primary-color;
-  i{
-    padding-left: 15px;
-  }
-}
+    }
+    .form-title {
+      color: $secondary-color;
+    }
 
-.range-field{
- //font-size: 1.2rem;
+    .recipe-form {
+      //border: 1px solid  #aa3333;
+      padding: 1rem;
+      label:focus {
+        color: $secondary-color-hover;
+      }
+    }
 
-  label{
-    padding: 5px;
-    font-size: 1.3rem;
-  }
-}
+    .ingredient-count {
+      max-width: 100px;
+    }
 
-.thumb{
-  //background: $success-color;
-  margin-left: 16px!important;
-  padding: 8px;
-  border-radius:50%;
-  color: white;
-  font-size: 1.3rem;
-}
+    .ingredient-kind {
+      max-width: 90%;
+    }
+
+    .table-ingredients {
+      //generell
+      td {
+        padding: 0 7px 0 7px;
+      }
+
+      // Anzahl
+      td:nth-child(1) {
+        width: 15%;
+      }
+      // Eiheit
+      td:nth-child(2) {
+        width: 25%;
+      }
+      // Zutat
+      td:nth-child(3) {
+        width: 55%;
+      }
+      // Entfernen
+      td:nth-child(4) {
+        width: 5%;
+        color: $secondary-color;
+      }
+
+    }
+
+    /*------------ Recipe detail - view -------------------*/
+
+    .viewrecipe {
+      background: #FFF;
+      .title-bg {
+        background: $bgcolor-blue;
+        color: #FFF;
+        height: 150px;
+        width: 100%;
+        h3 {
+          font-weight: 100;
+          color: #81d4fa;
+        }
+        .input-field label {
+          position: absolute;
+          top: 0.1rem;
+
+        }
+      }
+      .margin-left{
+        margin-left: 1rem;
+      }
+      .card {
+        padding: 0;
+      }
+      .card-title {
+        padding: 15px;
+      }
+      .card-content {
+        line-height: 34px;
+      }
+    }
+
+    .swiper-container {
+      width: 400px;
+      height: 300px;
+    }
+
+    /*--------------------- user-details ---------------*/
+
+    .user-details {
+      background: #FFF;
+      .read-only {
+        color: #666;
+      }
+
+      .editable {
+        color: $bgcolor-blue;
+      }
+    }
+
+    /*---------------Search result List -----------------*/
+
+    .searchResultlist {
+      //background: ;
+      // search Result
+      .resulttable {
+        margin: 0 auto;
+        width: 90%;
+        tr {
+          border-top: 1px solid #CCC;
+        }
+        //picture
+        td:nth-child(1) {
+          width: 25%;
+        }
+        // recipe name
+        td:nth-child(2) {
+          width: 30%;
+          h6{
+            font-size: 1.6rem;
+
+            a:link{
+              text-decoration: underline;
+              padding-bottom: 10px;
+              color: $indicater-color;
+            }
+            a:hover{
+              color: $focus-color;
+            }
+            a:focus{
+              padding: 3px;
+              border: 1px solid $focus-color;
+            }
+          }
+        }
+        // rating
+        td:nth-child(3) {
+          width: 25%;
+        }
+        //author
+        td:nth-child(4) {
+          width: 20%;
+        }
+
+        img {
+          max-width: 110px;
+          height: auto;
+        }
+        // rating star color
+        i{
+          color: $indicater-color;
+          border: #000000;
+        }
+        i .material-icons{
+
+        }
+
+      }
+
+      .recipe-link{
+
+
+      }
+
+    }
+
+    /*------------ Recipe rating    ----------------*/
+
+    .addeditRecipeRating {
+      border-top: 1px solid #222;
+      //border-top: 1px solid $primary-color;
+      padding-top: 20px;
+      border-bottom: 1px solid #CCC;
+      textarea {
+        height: 5rem;
+      }
+    }
+    .star-rating {
+      display: inline;
+      color: $primary-color;
+      i {
+        padding-left: 15px;
+      }
+    }
+
+    .range-field {
+      //font-size: 1.2rem;
+
+      label {
+        padding: 5px;
+        font-size: 1.3rem;
+      }
+    }
+
+    .thumb {
+      margin-left: 16px !important;
+      padding: 1px 10px 3px 10px;
+      border: 1px solid $success-color-hover;
+      border-radius: 50%;
+      color: $success-color-hover;
+      font-size: 1.3rem;
+    }
+
