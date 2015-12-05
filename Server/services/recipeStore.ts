@@ -15,7 +15,7 @@ var ratingStore = require('../services/ratingStore.js');
  */
 function publicLoadAllRecipes(callback) {
     console.log("recipeStore - loadAllRecipes()");
-    db.find({}, function (err, recipes:Array<fettyBossy.Data.IRecipe>) {
+    db.find({$not: {deleted: true}}, function (err, recipes:Array<fettyBossy.Data.IRecipe>) {
         var recipeIds = [];
         for (var i = 0; i < recipes.length; i++) {
             var recipe = recipes[i];
@@ -34,7 +34,7 @@ function publicLoadAllRecipes(callback) {
                 var rating = ratings[i];
 
                 if (!rating.stars) {
-                   continue; // ignore ratings without stars
+                    continue; // ignore ratings without stars
                 }
 
                 var ratingCount = ratingMap[rating.recipeId];
@@ -75,7 +75,7 @@ function publicLoadAllRecipes(callback) {
  */
 function publicLoadRecipe(recipeId:string, callback) {
     console.log("recipeStore - loadRecipe('" + recipeId + "')");
-    db.findOne({_id: recipeId}, function (err, recipe:fettyBossy.Data.IRecipe) {
+    db.findOne({$and: [{_id: recipeId}, {$not: {deleted: true}}]}, function (err, recipe:fettyBossy.Data.IRecipe) {
         callback(err, recipe);
     });
 }
@@ -87,7 +87,7 @@ function publicLoadRecipe(recipeId:string, callback) {
  */
 function publicLoadRecipesByUser(userId:string, callback) {
     console.log("recipeStore - publicLoadRecipesByUser('" + userId + "')");
-    db.find({userId: userId}, function (err, recipes) {
+    db.find({$and: [{userId: userId}, {$not: {deleted: true}}]}, function (err, recipes) {
         console.log("recipeStore - publicLoadRecipesByUser('" + userId + "') - returning '" + recipes.length + "' recipes");
         callback(err, recipes);
     });
@@ -124,9 +124,18 @@ function publicPersistRecipe(recipe:fettyBossy.Data.IRecipe, callback) {
     }
 }
 
+function publicDeleteRecipe(recipeId:string, callback) {
+    console.log("recipeStore - publicDeleteRecipe('" + recipeId + "')");
+    db.update({_id: recipeId}, {$set: {deleted: true}}, function (err, numRemoved) {
+        console.log("recipeStore - publicDeleteRecipe('" + recipeId + "')");
+        callback(err, numRemoved);
+    });
+}
+
 module.exports = {
     loadAll: publicLoadAllRecipes,
     loadRecipe: publicLoadRecipe,
     loadRecipesByUser: publicLoadRecipesByUser,
-    persistRecipe: publicPersistRecipe
+    persistRecipe: publicPersistRecipe,
+    deleteRecipe: publicDeleteRecipe
 };

@@ -13,7 +13,6 @@
 - Toastr --> Style!
 - user test durchführen
 - multi lang
-- Rezept löschen
 
 # Closed
 
@@ -72,3 +71,4 @@
 - avg-recipe rating berechnung! (unittest)
 - neuestes Rezept falsch
 - sort searchlist
+- Rezept löschen

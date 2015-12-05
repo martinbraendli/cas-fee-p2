@@ -19,6 +19,7 @@ module.exports = (function () {
     router.get("/", recipeCtrl.getAll);
     router.post("/", authCtrl.requiredAuthentication, recipeCtrl.saveRecipe);
     router.get("/:recipeId/", recipeCtrl.getRecipe);
+    router.delete("/:recipeId/", recipeCtrl.deleteRecipe);
     router.get("/byUser/:userId/", recipeCtrl.getRecipeByUser);
 
     return router;

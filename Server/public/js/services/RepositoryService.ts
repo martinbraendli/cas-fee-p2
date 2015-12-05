@@ -49,6 +49,10 @@ module fettyBossy.Services {
          * @param rating
          */
         saveRating(rating:fettyBossy.Data.IRating):ng.IPromise;
+        /**
+         * delete recipe
+         */
+        deleteRecipe(recipeId:string):ng.IPromise;
 
         addListener(callback);
     }
@@ -58,6 +62,7 @@ module fettyBossy.Services {
         static LOAD_ALL_RECIPES_BY_USER_URL:string = '/api/recipes/byUser/';
         static LOAD_RECIPE_BY_ID:string = '/api/recipes/';
         static SAVE_RECIPE:string = '/api/recipes';
+        static DELETE_RECIPE:string = '/api/recipes/';
 
         static LOAD_RATINGS_BY_RECIPE_ID:string = '/api/ratings/';
         static SAVE_RATING:string = '/api/ratings';
@@ -185,6 +190,25 @@ module fettyBossy.Services {
             });
 
             return deffered.promise;
+        }
+
+        deleteRecipe(recipeId:string):angular.IPromise {
+            this.$log.debug('Repository deleteRecipe(' + recipeId + ')');
+            var deferred = this.$q.defer();
+
+            this.$http.delete(Repository.DELETE_RECIPE + recipeId).then(
+                // success
+                (data) => {
+                    deferred.resolve();
+                },
+                // error
+                (reason) => {
+                    this.$log.warn("Repository deleteRecipe('" + recipeId + "') - failed, returning:" + status);
+                    deferred.reject(reason);
+                }
+            );
+
+            return deferred.promise;
         }
 
         addListener(callback) {

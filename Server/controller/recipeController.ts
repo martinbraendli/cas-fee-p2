@@ -56,9 +56,23 @@ function publicSaveRecipe(req, res) {
     });
 }
 
+function publicDeleteRecipe(req, res) {
+    var recipeId:string = req.params.recipeId;
+
+    recipeStore.deleteRecipe(recipeId, function (err, numRemoved) {
+        if (numRemoved == 1) {
+            res.json({});
+        } else {
+            res.status(404);
+            res.send(false);
+        }
+    })
+}
+
 module.exports = {
     getAll: publicGetAll,
     getRecipe: publicGetRecipe,
+    deleteRecipe: publicDeleteRecipe,
     getRecipeByUser: publicGetRecipeByUser,
     saveRecipe: publicSaveRecipe
 };
