@@ -9,7 +9,7 @@
                    ng-model="user.name" required/>
             <label for="registerName" translate="LOGIN_NAME">Name</label>
             <div ng-show="registerForm.$submitted || registerForm.registerName.$dirty || registerCtrl.registerEror">
-                <div ng-show="registerForm.registerName.$error.required">Ihr Name bitte.</div>
+                <div ng-show="registerForm.registerName.$error.required" translate="MISSING_NAME">Ihr Name bitte.</div>
             </div>
         </div>
 
@@ -18,8 +18,8 @@
                    ng-model="user.email" required/>
             <label for="registerEmail" translate="EMAIL">E-Mail</label>
             <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
-                <span ng-show="registerForm.registerEmail.$error.required">Bitte geben Sie eine E-mail Adresse an.</span>
-                <span ng-show="registerForm.registerEmail.$error.email">Das ist <i>keine</i> gültige E-mail adresse!</span>
+                <span ng-show="registerForm.registerEmail.$error.required" translate="MISSING_EMAIL">Bitte geben Sie eine E-mail Adresse an.</span>
+                <span ng-show="registerForm.registerEmail.$error.email" translate="INVALID_EMAIL">Das ist <i>keine</i> gültige E-mail adresse!</span>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
             <input type="password" id="registerPassword" name="registerPassword"
                    ng-model="user.password" required/>
             <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
-                <div ng-show="registerForm.registerPassword.$error.required">Bitte geben Sie ein Passwort ein.</div>
+                <div ng-show="registerForm.registerPassword.$error.required" translate="MISSING_PW">Bitte geben Sie ein Passwort ein.</div>
             </div>
             <div ng-show="registerCtrl.registerEror">
                 <div>{{registerCtrl.registerError}}</div>

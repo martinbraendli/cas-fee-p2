@@ -43,6 +43,10 @@ module fettyBossy {
             LOGIN_GUEST: 'Logon for guests',
 
             REGISTER_TITLE: 'New registration',
+            MISSING_PW: 'Please enter password.',
+            MISSING_EMAIL: 'Please enter your email address.',
+            INVALID_EMAIL: 'This is <i>not</i> a valid email address.',
+            MISSING_NAME: 'Please enter your name.',
 
             SEARCH_RECIPES: 'search recipes'
 
@@ -74,6 +78,10 @@ module fettyBossy {
             LOGIN_GUEST: 'Login für Gäste',
 
             REGISTER_TITLE: 'Neu registrieren',
+            MISSING_PW: 'Bitte geben Sie ein Passwort ein.',
+            MISSING_EMAIL: 'Bitte geben Sie ein Passwort ein.',
+            INVALID_EMAIL: 'Das ist <i>keine</i> gültige E-mail Adresse.',
+            MISSING_NAME: 'Bitte geben Sie ihren Namen ein.',
 
             SEARCH_RECIPES: 'Rezepte suchen'
         });
