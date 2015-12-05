@@ -48,8 +48,21 @@ module fettyBossy {
             INVALID_EMAIL: 'This is <i>not</i> a valid email address.',
             MISSING_NAME: 'Please enter your name.',
 
-            SEARCH_RECIPES: 'search recipes'
+            SEARCH_RECIPES: 'search recipes',
+            SEARCH_TITLE: 'Choose recipe',
+            SEARCH_SUBTITLE: 'Find and choose recipe',
+            SEARCH_FORM_TITLE: 'Recipe search',
+            SEARCH_OPTIONS: 'Search options',
+            SEARCH_EXPAND_1: 'few',
+            SEARCH_EXPAND_2: 'more',
 
+
+            SEARCH_RESULT_TITLE: 'Results',
+
+
+            TEASER_TITLE_NEW: 'New recipe',
+            TEASER_TITLE_BEST: 'Best recipe',
+            TEASER_TITLE_NEWEST: 'Newest recipe',
         });
         $translateProvider.translations('de', {
             SWITCH_LANG: 'Sprache wechseln',
@@ -83,7 +96,22 @@ module fettyBossy {
             INVALID_EMAIL: 'Das ist <i>keine</i> gültige E-mail Adresse.',
             MISSING_NAME: 'Bitte geben Sie ihren Namen ein.',
 
-            SEARCH_RECIPES: 'Rezepte suchen'
+            SEARCH_RECIPES: 'Rezepte suchen',
+            SEARCH_TITLE: 'Rezepte auswählen',
+            SEARCH_SUBTITLE: 'Suchen und auswählen',
+            SEARCH_FORM_TITLE: 'Rezeptsuche',
+            SEARCH_OPTIONS: 'Suchoptionen',
+            SEARCH_EXPAND_1: 'wenig',
+            SEARCH_EXPAND_2: 'mehr',
+
+
+            SEARCH_RESULT_TITLE: 'Erbegnisse',
+
+
+            TEASER_TITLE_NEW: 'Neues Rezept',
+            TEASER_TITLE_BEST: 'Bestes Rezept',
+            TEASER_TITLE_NEWEST: 'Neuestes Rezept',
+
         });
         $translateProvider.preferredLanguage('de');
     });

@@ -2,33 +2,31 @@
     <div class="container">
         <div class="row title-bg">
             <div class="col s12 l12">
-                <h3 class="">Rezepte auswählen</h3>
-                <span>Suchen und auswählen</span>
+                <h3 class="" translate="SEARCH_TITLE">Rezepte auswählen</h3>
+                <span translate="SEARCH_SUBTITLE">Suchen und auswählen</span>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col s12 m12 l12 " >
-            <div class="card ">
-                <div class="left" id="searchbox">
-                    <h3 class="left">Ich suche nach</h3>
-                    <br/>
-                    <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
-                    <br/>
-                    <br/>
-                </div>
+        <div class="col s10 l10 card" id="searchbox">
+            <div class="col s6 l6">
+                <h4 class="left" translate="SEARCH_FORM_TITLE">Rezeptsuche</h4>
+                <br/>
+                <fb-search-form recipe-filter="searchRecipeCtrl.recipeFilter"></fb-search-form>
+                <br/>
+            </div>
+            <div class="col s4 l4">
                 <!-- Switch Search options-->
-                <div class="left">
-                    <h3>Suchoptionen</h3>
-                    <div class="switch">
-                        <label>
-                            wenig
-                            <input type="checkbox"
-                                   ng-model="searchRecipeCtrl.recipeFilter.showSearchOptions">
-                            <span class="lever"></span>
-                            mehr
-                        </label>
-                    </div>
+                <h4 translate="SEARCH_OPTIONS">Suchoptionen</h4>
+
+                <div class="switch">
+                    <label>
+                        {{ 'SEARCH_EXPAND_1' | translate }}
+                        <input type="checkbox"
+                               ng-model="searchRecipeCtrl.recipeFilter.showSearchOptions">
+                        <span class="lever"></span>
+                        {{ 'SEARCH_EXPAND_2' | translate }}
+                    </label>
                 </div>
             </div>
         </div>
@@ -99,7 +97,7 @@
         <div class="col s12 m12 l12">
             <div class="card">
                 <div class="card-title text-black">
-                    <h3 class="orange-text">Ergebnisse</h3>
+                    <h3 class="orange-text" translate="SEARCH_RESULT_TITLE">Ergebnisse</h3>
                 </div>
 
                 <fb-search-resultlist recipes="searchRecipeCtrl.recipes"
@@ -111,7 +109,7 @@
     <div class="row">
         <div class="col s4">
             <div class="card  orange lighten-3">
-                <div class="card-title">Neues Rezept</div>
+                <div class="card-title" translate="TEASER_TITLE_NEW">Neues Rezept</div>
                 <br/>
 
                 <div class="card-image">
