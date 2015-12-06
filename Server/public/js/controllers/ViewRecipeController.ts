@@ -40,12 +40,12 @@ module fettyBossy.Controllers {
             this.$repository.deleteRecipe(this.recipe._id).then(
                 // success
                 (result:fettyBossy.Services.ISaveRecipeResult) => {
-                    messageService.setMessage("Rezept erfolgreich gelöscht", fettyBossy.Services.SEVERITY_INFO, "");
+                    messageService.setMessage("RECIPE_DELETE_OK", fettyBossy.Services.SEVERITY_INFO, "");
                     $location.path("/viewUser/" + this.recipe.userId);
                 },
                 // error
                 () => {
-                    messageService.setMessage("Löschen fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR, "");
+                    messageService.setMessage("RECIPE_DELETE_FAILED", fettyBossy.Services.SEVERITY_ERROR, "");
                 });
         }
     }
