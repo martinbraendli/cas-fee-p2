@@ -46,9 +46,9 @@ module fettyBossy.Controllers {
             this.userService.saveUser(this.user)
                 .then(function (result:fettyBossy.Services.IRegisterUserResult) {
                     if (result.successful) {
-                        messageService.setMessage("Erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO, "");
+                        messageService.setMessage("USER_SAVE_OK", fettyBossy.Services.SEVERITY_INFO, "");
                     } else {
-                        messageService.setMessage("Speichern fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR, "");
+                        messageService.setMessage("USER_SAVE_FAILED", fettyBossy.Services.SEVERITY_ERROR, "");
                     }
                 });
         }
