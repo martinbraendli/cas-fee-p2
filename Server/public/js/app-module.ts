@@ -75,6 +75,10 @@ module fettyBossy {
             VIEW_USER_TITLE: 'My account',
             VIEW_USER_RECIPES: 'My recipes',
 
+            RATING_TITLE: 'All ratings for:',
+            RATING_USER_1: 'User ',
+            RATING_USER_2: ' wrote:',
+
             SEARCH_RESULT_TITLE: 'Results',
             SEARCH_RESULT_LIST_HEAD_RECIPE: 'Recipe',
             SEARCH_RESULT_LIST_HEAD_RATING: 'Rating',
@@ -165,6 +169,10 @@ module fettyBossy {
 
             VIEW_USER_TITLE: 'Mein Account',
             VIEW_USER_RECIPES: 'Meine Rezepte:',
+
+            RATING_TITLE: 'Alle Bewertungen für: ',
+            RATING_USER_1: 'Benutzer ',
+            RATING_USER_2: ' schrieb:',
 
             SEARCH_RESULT_TITLE: 'Erbegnisse',
             SEARCH_RESULT_LIST_HEAD_RECIPE: 'Rezept',
