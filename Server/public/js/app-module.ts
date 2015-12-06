@@ -25,6 +25,7 @@ module fettyBossy {
             BUTTON_TO_RECIPE: 'view recipe',
             BUTTON_LOGON_GUEST: 'Guest - Login',
             BUTTON_REGISTER: 'register',
+            BUTTON_CREATE: 'create',
 
             MENU_ALL: 'all recipes',
             MENU_CREATE: 'create recpie',
@@ -55,6 +56,19 @@ module fettyBossy {
             SEARCH_OPTIONS: 'Search options',
             SEARCH_EXPAND_1: 'few',
             SEARCH_EXPAND_2: 'more',
+            SEARCH_CATEGORY: 'Choose category',
+            CATEGORY_APPETIZER: 'Appetizer',
+            CATEGORY_MAIN: 'Main course',
+            CATEGORY_DESSERT: 'Dessert',
+            CATEGORY_SNACK: 'Snack',
+            SEARCH_RATING_TITLE: 'Rating',
+            SEARCH_RATING_TEXT: 'find by rating',
+            SEARCH_PREP_TIME_TITLE: 'Preparation time',
+            SEARCH_PREP_TIME_OPT_1: '10 - 20 min',
+            SEARCH_PREP_TIME_OPT_2: '20 - 30 min',
+            SEARCH_PREP_TIME_OPT_3: '30 - 40 min',
+            SEARCH_PREP_TIME_OPT_4: '40 - 50 min',
+            SEARCH_PREP_TIME_OPT_5: '1h and more',
 
             CREATE_IMAGE_ERROR: 'Wrong type of file (must be image)',
 
@@ -79,6 +93,7 @@ module fettyBossy {
             RECIPE_DELETE_FAILED: 'Recipe could not be deleted',
 
             TEASER_TITLE_NEW: 'New recipe',
+            TEASER_TITLE_NEW_TEXT: 'Registered user can create their own recipes',
             TEASER_TITLE_BEST: 'Best recipe',
             TEASER_TITLE_NEWEST: 'Newest recipe',
 
@@ -94,6 +109,7 @@ module fettyBossy {
             BUTTON_TO_RECIPE: 'zum Rezept',
             BUTTON_LOGON_GUEST: 'Gast - Login',
             BUTTON_REGISTER: 'Registrieren',
+            BUTTON_CREATE: 'erfassen',
 
             MENU_ALL: 'Alle Rezepte',
             MENU_CREATE: 'Rezepte erfassen',
@@ -124,6 +140,19 @@ module fettyBossy {
             SEARCH_OPTIONS: 'Suchoptionen',
             SEARCH_EXPAND_1: 'wenig',
             SEARCH_EXPAND_2: 'mehr',
+            SEARCH_CATEGORY: 'Kategorie auswählen',
+            CATEGORY_APPETIZER: 'Vorspeise',
+            CATEGORY_MAIN: 'Hauptgang',
+            CATEGORY_DESSERT: 'Dessert',
+            CATEGORY_SNACK: 'Snack',
+            SEARCH_RATING_TITLE: 'Bewertung',
+            SEARCH_RATING_TEXT: 'suchen Sie nach Bewertung',
+            SEARCH_PREP_TIME_TITLE: 'Zubereitungszeit',
+            SEARCH_PREP_TIME_OPT_1: '10 - 20 min',
+            SEARCH_PREP_TIME_OPT_2: '20 - 30 min',
+            SEARCH_PREP_TIME_OPT_3: '30 - 40 min',
+            SEARCH_PREP_TIME_OPT_4: '40 - 50 min',
+            SEARCH_PREP_TIME_OPT_5: '1h und mehr',
 
             CREATE_IMAGE_ERROR: 'Datei nicht vom Typ \'Bild\'',
 
@@ -133,6 +162,7 @@ module fettyBossy {
             SEARCH_RESULT_TITLE: 'Erbegnisse',
 
             TEASER_TITLE_NEW: 'Neues Rezept',
+            TEASER_TITLE_NEW_TEXT: 'Registrierte Benutzer können ihre eigenen Rezepte erfassen',
             TEASER_TITLE_BEST: 'Bestes Rezept',
             TEASER_TITLE_NEWEST: 'Neuestes Rezept',
 

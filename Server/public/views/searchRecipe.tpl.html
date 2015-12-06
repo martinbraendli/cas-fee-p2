@@ -35,27 +35,27 @@
     <div class="row">
         <div class="col s4" ng-show="searchRecipeCtrl.recipeFilter.showSearchOptions">
             <div class="card foodcategory searchplus clearfix">
-                <h5>Kategorie auswählen</h5>
+                <h5 translate="SEARCH_CATEGORY">Kategorie auswählen</h5>
                 <ul class="left">
                     <li>
                         <input type="checkbox" class="filled-in" id="vorspeise"
                                ng-model="searchRecipeCtrl.recipeFilter.vorspeise">
-                        <label for="vorspeise">Vorspeise</label>
+                        <label for="vorspeise" translate="CATEGORY_APPETIZER">Vorspeise</label>
                     </li>
                     <li>
                         <input type="checkbox" class="filled-in" id="hauptspeise"
                                ng-model="searchRecipeCtrl.recipeFilter.hauptspeise">
-                        <label for="hauptspeise">Hauptspeise</label>
+                        <label for="hauptspeise" translate="CATEGORY_MAIN">Hauptspeise</label>
                     </li>
                     <li>
                         <input type="checkbox" class="filled-in" id="dessert"
                                ng-model="searchRecipeCtrl.recipeFilter.dessert">
-                        <label for="dessert">Dessert</label>
+                        <label for="dessert" translate="CATEGORY_DESSERT">Dessert</label>
                     </li>
                     <li>
                         <input type="checkbox" class="filled-in" id="snack"
                                ng-model="searchRecipeCtrl.recipeFilter.snack">
-                        <label for="snack">Snack</label>
+                        <label for="snack" translate="CATEGORY_SNACK">Snack</label>
                     </li>
                 </ul>
             </div>
@@ -63,10 +63,10 @@
 
         <div class="col s4" ng-show="searchRecipeCtrl.recipeFilter.showSearchOptions">
             <div class="card searchplus">
-                <h5>Bewertung</h5>
+                <h5 translate="SEARCH_RATING_TITLE">Bewertung</h5>
                 <br/>
 
-                <p>suchen Sie nach Bewertung</p>
+                <p translate="SEARCH_RATING_TEXT">suchen Sie nach Bewertung</p>
                 <br/>
 
                 <div class="range-field">
@@ -80,14 +80,14 @@
 
         <div class="col s4" ng-show="searchRecipeCtrl.recipeFilter.showSearchOptions">
             <div class="card searchplus">
-                <h5>Zubereitungszeit</h5>
+                <h5 translate="SEARCH_PREP_TIME_TITLE">Zubereitungszeit</h5>
                 <!--<label>Zeit</label>-->
                 <select class="browser-default" ng-model="searchRecipeCtrl.recipeFilter.backzeit">
-                    <option value="10">10 - 20 min</option>
-                    <option value="20">20 - 30 min</option>
-                    <option value="30">30 - 40 min</option>
-                    <option value="40">40 - 50 min</option>
-                    <option value="50">1h und mehr</option>
+                    <option value="10" translate="SEARCH_PREP_TIME_OPT_1">10 - 20 min</option>
+                    <option value="20" translate="SEARCH_PREP_TIME_OPT_2">20 - 30 min</option>
+                    <option value="30" translate="SEARCH_PREP_TIME_OPT_3">30 - 40 min</option>
+                    <option value="40" translate="SEARCH_PREP_TIME_OPT_4">40 - 50 min</option>
+                    <option value="50" translate="SEARCH_PREP_TIME_OPT_5">1h und mehr</option>
                 </select>
             </div>
         </div>
@@ -116,10 +116,10 @@
                     <img src="pictures/food2_400.jpg">
                 </div>
                 <div class="card-content">
-                    <p>Registrierte Benutzer können ihre eigenen Rezepte erfassen</p>
+                    <p translate="TEASER_TITLE_NEW_TEXT">Registrierte Benutzer können ihre eigenen Rezepte erfassen</p>
                 </div>
                 <div class="card-action">
-                    <a class="btn" href="#/addRecipe">erfassen</a>
+                    <a class="btn" href="#/addRecipe" translate="BUTTON_CREATE">erfassen</a>
                 </div>
             </div>
         </div>
