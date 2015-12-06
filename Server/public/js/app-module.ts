@@ -76,6 +76,13 @@ module fettyBossy {
             VIEW_USER_RECIPES: 'My recipes',
 
             SEARCH_RESULT_TITLE: 'Results',
+            SEARCH_RESULT_LIST_HEAD_RECIPE: 'Recipe',
+            SEARCH_RESULT_LIST_HEAD_RATING: 'Rating',
+            SEARCH_RESULT_LIST_HEAD_AUTHOR: 'Author',
+            SEARCH_RESULT_LIST_FOUND_MORE_1: 'More then ',
+            SEARCH_RESULT_LIST_FOUND_MORE_2: ' recipe found',
+            SEARCH_RESULT_LIST_BTN_SHOW_MORE: 'show 10 more',
+            SEARCH_RESULT_LIST_NO_ENTRIES: 'No recipes for given filter found',
 
             ERROR_LOAD_RECIPE: 'Error during loading recipe',
             ERROR_LOAD_RECIPES: 'Error during loading recipes',
@@ -160,6 +167,13 @@ module fettyBossy {
             VIEW_USER_RECIPES: 'Meine Rezepte:',
 
             SEARCH_RESULT_TITLE: 'Erbegnisse',
+            SEARCH_RESULT_LIST_HEAD_RECIPE: 'Rezept',
+            SEARCH_RESULT_LIST_HEAD_RATING: 'Bewertung',
+            SEARCH_RESULT_LIST_HEAD_AUTHOR: 'Author',
+            SEARCH_RESULT_LIST_FOUND_MORE_1: 'Mehr als ',
+            SEARCH_RESULT_LIST_FOUND_MORE_2: ' Rezepte gefunden',
+            SEARCH_RESULT_LIST_BTN_SHOW_MORE: 'weitere 10 anzeigen',
+            SEARCH_RESULT_LIST_NO_ENTRIES: 'Keine Rezepte zum gesetzten Filter gefunden',
 
             TEASER_TITLE_NEW: 'Neues Rezept',
             TEASER_TITLE_NEW_TEXT: 'Registrierte Benutzer können ihre eigenen Rezepte erfassen',
