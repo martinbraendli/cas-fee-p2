@@ -56,13 +56,34 @@ module fettyBossy {
             SEARCH_EXPAND_1: 'few',
             SEARCH_EXPAND_2: 'more',
 
+            CREATE_IMAGE_ERROR: 'Wrong type of file (must be image)',
+
+            VIEW_USER_TITLE: 'My account',
+            VIEW_USER_RECIPES: 'My recipes',
 
             SEARCH_RESULT_TITLE: 'Results',
 
+            ERROR_LOAD_RECIPE: 'Error during loading recipe',
+            ERROR_LOAD_RECIPES: 'Error during loading recipes',
+            ERROR_LOAD_RATING: 'Error during loading ratings',
+            ERROR_NOT_LOGGED_IN: 'Not logged in!',
+            RECIPE_SAVE_OK: 'Recipe saved',
+            RECIPE_SAVE_FAILED: 'Recipe could not be saved',
+            RATING_SAVE_OK: 'Rating saved',
+            RATING_SAVE_FAILED: 'Rating could not be saved',
+            USER_REGISTER_OK: 'User registered',
+            USER_REGISTER_FAILED: 'User could not be registered',
+            USER_SAVE_OK: 'User saved',
+            USER_SAVE_FAILED: 'User could not be saved',
+            RECIPE_DELETE_OK: 'Recipe deleted',
+            RECIPE_DELETE_FAILED: 'Recipe could not be deleted',
 
             TEASER_TITLE_NEW: 'New recipe',
             TEASER_TITLE_BEST: 'Best recipe',
             TEASER_TITLE_NEWEST: 'Newest recipe',
+
+            ERROR_LOGIN_FAILED: 'Login failed   ',
+
         });
         $translateProvider.translations('de', {
             SWITCH_LANG: 'Sprache wechseln',
@@ -99,18 +120,38 @@ module fettyBossy {
             SEARCH_RECIPES: 'Rezepte suchen',
             SEARCH_TITLE: 'Rezepte auswählen',
             SEARCH_SUBTITLE: 'Suchen und auswählen',
-            SEARCH_FORM_TITLE: 'Rezeptsuche',
+            SEARCH_FORM_TITLE: 'Ich suche nach',
             SEARCH_OPTIONS: 'Suchoptionen',
             SEARCH_EXPAND_1: 'wenig',
             SEARCH_EXPAND_2: 'mehr',
 
+            CREATE_IMAGE_ERROR: 'Datei nicht vom Typ \'Bild\'',
+
+            VIEW_USER_TITLE: 'Mein Account',
+            VIEW_USER_RECIPES: 'Meine Rezepte:',
 
             SEARCH_RESULT_TITLE: 'Erbegnisse',
-
 
             TEASER_TITLE_NEW: 'Neues Rezept',
             TEASER_TITLE_BEST: 'Bestes Rezept',
             TEASER_TITLE_NEWEST: 'Neuestes Rezept',
+
+            ERROR_LOAD_RECIPE: 'Fehler beim Laden des Rezepts',
+            ERROR_LOAD_RECIPES: 'Fehler beim Laden von Rezepten',
+            ERROR_LOAD_RATING: 'Fehler beim Laden von Rezepten',
+            ERROR_NOT_LOGGED_IN: 'Nicht eingeloggt!',
+            RECIPE_SAVE_OK: 'Rezept erfolgreich gespeichert',
+            RECIPE_SAVE_FAILED: 'Rezept konnte nicht gespeichert werden',
+            RATING_SAVE_OK: 'Bewertung erfolgreich gespeichert',
+            RATING_SAVE_FAILED: 'Bewertung konnte nicht gespeichert werden',
+            USER_REGISTER_OK: 'Benutzer erfolgreich registriert',
+            USER_REGISTER_FAILED: 'Benutzer konnte nicht registriert werden',
+            USER_SAVE_OK: 'Benutzer gespeichert',
+            USER_SAVE_FAILED: 'Benutzer konnte nicht gespeichert werden',
+            RECIPE_DELETE_OK: 'Rezept erfolgreich gelöscht',
+            RECIPE_DELETE_FAILED: 'Löschen fehlgeschlagen',
+
+            ERROR_LOGIN_FAILED: 'Login fehlgeschlagen',
 
         });
         $translateProvider.preferredLanguage('de');
