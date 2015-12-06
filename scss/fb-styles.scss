@@ -161,7 +161,7 @@ body {
 // login
 
 .userForm input.ng-invalid.ng-touched {
-  background-color: #ffc2b8;
+  background-color: #e0e0e0;
 }
 
 .userForm input.ng-valid.ng-touched {
@@ -218,24 +218,24 @@ body {
     &.active {
       font-size: 1.2rem;
       //transform: translateY(-150%) !important;
-      transform: translateX(180%) !important;
+      transform: translateY(-150%) !important;
       color: #1565C0;
     }
   }
 
   // register Form Card
-  //#registerForm {
-  //  background: $link-color;
-  //
-  //  .input-field label{
-  //    color: #004444;
-  //    &.active {
-  //      font-size: 1.3rem;
-  //      transform: translateX(180%) !important, translateY(0%) ;
-  //      color: #44AA44;
-  //    }
-  //  }
-  //}
+  #registerForm {
+    background: $link-color;
+
+    .input-field label{
+        color: #004444;
+        &.active {
+        font-size: 1.3rem;
+        transform: translateY(250%) !important;
+        color: #44AA44;
+      }
+    }
+  }
 }
 /* ----------------VIEW Search Recipe -----*/
 
@@ -334,13 +334,18 @@ body {
       .btn .disabled {
         background: #F3F3F3;
       }
+      .btn:focus{
+        border: 1px solid $success-color-hover;
+      }
       .cancel {
         margin-right: 1.4rem;
       }
       .error {
         color: $primary-color-dark;
       }
-
+      a:focus{
+        border: 1px solid $success-color-hover;
+      }
     }
 
     .pixupload {
@@ -400,25 +405,32 @@ body {
         padding: 0 7px 0 7px;
       }
 
-      // Anzahl
+      // amount
       td:nth-child(1) {
         width: 15%;
       }
-      // Eiheit
+      // unit-of-amount
       td:nth-child(2) {
         width: 25%;
       }
-      // Zutat
+      // ingredient
       td:nth-child(3) {
         width: 55%;
       }
-      // Entfernen
+      // clear cingredient
       td:nth-child(4) {
         width: 5%;
         color: $secondary-color;
       }
 
     }
+    // UserTEST Learnings: very deleting RED
+    .del-ingredient{
+      font-size: 2rem;
+      color: #CC2222;
+      vertical-align: bottom;
+    }
+
 
     /*------------ Recipe detail - view -------------------*/
 

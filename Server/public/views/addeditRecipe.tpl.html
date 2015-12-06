@@ -198,16 +198,15 @@
                                 <td>
                                     <div class="input-field">
                                         <input type="text" class="mdl-textfield__input" ng-model="ingredient.name"
-                                               id="ingredient-name" list="ingredientsList">
+                                               id="ingredient-name" list="ingredientsList" placeholder="Zutat">
                                         <datalist id="ingredientsList">
                                             <option ng-repeat="ingredient in ingredients" value="{{ingredient}}">
                                         </datalist>
-                                        <label for="ingredient-name" class="ingredient-label">Zutat</label>
                                     </div>
                                 </td>
                                 <td>
                                     <a href="" ng-click="addeditRecipeCtrl.deleteIngredient($index)"
-                                       class="right-align">[&times;]</a>
+                                       class="right-align">[<span class="del-ingredient">&times;</span>]</a>
                                 </td>
                             </tr>
                         </table>
