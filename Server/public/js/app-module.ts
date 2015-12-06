@@ -79,6 +79,12 @@ module fettyBossy {
             RATING_USER_1: 'User ',
             RATING_USER_2: ' wrote:',
 
+            ADD_EDIT_RATING_TITLE: 'Rate this recipe',
+            ADD_EDIT_RATING_SUBTITLE: 'in stars',
+            ADD_EDIT_RATING_COMMENT: 'Your comment',
+            ADD_EDIT_RATING_COMMENT_LABEL: 'Comment',
+            ADD_EDIT_RATING_BTN_SAVE: 'Save rating',
+
             SEARCH_RESULT_TITLE: 'Results',
             SEARCH_RESULT_LIST_HEAD_RECIPE: 'Recipe',
             SEARCH_RESULT_LIST_HEAD_RATING: 'Rating',
@@ -173,6 +179,12 @@ module fettyBossy {
             RATING_TITLE: 'Alle Bewertungen für: ',
             RATING_USER_1: 'Benutzer ',
             RATING_USER_2: ' schrieb:',
+
+            ADD_EDIT_RATING_TITLE: 'Bewerten Sie dieses Rezept',
+            ADD_EDIT_RATING_SUBTITLE: 'in Sternen',
+            ADD_EDIT_RATING_COMMENT: 'Ihr Kommentar',
+            ADD_EDIT_RATING_COMMENT_LABEL: 'Kommentar',
+            ADD_EDIT_RATING_BTN_SAVE: 'Rating Speichern',
 
             SEARCH_RESULT_TITLE: 'Erbegnisse',
             SEARCH_RESULT_LIST_HEAD_RECIPE: 'Rezept',

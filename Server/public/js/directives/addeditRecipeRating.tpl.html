@@ -1,9 +1,9 @@
 <div class="addeditRecipeRating">
     <div class="row">
         <div class="col s12 l6">
-            <h4>Bewerten Sie dieses Rezept</h4>
+            <h4 translate="ADD_EDIT_RATING_TITLE">Bewerten Sie dieses Rezept</h4>
 
-            <p>in Sternen</p>
+            <p translate="ADD_EDIT_RATING_SUBTITLE">in Sternen</p>
 
             <p class="range-field">
                 <label>1 </label>
@@ -12,14 +12,14 @@
             </p>
         </div>
         <div class="col s12 l6">
-            <h5>Ihr Kommentar</h5>
+            <h5 translate="ADD_EDIT_RATING_COMMENT">Ihr Kommentar</h5>
 
             <div class="input-field">
                 <textarea id="comment" ng-model="rating.comment"></textarea>
-                <label for="comment">Kommentar</label>
+                <label for="comment" translate="ADD_EDIT_RATING_COMMENT_LABEL">Kommentar</label>
             </div>
             <button class="btn blue right" type="button"
-                    ng-click="addeditRecipeRatingCtrl.save()">Rating Speichern
+                    ng-click="addeditRecipeRatingCtrl.save()" translate="ADD_EDIT_RATING_BTN_SAVE">Rating Speichern
             </button>
         </div>
     </div>
