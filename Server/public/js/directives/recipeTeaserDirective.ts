@@ -24,7 +24,7 @@ module fettyBossy.Directive {
 
                 switch ($scope.type) {
                     case $constants.recipeTeaser.newest:
-                        $scope.teaserTitle = "Neuestes Rezept";
+                        $scope.teaserTitle = "TEASER_TITLE_NEWEST";
 
                         var newest = $scope.recipes.sort(function (a:IRecipe, b:IRecipe) {
                             return b.dateCreated - a.dateCreated
@@ -32,12 +32,9 @@ module fettyBossy.Directive {
                         $scope.recipe = newest[0];
 
                         break;
-                    case $constants.recipeTeaser.week:
-                        $scope.teaserTitle = "Rezept der Woche";
-                        break;
                     case $constants.recipeTeaser.best:
                     default:
-                        $scope.teaserTitle = "Bestes Rezept";
+                        $scope.teaserTitle = "TEASER_TITLE_BEST";
                         var best = $scope.recipes.sort(function (a:IRecipe, b:IRecipe) {
                             return b.avgRating - a.avgRating
                         });
