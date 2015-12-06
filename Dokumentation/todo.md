@@ -10,7 +10,6 @@
 
 ## Martin
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
-- Toastr --> Style!
 - user test durchführen
 - multi lang
 
@@ -72,3 +71,4 @@
 - neuestes Rezept falsch
 - sort searchlist
 - Rezept löschen
+- Toastr --> Style!
