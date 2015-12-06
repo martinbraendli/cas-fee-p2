@@ -177,17 +177,24 @@ module fettyBossy.Services {
             this.$log.debug('Repository saveRating(' + rating + ')');
             var deffered = this.$q.defer();
 
-            this.$http.post(Repository.SAVE_RATING, rating).then((data) => {
-                var rating = <IRating>data.data;
+            this.$http.post(Repository.SAVE_RATING, rating).then(
+                // success
+                (data) => {
+                    var rating = <IRating>data.data;
 
-                var result = <ISaveRatingResult>{};
-                result.successful = true;
-                result.savedRating = rating;
+                    var result = <ISaveRatingResult>{};
+                    result.successful = true;
+                    result.savedRating = rating;
 
-                this.notifyListener();
+                    this.notifyListener();
 
-                deffered.resolve(rating);
-            });
+                    deffered.resolve(rating);
+                },
+                // error
+                (reason) => {
+                    deffered.reject(reason);
+                }
+            );
 
             return deffered.promise;
         }
