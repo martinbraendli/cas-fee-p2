@@ -1,5 +1,5 @@
 <div class="listRecipeRatings">
-    <h3>Alle Bewertungen für: '{{recipe.title}}'</h3>
+    <h3>{{'RATING_TITLE' | translate}} '{{recipe.title}}'</h3>
 
     <small>
         <fb-addedit-recipe-rating
@@ -13,10 +13,10 @@
         <ul class="collection">
             <li class="collection-item">
                 <div class="collection-header left-align">
-                    Benutzer "{{rating.userName}}" schrieb:<p><b>{{rating.comment}}</b></p>
+                    {{'RATING_USER_1' | translate}} "{{rating.userName}}" {{'RATING_USER_2' | translate}}<p><b>{{rating.comment}}</b></p>
                 </div>
                 <div class="right-align">
-                    <h6>Bewertung:</h6>
+                    <h6 translate="SEARCH_RATING_TITLE">Bewertung:</h6>
 
                 <span class="star-rating">
                  <i class="small material-icons">{{listRecipeRatingsCtrl.starName(rating, 1)}}</i>

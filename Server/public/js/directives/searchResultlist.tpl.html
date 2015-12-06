@@ -2,15 +2,12 @@
     <div>
         <a href="#/viewRecipe/{{recipe._id}}">{{recipe.title}}</a>
     </div>
-    <div ng-show="">
-        Die Suche hat keine Ergebnisse - nix zu essen
-    </div>
     <table class="resulttable">
         <thead>
         <th>&nbsp;</th>
-        <th><a ng-click="orderBy('title')">Rezept<i class="material-icons">{{orderName('title')}}</i></a></th>
-        <th><a ng-click="orderBy('avgRating')">Bewertung<i class="material-icons">{{orderName('avgRating')}}</i></a></th>
-        <th><a ng-click="orderBy('userName')">Author<i class="material-icons">{{orderName('userName')}}</i></a></th>
+        <th><a ng-click="orderBy('title')" translate="SEARCH_RESULT_LIST_HEAD_RECIPE">Rezept<i class="material-icons">{{orderName('title')}}</i></a></th>
+        <th><a ng-click="orderBy('avgRating')" translate="SEARCH_RESULT_LIST_HEAD_RATING">Bewertung<i class="material-icons">{{orderName('avgRating')}}</i></a></th>
+        <th><a ng-click="orderBy('userName')" translate="SEARCH_RESULT_LIST_HEAD_AUTHOR">Author<i class="material-icons">{{orderName('userName')}}</i></a></th>
         </thead>
         <tbody>
         <tr ng-repeat="recipe in (filteredLimitedRecipes = (filteredRecipes = (recipes | orderBy: recipeFilter.orderBy : recipeFilter.orderAsc   | SearchRecipeFilter: recipeFilter) | limitTo : maxRecipes : 0))">
@@ -35,14 +32,14 @@
         </tr>
         <tr ng-show="filteredRecipes.length > maxRecipes">
             <td>
-                Mehr als {{maxRecipes}} Rezepte gefunden
+                {{'SEARCH_RESULT_LIST_FOUND_MORE_1' | translate}}{{maxRecipes}}{{'SEARCH_RESULT_LIST_FOUND_MORE_2' | translate}}
             </td>
             <td colspan="3">
                 <button class="btn orange right-align" ng-click="showMoreRecipes()">weitere 10 anzeigen</button>
             </td>
         </tr>
         <tr ng-show="filteredRecipes.length == 0">
-            <td colspan="4">
+            <td colspan="4" translate="SEARCH_RESULT_LIST_NO_ENTRIES">
                 Keine Rezepte zum gesetzten Filter gefunden
             </td>
         </tr>

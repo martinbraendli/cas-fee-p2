@@ -3,14 +3,14 @@
         <form id="addeditRecipeForm" name="addeditRecipeForm">
             <div class="row title-bg">
                 <div class="col s12 l12">
-                    <h3 class="" ng-show="addeditRecipeCtrl.recipe._id">Rezept bearbeiten</h3>
-                    <h3 class="" ng-hide="addeditRecipeCtrl.recipe._id">Rezept hinzufügen</h3>
+                    <h3 class="" ng-show="addeditRecipeCtrl.recipe._id" translate="EDIT_RECIPE_TITLE_EDIT">Rezept bearbeiten</h3>
+                    <h3 class="" ng-hide="addeditRecipeCtrl.recipe._id" translate="EDIT_RECIPE_TITLE_ADD">Rezept hinzufügen</h3>
                     <button class="btn right" type="button"
                             ng-disabled="addeditRecipeForm.$invalid || !addeditRecipeCtrl.recipe.images || addeditRecipeCtrl.recipe.images.length <= 0"
-                            ng-click="addeditRecipeCtrl.save()">Menu Speichern
+                            ng-click="addeditRecipeCtrl.save()" translate="EDIT_RECIPE_BTN_SAVE">Menu speichern
                     </button>
                     <button class="btn right cancel" type="button"
-                            ng-click="addeditRecipeCtrl.cancel()">Abbrechen
+                            ng-click="addeditRecipeCtrl.cancel()" translate="EDIT_RECIPE_BTN_CANCEL">Abbrechen
                     </button>
                 </div>
             </div>
@@ -20,15 +20,15 @@
                 <div class="col s12 m12 l5 pixupload card text-darken-2">
                         <span class="clearfix form-title">
                              <i class="material-icons medium left ">picture_in_picture</i>
-                            <h4 class="right-align ">1. Foto</h4>
+                            <h4 class="right-align " translate="EDIT_RECIPE_PHOTO">1. Foto</h4>
                         </span>
                     <div class="divider"></div>
-                    <p>Bitte mindestens ein Photo hochladen. Danke!</p>
+                    <p translate="EDIT_RECIPE_PHOTO_MISSING">Bitte mindestens ein Photo hochladen. Danke!</p>
                     <img ng-show="!addeditRecipeCtrl.recipe.images" class="recipe-img" src="pictures/empty_plate.jpg">
 
                     <div ng-repeat="image in addeditRecipeCtrl.recipe.images">
                         <img class="recipe-img" ng-src="{{image.src}}"/>
-                        <button class="btn right" ng-click="addeditRecipeCtrl.removeImage($index)">löschen</button>
+                        <button class="btn right" ng-click="addeditRecipeCtrl.removeImage($index)" translate="EDIT_RECIPE_BTN_DELETE">löschen</button>
                     </div>
                     <br/>
                     <fb-file-upload recipe="addeditRecipeCtrl.recipe"></fb-file-upload>
@@ -39,7 +39,7 @@
                 <div class="col s12 m12 l6 right card text-accent-3 recipe-name">
                         <span class="clearfix form-title">
                             <i class="material-icons medium left">receipt</i>
-                            <h4 class="right-align ">2. Rezeptname</h4>
+                            <h4 class="right-align " translate="EDIT_RECIPE_NAME">2. Rezeptname</h4>
                         </span>
 
                     <div class="divider"></div>
@@ -49,8 +49,8 @@
                                 <i class="material-icons orange-text prefix small form-title">mode_edit</i>
                                 <input type="text" ng-model="addeditRecipeCtrl.recipe.title" id="recipename"
                                        name="recipename" required/>
-                                <label for="recipename">Name des Rezepts</label>
-                                <span class="error" ng-show="addeditRecipeForm.recipename.$error.required">Bitte eine Beschreibung erfassen</span>
+                                <label for="recipename" translate="EDIT_RECIPE_NAME_LABEL">Name des Rezepts</label>
+                                <span class="error" ng-show="addeditRecipeForm.recipename.$error.required" translate="EDIT_RECIPE_NAME_LABEL_MISSING">Bitte eine Beschreibung erfassen</span>
                             </div>
                         </div>
                         <div class="row">
@@ -60,17 +60,17 @@
                                                   id="menu-description"
                                                   name="menudescription"
                                                   ng-model="addeditRecipeCtrl.recipe.description" required></textarea>
-                                <label for="menu-description">Beschreibung des Menus in ein paar Sätzen</label>
-                                <span class="error" ng-show="addeditRecipeForm.menudescription.$error.required">Bitte alle Angaben vollständig ausfüllen</span>
+                                <label for="menu-description" translate="EDIT_RECIPE_DESCR_LABEL">Beschreibung des Menus in ein paar Sätzen</label>
+                                <span class="error" ng-show="addeditRecipeForm.menudescription.$error.required" translate="EDIT_RECIPE_DESCR_LABEL_MISSING">Bitte alle Angaben vollständig ausfüllen</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s6">
-                                <h6>Personen</h6>
+                                <h6 translate="EDIT_RECIPE_PERSON">Personen</h6>
                             </div>
                             <div class="col s6">
                                 <select ng-model="addeditRecipeCtrl.recipe.numPerson" class="browser-default">
-                                    <option value="" disabled selected>Anzahl Personen</option>
+                                    <option value="" disabled selected translate="EDIT_RECIPE_PERSON_INPUT">Anzahl Personen</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -82,47 +82,47 @@
                         </div>
                         <div class="row">
                             <div class="col s6 ">
-                                <h6>Kategorie</h6>
+                                <h6 translate="EDIT_RECIPE_CATEGORY">Kategorie</h6>
                             </div>
                             <div class=" col s6">
                                 <select ng-model="addeditRecipeCtrl.recipe.category" class="browser-default">
-                                    <option value="" disabled selected>Rezeptkategorie</option>
-                                    <option value="vorspeise">Vorspeise</option>
-                                    <option value="hauptspeise">Hauptgang</option>
-                                    <option value="dessert">Dessert</option>
-                                    <option value="snack">Snack</option>
+                                    <option value="" disabled selected translate="EDIT_RECIPE_CATEGORY">Rezeptkategorie</option>
+                                    <option value="vorspeise" translate="CATEGORY_APPETIZER">Vorspeise</option>
+                                    <option value="hauptspeise" translate="CATEGORY_MAIN">Hauptgang</option>
+                                    <option value="dessert" translate="CATEGORY_DESSERT">Dessert</option>
+                                    <option value="snack" translate="CATEGORY_SNACK">Snack</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s6">
-                                <h6>Backzeit</h6>
+                                <h6 translate="EDIT_RECIPE_BAKING_TIME">Backzeit</h6>
                             </div>
                             <div class="col s6">
                                 <select ng-model="addeditRecipeCtrl.recipe.bakingTime" class="browser-default">
-                                    <option value="" disabled selected>Backzeit</option>
-                                    <option value="0">Keine Backzeit</option>
-                                    <option value="10">10 -20 min</option>
-                                    <option value="20">20 -30 min</option>
-                                    <option value="30">30 -40 min</option>
-                                    <option value="40">40 -50 min</option>
+                                    <option value="" disabled selected translate="EDIT_RECIPE_BAKING_TIME">Backzeit</option>
+                                    <option value="0" translate="EDIT_RECIPE_BAKING_TIME_NO">Keine Backzeit</option>
+                                    <option value="10">10 - 20 min</option>
+                                    <option value="20">20 - 30 min</option>
+                                    <option value="30">30 - 40 min</option>
+                                    <option value="40">40 - 50 min</option>
                                     <option value="50">60 + min</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s6">
-                                <h6>Zubereitungszeit</h6>
+                                <h6 translate="EDIT_RECIPE_PREPARATION_TIME">Zubereitungszeit</h6>
                             </div>
                             <div class="col s6">
                                 <select ng-model="addeditRecipeCtrl.recipe.preparationTime" class="browser-default">
-                                    <option value="" disabled selected>Zubereitungszeit</option>
-                                    <option value="0">ganz kurz</option>
-                                    <option value="10">10 -20 min</option>
-                                    <option value="20">20 -30 min</option>
-                                    <option value="30">30 -40 min</option>
-                                    <option value="40">40 -50 min</option>
-                                    <option value="50">60 + min</option>
+                                    <option value="" disabled selected translate="EDIT_RECIPE_PREPARATION_TIME">Zubereitungszeit</option>
+                                    <option value="0" translate="EDIT_RECIPE_PREPARATION_TIME_SHORT">ganz kurz</option>
+                                    <option value="10">10 - 20 min</option>
+                                    <option value="20">20 - 30 min</option>
+                                    <option value="30">30 - 40 min</option>
+                                    <option value="40">40 - 50 min</option>
+                                    <option value="50">60+ min</option>
                                 </select>
                             </div>
                         </div>
@@ -134,21 +134,21 @@
                 <div class="col s12 m12 l5 left card text-accent-3 recipe-name">
                         <span class="form-title clearfix">
                             <i class="material-icons medium left">view_list</i>
-                            <h4 class="right-align">4. Zubereitung</h4>
+                            <h4 class="right-align" translate="EDIT_RECIPE_PREPARATION">4. Zubereitung</h4>
                         </span>
                     <div class="divider"></div>
-                    <p>Beschreibe hier <strong>Schritt für Schritt</strong> den Ablauf des Rezeptes</p>
+                    <p translate="EDIT_RECIPE_PREPARATION_TEXT">Beschreibe hier <strong>Schritt für Schritt</strong> den Ablauf des Rezeptes</p>
                     <div class="row">
                         <div ng-repeat="preparationStep in addeditRecipeCtrl.recipe.preparationSteps">
                             <div class="input-field col s12">
                             <textarea rows="3" class="materialize-textarea" id="menustep"
                                       ng-model="preparationStep.text"></textarea>
-                                <label for="menustep">{{preparationStep.position}}. Schritt</label>
+                                <label for="menustep">{{preparationStep.position}}. {{'VIEW_RECIPE_PREP_STEP' | translate}}</label>
                             </div>
                         </div>
                         <br/>
                         <button class="btn right"
-                                ng-click="addeditRecipeCtrl.addPreparationStep()">Naechster Schritt
+                                ng-click="addeditRecipeCtrl.addPreparationStep()" translate="EDIT_RECIPE_PREPARATION_NEXT_STEP">Naechster Schritt
                         </button>
                     </div>
                 </div>
@@ -159,19 +159,19 @@
                 <div class="col s12 m12 l6 right card text-accent-3 recipe-name">
                         <span class="form-title clearfix">
                              <i class="material-icons medium left">play_for_work</i>
-                             <h4 class="right-align">3. Zutaten</h4>
+                             <h4 class="right-align" translate="EDIT_RECIPE_INGREDIENTS">4. Zutaten</h4>
                         </span>
                     <div class="divider"></div>
-                    <p>Nenne alle notwendigen <strong>Zutaten</strong> für des Rezeptes</p>
+                    <p translate="EDIT_RECIPE_INGREDIENTS_TEXT">Nenne alle notwendigen <strong>Zutaten</strong> für des Rezeptes</p>
                     <br />
                     <div class="row">
                         <table class="table-ingredients">
                             <thead>
                             <tr>
-                                <td>Menge</td>
-                                <td>Einheit</td>
-                                <td>Zutat</td>
-                                <td>Löschen</td>
+                                <td translate="EDIT_RECIPE_INGREDIENT_AMOUNT">Menge</td>
+                                <td translate="EDIT_RECIPE_INGREDIENT_UNIT">Einheit</td>
+                                <td translate="EDIT_RECIPE_INGREDIENT">Zutat</td>
+                                <td translate="EDIT_RECIPE_BTN_DELETE">Löschen</td>
                             </tr>
                             </thead>
                             <tr ng-repeat="ingredient in addeditRecipeCtrl.recipe.ingredients">
@@ -179,12 +179,11 @@
                                     <div class="ingredient-count input-field ">
                                         <input class="mdl-textfield__input" type="number" id="ingredient-type" min="0" step="1"
                                                ng-model="ingredient.denomination"/>
-                                        <!--<label class="ingredient-label" for="ingredient-type">Anzahl</label>-->
                                     </div>
                                 </td>
                                 <td>
                                     <select ng-model="ingredient.unit" class="browser-default">
-                                        <option value="" disabled selected>Einheit</option>
+                                        <option value="" disabled selected translate="EDIT_RECIPE_INGREDIENT_UNIT">Einheit</option>
                                         <option>EL</option>
                                         <option>TL</option>
                                         <option>Prise</option>
@@ -202,6 +201,7 @@
                                         <datalist id="ingredientsList">
                                             <option ng-repeat="ingredient in ingredients" value="{{ingredient}}">
                                         </datalist>
+                                        <label for="ingredient-name" class="ingredient-label" translate="EDIT_RECIPE_INGREDIENT">Zutat</label>
                                     </div>
                                 </td>
                                 <td>
@@ -212,7 +212,7 @@
                         </table>
                         <br/>
                         <button class="btn right"
-                                ng-click="addeditRecipeCtrl.addIngredient()">weitere Zutaten
+                                ng-click="addeditRecipeCtrl.addIngredient()" translate="EDIT_RECIPE_INGREDIENT_ADD">weitere Zutaten
                         </button>
                     </div>
                 </div>
@@ -221,10 +221,10 @@
                 <div class="col s12 l12">
                     <button class="btn right" type="button"
                             ng-disabled="addeditRecipeForm.$invalid"
-                            ng-click="addeditRecipeCtrl.save()">Menu Speichern
+                            ng-click="addeditRecipeCtrl.save()" translate="EDIT_RECIPE_BTN_SAVE">Menu Speichern
                     </button>
                     <button class="btn right cancel" type="button"
-                            ng-click="addeditRecipeCtrl.cancel()">Abbrechen
+                            ng-click="addeditRecipeCtrl.cancel()" translate="EDIT_RECIPE_BTN_CANCEL">Abbrechen
                     </button>
                 </div>
             </div>
