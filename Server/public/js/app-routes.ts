@@ -42,7 +42,7 @@ module fettyBossy {
                                 },
                                 // error, show error
                                 (error) => {
-                                    MessageService.setMessage("Fehler beim Laden des Rezepts",
+                                    MessageService.setMessage("ERROR_LOAD_RECIPE",
                                         fettyBossy.Services.SEVERITY_ERROR,
                                         error.status + " " + error.statusText);
                                     $location.path("/searchRecipe");
@@ -67,7 +67,7 @@ module fettyBossy {
                                 },
                                 // error, show error
                                 (error) => {
-                                    MessageService.setMessage("Fehler beim Laden der Bewertungen",
+                                    MessageService.setMessage("ERROR_LOAD_RATING",
                                         fettyBossy.Services.SEVERITY_ERROR,
                                         error.status + " " + error.statusText);
                                     $location.path("/searchRecipe");
@@ -120,7 +120,7 @@ module fettyBossy {
                             $log.debug("app-routes: resolve for '/addRecipe' params");
 
                             if (!SessionService.getUser()) {
-                                MessageService.setMessage("Nicht eingeloggt!", fettyBossy.Services.SEVERITY_WARN, "");
+                                MessageService.setMessage("ERROR_NOT_LOGGED_IN", fettyBossy.Services.SEVERITY_WARN, "");
                                 // not logged in, redirect to login
                                 $location.path("/");
                                 return;
@@ -156,7 +156,7 @@ module fettyBossy {
                                 },
                                 // error, show error
                                 (error) => {
-                                    MessageService.setMessage("Fehler beim Laden von Rezepten",
+                                    MessageService.setMessage("ERROR_LOAD_RECIPES",
                                         fettyBossy.Services.SEVERITY_ERROR,
                                         error.status + " " + error.statusText);
                                 }
@@ -199,7 +199,7 @@ module fettyBossy {
                                 },
                                 // error, show error
                                 (error) => {
-                                    MessageService.setMessage("Fehler beim Laden von Rezepten",
+                                    MessageService.setMessage("ERROR_LOAD_RECIPES",
                                         fettyBossy.Services.SEVERITY_ERROR,
                                         error.status + " " + error.statusText);
                                 }
