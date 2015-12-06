@@ -29,9 +29,13 @@ module fettyBossy.Services {
     class Message implements IMessageService {
         listener = [];
 
-        public static $inject = [$injects.$log, $injects.toastr];
+        public static $inject = [$injects.$log,
+            $injects.toastr,
+            $injects.$translate];
 
-        constructor(private $log:ng.ILogService, private $toastr) {
+        constructor(private $log:ng.ILogService,
+                    private $toastr,
+                    private $translate) {
             this.$log.debug('Message constructor');
         }
 
@@ -51,23 +55,28 @@ module fettyBossy.Services {
                 };
             }
 
-            switch (message.severity) {
-                case fettyBossy.Services.SEVERITY_ERROR:
-                    this.$log.error(message.text + "(" + details + ")");
-                    this.$toastr.error(message.text);
-                    break;
-                case fettyBossy.Services.SEVERITY_WARN:
-                    this.$log.warn(message.text + "(" + details + ")");
-                    this.$toastr.warning(message.text);
-                    break;
-                case fettyBossy.Services.SEVERITY_INFO:
-                    this.$log.info(message.text + "(" + details + ")");
-                    this.$toastr.success(message.text);
-                    break;
-                default:
-                    //noop;
-                    break;
-            }
+            var $log = this.$log;
+            var $toastr = this.$toastr;
+
+            this.$translate(message.text).then(function (text) {
+                switch (message.severity) {
+                    case fettyBossy.Services.SEVERITY_ERROR:
+                        $log.error(message.text + "(" + details + ")");
+                        $toastr.error(text);
+                        break;
+                    case fettyBossy.Services.SEVERITY_WARN:
+                        $log.warn(message.text + "(" + details + ")");
+                        $toastr.warning(text);
+                        break;
+                    case fettyBossy.Services.SEVERITY_INFO:
+                        $log.info(message.text + "(" + details + ")");
+                        $toastr.success(text);
+                        break;
+                    default:
+                        //noop;
+                        break;
+                }
+            });
         }
     }
 
@@ -75,9 +84,9 @@ module fettyBossy.Services {
         .service($injects.services.messageService, Message);
 
     angular.module($injects.fettyBossy)
-        .config(function(toastrConfig) {
-        angular.extend(toastrConfig, {
-            target: '#toast-container'
+        .config(function (toastrConfig) {
+            angular.extend(toastrConfig, {
+                target: '#toast-container'
+            });
         });
-    });
 }
