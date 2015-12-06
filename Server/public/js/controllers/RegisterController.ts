@@ -38,12 +38,12 @@ module fettyBossy.Controllers {
                     if (result.successful) {
                         registerError = null;
                         sessionService.setUser(result.registeredUser);
-                        messageService.setMessage("Benutzer erfolgreich registriert.", fettyBossy.Services.SEVERITY_INFO, "");
+                        messageService.setMessage("USER_REGISTER_OK", fettyBossy.Services.SEVERITY_INFO, "");
 
                         $location.path("/viewUser/" + result.registeredUser._id);
                     } else {
                         registerError = result.message;
-                        messageService.setMessage("Fehler: " + result.message, fettyBossy.Services.SEVERITY_ERROR, "");
+                        messageService.setMessage("USER_REGISTER_FAILED", fettyBossy.Services.SEVERITY_ERROR, result.message);
                     }
                 });
 

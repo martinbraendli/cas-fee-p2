@@ -46,7 +46,7 @@ module fettyBossy.Controllers {
                     this.$location.path('/searchRecipe');
                 })
                 .error((data, status, header, config)=> {
-                    messageService.setMessage("Login fehlgeschlagen", fettyBossy.Services.SEVERITY_ERROR, "");
+                    messageService.setMessage("ERROR_LOGIN_FAILED", fettyBossy.Services.SEVERITY_ERROR, "");
                 });
 
             return true;

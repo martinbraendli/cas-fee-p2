@@ -36,14 +36,17 @@ module fettyBossy.Controllers {
             var route = this.$route;
 
             this.repository.saveRating(this.$scope.rating)
-                .then(function (result:fettyBossy.Services.ISaveRatingResult) {
-                    if (result.successful) {
-                        messageService.setMessage("Bewertung erfolgreich gespeichert", fettyBossy.Services.SEVERITY_INFO, "");
+                .then(
+                    // success
+                    () => {
+                        messageService.setMessage("RATING_SAVE_OK", fettyBossy.Services.SEVERITY_INFO, "");
                         route.reload(); // rerender current page
-                    } else {
-                        messageService.setMessage("Bewertung konnte nicht gespeichert werden", fettyBossy.Services.SEVERITY_ERROR, "");
+                    },
+                    // error
+                    () => {
+                        messageService.setMessage("RATING_SAVE_FAILED", fettyBossy.Services.SEVERITY_ERROR, "");
                     }
-                });
+                );
         }
     }
 
