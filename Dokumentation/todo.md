@@ -11,6 +11,7 @@
 ## Martin
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
 - user test durchführen
+- Nach Edit Recipe: +1 Zutat, +1 Step; wenn man ein Rezept editiert, kommt immer ein weiterer Step und eine Zutat dazu
 
 # Closed
 
@@ -72,3 +73,4 @@
 - Rezept löschen
 - Toastr --> Style!
 - multi lang
+- Safe Password: Error bei neuen User. Passwort ändern hat bei neuen Usern fehler gegeben. 

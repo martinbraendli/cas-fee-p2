@@ -16,7 +16,7 @@ module.exports = (function () {
     var router = express.Router();
 
     router.get("/:recipeId/", ratingCtrl.getRatings);
-    router.post("/", ratingCtrl.saveRating);
+    router.post("/", authCtrl.requiredAuthentication, ratingCtrl.saveRating);
 
     return router;
 })();

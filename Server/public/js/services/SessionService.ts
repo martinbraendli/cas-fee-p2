@@ -27,7 +27,7 @@ module fettyBossy.Services {
 
         constructor(private $log:ng.ILogService) {
             this.$log.debug('Session constructor');
-            var localUser = localStorage.getItem("user");
+            var localUser = window.sessionStorage.getItem("user");
             if (localUser) {
                 this.user = JSON.parse(localUser);
             }
@@ -36,7 +36,7 @@ module fettyBossy.Services {
         setUser(user:fettyBossy.Data.IUser) {
             this.$log.debug('Session setUser("' + user + '")');
             this.user = user;
-            localStorage.setItem("user", JSON.stringify(user));
+            window.sessionStorage.setItem("user", JSON.stringify(user));
         }
 
         getUser():fettyBossy.Data.IUser {
