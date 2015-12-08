@@ -9,3 +9,4 @@
 ///<reference path="SearchFormDirective.ts" />
 ///<reference path="SearchResultlistDirective.ts" />
 ///<reference path="UserDetailsDirective.ts" />
+///<reference path="FooterDirective.ts" />

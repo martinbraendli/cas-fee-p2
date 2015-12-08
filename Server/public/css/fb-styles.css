@@ -650,7 +650,7 @@ body {
               transform: translateY(250%) !important;
       color: #44AA44; }
 
-/* ----------------VIEW Search Recipe -----*/
+/* ----------------VIEW Search Recipe ----------------*/
 .searchRecipe {
   background: #F2F2F2; }
   .searchRecipe .title-bg {
@@ -671,7 +671,12 @@ body {
   min-height: 20rem; }
 
 #recipeSearchInput {
-  width: 55%; }
+  width: 93%; }
+
+.input-field label {
+  color: #0059bc; }
+  .input-field label.active {
+    color: #FFF !important; }
 
 .foodcategory ul {
   padding-left: 2rem;
