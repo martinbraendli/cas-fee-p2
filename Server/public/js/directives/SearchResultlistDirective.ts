@@ -41,9 +41,9 @@ module fettyBossy.Directive {
 
                 $scope.starName = function (rating:IRating, starNumber:number):string {
                     if (rating >= starNumber) {
-                        return "star_border";
+                        return "star";
                     }
-                    return "star";
+                    return "star_border";
                 };
 
                 /**

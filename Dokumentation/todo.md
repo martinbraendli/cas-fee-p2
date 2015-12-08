@@ -72,3 +72,5 @@
 - Rezept löschen
 - Toastr --> Style!
 - multi lang
+- Safe Password: Error bei neuen User. Passwort ändern hat bei neuen Usern fehler gegeben. 
+- Nach Edit Recipe: +1 Zutat, +1 Step; wenn man ein Rezept editiert, kommt immer ein weiterer Step und eine Zutat dazu

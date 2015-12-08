@@ -27,8 +27,12 @@ module fettyBossy.Controllers {
             this.$log.debug('AddeditRecipeController constructor');
 
             this.recipe = recipe;
-            this.addPreparationStep(); // add initial step
-            this.addIngredient(); // add initial ingredient
+            if (!this.recipe.preparationSteps) {
+                this.addPreparationStep(); // add initial step
+            }
+            if (!this.recipe.ingredients) {
+                this.addIngredient(); // add initial ingredient
+            }
 
             $scope.ingredients = fettyBossy.Data.Ingredients;
         }
