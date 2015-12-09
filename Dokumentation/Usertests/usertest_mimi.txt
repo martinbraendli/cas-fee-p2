@@ -2,11 +2,11 @@ Usertests
 
 Zielgruppen Persona
 -------------------
-Geschlecht: Männlich und Weiblich
-Alter: zwischen 20 und 50
-Technische Affinität: routiniert in der Bedienung von Apps und aktive Webseitenbenutung
+Geschlecht: Weiblich
+Alter: 30
+Technische Affinität: Frontend Entwicklerin
 Sprache: Deutsch
-Device: PC und Tablet
+Device: PC
 
 
 Vorgehen:
@@ -46,7 +46,10 @@ Erwartungen ():
 
 Acceptable Case:
 
-- Die Testperson fragt nach, bei Unklarheiten
+
+
+
+
 
 
 
@@ -54,10 +57,18 @@ Beobachtungen:
 --------------
 
 (in Prosa erfassen)
+- findet kein auslogg-button
+- vermisst multiple -choice (shift) Funktionalität
+- bemerkt "next steps" nicht (liest die beschreibung nicht)
+- "Backzeit" führt zu verwirrung.
+- nur integer Einheiten bei Zutaten. Möchte halbe eingeben.
+- toast text/ Line-Hight ist zu hoch bei rating speichern
+
 
 Feedback der Testperson:
 ------------------------
-
+- Lob: Mag die funktionnalität mehrere Personen!
+- Lob2: Eigenes Rating kann man bearbeiten.
 (in Prosa erfassen)
 
 
