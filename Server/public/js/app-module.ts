@@ -274,7 +274,7 @@ module fettyBossy {
             ADD_EDIT_RATING_COMMENT_LABEL: 'Kommentar',
             ADD_EDIT_RATING_BTN_SAVE: 'Rating Speichern',
 
-            SEARCH_RESULT_TITLE: 'Erbegnisse',
+            SEARCH_RESULT_TITLE: 'Ergebnisse',
             SEARCH_RESULT_LIST_HEAD_RECIPE: 'Rezept',
             SEARCH_RESULT_LIST_HEAD_RATING: 'Bewertung',
             SEARCH_RESULT_LIST_HEAD_AUTHOR: 'Author',
