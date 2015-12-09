@@ -5,6 +5,7 @@
  */
 
 var ratingCtrl = require('../controller/ratingController.js');
+var authCtrl = require('../controller/authController.js');
 
 /**
  * Recipe routes
