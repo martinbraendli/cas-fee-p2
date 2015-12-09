@@ -8,9 +8,9 @@ module fettyBossy.Directive {
 
     angular
         .module($injects.fettyBossy)
-        .directive('fbFooter', menu);
+        .directive('fbFooter', footer);
 
-    function menu():ng.IDirective {
+    function footer():ng.IDirective {
         return {
             restrict: 'E',
             scope: {},
