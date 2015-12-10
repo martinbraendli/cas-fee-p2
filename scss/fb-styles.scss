@@ -26,7 +26,7 @@ body {
   background: lightcyan;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   //font-size: 16px;
-  line-height: 18px;
+ // line-height: 18px;
   font-weight: 300;
 
   h2{
@@ -55,10 +55,15 @@ body {
     line-height: 1.4rem;
   }
   textarea{
-    color: #1565C0;
-    font-size: 1.5rem;
+    color: $secondary-color;
+    font-size: 1.3rem;
     letter-spacing: 0.05rem;
-    line-height: 1.6rem;
+    line-height: 1.2rem;
+  }
+
+  select{
+    border:1px solid #888;
+    background: #f1fafa;
   }
 
 }
@@ -67,7 +72,7 @@ body {
   clear: both;
 }
 
-// resets
+// -------------resets and custom overwrites
 .container{
   width:100%;
   padding: 0;
@@ -83,6 +88,13 @@ body {
   font-weight: 300;
   line-height: 21px;
 }
+
+.card-title{
+  padding-left: 1rem;
+  text-align: center;
+}
+
+
 
 // fb-menu top
 
@@ -152,7 +164,6 @@ body {
     //border: 1px dotted #999;
     text-align: center;
     font-size: 1.5rem;
-    //border-radius: 5px;
   }
 }
 
@@ -218,8 +229,8 @@ body {
     &.active {
       font-size: 1.2rem;
       //transform: translateY(-150%) !important;
-      transform: translateY(-150%) !important;
-      color: #1565C0;
+      //transform: translateY(-150%) !important;
+      color: $focus-color;
     }
   }
 
@@ -250,8 +261,18 @@ body {
       font-weight: 100;
       color: #81d4fa;
     }
+
   }
 }
+
+
+.resulttable{
+  th{
+    cursor: pointer
+  }
+
+}
+
 
 #searchbox {
   //margin-left: 0.75rem !important;
@@ -269,11 +290,11 @@ body {
   width: 93%;
 }
 .input-field label{
-  color: #0059bc;
+  color: #555;
   &.active{
-    //transform:  translateX(80%) !important;
-    //transform:  translateY(-50%) !important;
-    color: #FFF!important;
+    transform:  translateX(100%) !important;
+    transform:  translateY(-80%) !important;
+    color: $success-color-hover!important;
   }
 }
 
@@ -302,7 +323,7 @@ body {
 /*------------ Recipe detail - add & edit ----------------*/
 
 .editRecipe {
-  background: #FFF;
+  background: #FaFaFa;
   .title-bg {
     background: $bgcolor-blue;
     color: #FFF;
@@ -330,7 +351,7 @@ body {
       font-size: 1.3rem;
       transform: translateY(-150%), translateX(40%) !important;
       //transform:  !important;
-      color: $secondary-color;
+      color: $success-color-hover;
     }
   }
 
@@ -433,9 +454,10 @@ body {
   }
 
 }
+
 // UserTEST Learnings: very deleting RED
 .del-ingredient{
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #CC2222;
   vertical-align: bottom;
 }
@@ -444,7 +466,7 @@ body {
 /*------------ Recipe detail - view -------------------*/
 
 .viewrecipe {
-  background: #FFF;
+  background: #FaFaFa;
   .title-bg {
     background: $bgcolor-blue;
     color: #FFF;
@@ -568,14 +590,18 @@ body {
   textarea {
     height: 5rem;
   }
-}
-.star-rating {
-  display: inline;
-  color: $primary-color;
-  i {
-    padding-left: 15px;
+  .star-rating {
+    display: inline;
+    color: $primary-color;
+    i {
+      padding-left: 15px;
+    }
   }
+
+
+
 }
+
 
 .range-field {
   //font-size: 1.2rem;
@@ -584,14 +610,55 @@ body {
     padding: 5px;
     font-size: 1.3rem;
   }
+  .thumb {
+    margin-left: 15px !important;
+    padding: 1px 10px 3px 10px;
+    border: 1px solid $success-color-hover;
+    border-radius: 50%;
+    color: $success-color-hover;
+    font-size: 1.3rem;
+  }
+  // star icon
+  & span{
+    background: $primary-color;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    background: #333;
+  }
+  .icon-rating{
+
+
+    padding: 12px;
+  }
 }
 
-.thumb {
-  margin-left: 16px !important;
-  padding: 1px 10px 3px 10px;
-  border: 1px solid $success-color-hover;
-  border-radius: 50%;
-  color: $success-color-hover;
-  font-size: 1.3rem;
-}
 
+
+
+
+
+
+/*-----------Footer styles ---------------------------*/
+
+footer{
+  width: 100%;
+  bottom: 0;
+  &.row{
+    margin-bottom: 0;
+  }
+
+  &.page-footer{
+    p{
+      font-size: 1rem;
+      line-height: 1rem;
+    }
+    a:hover{
+      color: #a33;
+    }
+    background-color: #424242;
+
+  }
+  &.footer-copyright{
+    background-color: $primary-color-dark;
+  }
+}

@@ -24,9 +24,9 @@
         </div>
 
         <div class="input-field">
-            <label for="registerPassword" translate="LOGIN_PW">Passwort</label>
             <input type="password" id="registerPassword" name="registerPassword"
                    ng-model="user.password" required/>
+            <label for="registerPassword" translate="LOGIN_PW">Passwort</label>
             <div ng-show="registerForm.$submitted || registerForm.registerEmail.$dirty || registerCtrl.registerEror">
                 <div ng-show="registerForm.registerPassword.$error.required" translate="MISSING_PW">Bitte geben Sie ein Passwort ein.</div>
             </div>
@@ -34,7 +34,6 @@
                 <div>{{registerCtrl.registerError}}</div>
             </div>
         </div>
-        <hr />
         <div class="row">
             <div class="col s12">
                 <button type="submit" class="btn amber darken-2 white-text waves-effect right"

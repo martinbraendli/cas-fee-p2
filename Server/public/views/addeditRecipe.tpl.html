@@ -17,11 +17,13 @@
             <!--first row-->
             <div class="row">
                 <!--FOTO UPLOAD -->
-                <div class="col s12 m12 l5 pixupload card text-darken-2">
-                        <span class="clearfix form-title">
-                             <i class="material-icons medium left ">picture_in_picture</i>
-                            <h4 class="right-align " translate="EDIT_RECIPE_PHOTO">1. Foto</h4>
-                        </span>
+                <div class="col s12 m12 l6 pixupload card text-darken-2">
+                    <span class="clearfix form-title">
+                         <i class="material-icons medium left ">picture_in_picture</i>
+                        <h4 class="right-align " translate="EDIT_RECIPE_PHOTO">1. Foto</h4>
+                    </span>
+                    <br />
+                    <br />
                     <div class="divider"></div>
                     <p translate="EDIT_RECIPE_PHOTO_MISSING">Bitte mindestens ein Photo hochladen. Danke!</p>
                     <img ng-show="!addeditRecipeCtrl.recipe.images" class="recipe-img" src="pictures/empty_plate.jpg">
@@ -32,16 +34,19 @@
                     </div>
                     <br/>
                     <fb-file-upload recipe="addeditRecipeCtrl.recipe"></fb-file-upload>
+                    <p>Ein weiteres Photo?</p>
+                    <br/>
                 </div>
                 <!--<div class="col l2">&nbsp;</div>-->
                 <!--right side: Add Recipe-->
                 <!--REZEPT NAME -->
-                <div class="col s12 m12 l6 right card text-accent-3 recipe-name">
+                <div class="col s12 m12 l5 right card text-accent-3 recipe-name">
                         <span class="clearfix form-title">
                             <i class="material-icons medium left">receipt</i>
                             <h4 class="right-align " translate="EDIT_RECIPE_NAME">2. Rezeptname</h4>
                         </span>
-
+                        <br />
+                        <br />
                     <div class="divider"></div>
                     <form class="recipe-form">
                         <div class="row">
@@ -65,10 +70,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col s6">
+                            <div class="col s4 m4 l4">
                                 <h6 translate="EDIT_RECIPE_PERSON">Personen</h6>
                             </div>
-                            <div class="col s6">
+                            <div class="col s8 m8 l8">
                                 <select ng-model="addeditRecipeCtrl.recipe.numPerson" class="browser-default">
                                     <option value="" disabled selected translate="EDIT_RECIPE_PERSON_INPUT">Anzahl Personen</option>
                                     <option>1</option>
@@ -81,10 +86,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col s6 ">
+                            <div class="col  s4 m4 l4">
                                 <h6 translate="EDIT_RECIPE_CATEGORY">Kategorie</h6>
                             </div>
-                            <div class=" col s6">
+                            <div class=" col s8 m8 l8">
                                 <select ng-model="addeditRecipeCtrl.recipe.category" class="browser-default">
                                     <option value="" disabled selected translate="EDIT_RECIPE_CATEGORY">Rezeptkategorie</option>
                                     <option value="vorspeise" translate="CATEGORY_APPETIZER">Vorspeise</option>
@@ -95,10 +100,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col s6">
+                            <div class="col s4 m4 l4">
                                 <h6 translate="EDIT_RECIPE_BAKING_TIME">Backzeit</h6>
                             </div>
-                            <div class="col s6">
+                            <div class="col s8 m8 l8">
                                 <select ng-model="addeditRecipeCtrl.recipe.bakingTime" class="browser-default">
                                     <option value="" disabled selected translate="EDIT_RECIPE_BAKING_TIME">Backzeit</option>
                                     <option value="0" translate="EDIT_RECIPE_BAKING_TIME_NO">Keine Backzeit</option>
@@ -111,10 +116,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col s6">
+                            <div class="col s4 m4 l4">
                                 <h6 translate="EDIT_RECIPE_PREPARATION_TIME">Zubereitungszeit</h6>
                             </div>
-                            <div class="col s6">
+                            <div class="col s8 m8 l8">
                                 <select ng-model="addeditRecipeCtrl.recipe.preparationTime" class="browser-default">
                                     <option value="" disabled selected translate="EDIT_RECIPE_PREPARATION_TIME">Zubereitungszeit</option>
                                     <option value="0" translate="EDIT_RECIPE_PREPARATION_TIME_SHORT">ganz kurz</option>
@@ -155,7 +160,7 @@
                 <div class="col l2">
                     &nbsp;
                 </div>
-                <!--4REZEPT ZUTATEN -->
+                <!--Reciepe ingredients -->
                 <div class="col s12 m12 l6 right card text-accent-3 recipe-name">
                         <span class="form-title clearfix">
                              <i class="material-icons medium left">play_for_work</i>
@@ -187,6 +192,7 @@
                                         <option>EL</option>
                                         <option>TL</option>
                                         <option>Prise</option>
+                                        <option>Dose</option>
                                         <option>Gramm</option>
                                         <option>Kilo</option>
                                         <option>Liter</option>
@@ -201,12 +207,12 @@
                                         <datalist id="ingredientsList">
                                             <option ng-repeat="ingredient in ingredients" value="{{ingredient}}">
                                         </datalist>
-                                        <label for="ingredient-name" class="ingredient-label" translate="EDIT_RECIPE_INGREDIENT">Zutat</label>
+                                        <label for="ingredient-name" class="ingredient-label" translate="EDIT_RECIPE_INGREDIENT"></label>
                                     </div>
                                 </td>
                                 <td>
                                     <a href="" ng-click="addeditRecipeCtrl.deleteIngredient($index)"
-                                       class="right-align">[<span class="del-ingredient">&times;</span>]</a>
+                                       class="right-align del-ingredient"><span class="">&times;</span></a>
                                 </td>
                             </tr>
                         </table>

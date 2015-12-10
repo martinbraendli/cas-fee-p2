@@ -3,13 +3,23 @@
         <div class="col s12 l6">
             <h4 translate="ADD_EDIT_RATING_TITLE">Bewerten Sie dieses Rezept</h4>
 
-            <p translate="ADD_EDIT_RATING_SUBTITLE">in Sternen</p>
+            <p translate="ADD_EDIT_RATING_SUBTITLE">in Sternen <i class="material-icons">star</i></p>
 
             <p class="range-field">
-                <label>1 </label>
+                <div class="icon-rating left">
+                    <i class="material-icons deep-orange-text">star</i>
+                </div>
                 <input type="range" id="" min="1" max="5" style="max-width: 70%;" ng-model="rating.stars"/>
-                <label>5 </label>
+
+                <div class="icon-rating right">
+                    <i class="material-icons deep-orange-text">star</i>
+                    <i class="material-icons deep-orange-text">star</i>
+                    <i class="material-icons deep-orange-text">star</i>
+                    <i class="material-icons deep-orange-text">star</i>
+                    <i class="material-icons deep-orange-text">star</i>
+                </div>
             </p>
+
         </div>
         <div class="col s12 l6">
             <h5 translate="ADD_EDIT_RATING_COMMENT">Ihr Kommentar</h5>

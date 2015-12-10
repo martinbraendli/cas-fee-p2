@@ -6064,7 +6064,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     -ms-transition: .2s ease-out;
     transition: .2s ease-out; }
   .input-field label.active {
-    font-size: 1.2rem;
+    /*font-size: 1.2rem;*/
     -webkit-transform: translateY(-170%);
     -moz-transform: translateY(-170%);
     -ms-transform: translateY(-170%);

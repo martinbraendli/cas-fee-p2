@@ -518,7 +518,6 @@
 body {
   background: lightcyan;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  line-height: 18px;
   font-weight: 300; }
   body h2 {
     color: #44AA44;
@@ -539,10 +538,13 @@ body {
     font-size: 1.3rem;
     line-height: 1.4rem; }
   body textarea {
-    color: #1565C0;
-    font-size: 1.5rem;
+    color: #29b6f6;
+    font-size: 1.3rem;
     letter-spacing: 0.05rem;
-    line-height: 1.6rem; }
+    line-height: 1.2rem; }
+  body select {
+    border: 1px solid #888;
+    background: #f1fafa; }
 
 .clear {
   clear: both; }
@@ -559,6 +561,10 @@ body {
   font-size: 16px;
   font-weight: 300;
   line-height: 21px; }
+
+.card-title {
+  padding-left: 1rem;
+  text-align: center; }
 
 .nav-wrapper {
   background: #0277bd; }
@@ -634,10 +640,7 @@ body {
   color: #777; }
   #loginForm .input-field label.active {
     font-size: 1.2rem;
-    -webkit-transform: translateY(-150%) !important;
-        -ms-transform: translateY(-150%) !important;
-            transform: translateY(-150%) !important;
-    color: #1565C0; }
+    color: #dd2c00; }
 
 #loginForm #registerForm {
   background: #039be5; }
@@ -662,6 +665,9 @@ body {
       font-weight: 100;
       color: #81d4fa; }
 
+.resulttable th {
+  cursor: pointer; }
+
 #searchbox {
   min-width: 63%;
   min-height: 50%; }
@@ -674,9 +680,15 @@ body {
   width: 93%; }
 
 .input-field label {
-  color: #0059bc; }
+  color: #555; }
   .input-field label.active {
-    color: #FFF !important; }
+    -webkit-transform: translateX(100%) !important;
+        -ms-transform: translateX(100%) !important;
+            transform: translateX(100%) !important;
+    -webkit-transform: translateY(-80%) !important;
+        -ms-transform: translateY(-80%) !important;
+            transform: translateY(-80%) !important;
+    color: #d84315 !important; }
 
 .foodcategory ul {
   padding-left: 2rem;
@@ -694,7 +706,7 @@ body {
 
 /*------------ Recipe detail - add & edit ----------------*/
 .editRecipe {
-  background: #FFF; }
+  background: #FaFaFa; }
   .editRecipe .title-bg {
     background: #0277bd;
     color: #FFF;
@@ -717,7 +729,7 @@ body {
       -webkit-transform: translateY(-150%), translateX(40%) !important;
           -ms-transform: translateY(-150%), translateX(40%) !important;
               transform: translateY(-150%), translateX(40%) !important;
-      color: #29b6f6; }
+      color: #d84315; }
   .editRecipe .btn {
     background: #29b6f6; }
   .editRecipe .btn:hover {
@@ -789,13 +801,13 @@ body {
   color: #29b6f6; }
 
 .del-ingredient {
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #CC2222;
   vertical-align: bottom; }
 
 /*------------ Recipe detail - view -------------------*/
 .viewrecipe {
-  background: #FFF; }
+  background: #FaFaFa; }
   .viewrecipe .title-bg {
     background: #0277bd;
     color: #FFF;
@@ -867,21 +879,45 @@ body {
   border-bottom: 1px solid #CCC; }
   .addeditRecipeRating textarea {
     height: 5rem; }
-
-.star-rating {
-  display: inline;
-  color: #0D47A1; }
-  .star-rating i {
-    padding-left: 15px; }
+  .addeditRecipeRating .star-rating {
+    display: inline;
+    color: #0D47A1; }
+    .addeditRecipeRating .star-rating i {
+      padding-left: 15px; }
 
 .range-field label {
   padding: 5px;
   font-size: 1.3rem; }
 
-.thumb {
-  margin-left: 16px !important;
+.range-field .thumb {
+  margin-left: 15px !important;
   padding: 1px 10px 3px 10px;
   border: 1px solid #d84315;
   border-radius: 50%;
   color: #d84315;
   font-size: 1.3rem; }
+
+.range-field span {
+  background: #0D47A1;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background: #333; }
+
+.range-field .icon-rating {
+  padding: 12px; }
+
+/*-----------Footer styles ---------------------------*/
+footer {
+  width: 100%;
+  bottom: 0; }
+  footer.row {
+    margin-bottom: 0; }
+  footer.page-footer {
+    background-color: #424242; }
+    footer.page-footer p {
+      font-size: 1rem;
+      line-height: 1rem; }
+    footer.page-footer a:hover {
+      color: #a33; }
+  footer.footer-copyright {
+    background-color: #07285a; }

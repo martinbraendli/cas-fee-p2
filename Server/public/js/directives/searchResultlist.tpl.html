@@ -5,8 +5,8 @@
     <table class="resulttable">
         <thead>
         <th>&nbsp;</th>
-        <th><a ng-click="orderBy('title')" translate="SEARCH_RESULT_LIST_HEAD_RECIPE">Rezept</a><i class="material-icons">{{orderName('title')}}</i></th>
-        <th><a ng-click="orderBy('avgRating')" translate="SEARCH_RESULT_LIST_HEAD_RATING">Bewertung</a><i class="material-icons">{{orderName('avgRating')}}</i></th>
+        <th><a ng-click="orderBy('title')" translate="SEARCH_RESULT_LIST_HEAD_RECIPE">Rezept</a><i class="material-icons">{{orderName('title')}}</i><i class="material-icons">vertical_align_bottom</i> </th>
+        <th><a ng-click="orderBy('avgRating')" translate="SEARCH_RESULT_LIST_HEAD_RATING">Bewertung</a><i class="material-icons">{{orderName('avgRating')}}</i> <i class="material-icons">vertical_align_top</i> </th>
         <th><a ng-click="orderBy('userName')" translate="SEARCH_RESULT_LIST_HEAD_AUTHOR">Author</a><i class="material-icons">{{orderName('userName')}}</i></th>
         </thead>
         <tbody>
@@ -40,7 +40,7 @@
         </tr>
         <tr ng-show="filteredRecipes.length == 0">
             <td colspan="4" translate="SEARCH_RESULT_LIST_NO_ENTRIES">
-                Keine Rezepte zum gesetzten Filter gefunden
+                <h3 class="deep-orange-text">Keine Rezepte zum gesetzten Filter gefunden</h3>
             </td>
         </tr>
 

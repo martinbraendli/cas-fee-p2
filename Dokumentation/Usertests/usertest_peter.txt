@@ -1,0 +1,78 @@
+Usertests
+
+Zielgruppen Persona
+-------------------
+Geschlecht: Männlich
+Alter: 31
+Technische Affinität: Excel-Guru, Web-Anwender
+Sprache: Deutsch
+Device: PC
+
+
+
+Vorgehen:
+
+Die Testpersonen sollen folgende Tasks selbstständig durchführen können.
+
+
+
+Tasks (Cognitive Walkthrough):
+------------------------------
+
+- 1. Einen eigenen User anlegen
+- 2. Enloggen
+- 3. Rezepte Suchen
+- 4. Ein Rezept bewerten
+- 5. Ein Rezept erfassen mit den erforderlichen Feldern.
+- 5.1 Mehrere Photos pro Rezept raufladen
+- 5.2 Das Rezept richtig kategorisieren
+- 5.3 Das eigene Rezept ändern
+- 6. Eigenes User Passwort ändern
+
+
+Erwartungen ():
+----------------
+
+- Die Testperson kann alle Tasks ohne fremde Hilfe erfolgreich durchführen.
+- Die Testperson findet sich in der Navigation mühelos zurecht.
+- Die Testperson kann ein Rezept nachkochen.
+
+
+
+- Probleme
+-----------
+- Die Person kann keinen Useraccount erstellen
+- Die Person findet sich nicht in der R
+
+
+Acceptable Case:
+
+- Die Testperson fragt nach, bei Unklarheiten
+
+
+
+Beobachtungen:
+--------------
+
+- etwas iritiert durch 2 Login/ Erfassungsmasken
+- keine Rezepte gefunden ; Userfeedback müsste im Bereich der Suchemaske sein oder als Popup
+- Switchbutton Draggeble als Wunsch
+- Reciepe View: auch auf das Bild ein Link zum Rezept
+- Bewertung -> keine Sterne
+- Bug2Fix Rating speichern error
+- Term "Backzeit" sorgt für verwirrung
+- "Rezept erfassen" ist Beamtendeutsch
+- Einheit Dose fehlt
+- Passwort sollte in "Passwort ändern" heissen
+
+
+Feedback der Testperson:
+------------------------
+
+Funktion gegeben, etwas nüchtern.
+
+
+
+Ziel:
+-----
+Die Applikation zu verbessern, so dass möglichst intuitive Bedienung der Applikation gewährleistet ist.
