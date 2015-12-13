@@ -1,6 +1,5 @@
 @import "color";
 
-//
 /*** Colors ***/
 
 //blue
@@ -130,10 +129,10 @@ body {
   // ribbon adjustment trick
   margin-top: -750px;
   // hack for sticky footer
-  margin-bottom: 290px;
+  margin-bottom: 480px;
   min-width: 560px;
   max-width: 1100px;
-
+  z-index: 3;
 }
 
 // Feedback window messages
@@ -650,17 +649,24 @@ body {
 /*-----------Footer styles ---------------------------*/
 
 footer{
+  z-index: 1;
   width: 100%;
   bottom: 0;
   position: fixed;
   &.row{
-    margin-bottom: 0;
+    margin-bottom: 0!important;
   }
 
   &.page-footer{
     p{
-      font-size: 1rem;
-      line-height: 1rem;
+      padding-top: 0;
+      font-size: 0.9rem;
+      line-height: 0.8rem;
+      margin-bottom: 0;
+      margin-top: 0.5rem;
+    }
+    &.row{
+      margin-bottom: 0!important;
     }
 
   background-color: #343434;
