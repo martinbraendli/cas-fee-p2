@@ -52,9 +52,9 @@ module fettyBossy.Directive {
                 $scope.orderName = function (fieldName):string {
                     if ($scope.recipeFilter.orderBy === fieldName) {
                         if ($scope.recipeFilter.orderAsc) {
-                            return "call_received"
+                            return "vertical_align_bottom"
                         }
-                        return "call_made"
+                        return "vertical_align_top"
                     }
                 }
             }
