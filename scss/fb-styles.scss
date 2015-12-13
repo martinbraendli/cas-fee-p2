@@ -27,7 +27,7 @@ body {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   //font-size: 16px;
  // line-height: 18px;
-  font-weight: 300;
+  font-weight: 400;
 
   h2{
     color: #44AA44;
@@ -55,7 +55,8 @@ body {
     line-height: 1.4rem;
   }
   textarea{
-    color: $secondary-color;
+    color: #111111;
+    font-weight: 500;
     font-size: 1.3rem;
     letter-spacing: 0.05rem;
     line-height: 1.2rem;
@@ -117,19 +118,22 @@ body {
 
 // background picture in a ribbon
 .ribbon{
-  //background-image: url('../pictures/bg_artfood_1500.jpg');
-  background-position: center bottom;
+  background-image: url('../pictures/bg_artfood_900.jpg');
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 290px;
+  height: 900px;
 }
 
 .supercontainer{
   margin:  auto;
-  margin-top: -210px;
-  //min-width: 767px;
+  // ribbon adjustment trick
+  margin-top: -750px;
+  // hack for sticky footer
+  margin-bottom: 290px;
   min-width: 560px;
   max-width: 1100px;
+
 }
 
 // Feedback window messages
@@ -261,6 +265,11 @@ body {
       font-weight: 100;
       color: #81d4fa;
     }
+  }
+  .switch label{
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    color: #44AA44;
 
   }
 }
@@ -294,7 +303,7 @@ body {
   &.active{
     transform:  translateX(100%) !important;
     transform:  translateY(-80%) !important;
-    color: $success-color-hover!important;
+    color: #4CAF50!important;
   }
 }
 
@@ -643,6 +652,7 @@ body {
 footer{
   width: 100%;
   bottom: 0;
+  position: fixed;
   &.row{
     margin-bottom: 0;
   }
@@ -652,10 +662,8 @@ footer{
       font-size: 1rem;
       line-height: 1rem;
     }
-    a:hover{
-      color: #a33;
-    }
-    background-color: #424242;
+
+  background-color: #343434;
 
   }
   &.footer-copyright{

@@ -518,7 +518,7 @@
 body {
   background: lightcyan;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-weight: 300; }
+  font-weight: 400; }
   body h2 {
     color: #44AA44;
     background: #004444;
@@ -538,7 +538,8 @@ body {
     font-size: 1.3rem;
     line-height: 1.4rem; }
   body textarea {
-    color: #29b6f6;
+    color: #111111;
+    font-weight: 500;
     font-size: 1.3rem;
     letter-spacing: 0.05rem;
     line-height: 1.2rem; }
@@ -580,14 +581,16 @@ body {
   background: #29b6f6; }
 
 .ribbon {
-  background-position: center bottom;
+  background-image: url("../pictures/bg_artfood_900.jpg");
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 290px; }
+  height: 900px; }
 
 .supercontainer {
   margin: auto;
-  margin-top: -210px;
+  margin-top: -750px;
+  margin-bottom: 290px;
   min-width: 560px;
   max-width: 1100px; }
 
@@ -664,6 +667,10 @@ body {
     .searchRecipe .title-bg h3 {
       font-weight: 100;
       color: #81d4fa; }
+  .searchRecipe .switch label {
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    color: #44AA44; }
 
 .resulttable th {
   cursor: pointer; }
@@ -688,7 +695,7 @@ body {
     -webkit-transform: translateY(-80%) !important;
         -ms-transform: translateY(-80%) !important;
             transform: translateY(-80%) !important;
-    color: #d84315 !important; }
+    color: #4CAF50 !important; }
 
 .foodcategory ul {
   padding-left: 2rem;
@@ -909,15 +916,14 @@ body {
 /*-----------Footer styles ---------------------------*/
 footer {
   width: 100%;
-  bottom: 0; }
+  bottom: 0;
+  position: fixed; }
   footer.row {
     margin-bottom: 0; }
   footer.page-footer {
-    background-color: #424242; }
+    background-color: #343434; }
     footer.page-footer p {
       font-size: 1rem;
       line-height: 1rem; }
-    footer.page-footer a:hover {
-      color: #a33; }
   footer.footer-copyright {
     background-color: #07285a; }

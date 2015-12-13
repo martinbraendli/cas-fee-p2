@@ -35,8 +35,8 @@ module fettyBossy {
 
             USER_LOGIN_DETAILS_TITLE: 'User Login Details',
             USERDETAIL_NAME: 'Name: <br/>(can not be changed)',
-            PASSWORD: 'Password',
-            EMAIL: 'Email',
+            PASSWORD: 'change Password',
+            EMAIL: 'change Email',
 
             LOGIN_TITLE: 'Login for members',
             LOGIN_NAME: 'Username',
@@ -53,7 +53,7 @@ module fettyBossy {
             SEARCH_TITLE: 'Choose recipe',
             SEARCH_SUBTITLE: 'Find and choose recipe',
             SEARCH_FORM_TITLE: 'Recipe search',
-            SEARCH_OPTIONS: 'Search options',
+            SEARCH_OPTIONS: 'Special Search Filters',
             SEARCH_EXPAND_1: 'few',
             SEARCH_EXPAND_2: 'more',
             SEARCH_CATEGORY: 'Choose category',
@@ -153,7 +153,7 @@ module fettyBossy {
             RECIPE_DELETE_OK: 'Recipe deleted',
             RECIPE_DELETE_FAILED: 'Recipe could not be deleted',
 
-            TEASER_TITLE_NEW: 'New recipe',
+            TEASER_TITLE_NEW: 'Your own',
             TEASER_TITLE_NEW_TEXT: 'Registered user can create their own recipes',
             TEASER_TITLE_BEST: 'Best recipe',
             TEASER_TITLE_NEWEST: 'Newest recipe',
@@ -180,8 +180,8 @@ module fettyBossy {
 
             USER_LOGIN_DETAILS_TITLE: 'Benutzerdetails',
             USERDETAIL_NAME: 'Name: <br/>(kann nicht geändert werden)',
-            PASSWORD: 'Passwort',
-            EMAIL: 'E-Mail',
+            PASSWORD: 'Passwort ändern',
+            EMAIL: 'E-Mail ändern',
 
             LOGIN_TITLE: 'Anmeldung für Mitglieder',
             LOGIN_NAME: 'Benutzername',
@@ -198,7 +198,7 @@ module fettyBossy {
             SEARCH_TITLE: 'Rezepte auswählen',
             SEARCH_SUBTITLE: 'Suchen und auswählen',
             SEARCH_FORM_TITLE: 'Ich suche nach',
-            SEARCH_OPTIONS: 'Suchoptionen',
+            SEARCH_OPTIONS: 'Suche mit Filter',
             SEARCH_EXPAND_1: 'wenig',
             SEARCH_EXPAND_2: 'mehr',
             SEARCH_CATEGORY: 'Kategorie auswählen',
@@ -283,7 +283,7 @@ module fettyBossy {
             SEARCH_RESULT_LIST_BTN_SHOW_MORE: 'weitere 10 anzeigen',
             SEARCH_RESULT_LIST_NO_ENTRIES: 'Keine Rezepte zum gesetzten Filter gefunden',
 
-            TEASER_TITLE_NEW: 'Neues Rezept',
+            TEASER_TITLE_NEW: 'Dein Rezept',
             TEASER_TITLE_NEW_TEXT: 'Registrierte Benutzer können ihre eigenen Rezepte erfassen',
             TEASER_TITLE_BEST: 'Bestes Rezept',
             TEASER_TITLE_NEWEST: 'Neuestes Rezept',
