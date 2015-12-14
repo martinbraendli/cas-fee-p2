@@ -158,8 +158,8 @@ module fettyBossy {
             TEASER_TITLE_BEST: 'Best recipe',
             TEASER_TITLE_NEWEST: 'Newest recipe',
 
-            ERROR_LOGIN_FAILED: 'Login failed   ',
-
+            ERROR_LOGIN_FAILED: 'Login failed',
+            IMAGE_CONVERTING: 'Image resize in progress'
         });
         $translateProvider.translations('de', {
             SWITCH_LANG: 'Sprache wechseln',
@@ -304,7 +304,7 @@ module fettyBossy {
             RECIPE_DELETE_FAILED: 'Löschen fehlgeschlagen',
 
             ERROR_LOGIN_FAILED: 'Login fehlgeschlagen',
-
+            IMAGE_CONVERTING: 'Bild in Bearbeitung'
         });
         $translateProvider.preferredLanguage('de');
     });

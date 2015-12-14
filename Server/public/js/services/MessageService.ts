@@ -18,6 +18,8 @@ module fettyBossy.Services {
          *
          */
         setMessage(text:string, severity:number, details:string):void;
+
+        startMessage(text:string):void;
     }
 
     export interface IMessage {
@@ -76,6 +78,16 @@ module fettyBossy.Services {
                         //noop;
                         break;
                 }
+            });
+        }
+
+        public startMessage(text:string):void {
+            var $toastr = this.$toastr;
+            this.$translate(text).then(function (text) {
+                $toastr.info(text, {
+                    "progressBar": true,
+                    "timeOut": "3000"
+                });
             });
         }
     }

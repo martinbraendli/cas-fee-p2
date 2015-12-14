@@ -26,6 +26,8 @@ module fettyBossy.Directive {
         link = (scope, element) => {
             var messageService = this.messageService;
             element.bind("change", function (changeEvent) {
+                    messageService.startMessage("IMAGE_CONVERTING");
+
                     var file = changeEvent.target.files[0];
 
                     // Only process image files.
@@ -91,5 +93,5 @@ module fettyBossy.Directive {
     angular
         .module($injects.fettyBossy)
         .directive('fbFileUpload',
-        [$injects.services.messageService, (MessageService) =>  new FileUploadDirective(MessageService)]);
+            [$injects.services.messageService, (MessageService) =>  new FileUploadDirective(MessageService)]);
 }
