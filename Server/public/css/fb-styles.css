@@ -590,6 +590,7 @@ body {
 .supercontainer {
   margin: auto;
   margin-top: -750px;
+  margin-bottom: 350px;
   min-width: 560px;
   max-width: 1100px;
   z-index: 3; }
@@ -915,13 +916,14 @@ body {
 
 /*-----------Footer styles ---------------------------*/
 footer {
+  position: fixed;
   z-index: 1;
   width: 100%;
   bottom: 0; }
   footer.row {
     margin-bottom: 0 !important; }
   footer.page-footer {
-    background-color: #343434; }
+    background-color: #0277bd; }
     footer.page-footer p {
       padding-top: 0;
       font-size: 0.9rem;

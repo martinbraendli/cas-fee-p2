@@ -129,7 +129,7 @@ body {
   // ribbon adjustment trick
   margin-top: -750px;
   // hack for sticky footer
-  //margin-bottom: 480px;
+  margin-bottom: 350px;
   min-width: 560px;
   max-width: 1100px;
   z-index: 3;
@@ -642,10 +642,11 @@ body {
 /*-----------Footer styles ---------------------------*/
 
 footer{
+  position: fixed;
   z-index: 1;
   width: 100%;
   bottom: 0;
-  //position: fixed;
+
   &.row{
     margin-bottom: 0!important;
   }
@@ -662,7 +663,7 @@ footer{
       margin-bottom: 0!important;
     }
 
-  background-color: #343434;
+  background-color: $bgcolor-blue;
 
   }
   &.footer-copyright{
