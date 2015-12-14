@@ -19,7 +19,7 @@ Tasks (Cognitive Walkthrough):
 ------------------------------
 
 - 1. Einen eigenen User anlegen
-- 2. Enloggen
+- 2. Einloggen
 - 3. Rezepte Suchen
 - 4. Ein Rezept bewerten
 - 5. Ein Rezept erfassen mit den erforderlichen Feldern.
