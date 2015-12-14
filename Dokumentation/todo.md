@@ -6,12 +6,13 @@
 - Placeholder bei Bewertung [(mgfeller) Placeholder Text funktioniert ab und zu nicht ideal (Titel verdeckt den Text oder Linie ist zu weit oder es gibt einen "Border" - Placeholder sichtbar im Inputfeld obwohl Text angegeben)]
 - user test durchführen -> skeleton für Usertests im Dokumentation Folder.
 - viewUser-View: Layout mit liste der Rezepte + grösse des editUser-Formulars -> grösse geändert. User Filter funtioniert nicht im Template. -> tbd
-- label active wird nach oben rechts translated. -> done
 - focus auf alle Buttons
 
 ## Martin
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
 - user test durchführen
+- spinner während bearbeiten
+- anzahl-input: keine number
 
 # Closed
 
@@ -23,6 +24,7 @@
 - (mgfeller) Nach einem Login kommt man direkt auf die Übersicht  -> Programmed as specified
 
 ## Bugs done
+- toastr-text: save recipe zu lang
 - injections (bringmehome)
 - Rezept erfassen mit Pflicht-Felder (MB: name, beschr)
 - EditRecipe > After Edit zum ViewRecipe Redirect Screen gelangen. --> ?
@@ -75,3 +77,5 @@
 - multi lang
 - Safe Password: Error bei neuen User. Passwort ändern hat bei neuen Usern fehler gegeben. 
 - Nach Edit Recipe: +1 Zutat, +1 Step; wenn man ein Rezept editiert, kommt immer ein weiterer Step und eine Zutat dazu
+- label active wird nach oben rechts translated. -> done
+- Toastr-Meldung nicht modal -> in einem container im index.html eingelagert. aktionen wärend toast-anzeige möglich. problem fixed?
