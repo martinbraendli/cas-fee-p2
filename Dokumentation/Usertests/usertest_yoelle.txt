@@ -1,0 +1,70 @@
+Usertests
+
+Zielgruppen Persona
+-------------------
+Geschlecht: Weiblich
+Alter: 32
+Technische Affinität: normaler User, keine spez. technische Ausbildung
+Sprache: Deutsch
+Device: IPad Mini (Tablet)
+
+
+Vorgehen:
+
+Die Testpersonen sollen folgende Tasks selbstständig durchführen können.
+
+
+
+Tasks (Cognitive Walkthrough):
+------------------------------
+
+- 1. Einen eigenen User anlegen --> OK
+- 2. Einloggen --> war nach dem Registrieren schon eingeloggt, OK
+- 3. Rezepte Suchen
+- 4. Ein Rezept bewerten
+- 5. Ein Rezept erfassen mit den erforderlichen Feldern.
+- 5.1 Mehrere Photos pro Rezept raufladen
+- 5.2 Das Rezept richtig kategorisieren
+- 5.3 Das eigene Rezept ändern
+- 6. Eigenes User Passwort ändern
+
+
+Erwartungen ():
+----------------
+
+- Die Testperson kann alle Tasks ohne fremde Hilfe erfolgreich durchführen.
+- Die Testperson findet sich in der Navigation mühelos zurecht.
+- Die Testperson kann ein Rezept nachkochen.
+
+
+
+- Probleme
+-----------
+- Die Person versucht auf den Titel vom Teaser zu Klicken (--> sollte ein Link sein)
+- Slider für Sterne auf Touch-IPad kaum treff-bar.
+- Rezept-Ändern-Button wird beim jeweiligen Kontext gesucht --> Titel --> Ändern, anstatt einem Haupt-Ändern
+- Kein Zurücksetzen der Suche möglich (vorallem bei Zubereitungsart blöd)
+- fotografierte Bilder sind immer im Querformat
+
+Acceptable Case:
+
+- Die Testperson fragt nach, bei Unklarheiten
+
+
+
+Beobachtungen:
+--------------
+- Sucht nach dem Registrieren in der eigenen Rezept-Liste nach Rezepten (ist noch leer)
+
+
+Feedback der Testperson:
+------------------------
+
+- Die Seite sieht sehr schön aus.
+- Fotografieren mit IPad ist super
+- Texte der Rezepte dürften auch zweisprachig sein
+
+
+Ziel:
+-----
+Die Applikation zu verbessern, so dass möglichst intuitive Bedienung der Applikation gewährleistet ist.

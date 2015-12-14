@@ -10,9 +10,6 @@
 
 ## Martin
 - UnitTests.. (server: mocka + chai, protractor for E2E; https://github.com/fxberry/BringMeHome.Test/blob/master/Client.UnitTests/specs/services/Strings.ts)
-- user test durchführen
-- spinner während bearbeiten
-- anzahl-input: keine number
 
 # Closed
 
@@ -24,6 +21,8 @@
 - (mgfeller) Nach einem Login kommt man direkt auf die Übersicht  -> Programmed as specified
 
 ## Bugs done
+- user test durchführen
+- spinner während bearbeiten
 - toastr-text: save recipe zu lang
 - injections (bringmehome)
 - Rezept erfassen mit Pflicht-Felder (MB: name, beschr)
