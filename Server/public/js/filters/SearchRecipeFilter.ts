@@ -83,6 +83,9 @@ module fettyBossy.Filter {
                 if (recipeFilter.rating) {
                     var filterByRating = function (recipe:fettyBossy.Data.IRecipe) {
                         if (!recipe.avgRating) {
+                            if (recipeFilter.rating == 1){
+                                return true; // recipes without ratings if filter is set to 1
+                            }
                             return false;
                         }
                         return (recipe.avgRating >= recipeFilter.rating);
