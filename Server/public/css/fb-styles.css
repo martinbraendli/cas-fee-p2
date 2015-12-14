@@ -590,7 +590,6 @@ body {
 .supercontainer {
   margin: auto;
   margin-top: -750px;
-  margin-bottom: 480px;
   min-width: 560px;
   max-width: 1100px;
   z-index: 3; }
@@ -918,8 +917,7 @@ body {
 footer {
   z-index: 1;
   width: 100%;
-  bottom: 0;
-  position: fixed; }
+  bottom: 0; }
   footer.row {
     margin-bottom: 0 !important; }
   footer.page-footer {
