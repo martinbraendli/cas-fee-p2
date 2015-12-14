@@ -4,7 +4,6 @@
  *
  */
 module fettyBossy.Directive {
-    import IRecipe = fettyBossy.Data.IRecipe;
     'use strict';
     import IRecipe = fettyBossy.Data.IRecipe;
 
