@@ -1,5 +1,10 @@
 # Rezept-Single-Page-App
 
+## Schritte zur Installation
+1. Terminal: npm install
+2. Gulp-Task "build"
+3. Start "index.js" innerhalb Verzeichnis "build" 
+
 ## Besonderes
 - Bilder werden vor dem Hochladen auf eine Grösse von 400x300 Pixel clientseitig verkleinert.
 - Backend selbst entwickelt
