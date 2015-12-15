@@ -99,6 +99,10 @@ gulp.task('copyToBuild', function () {
     gulp.src(['Server/public/js/lib/*.js'])
         .pipe(gulp.dest('build/public/js/lib'));
 
+    // copy example data
+    gulp.src(['Server/data/*.db'])
+        .pipe(gulp.dest('build/data'));
+
     // process index.html > delete unused script tags
     gulp.src(['Server/public/index.html'])
         .pipe(deleteLines({
