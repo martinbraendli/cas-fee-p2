@@ -9,6 +9,7 @@ $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: color("light-blue", "lighten-1") !default;
 $secondary-color-hover: color("blue", "darken-3") !default;
+$footer-blue: color("blue", "darken-4")!default;
 // orange
 $success-color-hover: color("deep-orange", "darken-3") !default;
 $indicater-color: color("deep-orange", "darken-1") !default;
@@ -24,8 +25,6 @@ $bgcolor-blue: color("light-blue", "darken-3") !default;
 body {
   background: lightcyan;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  //font-size: 16px;
- // line-height: 18px;
   font-weight: 400;
 
   h2{
@@ -100,6 +99,9 @@ body {
 
 .nav-wrapper{
   background: $bgcolor-blue;
+  font-size: 1.2rem;
+  font-weight: 200;
+  letter-spacing: 0.05rem;
   a:focus{
      background: $primary-color-dark;
      border: 1px solid white;
@@ -109,6 +111,11 @@ body {
 .fb-title{
   padding-left: 15px;
   font-size: 1.6rem;
+  // our unfancy-logo
+  i{
+    font-size: 2rem;
+    color: $indicater-color;
+  }
 }
 
 .userlogedin{
@@ -127,9 +134,9 @@ body {
 .supercontainer{
   margin:  auto;
   // ribbon adjustment trick
-  margin-top: -750px;
+  margin-top: -850px;
   // hack for sticky footer
-  margin-bottom: 350px;
+  margin-bottom: 300px;
   min-width: 560px;
   max-width: 1100px;
   z-index: 3;
@@ -180,26 +187,6 @@ body {
 
 .userForm input.ng-valid.ng-touched {
   border: 1px solid #0b4730;
-}
-// test colors
-.loginForm {
-  //background-color: blueviolet;
-}
-
-.user-details {
-  //background-color: #0b97c4;
-}
-
-.registerForm {
-  //background-color: bisque;
-}
-
-.searchForm {
-  //background-color: #ffcdd2;
-}
-
-.searchResultlist {
-  //background-color: #B94A48;
 }
 
 .menu {
@@ -258,7 +245,7 @@ body {
   .title-bg {
     background: $bgcolor-blue;
     color: #FFF;
-    height: 150px;
+    height: 120px;
     width: 100%;
     h3 {
       font-weight: 100;
@@ -273,14 +260,12 @@ body {
   }
 }
 
-
 .resulttable{
   th{
     cursor: pointer
   }
 
 }
-
 
 #searchbox {
   //margin-left: 0.75rem !important;
@@ -642,6 +627,7 @@ body {
 /*-----------Footer styles ---------------------------*/
 
 footer{
+  border-top: 1px solid $link-color;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -649,23 +635,30 @@ footer{
 
   &.row{
     margin-bottom: 0!important;
+    margin-top: 0.5rem !important;
   }
 
   &.page-footer{
+    background-color: $footer-blue;
+    padding-top: 0;
     p{
       padding-top: 0;
-      font-size: 0.9rem;
-      line-height: 0.8rem;
+      font-size: 1rem;
+      line-height: 0.9rem;
+      letter-spacing: 0.1rem;
       margin-bottom: 0;
       margin-top: 0.5rem;
+    }
+    h5{
+      font-size: 1.2rem;
+      line-height: 1.3rem;
+      letter-spacing: 0.15rem;
     }
     &.row{
       margin-bottom: 0!important;
     }
-
-  background-color: $bgcolor-blue;
-
   }
+
   &.footer-copyright{
     background-color: $primary-color-dark;
   }
