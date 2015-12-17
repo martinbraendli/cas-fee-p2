@@ -7,123 +7,110 @@
 
 ## Besonderes
 - Bilder werden vor dem Hochladen auf eine Grösse von 400x300 Pixel clientseitig verkleinert.
-- Backend selbst entwickelt
-
-- Unittests: spec/SpecRunner.html
+- Das Backend wurde selbst entwickelt
+- Unittests: öffne spec/SpecRunner.html in einem Browser
 
 ## Anforderungen (Views / Sichten)
 
-### 1. Start View
-Fullscreen
+### 1. Start View (default)
 
-Login Username / PW
-- link Login
-- link Register New User
-- Guest View
-- keine weitere Navigation
+- Login-Maske für bestehende Benutzer (Name, Passwort)
+- Register-Formular für neue Benutzer (Name, Email, Passwort)
+- Gäste-Link für Einstieg ohne Anmeldung
 
-### 2. Search View
+### 2. Alle Rezepte (searchRecipe)
 
-- Search Field (Text) 
-- Filter mit 6 Kategorien
-- Filter mit Zubereitungszeit
-- Filter mit Bewertung
-- Sotierung nach Bewertung
-- Sortierung nach Zubereitungszeit
-- Neueste Rezepte
-- eventuell: Teaser mit 3 Neuen Rezepten (Titel, Bild, Link)
+- 3 Teaser (mit jeweils Titel, Bild, Link):
+  - Neues Rezept erstellen
+  - Anzeige des besten Rezeptes
+  - Anzeige des neuesten Rezeptes
 
-### 3. Listview der Treffer (Scrollable)
+- Suche
+  - Freitext-Feld
+- Erweiterte Suche
+  - Filter mit 6 Kategorien (Hauptmahlzeit, Dessert, ...)
+  - Filter mit Zubereitungszeit (Dauer)
+  - Filter mit Bewertung (Anzahl Sterne)
+- Resultate
+  - Default sortiert nach Erstellungsdatum (Alter des Rezeptes)
+  - Sortierung nach Titel
+  - Sortierung nach Bewertung
+  - Sortierung nach Author
+
+### 3. Listview der Treffer (searchResultlist)
 
 - Bild (1.Bild) klein
 - Titel 
-- Zubereitungszeit
-- Bewertung
+- Bewertung (Durchschnitt aller Bewertungen zu diesem Rezept, diese werden beim Laden aus der Datenbank berechnet)
+- Author
 
 
-### 4. Rezept Detail
+### 4. Rezept Detail (viewRecipe)
 
-- Titel Rezept
-- Name des Authors
-- Anzahl Personen
-- Bilder (Slider?) Rezept
+- Titel
+- Beschreibung
+- Zusatzinformationen (Author, Zubereitungszeit, Kochzeit, Anzahl Personen)
+- Bilder als Slider
 - Zutaten
-- Zubereitung in n Steps
-- Backzeit
-- Zubereitungszeit
--	Buttons: Link -> Print Rezept
-		            -> print Einkaufsliste
-	              (Backzeit -> Timer)
-- Gesammtwertung Rating (durchschnitt)
+- Zubereitung in Schritten
+- Liste aller Bewertungen (5. Rating View)
 
-### 5.Rating View
+### 5. Rating View (listRecipeRatings)
 
-Button: Add Feedback 
-(beinhaltet Rating & Comment und username)
+- Bewertung abgeben (falls eingeloggt und noch keine Bewertung abgegeben)
+  - Rating Rezept 1-5 Sterne
+  - Kommentar Rezept: Textarea
+  - Username Kommentargeber automatisch
+- Liste der Bewertungen zum aktuellen Rezept
+  - Eigene Bewertung kann in der Liste bearbeitet werden
 
-- Liste Feedback
-- Wenn User= rezeptOwner/ Admin -> Button 'Edit' 'Delete'
-- Rating Rezept 1-5 Sterne
-- Kommentar Rezept: Textarea
-- Username Kommentargeber automatisch
+### 6. Rezept erfassen & bearbeiten (addeditRecipe)
 
-### 6. Rezept add & Edit View
+Gleicher Aufbau wie die Rezeptanzeige (Detail)
 
-- Titel Rezept Textfield
-- Descritpion Rezept - Textarea
-- Kategorie Auswahl zwingend!
-- Bild 1 zwingend
-- (Bild 2 -3 optional)  
-- Anzahl Personen (1-4)
-- Zutaten: 
-	Liste: Menge + Einheit (dropdown, optional)  + Zutat
-	(zB: 2 TL Thymian)
-	+ weitere Zutaten erfassen
+- Titel (Pflichtfeld)
+- Beschreibung (Pflichtfeld)
+- Bilder als Slider (mindestens ein Photo ist pflicht)
+- Zusatzinformationen (Author, Zubereitungszeit, Kochzeit, Anzahl Personen)
+- Zubereitung in Schritten Über "nächster Schritt" können beliebig weitere Schritte hinzugefügt werden
+- Zutaten können erfasst werden. Über "weitere Zutaten" können beliebig weitere Zutaten hinzugefügt werden
 
-- Steps: 
-	1.Step: Textarea
-	2.Step: Textarea
-	+ weitere Steps
-- Zubereitungszeit  integer field
-- Backzeit 	    Minuten Dropdown 
-- Buttons: Cancel 
-	  Save 
-	  (Preview Rezept)
+- Bearbeitung / Erfassen kann gespeichert oder abgebrochen werden
 
+### 7. User View
 
-### 7 User View
-7.1 Add new user:
+#### 7.1 Eigene Rezepte (ebenfalls searchResultlist)
 
-- Name: Textfield
-- Passwort: Textfield hidden
-- E-mail: textfield
+Es werden nur eigene Rezepte angezeigt. Gleiche Sortierungsmöglichkeiten wie auf der Hauptsuche.
 
-7.2 Edit user
+#### 7.2 Angaben zum Benutzer
 
-- Name: Textfield
-- Passwort: Textfield hidden
-- E-mail: textfield
-
-Liste meine Rezepte:
-Rezept 1 Edit / Delete
-(falls Superuser: Liste mit allen Usern: Edit /Delete )
-
+- Name: kann nicht geändert werden
+- E-mail + Passwort, kann geändert werden
 
 
 ### Navigation
 
+- Alle Rezepte
+- Rezept erfassen (nur wenn eingeloggt)
+- Benutzer (nur wenn eingeloggt)
+- Sprachen (Deutsch, Englisch)
 - Login/Logout
-- User (wenn eingeloggt)
-- Add-Menu (-> please Login notification)
-- Search
 
 
 ## Optionale Features (wenn Zeit reicht)
+
+### Umgesetzt
+
+- Mehrsprachigkeit
+- Neueste 5 Rezpete in einem Splider als Teaser (nur teilweise: es wird jeweils das neueste Rezept angezeigt) 
+
+
+### Offen
+
 - Timer in Rezept-Instruktion (z.B. für Backzeit)
 - Benutzerverwaltung Administrator Sicht innerhalb der Benutzerverwaltung
 - Vorschau Rezeptbearbeitung 
-- Mehrsprachigkeit
-- Neueste 5 Rezpete in einem Splider als Teaser
 
 
 ## Technik
