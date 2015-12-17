@@ -57,7 +57,7 @@ describe("FettyBossy - Repository Service", function () {
 
     it('should save recipe', function () {
         var checkResult = function (data, a, b, c) {
-            expect(data).toBeFalsy();
+            expect(Object.keys(data).length).toBe(0); // check for empty object
         };
 
         httpBackend.whenPOST('/api/recipes').respond(401, {});
