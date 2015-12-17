@@ -24,7 +24,6 @@
   - Neues Rezept erstellen
   - Anzeige des besten Rezeptes
   - Anzeige des neuesten Rezeptes
-
 - Suche
   - Freitext-Feld
 - Erweiterte Suche
@@ -74,7 +73,6 @@ Gleicher Aufbau wie die Rezeptanzeige (Detail)
 - Zusatzinformationen (Author, Zubereitungszeit, Kochzeit, Anzahl Personen)
 - Zubereitung in Schritten Über "nächster Schritt" können beliebig weitere Schritte hinzugefügt werden
 - Zutaten können erfasst werden. Über "weitere Zutaten" können beliebig weitere Zutaten hinzugefügt werden
-
 - Bearbeitung / Erfassen kann gespeichert oder abgebrochen werden
 
 ### 7. User View
