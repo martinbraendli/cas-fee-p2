@@ -55,32 +55,14 @@ describe("FettyBossy - Repository Service", function () {
         httpBackend.flush();
     });
 
-    it('should load recipe by id', function () {
-        expect(false).toBeTruthy();
-    });
-
     it('should save recipe', function () {
-        expect(false).toBeTruthy();
-    });
+        var checkResult = function (data, a, b, c) {
+            expect(data).toBeFalsy();
+        };
 
-    it('should load user by id', function () {
-        expect(false).toBeTruthy();
-    });
-
-    it('should register user', function () {
-        expect(false).toBeTruthy();
-    });
-
-    it('should save user', function () {
-        expect(false).toBeTruthy();
-    });
-
-    it('should load ratings', function () {
-        expect(false).toBeTruthy();
-    });
-
-    it('should save rating', function () {
-        expect(false).toBeTruthy();
+        httpBackend.whenPOST('/api/recipes').respond(401, {});
+        service.saveRecipe({title: "123"}).then(shouldNotBeCalled, checkResult);
+        httpBackend.flush();
     });
 
     shouldNotBeCalled = function () {
